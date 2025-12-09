@@ -21,11 +21,13 @@
         header { background-color: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 15px 0; }
         .navbar { display: flex; justify-content: space-between; align-items: center; }
         .logo-area { display: flex; align-items: center; text-decoration: none; color: var(--primary-color); }
-        /* --- LOGO UPDATE --- */
         .logo-area img { height: 40px; margin-right: 10px; } 
         .logo-text { font-size: 1.6em; font-weight: 700; }
+        
+        /* Desktop Navigation */
         nav a { color: var(--primary-color); text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s ease; }
         nav a:hover, nav a.active { color: var(--accent-color); }
+        
         .tagline { text-align: center; font-size: 1em; font-weight: 400; color: var(--accent-color); margin-top: 5px; margin-bottom: 20px; }
 
         /* HERO SECTION */
@@ -79,70 +81,61 @@
         footer { background-color: var(--primary-color); color: #ffffff; text-align: center; padding: 30px 0; margin-top: 0; font-size: 0.9em; }
         footer a { color: #A9B897; text-decoration: none; }
 
-        /* --- MOBILE SPECIFIC STYLES (RESPONSIVE FIX) --- */
+        /* --- MOBILE SPECIFIC STYLES (HAMBURGER MENU FIX) --- */
+        .menu-icon { display: none; cursor: pointer; font-size: 2em; line-height: 0; }
+        .menu-icon span { display: block; width: 25px; height: 3px; margin: 5px 0; background: var(--primary-color); transition: 0.4s; }
+
         @media (max-width: 768px) {
-            /* Adjust general container spacing */
-            .container {
-                padding: 15px;
-            }
+            /* General */
+            .container { padding: 15px; }
 
-            /* NAVIGATION FIXES */
-            .navbar {
-                /* Stack logo and menu links vertically */
-                flex-direction: column; 
-                align-items: flex-start;
-            }
+            /* Header/Navbar Setup */
+            header { padding: 10px 0; }
+            .navbar { justify-content: space-between; padding: 0 15px; } /* Ensure space between logo and icon */
+            .logo-area { margin: 0; }
 
-            /* Make the logo area span the full width */
-            .logo-area {
-                width: 100%;
-                justify-content: center; /* Center the logo and text */
-                margin-bottom: 10px;
-            }
+            /* Show Hamburger Icon */
+            .menu-icon { display: block; }
 
-            /* Style the navigation links for stacking */
+            /* Hide Desktop Nav and restyle for Mobile dropdown */
             nav {
-                display: flex;
-                flex-direction: column; /* Stack links vertically */
+                display: none; /* Hide by default */
+                flex-direction: column;
                 width: 100%;
-                text-align: center;
-                margin-top: 10px;
+                background-color: #fff;
+                position: absolute; /* Position relative to the header */
+                top: 70px; /* Position below the header */
+                left: 0;
                 border-top: 1px solid #e0e0e0;
-                padding-top: 10px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                z-index: 10;
+                padding: 10px 0;
+            }
+
+            /* Class added by JavaScript to show menu */
+            nav.show-menu {
+                display: flex;
             }
             
-            /* Give stacked links margin and make them block elements */
             nav a {
-                margin: 8px 0; /* Vertical spacing */
-                display: block;
-                font-size: 1.1em;
+                text-align: center;
+                margin: 10px 0;
+                padding: 10px 0;
+                border-bottom: 1px solid #f5f5f5; /* Light separator for menu items */
+                font-size: 1.2em;
+            }
+            nav a:last-child {
+                border-bottom: none;
             }
 
-            /* HERO SECTION ADJUSTMENTS */
-            .hero {
-                padding: 50px 10px;
-            }
-            .hero h2 {
-                font-size: 2em; /* Reduce heading size */
-            }
-            .hero p {
-                font-size: 1em; /* Reduce paragraph size */
-            }
-            
-            /* SECTION AND GRID ADJUSTMENTS */
-            .intro-grid {
-                flex-direction: column; /* Stack cards vertically */
-                gap: 20px;
-            }
-
-            .intro-card {
-                flex: 1 1 100%; /* Make card take up full width */
-                padding: 20px;
-            }
-
-            .section-heading {
-                font-size: 1.8em;
-            }
+            /* Hero and Grid Adjustments */
+            .hero { padding: 50px 10px; }
+            .hero h2 { font-size: 2em; }
+            .hero p { font-size: 1em; }
+            .intro-grid { flex-direction: column; gap: 20px; }
+            .intro-card { flex: 1 1 100%; padding: 20px; }
+            .section-heading { font-size: 1.8em; }
+            .tagline { display: none; } /* Hide the tagline on small screens to save space */
         }
     </style>
 </head>
@@ -154,7 +147,14 @@
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
                 <span class="logo-text">The Organised Types</span>
             </a>
-            <nav>
+            
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="mobile-nav">
                 <a href="index.html" class="active">Home</a>
                 <a href="services.html">Services</a>
                 <a href="portfolio.html">Portfolio</a>
@@ -202,6 +202,13 @@
             <p>Email: hello@theorganisedtypes.co.uk | &copy; 2025 The Organised Types.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("mobile-nav");
+            nav.classList.toggle("show-menu");
+        }
+    </script>
 
 </body>
 </html>
