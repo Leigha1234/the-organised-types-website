@@ -41,7 +41,7 @@
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
             padding: 15px 0; 
-            position: sticky; /* ADDED: Sticky header */
+            position: sticky; 
             top: 0; 
             z-index: 20; 
         }
@@ -331,6 +331,34 @@
             min-height: 100px; 
         }
 
+        /* --- PAGE-SPECIFIC STYLES: PORTFOLIO (Coming Soon) --- */
+        .main-content {
+            flex-grow: 1; 
+            text-align: center;
+            padding: 100px 20px;
+            min-height: calc(100vh - 200px); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .main-content h1 {
+            font-size: 4em;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        .main-content p {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .main-content a {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
             .container { 
@@ -351,7 +379,7 @@
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 90px; /* UPDATED: Adjusted top position for sticky header */
+                top: 90px; 
                 left: 0;
                 border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -375,16 +403,16 @@
 
             /* Mobile Index */
             .hero { 
-                padding: 30px 10px; /* UPDATED: Reduced hero padding */
+                padding: 30px 10px; 
             }
             .hero h2 { 
-                font-size: 1.8em; /* UPDATED: Slightly smaller heading */
+                font-size: 1.8em; 
             }
             .hero p {
                 font-size: 1.1em;
             }
             .cta-button {
-                padding: 12px 25px; /* UPDATED: Smaller button */
+                padding: 12px 25px; 
             }
             .intro-grid { 
                 flex-direction: column; 
@@ -394,39 +422,39 @@
             /* MOBILE CARD ADAPTATIONS: Disabling flip and stacking content */
             .card-wrapper {
                 flex: 1 1 100%; 
-                height: auto; /* UPDATED: Height adapts to content */
+                height: auto; 
                 max-width: 100%;
-                perspective: none; /* Disable 3D */
+                perspective: none; 
             }
             .intro-card {
-                transform: none; /* Disable 3D transform */
+                transform: none; 
                 transform-style: flat;
                 height: auto;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Ensure shadow is visible */
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
             }
             .card-wrapper:hover .intro-card {
-                transform: none; /* Disable hover flip trigger */
+                transform: none; 
             }
             .card-face {
-                position: static; /* UPDATED: Allows normal flow (stacks content) */
+                position: static; 
                 backface-visibility: visible;
                 height: auto;
                 padding: 20px;
                 border-top: none; 
             }
             .card-face-front {
-                padding-bottom: 5px; /* Adjust spacing */
-                border-top: 5px solid var(--accent-color); /* Keep the accent border on top */
+                padding-bottom: 5px; 
+                border-top: 5px solid var(--accent-color); 
             }
             .card-face-back {
-                transform: none; /* Reset back face rotation */
-                background: var(--card-bg); /* Match the front background */
+                transform: none; 
+                background: var(--card-bg); 
                 padding-top: 0px; 
                 border-bottom-left-radius: 6px;
                 border-bottom-right-radius: 6px;
             }
             .card-face-back h3 {
-                display: none; /* Hide redundant heading on mobile */
+                display: none; 
             }
 
             .section-heading { 
@@ -435,7 +463,7 @@
 
             /* Mobile Footer Alignment */
             footer .container {
-                text-align: left; /* UPDATED: Left align footer text */
+                text-align: left; 
             }
         }
     </style>
@@ -466,27 +494,27 @@
 
     <div class="hero">
         <div class="container">
-            <h2>Streamlining Your Digital Presence & Organisation</h2>
-            <p>We are a UK-based design team specialising in **custom**, high-converting WordPress websites and high-quality digital templates.</p>
-            <a href="services.html" class="cta-button">View Website Services</a>
+            <h2>Custom Systems and Solutions for Organised Success</h2>
+            <p>We are a UK-based consultancy providing **custom solutions, tools, and expertise** to maximize personal and business efficiency.</p>
+            <a href="services.html" class="cta-button">Explore Our Solutions</a>
         </div>
     </div>
 
     <div class="container">
-        <h2 class="section-heading">Customise Your Digital Toolkit</h2>
+        <h2 class="section-heading">Ready to Optimize Your Efficiency?</h2>
 
         <div class="intro-grid">
             
             <div class="card-wrapper">
                 <div class="intro-card">
                     <div class="card-face card-face-front">
-                        <h3>Check out our Portfolio 📁</h3>
-                        <p>See examples of our website designs and digital organization systems in action.</p>
-                        <a href="portfolio.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Portfolio</a>
+                        <h3>See Our Successful Implementations 📁</h3>
+                        <p>We believe digital success starts with clearly **organized** systems and beautiful design, ensuring every project is fit for purpose.</p>
+                        <a href="portfolio.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Case Studies</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Our Work</h3>
-                        <p>Browse our previous projects to get an idea of the quality, style, and effective functionality we deliver.</p>
+                        <p>Review case studies demonstrating effective **system implementation and organization** across diverse clients.</p>
                         <a href="portfolio.html" class="card-link-button">View Portfolio Now</a>
                     </div>
                 </div>
@@ -495,13 +523,13 @@
             <div class="card-wrapper">
                 <div class="intro-card">
                     <div class="card-face card-face-front">
-                        <h3>Contact Us 📧</h3>
-                        <p>Ready to start a website project or discuss a custom organization template?</p>
+                        <h3>Discuss Your Custom Needs 📧</h3>
+                        <p>Specialising in digital strategy for small UK businesses, ensuring your setup meets local compliance and market needs.</p>
                         <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Send an Enquiry</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Get in Touch</h3>
-                        <p>Reach out to us directly via our contact form or email. We aim to respond within 24 hours.</p>
+                        <p>Let's discuss how customized planning, organization, and digital tools can solve your specific challenges.</p>
                         <a href="contact.html" class="card-link-button">Start a Conversation</a>
                     </div>
                 </div>
