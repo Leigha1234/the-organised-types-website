@@ -11,8 +11,9 @@
         :root {
             --primary-color: #1a1a1a; 
             --accent-color: #A9B897; /* Dull Sage Green */
-            --cream-bg: #FFF; /* Main Page Background Colour (Your colour) */
-            --logo-bg: #EFE6E1; /* CORRECTED: Header & Footer now use your exact logo colour for seamless blend */
+            --cream-bg: #FAF8F5; /* UPDATED: Main Page Background Colour (Soft Off-White) */
+            --logo-bg: #EFE6E1; /* Header & Footer Colour (Warm Beige) */
+            --card-bg: #F5F2EF; /* Card background, lighter than logo-bg, for subtle contrast */
             --text-color: #333333;
             --font-main: 'Poppins', sans-serif;
         }
@@ -20,7 +21,7 @@
             font-family: var(--font-main); 
             margin: 0; 
             padding: 0; 
-            background-color: var(--cream-bg); 
+            background-color: var(--cream-bg); /* UPDATED */
             color: var(--text-color); 
             line-height: 1.6; 
             min-height: 100vh; 
@@ -125,7 +126,7 @@
             background-color: var(--logo-bg); /* Uses logo colour */
             color: var(--primary-color); 
             text-align: center; 
-            padding: 30px 0; 
+            padding: 20px 0; /* UPDATED: Reduced Padding */
             font-size: 0.9em; 
             margin-top: auto; 
         }
@@ -137,9 +138,9 @@
         /* --- PAGE-SPECIFIC STYLES: INDEX --- */
         .hero { 
             text-align: center; 
-            padding: 80px 20px; 
+            padding: 60px 20px; /* UPDATED: Reduced Padding */
             background: var(--cream-bg); 
-            margin-bottom: 30px; 
+            margin-bottom: 20px; /* UPDATED: Reduced Margin */
         }
         .hero h2 { 
             font-size: 3em; 
@@ -153,7 +154,7 @@
         }
         .section-heading { 
             text-align: center; 
-            margin-bottom: 40px; 
+            margin-bottom: 20px; /* UPDATED: Reduced Margin */
             font-size: 2em; 
             font-weight: 600; 
             color: var(--primary-color); 
@@ -161,18 +162,18 @@
         .intro-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 20px; /* UPDATED: Reduced Gap */
             justify-content: center;
-            margin-top: 30px;
-            margin-bottom: 40px;
+            margin-top: 20px; /* UPDATED: Reduced Margin */
+            margin-bottom: 30px; /* UPDATED: Reduced Margin */
         }
         .intro-card {
-            background: #ffffff;
-            padding: 30px;
+            background: var(--card-bg); /* UPDATED: Uses softer card background */
+            padding: 25px; /* UPDATED: Reduced Padding */
             flex: 1 1 45%; 
             box-sizing: border-box;
             border-radius: 6px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* UPDATED: Softer shadow */
             border-top: 5px solid var(--accent-color);
         }
         .intro-card h3 {
@@ -235,9 +236,9 @@
         /* --- PAGE-SPECIFIC STYLES: CONTACT --- */
         .contact-content { 
             max-width: 600px; 
-            margin: 40px auto; 
-            padding: 40px; 
-            background: #ffffff; 
+            margin: 30px auto; /* UPDATED: Reduced Margin */
+            padding: 30px; /* UPDATED: Reduced Padding */
+            background: var(--card-bg); /* UPDATED: Uses softer card background */
             border-radius: 8px; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
         }
@@ -324,7 +325,7 @@
                 top: 85px; 
                 left: 0;
                 border-top: 1px solid #e0e0e0;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
                 z-index: 10;
                 padding: 10px 0;
             }
