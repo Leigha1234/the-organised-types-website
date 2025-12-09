@@ -78,8 +78,70 @@
         footer { background-color: var(--primary-color); color: #ffffff; text-align: center; padding: 30px 0; margin-top: 0; font-size: 0.9em; }
         footer a { color: #A9B897; text-decoration: none; }
 
+        /* --- MOBILE SPECIFIC STYLES (RESPONSIVE FIX) --- */
         @media (max-width: 768px) {
-            .intro-grid { flex-direction: column; }
+            /* Adjust general container spacing */
+            .container {
+                padding: 15px;
+            }
+
+            /* NAVIGATION FIXES */
+            .navbar {
+                /* Stack logo and menu links vertically */
+                flex-direction: column; 
+                align-items: flex-start;
+            }
+
+            /* Make the logo area span the full width */
+            .logo-area {
+                width: 100%;
+                justify-content: center; /* Center the logo and text */
+                margin-bottom: 10px;
+            }
+
+            /* Style the navigation links for stacking */
+            nav {
+                display: flex;
+                flex-direction: column; /* Stack links vertically */
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+                border-top: 1px solid #e0e0e0;
+                padding-top: 10px;
+            }
+            
+            /* Give stacked links margin and make them block elements */
+            nav a {
+                margin: 8px 0; /* Vertical spacing */
+                display: block;
+                font-size: 1.1em;
+            }
+
+            /* HERO SECTION ADJUSTMENTS */
+            .hero {
+                padding: 50px 10px;
+            }
+            .hero h2 {
+                font-size: 2em; /* Reduce heading size */
+            }
+            .hero p {
+                font-size: 1em; /* Reduce paragraph size */
+            }
+            
+            /* SECTION AND GRID ADJUSTMENTS */
+            .intro-grid {
+                flex-direction: column; /* Stack cards vertically */
+                gap: 20px;
+            }
+
+            .intro-card {
+                flex: 1 1 100%; /* Make card take up full width */
+                padding: 20px;
+            }
+
+            .section-heading {
+                font-size: 1.8em;
+            }
         }
     </style>
 </head>
@@ -136,7 +198,7 @@
     <footer>
         <div class="container">
             <p>Ready to start your project? <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to purchase a service or template.</p>
-            <p>Email: hello@theorganisedtypes.co.uk | &copy; 2025 The Organised Types.</p>
+            <p>Email: sales@theorganisedtypes.co.uk | &copy; 2025 The Organised Types.</p>
         </div>
     </footer>
 

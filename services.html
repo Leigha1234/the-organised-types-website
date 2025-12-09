@@ -79,6 +79,58 @@
         /* FOOTER */
         footer { background-color: var(--primary-color); color: #ffffff; text-align: center; padding: 30px 0; margin-top: 0; font-size: 0.9em; }
         footer a { color: #A9B897; text-decoration: none; }
+
+        /* --- MOBILE SPECIFIC STYLES (RESPONSIVE FIX) --- */
+        @media (max-width: 768px) {
+            /* Adjust general container spacing */
+            .container {
+                padding: 15px;
+            }
+
+            /* NAVIGATION FIXES */
+            .navbar {
+                flex-direction: column; 
+                align-items: flex-start;
+            }
+            .logo-area {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            nav {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+                border-top: 1px solid #e0e0e0;
+                padding-top: 10px;
+            }
+            nav a {
+                margin: 8px 0;
+                display: block;
+                font-size: 1.1em;
+            }
+
+            /* SERVICES PAGE SPECIFIC FIXES */
+            .service-block h2 {
+                font-size: 2em;
+            }
+            .service-block {
+                padding: 20px;
+            }
+            .service-block ul {
+                flex-direction: column; /* Stack service features */
+                gap: 10px;
+            }
+            .service-block ul li {
+                flex: 1 1 100%;
+            }
+
+            .section-heading {
+                font-size: 1.8em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -141,7 +193,7 @@
     <footer>
         <div class="container">
             <p>Ready to start your project? <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to purchase a service or template.</p>
-            <p>Email: hello@theorganisedtypes.co.uk | &copy; 2025 The Organised Types.</p>
+            <p>Email: sales@theorganisedtypes.co.uk | &copy; 2025 The Organised Types.</p>
         </div>
     </footer>
 
