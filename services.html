@@ -9,60 +9,55 @@
         /* CSS Variables */
         :root {
             --primary-color: #1a1a1a; 
-            --accent-color: #A9B897; 
+            --accent-color: #A9B897; /* Dull Sage Green */
             --cream-bg: #FAF9F6; 
+            --logo-bg: #E7E1D8; /* New color extracted from logo background */
             --text-color: #333333;
             --font-main: 'Poppins', sans-serif;
         }
-        /* Base styles are consistent across pages */
         body { font-family: var(--font-main); margin: 0; padding: 0; background-color: var(--cream-bg); color: var(--text-color); line-height: 1.6; }
         .container { width: 90%; max-width: 1200px; margin: auto; overflow: hidden; padding: 30px 0; }
-        header { background-color: #ffffff; border-bottom: 1px solid #e0e0e0; padding: 15px 0; }
+        
+        /* HEADER & NAVIGATION (Desktop) - COLOR MATCH & LOGO SIZE */
+        header { 
+            background-color: var(--logo-bg); /* Match logo background */
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 15px 0; 
+        }
         .navbar { display: flex; justify-content: space-between; align-items: center; }
         .logo-area { display: flex; align-items: center; text-decoration: none; color: var(--primary-color); }
-        /* --- LOGO UPDATE --- */
-        .logo-area img { height: 40px; margin-right: 10px; }
+        
+        /* LOGO SIZE CHANGE */
+        .logo-area img { 
+            height: 60px; /* Increased logo size */
+            margin-right: 10px; 
+        } 
         .logo-text { font-size: 1.6em; font-weight: 700; }
-        nav a { color: var(--primary-color); text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s ease; }
-        nav a:hover, nav a.active { color: var(--accent-color); }
-        .tagline { text-align: center; font-size: 1em; font-weight: 400; color: var(--accent-color); margin-top: 5px; margin-bottom: 20px; }
         
-        /* CONTENT SPECIFIC STYLES */
-        .section-heading { text-align: center; margin-bottom: 40px; font-size: 2em; font-weight: 600; color: var(--primary-color); }
+        /* Desktop Navigation Links */
+        #main-nav { display: flex; align-items: center; }
+        #main-nav a { color: var(--primary-color); text-decoration: none; margin-left: 25px; font-weight: 500; transition: color 0.3s ease; }
+        #main-nav a:hover, #main-nav a.active { color: var(--accent-color); }
         
-        /* Service Block Styles */
-        .service-block {
-            background-color: #ffffff;
-            padding: 40px;
-            margin-bottom: 50px;
-            border-left: 5px solid var(--accent-color);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border-radius: 4px;
-        }
-        .service-block h2 {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-top: 0;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 10px;
-        }
-        .service-block ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .service-block ul li {
-            flex: 1 1 45%;
-            background: var(--cream-bg);
-            padding: 15px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
+        /* Menu Icon - Hidden by default on desktop */
+        .menu-icon { display: none; cursor: pointer; font-size: 2em; line-height: 0; }
+        .menu-icon span { display: block; width: 25px; height: 3px; margin: 5px 0; background: var(--primary-color); transition: 0.4s; }
 
-        /* Call to Action Button */
+        .tagline { text-align: center; font-size: 1em; font-weight: 400; color: var(--accent-color); margin-top: 5px; margin-bottom: 20px; }
+
+        /* PAGE SPECIFIC STYLES */
+        .services-hero { text-align: center; padding: 60px 20px; margin-bottom: 30px; }
+        .services-hero h1 { font-size: 3em; font-weight: 700; color: var(--primary-color); margin-bottom: 10px; }
+        .services-hero p { font-size: 1.2em; margin-bottom: 20px; }
+
+        .service-section { padding: 40px 0; border-bottom: 1px solid #e0e0e0; }
+        .service-section h2 { font-size: 2.5em; color: var(--primary-color); text-align: center; margin-bottom: 30px; }
+        .service-content { display: flex; gap: 30px; align-items: flex-start; margin-top: 20px; }
+        .service-content img { max-width: 40%; height: auto; border-radius: 6px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+        .service-text { flex: 1; }
+        .service-text h3 { color: var(--accent-color); font-size: 1.8em; margin-top: 0; }
+        .service-text ul { list-style: disc; margin-left: 20px; }
+        
         .cta-button {
             display: inline-block;
             background: var(--accent-color);
@@ -73,64 +68,76 @@
             font-size: 1.1em;
             font-weight: 600;
             transition: background-color 0.3s ease;
-            margin-top: 20px;
         }
         .cta-button:hover { background-color: #92a487; }
 
-        /* FOOTER */
-        footer { background-color: var(--primary-color); color: #ffffff; text-align: center; padding: 30px 0; margin-top: 0; font-size: 0.9em; }
-        footer a { color: #A9B897; text-decoration: none; }
 
-        /* --- MOBILE SPECIFIC STYLES (RESPONSIVE FIX) --- */
+        /* FOOTER - COLOR CHANGE */
+        footer { 
+            background-color: var(--logo-bg); /* Match logo background */
+            color: var(--primary-color); /* Change text to dark for contrast */
+            text-align: center; 
+            padding: 30px 0; 
+            margin-top: 0; 
+            font-size: 0.9em; 
+        }
+        footer a { color: var(--accent-color); text-decoration: none; }
+
+        /* --- MOBILE SPECIFIC STYLES (HAMBURGER MENU FIX) --- */
         @media (max-width: 768px) {
-            /* Adjust general container spacing */
-            .container {
-                padding: 15px;
-            }
+            /* General container padding */
+            .container { padding: 15px; }
 
-            /* NAVIGATION FIXES */
-            .navbar {
-                flex-direction: column; 
-                align-items: flex-start;
-            }
-            .logo-area {
-                width: 100%;
-                justify-content: center;
-                margin-bottom: 10px;
-            }
-            nav {
-                display: flex;
+            /* Header/Navbar Setup: Space out logo and menu icon */
+            header { padding: 10px 0; }
+            .navbar { padding: 0 15px; }
+            
+            /* Show Hamburger Icon */
+            .menu-icon { display: block; }
+
+            /* Hides the menu by default */
+            #main-nav {
+                display: none; 
                 flex-direction: column;
                 width: 100%;
-                text-align: center;
-                margin-top: 10px;
+                background-color: #ffffff; 
+                position: absolute; 
+                top: 85px; 
+                left: 0;
                 border-top: 1px solid #e0e0e0;
-                padding-top: 10px;
-            }
-            nav a {
-                margin: 8px 0;
-                display: block;
-                font-size: 1.1em;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+                z-index: 10;
+                padding: 10px 0;
             }
 
-            /* SERVICES PAGE SPECIFIC FIXES */
-            .service-block h2 {
-                font-size: 2em;
+            /* Class added by JavaScript to show menu */
+            #main-nav.show-menu {
+                display: flex;
             }
-            .service-block {
-                padding: 20px;
+            
+            #main-nav a {
+                text-align: center;
+                margin: 10px 0;
+                padding: 10px 0;
+                margin-left: 0; 
+                border-bottom: 1px solid #f5f5f5;
+                font-size: 1.2em;
             }
-            .service-block ul {
-                flex-direction: column; /* Stack service features */
-                gap: 10px;
-            }
-            .service-block ul li {
-                flex: 1 1 100%;
+            #main-nav a:last-child {
+                border-bottom: none;
             }
 
-            .section-heading {
-                font-size: 1.8em;
-            }
+            /* Hide the tagline on small screens to save space */
+            .tagline { display: none; } 
+
+            /* Services Page Specific Mobile Styles */
+            .services-hero h1 { font-size: 2.2em; }
+            .service-section h2 { font-size: 2em; }
+            .service-content { flex-direction: column; }
+            .service-content img { max-width: 100%; }
+            .service-text { order: 2; }
+            .service-content.reverse .service-text { order: 1; }
+            .service-content.reverse img { order: 2; }
         }
     </style>
 </head>
@@ -142,7 +149,14 @@
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
                 <span class="logo-text">The Organised Types</span>
             </a>
-            <nav>
+            
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="main-nav">
                 <a href="index.html">Home</a>
                 <a href="services.html" class="active">Services</a>
                 <a href="portfolio.html">Portfolio</a>
@@ -153,40 +167,51 @@
         <p class="tagline">Digital tools and templates that make life and business easier</p>
     </header>
 
-    <section class="container" style="padding-top: 50px;">
-        <h1 class="section-heading">Our Services: Organized Solutions for Your Business</h1>
-        <p style="text-align: center; font-size: 1.1em; margin-bottom: 50px;">We offer two core services to help you establish a professional brand and streamline your workflow.</p>
-        
-        <div class="service-block" id="websites">
-            <h2>Custom WordPress Website Design</h2>
-            <p>We handle the strategy, design, and organized execution of your bespoke website project. Perfect for small businesses needing a professional, high-performing online foundation.</p>
-            
-            <h3 style="font-size: 1.4em; color: var(--accent-color);">What's Included:</h3>
-            <ul>
-                <li>Responsive, mobile-first design</li>
-                <li>Full SEO best practices implemented</li>
-                <li>Etsy Shop integration capability</li>
-                <li>30-Day post-launch support</li>
-            </ul>
-            
-            <div style="text-align: center;">
-                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" class="cta-button" target="_blank">Book Your Website Consultation</a>
+    <section class="services-hero">
+        <div class="container">
+            <h1>Our Services: Organized Solutions for Your Business</h1>
+            <p>Streamlining Your Digital Presence & Organisation. We offer custom web design and instant digital templates tailored for small UK businesses.</p>
+            <a href="#websites" class="cta-button">View Website Services</a>
+        </div>
+    </section>
+
+    <section id="websites" class="service-section">
+        <div class="container">
+            <h2>Custom Website Design: Your Online Foundation</h2>
+            <div class="service-content">
+                <div class="service-text">
+                    <h3>WordPress Websites & Branding</h3>
+                    <p>We craft high-converting, SEO-ready, and fully responsive websites tailored specifically for small UK businesses and ambitious entrepreneurs.</p>
+                    <ul>
+                        <li>Full consultation and discovery sessions.</li>
+                        <li>Bespoke design aligned with your branding.</li>
+                        <li>Mobile-first development for flawless display on all devices.</li>
+                        <li>SEO optimisation built-in from the ground up.</li>
+                        <li>30-day post-launch support and guidance.</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Book Your Consultation & Deposit Now</a>
+                </div>
+                <img src="website img.jpeg" alt="Laptop, tablet, and phone displaying website design.">
             </div>
         </div>
+    </section>
 
-        <div class="service-block" id="templates">
-            <h2>Digital Templates and Downloads</h2>
-            <p>Instant access to high-quality, pre-designed templates for personal and professional use. Simplify complex tasks and save valuable time.</p>
-            
-            <h3 style="font-size: 1.4em; color: var(--accent-color);">Template Categories:</h3>
-            <ul>
-                <li>Planners (Chore, Fitness, Budgeting)</li>
-                <li>Business Essential Forms (Invoices, Onboarding)</li>
-                <li>Branding Kits (Canva/Social Media Templates)</li>
-            </ul>
-            
-            <div style="text-align: center;">
-                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" class="cta-button" target="_blank">View All Templates on Etsy</a>
+    <section id="templates" class="service-section">
+        <div class="container">
+            <h2>Instant Digital Templates: Efficiency at Your Fingertips</h2>
+            <div class="service-content reverse">
+                <div class="service-text">
+                    <h3>Ready-to-Use Business Tools</h3>
+                    <p>Access our curated collection of digital planners, trackers, and business templates designed to save you time and keep your operations organised.</p>
+                    <ul>
+                        <li>Editable PDF and spreadsheet templates.</li>
+                        <li>Financial trackers, social media planners, and client forms.</li>
+                        <li>Instant download after purchase.</li>
+                        <li>Perfect for DIY business owners and freelancers.</li>
+                    </ul>
+                    <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank" class="cta-button">Browse All Templates on Etsy</a>
+                </div>
+                <img src="website on diff devices.jpg" alt="Digital planning templates displayed on multiple devices.">
             </div>
         </div>
     </section>
@@ -197,6 +222,13 @@
             <p>Email: hello@theorganisedtypes.co.uk | &copy; 2025 The Organised Types.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("main-nav"); 
+            nav.classList.toggle("show-menu");
+        }
+    </script>
 
 </body>
 </html>
