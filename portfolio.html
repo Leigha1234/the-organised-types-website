@@ -15,7 +15,18 @@
             --text-color: #333333;
             --font-main: 'Poppins', sans-serif;
         }
-        body { font-family: var(--font-main); margin: 0; padding: 0; background-color: var(--cream-bg); color: var(--text-color); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.6; 
+            /* FIX 1: Set minimum height and display flex to enable sticky footer */
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
         .container { width: 90%; max-width: 1200px; margin: auto; overflow: hidden; padding: 30px 0; }
         
         /* HEADER & NAVIGATION (Desktop) - COLOR MATCH & LOGO SIZE */
@@ -47,9 +58,16 @@
 
         /* PORTFOLIO SPECIFIC STYLES */
         .main-content {
-            flex-grow: 1; /* Ensures content pushes footer to the bottom */
+            /* FIX 2: Ensure content takes up all remaining space */
+            flex-grow: 1; 
             text-align: center;
             padding: 100px 20px;
+            /* FIX 3: Calculate minimum height to push footer down (100vh - (Header+FooterApproxHeight)) */
+            min-height: calc(100vh - 200px); 
+            display: flex; /* Centers content vertically */
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
         .main-content h1 {
             font-size: 4em;
