@@ -41,6 +41,9 @@
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
             padding: 15px 0; 
+            position: sticky; /* ADDED: Sticky header */
+            top: 0; 
+            z-index: 20; 
         }
         .navbar { 
             display: flex; 
@@ -121,11 +124,10 @@
             background-color: #92a487; 
         }
         
-        /* New styling for the button links on the back of the cards */
         .card-link-button {
             display: inline-block;
             background: var(--primary-color);
-            color: #ffffff; /* White text on dark button */
+            color: #ffffff; 
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 4px;
@@ -185,11 +187,11 @@
             margin-bottom: 30px; 
         }
         
-        /* CARD FLIP CSS STRUCTURE */
+        /* DESKTOP CARD FLIP CSS STRUCTURE */
         .card-wrapper {
-            perspective: 1000px; /* Establishes the 3D space for the flip */
+            perspective: 1000px; 
             flex: 1 1 45%; 
-            height: 250px; /* Fixed height for consistent flipping */
+            height: 250px; 
             box-sizing: border-box;
             max-width: 580px;
         }
@@ -199,21 +201,19 @@
             height: 100%;
             text-align: center;
             transition: transform 0.8s;
-            transform-style: preserve-3d; /* Allows 3D transformations */
+            transform-style: preserve-3d; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             border-radius: 6px;
         }
-        /* The actual flip effect on hover */
         .card-wrapper:hover .intro-card {
             transform: rotateY(180deg);
         }
         
-        /* Front and Back common styles */
         .card-face {
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden; /* Hides the back side until flipped */
+            backface-visibility: hidden; 
             border-radius: 6px;
             padding: 25px; 
             display: flex;
@@ -222,14 +222,12 @@
             box-sizing: border-box;
             border-top: 5px solid var(--accent-color);
         }
-        /* Front specific style */
         .card-face-front {
             background: var(--card-bg);
             color: var(--primary-color);
         }
-        /* Back specific style */
         .card-face-back {
-            background: var(--accent-color); /* Use the green for the back for contrast */
+            background: var(--accent-color); 
             color: var(--primary-color);
             transform: rotateY(180deg);
             padding: 30px; 
@@ -333,34 +331,6 @@
             min-height: 100px; 
         }
 
-        /* --- PAGE-SPECIFIC STYLES: PORTFOLIO (Coming Soon) --- */
-        .main-content {
-            flex-grow: 1; 
-            text-align: center;
-            padding: 100px 20px;
-            min-height: calc(100vh - 200px); 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .main-content h1 {
-            font-size: 4em;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-        .main-content p {
-            font-size: 1.5em;
-            color: var(--primary-color);
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        .main-content a {
-            color: var(--accent-color);
-            font-weight: 600;
-            text-decoration: underline;
-        }
-
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
             .container { 
@@ -381,7 +351,7 @@
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 85px; 
+                top: 90px; /* UPDATED: Adjusted top position for sticky header */
                 left: 0;
                 border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -399,78 +369,73 @@
                 border-bottom: 1px solid #f5f5f5;
                 font-size: 1.2em;
             }
-            #main-nav a:last-child {
-                border-bottom: none;
-            }
             .tagline { 
                 display: none; 
             } 
 
             /* Mobile Index */
             .hero { 
-                padding: 50px 10px; 
+                padding: 30px 10px; /* UPDATED: Reduced hero padding */
             }
             .hero h2 { 
-                font-size: 2em; 
+                font-size: 1.8em; /* UPDATED: Slightly smaller heading */
+            }
+            .hero p {
+                font-size: 1.1em;
+            }
+            .cta-button {
+                padding: 12px 25px; /* UPDATED: Smaller button */
             }
             .intro-grid { 
                 flex-direction: column; 
                 gap: 20px; 
             }
-            /* Reset the height and flex for mobile to ensure stacking works */
+
+            /* MOBILE CARD ADAPTATIONS: Disabling flip and stacking content */
             .card-wrapper {
                 flex: 1 1 100%; 
-                height: 250px; 
+                height: auto; /* UPDATED: Height adapts to content */
                 max-width: 100%;
+                perspective: none; /* Disable 3D */
             }
             .intro-card {
-                /* No changes needed */
+                transform: none; /* Disable 3D transform */
+                transform-style: flat;
+                height: auto;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Ensure shadow is visible */
             }
+            .card-wrapper:hover .intro-card {
+                transform: none; /* Disable hover flip trigger */
+            }
+            .card-face {
+                position: static; /* UPDATED: Allows normal flow (stacks content) */
+                backface-visibility: visible;
+                height: auto;
+                padding: 20px;
+                border-top: none; 
+            }
+            .card-face-front {
+                padding-bottom: 5px; /* Adjust spacing */
+                border-top: 5px solid var(--accent-color); /* Keep the accent border on top */
+            }
+            .card-face-back {
+                transform: none; /* Reset back face rotation */
+                background: var(--card-bg); /* Match the front background */
+                padding-top: 0px; 
+                border-bottom-left-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+            .card-face-back h3 {
+                display: none; /* Hide redundant heading on mobile */
+            }
+
             .section-heading { 
                 font-size: 1.8em; 
             }
 
-            /* Mobile Services */
-            .services-hero h1 { 
-                font-size: 2.2em; 
-            }
-            .service-section h2 { 
-                font-size: 2em; 
-            }
-            .service-content { 
-                flex-direction: column; 
-            }
-            .service-content img { 
-                max-width: 100%; 
-            }
-            .service-text { 
-                order: 2; 
-            }
-            .service-content.reverse .service-text { 
-                order: 1; 
-            }
-            .service-content.reverse img { 
-                order: 2; 
-            }
-
-            /* Mobile Contact */
-            .contact-content { 
-                margin: 20px auto; 
-                padding: 25px; 
-            }
-            .contact-content h1 { 
-                font-size: 2.2em; 
-            }
-            
-            /* Mobile Portfolio */
-            .main-content { 
-                padding: 80px 10px; 
-            }
-            .main-content h1 { 
-                font-size: 3em; 
-            }
-            .main-content p { 
-                font-size: 1.2em; 
+            /* Mobile Footer Alignment */
+            footer .container {
+                text-align: left; /* UPDATED: Left align footer text */
             }
         }
     </style>
