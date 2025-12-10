@@ -41,7 +41,7 @@
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
             padding: 5px 0; /* Minimized Padding */
-            position: fixed; /* SET TO FIXED */
+            position: fixed; /* FIXED POSITION */
             top: 0; 
             width: 100%; /* ENSURES FULL WIDTH */
             z-index: 20; 
@@ -50,6 +50,7 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
+            padding: 0 15px; /* Added horizontal padding to navbar container */
         }
         .logo-area { 
             display: flex; 
@@ -73,6 +74,7 @@
             margin-left: 25px; 
             font-weight: 500; 
             transition: color 0.3s ease; 
+            white-space: nowrap; /* Prevents links from breaking */
         }
         #main-nav a:hover, 
         #main-nav a.active { 
@@ -150,7 +152,7 @@
             padding: 40px 20px 20px; 
             background: var(--cream-bg); 
             margin-bottom: 0px; 
-            margin-top: 162px; /* CORRECTED: OFFSET FOR FIXED HEADER */
+            margin-top: 170px; /* REVISED: INCREASED OFFSET FOR FIXED HEADER CLEARANCE */
         }
         .services-hero h1 { 
             font-size: 3em; 
@@ -273,7 +275,7 @@
             /* Mobile Services Hero */
             .services-hero { 
                 padding: 30px 10px 10px; 
-                margin-top: 162px; /* ENSURES MOBILE CONTENT CLEARS FIXED HEADER */
+                margin-top: 170px; /* REVISED: ENSURES MOBILE CONTENT CLEARS FIXED HEADER */
             }
             .services-hero h1 { 
                 font-size: 2.2em; 

@@ -50,6 +50,7 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
+            padding: 0 15px; /* Added horizontal padding to navbar container */
         }
         .logo-area { 
             display: flex; 
@@ -73,6 +74,7 @@
             margin-left: 25px; 
             font-weight: 500; 
             transition: color 0.3s ease; 
+            white-space: nowrap; /* Prevents links from breaking */
         }
         #main-nav a:hover, 
         #main-nav a.active { 
@@ -137,7 +139,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            margin-top: 162px; /* CORRECTED: OFFSET FOR FIXED HEADER */
+            margin-top: 170px; /* REVISED: INCREASED OFFSET FOR FIXED HEADER CLEARANCE */
         }
         .main-content h1 {
             font-size: 4em;
@@ -202,7 +204,7 @@
             /* Mobile Portfolio */
             .main-content { 
                 padding: 80px 10px; 
-                margin-top: 162px; /* ENSURES MOBILE CONTENT CLEARS FIXED HEADER */
+                margin-top: 170px; /* REVISED: ENSURES MOBILE CONTENT CLEARS FIXED HEADER */
             }
             .main-content h1 { 
                 font-size: 3em; 
