@@ -14,7 +14,7 @@
             --cream-bg: #FAF8F5; 
             --logo-bg: #EFE6E1; 
             --card-bg: #F5F2EF; 
-            --text-color: #4f4a46; /* Synchronized text color */
+            --text-color: #4f4a46; 
             --font-main: 'Poppins', sans-serif;
         }
         body { 
@@ -30,7 +30,7 @@
         }
         .container { 
             width: 90%; 
-            max-width: 1200px; 
+            max-width: 1000px; /* Increased max-width for better content flow */
             margin: auto; 
             padding: 30px 0; 
             box-sizing: border-box; 
@@ -57,7 +57,7 @@
             box-sizing: border-box;
         }
         .logo-area img { 
-            height: 100px; /* Synchronized height */
+            height: 100px; 
             margin-right: 10px; 
         } 
         
@@ -141,23 +141,25 @@
             transition: 0.4s; 
             border-radius: 3px;
         }
-
+        
         /* --- BUTTON & LINK STYLES (Common) --- */
-        .cta-button {
+        .link-button { /* Use for internal links that look like buttons */
             display: inline-block;
             background: var(--accent-color);
             color: var(--primary-color); 
-            padding: 15px 35px;
+            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 600;
             transition: background-color 0.3s ease;
             border: none;
             cursor: pointer;
+            text-align: center;
+            margin: 5px 0;
         }
-        .cta-button:hover { background-color: #92a487; }
-        
+        .link-button:hover { background-color: #92a487; }
+
         /* --- FOOTER (Common Style) --- */
         footer { 
             background-color: var(--logo-bg); 
@@ -173,44 +175,89 @@
         /* --- PAGE-SPECIFIC STYLES: CONTACT --- */
         .contact-content {
             padding: 40px 20px;
-            margin-top: 110px; /* ADJUSTED OFFSET FOR FIXED HEADER CLEARANCE */
+            margin-top: 110px;
             flex-grow: 1;
         }
-        .contact-content h1 {
+        
+        /* Hero/Header */
+        .hero-section {
             text-align: center;
-            font-size: 2.8em;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        .contact-content p {
-            text-align: center;
-            font-size: 1.2em;
+            padding: 40px 0;
+            border-bottom: 2px solid var(--accent-color);
             margin-bottom: 40px;
+        }
+        .hero-section h1 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            font-style: italic;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+        }
+
+        /* Two Column Layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Primary Contact & Alternatives Column */
+        .contact-info-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .info-box, .alt-options, .support-options {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+        }
+        .info-box h2, .alt-options h2, .support-options h2, .contact-form-section h2, .why-contact h2 {
+            color: var(--primary-color);
+            font-size: 1.6em;
+            border-bottom: 1px dashed #cccccc;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .info-box strong {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.1em;
+            color: var(--accent-color);
+        }
+        .info-box a, .alt-options a, .support-options a, .why-contact a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .info-box a:hover, .alt-options a:hover, .support-options a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Contact Form Section */
+        .contact-form-section {
+            grid-column: 2 / 3;
         }
         .contact-form {
             background-color: var(--card-bg);
-            padding: 40px;
+            padding: 30px;
             border-radius: 8px;
-            max-width: 600px;
-            margin: 0 auto;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
+        .form-group { margin-bottom: 20px; }
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: var(--primary-color);
         }
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group select,
-        .form-group textarea {
+        .form-group input, .form-group textarea {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
@@ -218,16 +265,8 @@
             box-sizing: border-box;
             font-family: var(--font-main);
             font-size: 1em;
-            transition: border-color 0.3s;
         }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            border-color: var(--accent-color);
-            outline: none;
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
         .contact-form button {
             width: 100%;
             padding: 15px;
@@ -240,14 +279,74 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        .contact-form button:hover {
-            background-color: #6a635e; /* Darker taupe for hover */
+        .contact-form button:hover { background-color: #6a635e; }
+        .privacy-note {
+            text-align: center;
+            font-size: 0.85em;
+            margin-top: 15px;
+            color: #777;
+        }
+
+        /* Additional Sections */
+        .why-contact, .faq-snippet {
+            padding: 30px;
+            background-color: var(--logo-bg);
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .why-contact ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .why-contact ul li {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        .why-contact ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .faq-snippet {
+            margin-top: 30px;
+        }
+        .faq-snippet h3 {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+        .faq-snippet p {
+            margin-bottom: 10px;
+            font-weight: 400;
+            text-align: left;
+        }
+        .faq-snippet strong {
+            color: var(--accent-color);
+            display: block;
+            margin-top: 10px;
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+        .footer-cta h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
 
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
             .navbar { padding: 0 15px; }
-            .menu-icon { display: flex; } /* Show the hamburger */
+            .menu-icon { display: flex; } 
             #main-nav {
                 display: none; 
                 flex-direction: column;
@@ -265,13 +364,8 @@
             #main-nav a { text-align: center; margin: 8px 0; padding: 5px 0; margin-left: 0; border-bottom: none; font-size: 1em; }
 
             /* Mobile Dropdown Sync */
-            .dropdown {
-                margin: 8px 0; 
-                width: 100%;
-            }
-            .dropdown-toggle {
-                cursor: pointer; 
-            }
+            .dropdown { margin: 8px 0; width: 100%; }
+            .dropdown-toggle { cursor: pointer; }
             .dropdown-content {
                 position: static; 
                 width: 100%;
@@ -286,17 +380,24 @@
                 font-size: 0.9em;
                 background-color: rgba(79, 74, 70, 0.05); 
             }
-            .dropdown.active .dropdown-content {
-                display: block; 
+            .dropdown.active .dropdown-content { display: block; }
+            
+            /* Mobile Contact Layout */
+            .contact-content { margin-top: 110px; padding: 20px 10px; }
+            .hero-section h1 { font-size: 2.2em; }
+            .contact-grid {
+                grid-template-columns: 1fr; /* Stack columns on mobile */
+                gap: 25px;
             }
-
-            /* Mobile Contact */
-            .contact-content { 
-                padding: 30px 10px; 
-                margin-top: 110px; 
+            .contact-form-section {
+                grid-column: auto;
+                order: 1; /* Place form first on mobile */
             }
-            .contact-content h1 { font-size: 2.2em; }
-            .contact-form { padding: 25px; }
+            .contact-info-column {
+                order: 2; /* Place info second */
+            }
+            .why-contact, .faq-snippet { padding: 20px; }
+            .link-button { width: 100%; }
         }
     </style>
 </head>
@@ -324,46 +425,128 @@
                         <a href="services.html#templates">Templates, Tools & Courses</a>
                     </div>
                 </div>
-                <a href="faq.html" id="nav-contact">FAQ's</a>
-                <a href="contact.html" id="nav-contact">Contact</a>
-                <a href="shop.html" id="nav-shop">Shop</a> </nav>
+                <a href="faq.html" id="nav-faq">FAQ's</a>
+                <a href="contact.html" id="nav-contact" class="active">Contact</a>
+                <a href="shop.html" id="nav-shop">Shop</a> 
+            </nav>
         </div>
     </header>
     
     <div class="contact-content">
         <div class="container">
-            <h1>Let's Get Your Business Organized</h1>
-            <p>Whether you need a full audit, a custom Notion template, or workflow automation, tell us about your project and we'll be in touch.</p>
             
-            <form class="contact-form" action="submit_form.html" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
+            <div class="hero-section">
+                <h1>Get in Touch</h1>
+                <p>We’d love to hear from you! Whether you’re ready to start a project, have a question about our services, or want support with a purchase, we’re here to help.</p>
+            </div>
+
+            <div class="contact-grid">
+                
+                <div class="contact-form-section">
+                    <h2>Send Us a Message</h2>
+                    <p>Have an enquiry? Use the form below and we’ll get back to you as soon as we can.</p>
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject / What’s this about?</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit">Send Message</button>
+                        <p class="privacy-note">We respect your privacy — your details will never be shared.</p>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required>
+
+                <div class="contact-info-column">
+                    
+                    <div class="info-box">
+                        <h2>Let’s Talk About Your Project</h2>
+                        <p>Whether you’re planning a new website, need help with branding, want to book a coaching session, or just have a question about our digital tools — drop us a message!</p>
+                        
+                        <strong>Email:</strong>
+                        <p><a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a><br>
+                        We aim to reply within 24–48 hours (Mon–Fri)</p>
+                        
+                        <strong>Follow Us:</strong>
+                        <p>
+                            <a href="https://instagram.com/theorganisedtypes" target="_blank" rel="noopener noreferrer">Instagram • @theorganisedtypes</a><br>
+                            <a href="https://pinterest.com/theorganisedtypes" target="_blank" rel="noopener noreferrer">Pinterest • The Organised Types</a><br>
+                            <small>(Links open in new tabs)</small>
+                        </p>
+                        <p>Prefer something quick? Use the form above to send us a message directly.</p>
+                    </div>
+
+                    <div class="alt-options">
+                        <h2>Book a Call or Coaching Session</h2>
+                        <p>Want personalised support or a clear plan for your business?</p>
+                        <a href="coaching-single-session.html" class="link-button">Book a 1:1 Coaching Session</a>
+                        <p class="mt-2"><small>We’ll schedule a call to walk through your goals, strategy and next steps.</small></p>
+                        
+                        <h2 class="mt-4">Got a Website Inquiry?</h2>
+                        <p>Looking for a custom website or branding package?</p>
+                        <a href="contact.html#form" class="link-button">Request a Quote</a>
+                        <p class="mt-2"><small>Tell us about your vision and we’ll send you a tailored proposal.</small></p>
+                    </div>
+
                 </div>
-                <div class="form-group">
-                    <label for="service">Service of Interest</label>
-                    <select id="service" name="service" required>
-                        <option value="">-- Select a Service --</option>
-                        <option value="digital_strategy">Digital Strategy & Audits</option>
-                        <option value="tool_design">Custom Digital Tool Design</option>
-                        <option value="automation">Workflow Automation & Setup</option>
-                        <option value="training">Training & Support</option>
-                        <option value="other">Other/General Enquiry</option>
-                    </select>
+            </div>
+            
+            <div class="why-contact">
+                <h2>Why Contact Us?</h2>
+                <p>At The Organised Types we’re all about clarity, creativity and business growth. Whether you're:</p>
+                <ul>
+                    <li>starting a business</li>
+                    <li>building your brand</li>
+                    <li>launching a website</li>
+                    <li>looking to be more organised</li>
+                    <li>investing in training or tools</li>
+                </ul>
+                <p>we’ll help you take the next step with confidence.</p>
+            </div>
+            
+            <div class="faq-snippet contact-grid">
+                <div>
+                    <h2>Support for Purchases</h2>
+                    <p>If you’ve purchased a product from our shop and need help with:</p>
+                    <ul>
+                        <li>Download issues</li>
+                        <li>Instructions or templates</li>
+                        <li>Access links</li>
+                        <li>Licensing questions</li>
+                    </ul>
+                    <p>Email our support team at **<a href="mailto:support@theorganisedtypes.com">support@theorganisedtypes.com</a>**. We’re here to help!</p>
                 </div>
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                
+                <div>
+                    <h2>Quick Answers</h2>
+                    <strong>Do you offer custom work?</strong>
+                    <p>Yes — contact us with your brief and we’ll get back to you with options.</p>
+                    
+                    <strong>How long will it take to hear from you?</strong>
+                    <p>We aim to respond within 24–48 hours on weekdays.</p>
+                    
+                    <strong>Can I chat over video?</strong>
+                    <p>Absolutely — book a coaching call or project consultation and we can connect on Zoom.</p>
                 </div>
-                <button type="submit">Send Enquiry</button>
-                <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">
-                    Alternatively, email us directly at **theorganisedtypes@gmail.com**
-                </p>
-            </form>
+            </div>
+            
+            <div class="footer-cta">
+                <h3>Ready to start?</h3>
+                <a href="services.html" class="link-button">Visit Our Services Page</a>
+                <a href="shop.html" class="link-button">Explore Our Shop</a>
+                <a href="coaching-single-session.html" class="link-button">Book a Call</a>
+            </div>
+
         </div>
     </div>
 
@@ -398,7 +581,8 @@
             document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
                 el.classList.remove('active');
             });
-
+            
+            // Check if the current page path matches the link ID (e.g., contact.html matches nav-contact)
             const activeLink = document.getElementById(`nav-${activePage}`);
             if (activeLink) {
                 activeLink.classList.add('active');
@@ -408,6 +592,12 @@
                     activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
                 }
             }
+            
+            // Special case for contact page (since the link is explicitly contact.html)
+            if (activePage === 'contact') {
+                document.getElementById('nav-contact').classList.add('active');
+            }
+            
         })();
     </script>
 

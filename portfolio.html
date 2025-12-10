@@ -176,13 +176,22 @@
                 <span></span>
                 <span></span>
             </div>
-            <nav id="main-nav">
-                <a href="index.html" id="nav-index">Home</a> 
-                <a href="services.html" id="nav-services">Services</a>
-                <a href="portfolio.html" id="nav-portfolio">Portfolio</a>
-                <a href="contact.html" id="nav-contact">Contact</a>
-                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
-            </nav>
+           <nav id="main-nav">
+    <a href="index.html" id="nav-index">Home</a> 
+    
+    <div class="dropdown" onclick="toggleDropdown(event)">
+        <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
+        <div class="dropdown-content">
+            <a href="services.html#website">Website Design & Development</a>
+            <a href="services.html#branding">Brand Identity & Digital Design</a>
+            <a href="services.html#coaching">Business Coaching & Strategy</a>
+            <a href="services.html#templates">Templates, Tools & Courses</a>
+        </div>
+    </div>
+    <a href="faq.html" id="nav-faq">FAQ's</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <a href="shop.html" id="nav-shop">Shop</a> 
+</nav>
         </div>
     </header>
 
