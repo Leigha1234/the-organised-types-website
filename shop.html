@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Digital Tools & Templates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* BASE CSS (REUSED FROM INDEX) */
+        :root {
+            --primary-color: #4f4a46; /* Dark Taupe from Logo */
+            --accent-color: #A9B897; /* Dull Sage Green */
+            --cream-bg: #FAF8F5; 
+            --logo-bg: #EFE6E1; 
+            --card-bg: #FFFFFF; 
+            --text-color: #4f4a46; 
+            --font-main: 'Poppins', sans-serif;
+            --secondary-cta: #4f4a46; 
+            --secondary-cta-text: #ffffff; 
+        }
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.7; 
+            font-weight: 400; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: auto; 
+            padding: 30px 0; 
+            box-sizing: border-box; 
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header { 
+            background-color: var(--logo-bg); 
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 5px 0; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 20; 
+        }
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+            box-sizing: border-box;
+        }
+        .logo-area img { 
+            height: 100px; 
+            margin-right: 10px; 
+        } 
+        
+        /* DESKTOP NAVIGATION */
+        #main-nav {
+            display: flex;
+            align-items: center;
+        }
+        #main-nav a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+            white-space: nowrap;
+        }
+        #main-nav a:hover, 
+        #main-nav a.active { 
+            color: var(--accent-color); 
+        }
+        
+        /* DROPDOWN CONTAINER */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 25px;
+            white-space: nowrap;
+        }
+        .dropdown-toggle {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0; 
+            cursor: default; 
+            display: block;
+        }
+        .dropdown-toggle:hover {
+            color: var(--accent-color);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--logo-bg);
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 2;
+            padding: 10px 0;
+            border-radius: 4px;
+            top: 100%; 
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin: 0; 
+            font-weight: 400;
+            transition: background-color 0.3s;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color); 
+        }
+
+        /* SHOW DROPDOWN ON DESKTOP HOVER */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* HAMBURGER ICON (Desktop Hidden) */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+        }
+        .menu-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+
+        /* --- BUTTONS & HEADINGS --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color); 
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .cta-button:hover { 
+            background-color: #92a487; 
+        }
+        .cta-button.secondary {
+            background: var(--secondary-cta);
+            color: var(--secondary-cta-text);
+            margin-left: 15px;
+        }
+        .cta-button.secondary:hover {
+            background-color: #6a635e; 
+        }
+        
+        .section-heading { 
+            text-align: center; 
+            margin-bottom: 20px; 
+            font-size: 2.4em; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+        }
+        .card-link-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #ffffff; 
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .card-link-button:hover {
+            background-color: #6a635e; 
+        }
+        
+        /* --- FOOTER --- */
+        footer { 
+            background-color: var(--logo-bg); 
+            color: var(--primary-color); 
+            text-align: center; 
+            padding: 20px 0; 
+            font-size: 0.9em; 
+            margin-top: auto; 
+        }
+
+        /* --- SHOP SPECIFIC STYLES --- */
+
+        .shop-page {
+            padding-top: 120px; /* Space below fixed header */
+        }
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 40px 0;
+        }
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-image-area {
+            height: 250px;
+            overflow: hidden;
+            background-color: var(--logo-bg);
+        }
+        .product-image-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-image-area img {
+            transform: scale(1.05);
+        }
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-info h4 {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 0 0 5px;
+            line-height: 1.3;
+        }
+        .product-info .price {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        /* Quick Click Add to Basket Button */
+        .add-to-basket-btn {
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.95em;
+        }
+        .add-to-basket-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* --- MOBILE SPECIFIC STYLES (Max 768px) --- */
+        @media (max-width: 768px) {
+            
+            /* MOBILE NAVIGATION STYLES (Reused from index.html) */
+            .menu-icon {
+                display: flex; 
+            }
+            #main-nav {
+                display: none; 
+                position: absolute;
+                top: 100px; 
+                right: 0;
+                background-color: var(--logo-bg); 
+                width: 100%;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                padding: 10px 0;
+                flex-direction: column;
+            }
+            #main-nav.show-menu {
+                display: flex; 
+            }
+            #main-nav a { 
+                margin: 8px 0; 
+                padding: 5px 0;
+                display: block;
+            }
+            .navbar {
+                 padding: 0 5%; 
+            }
+            .dropdown {
+                margin: 8px 0; 
+                width: 100%;
+            }
+            .dropdown-toggle {
+                cursor: pointer; 
+            }
+            .dropdown-content {
+                position: static; 
+                width: 100%;
+                box-shadow: none;
+                padding: 0;
+                transform: none; 
+                background-color: transparent; 
+                display: none; /* Hidden by default */
+            }
+            .dropdown.active .dropdown-content {
+                display: block; 
+            }
+            .dropdown-content a {
+                padding: 5px 0;
+                font-size: 0.9em;
+                background-color: rgba(79, 74, 70, 0.05); 
+            }
+
+            /* MOBILE SHOP GRID */
+            .shop-page {
+                padding-top: 110px; 
+            }
+            .section-heading {
+                font-size: 1.6em; 
+            }
+            .shop-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 20px;
+                padding: 20px 0;
+            }
+            .product-image-area {
+                height: 200px; /* Slightly smaller image area on mobile */
+            }
+            .product-info {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar"> 
+            <a href="index.html" class="logo-area">
+                <img src="logo.jpg.webp" alt="The Organised Types Logo">
+            </a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html" id="nav-index">Home</a> 
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Design & Development</a>
+                        <a href="services.html#branding">Brand Identity & Digital Design</a>
+                        <a href="services.html#coaching">Business Coaching & Strategy</a>
+                        <a href="services.html#templates">Templates, Tools & Courses</a>
+                    </div>
+                </div>
+                <a href="portfolio.html" id="nav-portfolio">Portfolio</a>
+                <a href="contact.html" id="nav-contact">Contact</a>
+                <a href="shop.html" id="nav-shop" class="active">Shop</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container shop-page">
+        <h2 class="section-heading">Browse Our Digital Templates & Tools</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Instant download templates built on Notion, Airtable, and Google Sheets to help you manage your business, projects, and life.</p>
+
+        <div class="shop-grid">
+
+            <div class="product-card">
+                <div class="product-image-area">
+                    <img src="product1.jpg" alt="Notion Business Dashboard Mockup"> 
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h4>Ultimate Small Business Dashboard (Notion)</h4>
+                        <p class="price">£29.99</p>
+                    </div>
+                    <button class="add-to-basket-btn" onclick="addToBasket('Ultimate Notion Dashboard')">Add to Basket</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-area">
+                    <img src="product2.jpg" alt="Airtable Project Tracker Mockup"> 
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h4>Advanced Client Project Tracker (Airtable)</h4>
+                        <p class="price">£49.99</p>
+                    </div>
+                    <button class="add-to-basket-btn" onclick="addToBasket('Advanced Airtable Tracker')">Add to Basket</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-area">
+                    <img src="product3.jpg" alt="Google Sheets Financial Planner Mockup"> 
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h4>Annual Financial Planner (Google Sheets)</h4>
+                        <p class="price">£19.99</p>
+                    </div>
+                    <button class="add-to-basket-btn" onclick="addToBasket('Financial Planner')">Add to Basket</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-area">
+                    <img src="product4.jpg" alt="Social Media Content Calendar Mockup"> 
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h4>365 Day Social Content Calendar (Notion)</h4>
+                        <p class="price">£34.99</p>
+                    </div>
+                    <button class="add-to-basket-btn" onclick="addToBasket('Social Content Calendar')">Add to Basket</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-area">
+                    <img src="product5.jpg" alt="Minimalist Invoice Template Mockup"> 
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h4>Minimalist Invoice Template Pack (Word/Sheets)</h4>
+                        <p class="price">£9.99</p>
+                    </div>
+                    <button class="add-to-basket-btn" onclick="addToBasket('Invoice Template Pack')">Add to Basket</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-area">
+                    <img src="product6.jpg" alt="Digital Course Outline Template Mockup"> 
+                </div>
+                <div class="product-info">
+                    <div>
+                        <h4>Digital Course Outline Template (Notion)</h4>
+                        <p class="price">£14.99</p>
+                    </div>
+                    <button class="add-to-basket-btn" onclick="addToBasket('Course Outline Template')">Add to Basket</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Ready to get organised & grow? </p>
+            <p><a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs — or book a consultation to build something unique for your business.</p>
+            <p>Email: theorganisedtypes@gmail.com | &copy; 2025 The Organised Types.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // TOGGLES THE MOBILE NAVIGATION MENU
+        function toggleMenu() {
+            var nav = document.getElementById("main-nav"); 
+            nav.classList.toggle("show-menu");
+        }
+        
+        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK
+        function toggleDropdown(event) {
+            if (window.innerWidth < 769) {
+                event.preventDefault(); 
+                const dropdown = event.currentTarget;
+                dropdown.classList.toggle('active');
+            }
+        }
+        
+        // Function to set the active link dynamically
+        (function setActiveLink() {
+            const path = window.location.pathname.split('/').pop();
+            const activePage = path.split('.')[0] || 'index'; 
+            
+            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            const activeLink = document.getElementById(`nav-${activePage}`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+                if (activeLink.closest('.dropdown')) {
+                    activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
+                }
+            }
+        })();
+        
+        // **SHOP SPECIFIC SCRIPT**
+        // Placeholder function for Add to Basket
+        function addToBasket(productName) {
+            // In a real e-commerce setup, this would send an AJAX request to a server,
+            // update a visible cart icon, and store the item in local storage/session.
+            console.log("Added to Basket:", productName);
+            alert("Added " + productName + " to your basket! (Placeholder)");
+        }
+
+    </script>
+
+</body>
+</html>
