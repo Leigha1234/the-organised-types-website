@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Variables */
@@ -15,7 +15,8 @@
             --logo-bg: #EFE6E1; 
             --card-bg: #FFFFFF; 
             --text-color: #4f4a46; 
-            --font-main: 'Poppins', sans-serif;
+            --font-main: 'Poppins', sans-serif; /* Poppins for body text */
+            --font-heading: 'Montserrat', sans-serif; /* Montserrat for headlines */
             --secondary-cta: #4f4a46; 
             --secondary-cta-text: #ffffff; 
         }
@@ -59,7 +60,6 @@
             box-sizing: border-box;
         }
         .logo-area img { 
-            /* **UPDATED: INCREASED LOGO SIZE** */
             height: 100px; 
             margin-right: 10px; 
         } 
@@ -105,6 +105,8 @@
         }
         
         .section-heading { 
+            /* **UPDATED: Using Montserrat for headings** */
+            font-family: var(--font-heading);
             text-align: center; 
             margin-bottom: 20px; 
             font-size: 2.4em; 
@@ -129,7 +131,7 @@
 
         /* --- 1. HERO BANNER --- */
         .hero-banner {
-            margin-top: 110px; /* Adjusted margin-top for larger logo */
+            margin-top: 110px; 
             position: relative;
             height: 70vh; 
             display: flex;
@@ -158,6 +160,8 @@
             padding: 20px;
         }
         .hero-banner-content h1 {
+            /* **UPDATED: Using Montserrat for H1** */
+            font-family: var(--font-heading);
             font-size: 3.5em; 
             font-weight: 900; 
             line-height: 1.1;
@@ -201,6 +205,8 @@
             flex: 2;
         }
         .mockup-text h3 {
+            /* **UPDATED: Using Montserrat for H3** */
+            font-family: var(--font-heading);
             font-size: 2.5em;
             font-weight: 700;
             color: var(--primary-color);
@@ -259,8 +265,10 @@
             transform: rotateY(180deg);
         }
         .card-face h4 {
+             /* **UPDATED: Using Montserrat for H4 (Card Titles)** */
+            font-family: var(--font-heading);
             font-size: 1.4em;
-            font-weight: 600;
+            font-weight: 700; /* Increased weight for boldness */
             margin-top: 0;
             color: var(--primary-color);
         }
