@@ -57,13 +57,9 @@
             color: var(--primary-color); 
         }
         .logo-area img { 
-            height: 60px; 
+            height: 120px; /* INCREASED SIZE */
             margin-right: 10px; 
         } 
-        .logo-text { 
-            font-size: 1.6em; 
-            font-weight: 700; 
-        }
 
         /* Desktop Navigation Links */
         #main-nav { 
@@ -231,126 +227,6 @@
             margin-bottom: 10px;
         }
 
-        /* --- PAGE-SPECIFIC STYLES: SERVICES --- */
-        .services-hero { 
-            text-align: center; 
-            padding: 60px 20px; 
-            margin-bottom: 30px; 
-        }
-        .services-hero h1 { 
-            font-size: 3em; 
-            font-weight: 700; 
-            color: var(--primary-color); 
-            margin-bottom: 10px; 
-        }
-        .services-hero p { 
-            font-size: 1.2em; 
-            margin-bottom: 20px; 
-        }
-        .service-section { 
-            padding: 40px 0; 
-            border-bottom: 1px solid #e0e0e0; 
-        }
-        .service-section h2 { 
-            font-size: 2.5em; 
-            color: var(--primary-color); 
-            text-align: center; 
-            margin-bottom: 30px; 
-        }
-        .service-content { 
-            display: flex; 
-            gap: 30px; 
-            align-items: flex-start; 
-            margin-top: 20px; 
-        }
-        .service-content img { 
-            max-width: 40%; 
-            height: auto; 
-            border-radius: 6px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-        }
-        .service-text { 
-            flex: 1; 
-        }
-        .service-text h3 { 
-            color: var(--accent-color); 
-            font-size: 1.8em; 
-            margin-top: 0; 
-        }
-        .service-text ul { 
-            list-style: disc; 
-            margin-left: 20px; 
-        }
-
-        /* --- PAGE-SPECIFIC STYLES: CONTACT --- */
-        .contact-content { 
-            max-width: 600px; 
-            margin: 30px auto; 
-            padding: 30px; 
-            background: var(--card-bg); 
-            border-radius: 8px; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-        }
-        .contact-content h1 { 
-            text-align: center; 
-            font-size: 2.5em; 
-            color: var(--primary-color); 
-            margin-bottom: 10px; 
-        }
-        .contact-content p { 
-            text-align: center; 
-            margin-bottom: 30px; 
-        }
-        .contact-form label { 
-            display: block; 
-            margin-top: 15px; 
-            font-weight: 600; 
-            color: var(--primary-color); 
-        }
-        .contact-form input[type="text"], 
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: var(--font-main);
-        }
-        .contact-form textarea { 
-            resize: vertical; 
-            min-height: 100px; 
-        }
-
-        /* --- PAGE-SPECIFIC STYLES: PORTFOLIO (Coming Soon) --- */
-        .main-content {
-            flex-grow: 1; 
-            text-align: center;
-            padding: 100px 20px;
-            min-height: calc(100vh - 200px); 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-        .main-content h1 {
-            font-size: 4em;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-        .main-content p {
-            font-size: 1.5em;
-            color: var(--primary-color);
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        .main-content a {
-            color: var(--accent-color);
-            font-weight: 600;
-            text-decoration: underline;
-        }
-
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
             .container { 
@@ -371,7 +247,7 @@
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 90px; 
+                top: 140px; /* Adjusted for larger logo */
                 left: 0;
                 border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -463,8 +339,7 @@
         <div class="container navbar">
             <a href="index.html" class="logo-area">
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
-                <span class="logo-text">The Organised Types</span>
-            </a>
+                </a>
             <div class="menu-icon" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -478,12 +353,12 @@
                 <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
             </nav>
         </div>
-        
     </header>
 
     <div class="hero">
         <div class="container">
             <h2>Digital tools and templates that make life and business easier</h2>
+            
             <p>We are a UK-based consultancy providing **custom solutions, tools, and expertise** to maximize personal and business efficiency.</p>
             <a href="services.html" class="cta-button">Explore Our Solutions</a>
         </div>

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - The Organised Types</title>
+    <title>Portfolio - The Organised Types</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables (MUST MATCH INDEX.HTML) */
+        /* CSS Variables (MUST MATCH ALL PAGES) */
         :root {
             --primary-color: #1a1a1a; 
             --accent-color: #A9B897; /* Dull Sage Green */
@@ -33,7 +33,7 @@
             max-width: 1200px; 
             margin: auto; 
             overflow: hidden; 
-            padding: 30px 0; /* Reduced vertical padding */
+            padding: 30px 0; 
         }
 
         /* --- HEADER & NAVIGATION (Common Styles) --- */
@@ -57,13 +57,11 @@
             color: var(--primary-color); 
         }
         .logo-area img { 
-            height: 60px; 
+            height: 120px; /* INCREASED SIZE */
             margin-right: 10px; 
         } 
-        .logo-text { 
-            font-size: 1.6em; 
-            font-weight: 700; 
-        }
+        
+        /* Desktop Navigation Links */
         #main-nav { 
             display: flex; 
             align-items: center; 
@@ -114,22 +112,6 @@
             background-color: #92a487; 
         }
         
-        .card-link-button {
-            display: inline-block;
-            background: var(--primary-color);
-            color: #ffffff; 
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
-        }
-        .card-link-button:hover {
-            background-color: #333333;
-        }
-
-
         /* --- FOOTER (Common Style) --- */
         footer { 
             background-color: var(--logo-bg); 
@@ -144,92 +126,37 @@
             text-decoration: none; 
         }
 
-        /* --- PAGE-SPECIFIC STYLES: SERVICES --- */
-
-        .services-hero { 
-            text-align: center; 
-            padding: 40px 20px 20px; /* Reduced vertical padding */
-            background: var(--cream-bg); 
-            margin-bottom: 0px; 
-        }
-        .services-hero h1 { 
-            font-size: 3em; 
-            font-weight: 700; 
-            color: var(--primary-color); 
-            margin-bottom: 10px; 
-        }
-        .services-hero p { 
-            font-size: 1.2em; 
-            margin-bottom: 20px; 
-        }
-        
-        /* Service Cards Container (Grid) */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2x2 grid on desktop */
-            gap: 20px; 
-            padding: 40px 0; /* Reduced spacing between hero and services */
-        }
-        
-        /* CARD FLIP CSS STRUCTURE (Reused from Index) */
-        .card-wrapper {
-            perspective: 1000px; 
-            height: 300px; /* Increased height for service card content */
-            box-sizing: border-box;
-        }
-        .intro-card {
-            position: relative;
-            width: 100%;
-            height: 100%;
+        /* --- PAGE-SPECIFIC STYLES: PORTFOLIO (Coming Soon) --- */
+        .main-content {
+            flex-grow: 1; 
             text-align: center;
-            transition: transform 0.8s;
-            transform-style: preserve-3d; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-radius: 6px;
-        }
-        .card-wrapper:hover .intro-card {
-            transform: rotateY(180deg);
-        }
-        
-        .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden; 
-            border-radius: 6px;
-            padding: 30px; 
+            padding: 100px 20px;
+            min-height: calc(100vh - 200px); 
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            box-sizing: border-box;
-            border-top: 5px solid var(--accent-color);
-            text-align: left; /* Align text left inside the card */
+            flex-direction: column;
         }
-        .card-face-front {
-            background: var(--card-bg);
+        .main-content h1 {
+            font-size: 4em;
+            color: var(--accent-color); 
+            margin-bottom: 10px;
+        }
+        .main-content p {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .main-content a {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        .main-content a:hover {
             color: var(--primary-color);
         }
-        .card-face-back {
-            background: var(--accent-color); 
-            color: var(--primary-color);
-            transform: rotateY(180deg);
-            padding: 30px; 
-        }
-        .card-face h3 {
-            font-size: 1.4em;
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .card-face p {
-            font-size: 0.95em;
-            line-height: 1.6;
-        }
-        .card-face-front a {
-            margin-top: auto; /* Push link to the bottom */
-        }
-        
         
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
@@ -251,10 +178,10 @@
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 90px; 
+                top: 140px; /* Adjusted for larger logo */
                 left: 0;
                 border-top: 1px solid #e0e0e0;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.1);
                 z-index: 10;
                 padding: 10px 0;
             }
@@ -270,60 +197,15 @@
                 font-size: 1.2em;
             }
 
-            /* Mobile Services Hero */
-            .services-hero { 
-                padding: 30px 10px 10px; 
+            /* Mobile Portfolio */
+            .main-content { 
+                padding: 80px 10px; 
             }
-            .services-hero h1 { 
-                font-size: 2.2em; 
+            .main-content h1 { 
+                font-size: 3em; 
             }
-            .services-hero p { 
-                font-size: 1.1em;
-            }
-
-            /* Mobile Services Grid (Stacking) */
-            .services-grid {
-                grid-template-columns: 1fr; /* Stack columns on mobile */
-                gap: 20px;
-                padding: 20px 0; 
-            }
-            
-            /* Mobile Card Adaptations: Disabling flip and stacking content */
-            .card-wrapper {
-                height: auto; /* Height adapts to stacked content */
-                perspective: none; 
-            }
-            .intro-card {
-                transform: none; 
-                transform-style: flat;
-                height: auto;
-            }
-            .card-wrapper:hover .intro-card {
-                transform: none; 
-            }
-            .card-face {
-                position: static; 
-                backface-visibility: visible;
-                height: auto;
-                padding: 20px;
-                text-align: left;
-                justify-content: flex-start;
-                border-top: none; 
-            }
-            .card-face-front {
-                padding-bottom: 5px; 
-                border-top: 5px solid var(--accent-color); 
-            }
-            .card-face-back {
-                transform: none; 
-                background: var(--card-bg); 
-                padding-top: 0px; 
-                border-bottom-left-radius: 6px;
-                border-bottom-right-radius: 6px;
-                border-top: 1px solid #e0e0e0;
-            }
-            .card-face-back h3 {
-                display: none; 
+            .main-content p { 
+                font-size: 1.2em; 
             }
 
             /* Mobile Footer Alignment */
@@ -339,8 +221,7 @@
         <div class="container navbar">
             <a href="index.html" class="logo-area">
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
-                <span class="logo-text">The Organised Types</span>
-            </a>
+                </a>
             <div class="menu-icon" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -348,84 +229,20 @@
             </div>
             <nav id="main-nav">
                 <a href="index.html">Home</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
                 <a href="contact.html">Contact</a>
                 <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
             </nav>
         </div>
-        </header>
-    
-    <div class="services-hero">
+    </header>
+
+    <div class="main-content">
         <div class="container">
-            <h1>Our Custom Solutions and Packages</h1>
-            <p>From strategic consulting to hands-on implementation of digital tools, we provide organised systems that scale with your needs.</p>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="services-grid">
-            
-            <div class="card-wrapper">
-                <div class="intro-card">
-                    <div class="card-face card-face-front">
-                        <h3>Digital Strategy & Audits 💡</h3>
-                        <p>Analysis of your current systems, identification of bottlenecks, and a clear, actionable roadmap for optimization.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Inquire Now</a>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <h3>Strategic Roadmap</h3>
-                        <p>Receive a comprehensive report outlining key areas for improvement in workflows, technology integration, and efficiency gains.</p>
-                        <a href="contact.html" class="card-link-button">Learn More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-wrapper">
-                <div class="intro-card">
-                    <div class="card-face card-face-front">
-                        <h3>Custom Digital Tool Design ⚙️</h3>
-                        <p>Development of bespoke templates, trackers, and organizational documents (e.g., Notion, Airtable, Spreadsheets) tailored to your industry.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Start a Project</a>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <h3>Bespoke Workflows</h3>
-                        <p>We build streamlined systems that handle repetitive tasks and centralize information, saving you valuable time and resources.</p>
-                        <a href="contact.html" class="card-link-button">Get Started</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-wrapper">
-                <div class="intro-card">
-                    <div class="card-face card-face-front">
-                        <h3>Workflow Automation & Setup 🚀</h3>
-                        <p>Integration of tools (like Zapier or IFTTT) to automate your processes, from lead management to data entry.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">See Packages</a>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <h3>Time Savings</h3>
-                        <p>Eliminate manual tasks with custom automation rules, ensuring data accuracy and letting your team focus on high-value work.</p>
-                        <a href="contact.html" class="card-link-button">Request Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-wrapper">
-                <div class="intro-card">
-                    <div class="card-face card-face-front">
-                        <h3>Training & Ongoing Support 🎓</h3>
-                        <p>We provide comprehensive training sessions and documentation to ensure your team adopts and utilizes the new systems effectively.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Support Plans</a>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <h3>Guaranteed Adoption</h3>
-                        <p>Our support packages include dedicated assistance to help you troubleshoot and evolve your custom tools as your business grows.</p>
-                        <a href="contact.html" class="card-link-button">Contact Support</a>
-                    </div>
-                </div>
-            </div>
-            
+            <h1>Portfolio Under Construction 🚧</h1>
+            <p>We are currently compiling and curating recent case studies to showcase our work in **organizational systems and custom digital solutions**.</p>
+            <p>Please check back soon! In the meantime, you can <a href="contact.html">contact us directly</a> to discuss your project needs.</p>
+            <a href="services.html" class="cta-button">View Our Solutions</a>
         </div>
     </div>
 
