@@ -219,14 +219,14 @@
             order: 2; /* Right Column */
         }
         
-        /* Styling for the info boxes */
+        /* Styling for the info boxes (Image Background 1) */
         .info-box, .alt-options {
             /* === IMAGE BACKGROUND APPLIED HERE === */
             background-image: url('contactbg.jpg');
             background-size: cover;
             background-position: center;
-            background-color: var(--primary-color); /* Fallback color for dark text overlay */
-            color: var(--light-text); /* Light text for readability over dark image */
+            background-color: var(--logo-bg); /* Fallback color */
+            color: var(--primary-color); /* **TEXT: BLACK** */
             
             /* Basic styling */
             padding: 30px;
@@ -234,11 +234,11 @@
             border-left: 3px solid var(--accent-color);
         }
         
-        /* Text color overrides for light background */
+        /* Text color overrides for image background 1 (Dark Text) */
         .info-box h2, .alt-options h2 {
-            color: var(--light-text); /* Headings white */
+            color: var(--primary-color); /* Headings black */
             font-size: 1.6em;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.4); /* Light dashed line */
+            border-bottom: 1px dashed rgba(79, 74, 70, 0.4); /* Dark dashed line */
             padding-bottom: 10px;
             margin-top: 0;
             margin-bottom: 15px;
@@ -247,46 +247,42 @@
             display: block;
             margin-top: 15px;
             font-size: 1.1em;
-            color: var(--highlight-text); /* Accent color for strong text */
+            color: var(--accent-color); /* Accent color for strong text */
         }
         .info-box a, .alt-options a {
-            color: var(--highlight-text); /* Accent color for links */
+            color: var(--primary-color); /* **LINKS: BLACK** */
             font-weight: 600;
             text-decoration: underline;
             transition: color 0.3s;
         }
         .info-box a:hover, .alt-options a:hover {
-            color: var(--light-text);
+            color: var(--accent-color);
         }
-        /* Reset form section and other elements back to original style */
+        
+        /* Button style inside image background 1 sections (Black Text Button) */
+        .alt-options .link-button {
+            background: var(--light-text); /* White button background */
+            color: var(--primary-color); /* **BUTTON TEXT: BLACK** */
+            border: 2px solid var(--primary-color);
+        }
+        .alt-options .link-button:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-color: var(--accent-color);
+        }
+        
+        
+        /* Contact Form Styling (No Change) */
         .contact-form-section h2, .why-contact h2 {
             color: var(--primary-color);
             border-bottom: 1px dashed #cccccc;
         }
-        
-        /* Contact Form Styling */
         .contact-form {
             background-color: var(--card-bg);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
-        .form-group { margin-bottom: 20px; }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: var(--font-main);
-            font-size: 1em;
-        }
-        .form-group textarea { min-height: 120px; resize: vertical; }
         .contact-form button {
             width: 100%;
             padding: 15px;
@@ -307,12 +303,25 @@
             color: #777;
         }
 
-        /* Additional Sections */
+        /* === IMAGE BACKGROUND ADDITION 2 (Bottom Sections) === */
         .why-contact, .faq-snippet {
             padding: 30px;
-            background-color: var(--logo-bg);
+            background-image: url('contactbg2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--primary-color); /* Dark Fallback */
             border-radius: 8px;
             margin-top: 30px;
+            color: var(--light-text); /* **TEXT: WHITE** */
+        }
+        
+        /* Text color overrides for image background 2 (Light Text) */
+        .why-contact h2, .faq-snippet h2 {
+            color: var(--light-text); /* Headings white */
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.4); 
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 15px;
         }
         .why-contact ul {
             list-style-type: none;
@@ -324,33 +333,29 @@
         }
         .why-contact ul li::before {
             content: "•";
-            color: var(--accent-color);
+            color: var(--highlight-text); /* Use accent for bullet point */
             font-weight: bold;
             display: inline-block;
             width: 1em;
             margin-left: -1em;
         }
-        
+        .faq-snippet h4 { /* Used for quick answers headers */
+            font-size: 1.1em;
+            color: var(--highlight-text); /* Use accent for subheadings */
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .why-contact a, .faq-snippet a {
+             color: var(--highlight-text); /* Use accent for links */
+             font-weight: 600;
+             text-decoration: underline;
+        }
         .faq-snippet > .contact-grid { 
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 20px;
-        }
-        .faq-snippet h2 {
-            font-size: 1.6em;
-            color: var(--primary-color);
-            border-bottom: 1px dashed #cccccc;
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        .faq-snippet h4 { /* Used for quick answers headers */
-            font-size: 1.1em;
-            color: var(--primary-color);
-            margin-top: 15px;
-            margin-bottom: 5px;
-            font-weight: 600;
         }
 
         .footer-cta {
@@ -362,6 +367,14 @@
         .footer-cta h3 {
             color: var(--primary-color);
             margin-bottom: 20px;
+        }
+        /* Buttons in Footer CTA (Must be black text) */
+        .footer-cta .link-button {
+            background: var(--accent-color);
+            color: var(--primary-color); /* **BUTTON TEXT: BLACK** */
+        }
+        .footer-cta .link-button:hover {
+            background-color: #92a487; 
         }
 
         /* --- MOBILE SPECIFIC STYLES --- */
@@ -382,63 +395,58 @@
                 padding: 10px 0;
             }
             #main-nav.show-menu { display: flex; }
-            #main-nav a { text-align: center; margin: 8px 0; padding: 5px 0; margin-left: 0; border-bottom: none; font-size: 1em; }
-
-            /* Mobile Dropdown Sync */
-            .dropdown { margin: 8px 0; width: 100%; }
-            .dropdown-content {
-                position: static; 
-                width: 100%;
-                box-shadow: none;
-                padding: 0;
-                transform: none; 
-                background-color: transparent; 
-                display: none;
-            }
-            .dropdown-content a {
-                padding: 5px 0;
-                font-size: 0.9em;
-                background-color: rgba(79, 74, 70, 0.05); 
-            }
             .dropdown.active .dropdown-content { display: block; }
             
             /* Mobile Contact Layout (Stacking) */
             .contact-content { margin-top: 110px; padding: 20px 10px; }
-            .hero-section h1 { font-size: 2.2em; }
-            .contact-grid {
-                grid-template-columns: 1fr; /* Stack columns on mobile */
-                gap: 25px;
-            }
-            /* Reverse order for mobile: Form first, Info second */
+            .contact-grid { grid-template-columns: 1fr; gap: 25px; }
             .contact-form-section { order: 1; }
             .contact-info-column { order: 2; }
             
-            /* Mobile Style: Remove image background and use solid colour/default text */
+            /* Mobile Style: Info Boxes (Image 1 sections) */
             .info-box, .alt-options {
                 background-image: none; 
-                background-color: var(--card-bg); 
-                color: var(--text-color);
+                background-color: var(--card-bg); /* Revert to solid color */
+                color: var(--text-color); /* Revert to dark text */
                 padding: 20px;
             }
              .info-box h2, .alt-options h2 {
                 color: var(--primary-color);
                 border-bottom: 1px dashed #cccccc;
             }
-            .info-box a, .alt-options a {
+             .info-box a, .alt-options a {
                 color: var(--primary-color);
                 text-decoration: none;
             }
-            .info-box strong {
-                 color: var(--accent-color);
+            .alt-options .link-button {
+                background: var(--accent-color); 
+                color: var(--primary-color); 
+                border: none;
             }
             
-            .why-contact, .faq-snippet { padding: 20px; }
+            /* Mobile Style: Bottom Sections (Image 2 sections) */
+            .why-contact, .faq-snippet { 
+                background-image: none; 
+                background-color: var(--logo-bg); /* Revert to solid color */
+                color: var(--text-color); /* Revert to dark text */
+                padding: 20px; 
+            }
+            .why-contact h2, .faq-snippet h2 {
+                color: var(--primary-color);
+                border-bottom: 1px dashed #cccccc;
+            }
+            .faq-snippet h4 {
+                 color: var(--primary-color);
+            }
+            .why-contact ul li::before {
+                color: var(--accent-color);
+            }
+            .why-contact a, .faq-snippet a {
+                 color: var(--primary-color);
+            }
+            
             .link-button { width: 100%; }
-            
-            /* Mobile FAQ Snippet */
-            .faq-snippet > .contact-grid {
-                grid-template-columns: 1fr;
-            }
+            .faq-snippet > .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
