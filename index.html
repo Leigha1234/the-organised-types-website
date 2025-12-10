@@ -63,7 +63,7 @@
             color: var(--primary-color); 
         }
         .logo-area img { 
-            height: 150px; 
+            height: 90px; /* ADJUSTED LOGO SIZE */
             margin-right: 10px; 
         } 
 
@@ -149,24 +149,55 @@
             text-decoration: none; 
         }
 
-        /* --- PAGE-SPECIFIC STYLES: INDEX (Card Flip & Spacing) --- */
+        /* --- PAGE-SPECIFIC STYLES: INDEX (Hero & New Content Section) --- */
         .hero { 
             text-align: center; 
             padding: 60px 20px; 
             background: var(--cream-bg); 
             margin-bottom: 20px; 
-            margin-top: 170px; /* REQUIRED OFFSET FOR FIXED HEADER */
+            margin-top: 130px; /* ADJUSTED OFFSET FOR SMALLER LOGO/HEADER */
         }
         .hero h2 { 
-            font-size: 3em; 
+            font-size: 3.5em; /* SLIGHTLY LARGER FONT */
             font-weight: 700; 
             color: var(--primary-color); 
             margin-bottom: 10px; 
+            line-height: 1.2;
         }
         .hero p { 
-            font-size: 1.2em; 
-            margin-bottom: 20px; 
+            font-size: 1.25em; /* SLIGHTLY LARGER FONT */
+            margin-bottom: 30px; 
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
+
+        /* NEW MOCKUP CONTENT SECTION CSS */
+        .mockup-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        .mockup-section h3 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .mockup-section p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+        .mockup-visual {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .mockup-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px; 
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+        }
+        
         .section-heading { 
             text-align: center; 
             margin-bottom: 20px; 
@@ -249,13 +280,16 @@
             .menu-icon { 
                 display: block; 
             }
+            .logo-area img { 
+                height: 70px; /* Mobile logo size reduction */
+            } 
             #main-nav {
                 display: none; 
                 flex-direction: column;
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 160px; 
+                top: 100px; /* Adjusted to fit smaller logo */
                 left: 0;
                 border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -277,16 +311,19 @@
             /* Mobile Index */
             .hero { 
                 padding: 30px 10px; 
-                margin-top: 170px; 
+                margin-top: 130px; /* Adjusted Mobile offset */
             }
             .hero h2 { 
-                font-size: 1.8em; 
+                font-size: 2em; 
             }
             .hero p {
                 font-size: 1.1em;
             }
             .cta-button {
                 padding: 12px 25px; 
+            }
+            .mockup-section h3 {
+                font-size: 1.8em;
             }
             .intro-grid { 
                 flex-direction: column; 
@@ -366,13 +403,22 @@
 
     <div class="hero">
         <div class="container">
-            <h2>Digital tools and templates that make life and business easier</h2>
+            <h2>Your Digital Toolkit, Streamlined and Systemized for Success</h2>
             
-            <p>We are a UK-based consultancy providing **custom solutions, tools, and expertise** to maximize personal and business efficiency.</p>
+            <p>We are a UK-based consultancy providing **custom solutions, tools, and expertise** to maximize personal and business efficiency and organization.</p>
             <a href="services.html" class="cta-button">Explore Our Solutions</a>
         </div>
     </div>
-
+    <div class="mockup-section">
+        <div class="container">
+            <h3>See Clarity in Action</h3>
+            <p>Our organized approach ensures your digital platforms look great and function perfectly, whether on a laptop or mobile device.</p>
+            
+            <div class="mockup-visual">
+                <img src="jills example.png" alt="Digital tools optimized for desktop and mobile devices."> 
+            </div>
+        </div>
+    </div>
     <div class="container">
         <h2 class="section-heading">Ready to Optimize Your Efficiency?</h2>
 
