@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Frequently Asked Questions | The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght%40300%3B400%3B600%3B700%3B900&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Variables (Must match previous files) */
@@ -242,7 +242,7 @@
             text-align: center;
             margin-top: 40px;
             border: 1px solid var(--accent-color);
-            color: var(--primary-color); /* Ensure text is dark/taupe over image */
+            color: var(--primary-color); /* The general text in the box is dark/taupe */
         }
         .support-box h3 {
             color: var(--primary-color);
@@ -250,9 +250,15 @@
             margin-top: 0;
         }
         .support-box a {
-            color: var(--accent-color);
+            /* **MODIFICATION START: Changed link color to white for contrast** */
+            color: var(--light-text); 
+            /* **MODIFICATION END** */
             font-weight: 600;
             text-decoration: none;
+        }
+        /* Optional: Change the hover color for contrast too */
+        .support-box a:hover {
+            color: var(--accent-color);
         }
 
         /* Mobile specific adjustments */
@@ -266,7 +272,11 @@
             .jump-to-section, .support-box {
                 background-image: none;
                 background-color: var(--logo-bg); /* Revert to solid color */
-                color: var(--text-color); /* Revert text color */
+                color: var(--text-color); /* Revert general text color */
+            }
+            /* Revert mobile link color for better contrast on logo-bg */
+            .support-box a {
+                color: var(--accent-color); 
             }
             
             .jump-to-list a { font-size: 0.9em; padding: 6px 12px; }
@@ -541,7 +551,7 @@
         
         <div class="support-box">
             <h3>Still need help?</h3>
-            <p>📩 Email us at <a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a></p>
+            <p>Email us at <a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a></p>
             <p>We’re always happy to support you.</p>
         </div>
 
