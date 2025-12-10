@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Variables */
@@ -15,8 +15,7 @@
             --logo-bg: #EFE6E1; 
             --card-bg: #FFFFFF; 
             --text-color: #4f4a46; 
-            --font-main: 'Poppins', sans-serif; /* Poppins for body text */
-            --font-heading: 'Montserrat', sans-serif; /* Montserrat for headlines */
+            --font-main: 'Poppins', sans-serif;
             --secondary-cta: #4f4a46; 
             --secondary-cta-text: #ffffff; 
         }
@@ -27,6 +26,8 @@
             background-color: var(--cream-bg); 
             color: var(--text-color); 
             line-height: 1.7; 
+            /* **UPDATED: Setting base font weight to normal (400) for less harsh body text** */
+            font-weight: 400; 
             min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
@@ -105,11 +106,10 @@
         }
         
         .section-heading { 
-            /* **UPDATED: Using Montserrat for headings** */
-            font-family: var(--font-heading);
             text-align: center; 
             margin-bottom: 20px; 
             font-size: 2.4em; 
+            /* **Using Poppins 700 for headings** */
             font-weight: 700; 
             color: var(--primary-color); 
         }
@@ -160,9 +160,8 @@
             padding: 20px;
         }
         .hero-banner-content h1 {
-            /* **UPDATED: Using Montserrat for H1** */
-            font-family: var(--font-heading);
             font-size: 3.5em; 
+            /* **Using Poppins 900 for H1** */
             font-weight: 900; 
             line-height: 1.1;
             margin-bottom: 15px;
@@ -205,9 +204,8 @@
             flex: 2;
         }
         .mockup-text h3 {
-            /* **UPDATED: Using Montserrat for H3** */
-            font-family: var(--font-heading);
             font-size: 2.5em;
+            /* **Using Poppins 700 for H3** */
             font-weight: 700;
             color: var(--primary-color);
             margin-top: 0;
@@ -265,10 +263,9 @@
             transform: rotateY(180deg);
         }
         .card-face h4 {
-             /* **UPDATED: Using Montserrat for H4 (Card Titles)** */
-            font-family: var(--font-heading);
             font-size: 1.4em;
-            font-weight: 700; /* Increased weight for boldness */
+            /* **Using Poppins 700 for H4** */
+            font-weight: 700; 
             margin-top: 0;
             color: var(--primary-color);
         }
@@ -479,7 +476,7 @@
     <div class="hero-banner">
         <div class="hero-banner-image" style="background-image: url('bg1.jpg');"></div>
         <div class="hero-banner-content">
-            <h1>Launch Your Organised Digital Empire.</h1>
+            <h1>Digital tools and templates that make life and business easier.</h1>
             
             <p>From custom Notion systems to automated workflows, we build the digital infrastructure that drives UK small businesses.</p>
             
