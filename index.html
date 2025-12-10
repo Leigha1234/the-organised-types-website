@@ -240,7 +240,7 @@
         }
         .card-wrapper {
             perspective: 1000px; 
-            height: 300px; 
+            height: 380px; /* **ADJUSTED: Increased card height for new content** */
         }
         .service-card {
             position: relative;
@@ -405,43 +405,43 @@
             }
             .hero-banner {
                 margin-top: 100px; 
-                height: 55vh; /* Slight reduction for smaller screens */
+                height: 55vh; 
             }
             .mockup-section {
-                padding: 30px 0; /* Reduced padding */
+                padding: 30px 0; 
             }
             
             /* ADJUSTED: Headings and Paragraphs */
             .hero-banner-content h1 {
-                font-size: 1.8em; /* Smaller H1 */
+                font-size: 1.8em; 
             }
             .hero-banner-content p {
-                font-size: 0.9em; /* Smaller body text */
+                font-size: 0.9em; 
                 margin-bottom: 15px;
             }
             .section-heading {
-                font-size: 1.6em; /* Smaller H2 */
+                font-size: 1.6em; 
                 margin-bottom: 15px;
             }
             .mockup-text h3 {
-                font-size: 1.6em; /* Smaller H3 */
+                font-size: 1.6em; 
             }
             
             /* ADJUSTED: CTA Buttons */
             .cta-button {
-                padding: 9px 18px; /* Further reduced button padding */
-                font-size: 0.9em; /* Reduced button font size */
+                padding: 9px 18px; 
+                font-size: 0.9em; 
             }
             .hero-banner .cta-group {
                 flex-direction: column;
-                gap: 10px; /* Reduced gap */
+                gap: 10px; 
             }
             .cta-button.secondary {
                 margin-left: 0;
             }
             .card-link-button {
                  padding: 8px 15px; 
-                 font-size: 0.85em; /* Smaller card button font */
+                 font-size: 0.85em; 
             }
             
             /* HAMBURGER MENU STYLES (No change needed here) */
@@ -479,7 +479,7 @@
                 text-align: center;
             }
             .mockup-visual {
-                max-width: 90%; /* Keeping the image slightly smaller than full width */
+                max-width: 90%; 
             }
             .mockup-visual img {
                 /* Ensures image itself fits within container */
@@ -489,11 +489,11 @@
             /* Mobile Services Grid (Back-Face Only) */
             .services-preview-grid {
                 grid-template-columns: 1fr; 
-                gap: 15px; /* Reduced gap */
+                gap: 15px; 
             }
             .card-wrapper {
                 perspective: none; 
-                height: auto; 
+                height: auto; /* Allow auto height on mobile */
             }
             .service-card {
                 transform: none; 
@@ -508,7 +508,7 @@
                 position: static; 
                 backface-visibility: visible;
                 height: auto;
-                padding: 20px; /* Reduced card padding */
+                padding: 20px; 
             }
             .card-face-front {
                 display: none; 
@@ -521,16 +521,16 @@
                 display: block; 
             }
             .card-face h4 {
-                font-size: 1.1em; /* Smaller H4 in cards */
+                font-size: 1.1em; 
             }
 
             /* Mobile Carousel: Full width scrolling, hide arrows */
             .testimonial-card {
                 flex: 0 0 90%; 
-                padding: 25px; /* Reduced card padding */
+                padding: 25px; 
             }
             .testimonial-card blockquote {
-                font-size: 1em; /* Smaller quote font */
+                font-size: 1em; 
             }
             .carousel-nav {
                 display: none;
@@ -699,8 +699,9 @@ Our solutions are meticulously organised and fully customised, providing the cla
     
     <footer>
         <div class="container">
-            <p>Ready to get organised & grow? Visit our Etsy shop to explore templates, digital tools, systems, and productivity packs — or book a consultation to build something unique for your business. <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to purchase a service or template.</p>
-            <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
+            <p>Ready to get organised & grow? </p>
+            <p><a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to explore templates, digital tools, systems, and productivity packs — or book a consultation to build something unique for your business.</p>
+            <p>Email: theorganisedtypes@gmail.com | &copy; 2025 The Organised Types.</p>
         </div>
     </footer>
     
