@@ -405,43 +405,43 @@
             }
             .hero-banner {
                 margin-top: 100px; 
-                height: 60vh; 
+                height: 55vh; /* Slight reduction for smaller screens */
             }
             .mockup-section {
-                padding: 40px 0; 
+                padding: 30px 0; /* Reduced padding */
             }
             
-            /* **ADJUSTED: Smaller H1 and H2 on mobile** */
+            /* ADJUSTED: Headings and Paragraphs */
             .hero-banner-content h1 {
-                font-size: 2em; /* Smaller H1 */
+                font-size: 1.8em; /* Smaller H1 */
             }
             .hero-banner-content p {
-                font-size: 0.95em; /* Smaller body text */
-                margin-bottom: 20px;
+                font-size: 0.9em; /* Smaller body text */
+                margin-bottom: 15px;
             }
             .section-heading {
-                font-size: 1.7em; /* Smaller H2 */
+                font-size: 1.6em; /* Smaller H2 */
                 margin-bottom: 15px;
             }
             .mockup-text h3 {
-                font-size: 1.7em; /* Smaller H3 */
+                font-size: 1.6em; /* Smaller H3 */
             }
             
-            /* **ADJUSTED: Smaller CTA Buttons on mobile** */
+            /* ADJUSTED: CTA Buttons */
             .cta-button {
-                padding: 10px 20px; /* Reduced button padding */
-                font-size: 0.95em; /* Reduced button font size */
+                padding: 9px 18px; /* Further reduced button padding */
+                font-size: 0.9em; /* Reduced button font size */
             }
             .hero-banner .cta-group {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px; /* Reduced gap */
             }
             .cta-button.secondary {
                 margin-left: 0;
             }
             .card-link-button {
-                 padding: 8px 15px; /* Smaller card button */
-                 font-size: 0.9em;
+                 padding: 8px 15px; 
+                 font-size: 0.85em; /* Smaller card button font */
             }
             
             /* HAMBURGER MENU STYLES (No change needed here) */
@@ -464,7 +464,7 @@
                 display: flex; 
             }
             #main-nav a { 
-                margin: 10px 0; 
+                margin: 8px 0; 
                 padding: 5px 0;
                 display: block;
             }
@@ -475,17 +475,21 @@
             /* Mobile Mockup Section (Stacking) */
             .mockup-content {
                 flex-direction: column;
-                gap: 30px;
+                gap: 20px;
                 text-align: center;
             }
             .mockup-visual {
+                max-width: 90%; /* Keeping the image slightly smaller than full width */
+            }
+            .mockup-visual img {
+                /* Ensures image itself fits within container */
                 max-width: 100%; 
             }
 
-            /* Mobile Services Grid (Stacking and Back-Face Only) */
+            /* Mobile Services Grid (Back-Face Only) */
             .services-preview-grid {
                 grid-template-columns: 1fr; 
-                gap: 20px; 
+                gap: 15px; /* Reduced gap */
             }
             .card-wrapper {
                 perspective: none; 
@@ -504,7 +508,7 @@
                 position: static; 
                 backface-visibility: visible;
                 height: auto;
-                padding: 25px;
+                padding: 20px; /* Reduced card padding */
             }
             .card-face-front {
                 display: none; 
@@ -512,21 +516,21 @@
             .card-face-back {
                 transform: none; 
                 background: var(--logo-bg); 
-                padding-top: 25px; 
+                padding-top: 20px; 
                 border-top: 5px solid var(--accent-color); 
                 display: block; 
             }
             .card-face h4 {
-                font-size: 1.2em; /* Smaller H4 in cards */
+                font-size: 1.1em; /* Smaller H4 in cards */
             }
 
             /* Mobile Carousel: Full width scrolling, hide arrows */
             .testimonial-card {
                 flex: 0 0 90%; 
-                padding: 30px; /* Reduced card padding */
+                padding: 25px; /* Reduced card padding */
             }
             .testimonial-card blockquote {
-                font-size: 1.05em; /* Smaller quote font */
+                font-size: 1em; /* Smaller quote font */
             }
             .carousel-nav {
                 display: none;
@@ -583,7 +587,7 @@
                     <h3>Design Focused, Results Driven</h3>
                     <p>We ensure your digital platforms are not only beautifully designed but function flawlessly across all devices—delivering a seamless user experience for your clients and a robust system for your team.</p>
                     <p>Our solutions are meticulously **organised** and fully customised, providing the clarity and efficiency your UK business requires to thrive.</p>
-                    <a href="portfolio.html" class="cta-button" style="padding: 12px 30px;">View Our Portfolio</a>
+                    <a href="portfolio.html" class="cta-button">View Our Portfolio</a>
                 </div>
             </div>
         </div>
