@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Business Website - The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables (Must match previous files) */
+        :root {
+            --primary-color: #4f4a46; /* Dark Taupe */
+            --accent-color: #A9B897; /* Dull Sage Green */
+            --cream-bg: #FAF8F5; 
+            --logo-bg: #EFE6E1; 
+            --card-bg: #F5F2EF; 
+            --text-color: #4f4a46; 
+            --font-main: 'Poppins', sans-serif;
+        }
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.7; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 30px 0; 
+            box-sizing: border-box; 
+            margin-top: 110px; 
+        }
+
+        /* --- HEADER & NAVIGATION (Common Styles) --- */
+        header { 
+            background-color: var(--logo-bg); 
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 5px 0; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 20; 
+        }
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+            box-sizing: border-box;
+        }
+        .logo-area img { height: 100px; margin-right: 10px; } 
+        #main-nav { display: flex; align-items: center; }
+        #main-nav a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+            white-space: nowrap;
+        }
+        #main-nav a:hover, 
+        #main-nav a.active { color: var(--accent-color); }
+        .dropdown { position: relative; display: inline-block; margin-left: 25px; white-space: nowrap; }
+        .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; padding: 10px 0; cursor: default; display: block; }
+        .dropdown-toggle:hover { color: var(--accent-color); }
+        .dropdown-content {
+            display: none; position: absolute; background-color: var(--logo-bg); min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 2; padding: 10px 0; border-radius: 4px; top: 100%; left: 50%; transform: translateX(-50%);
+        }
+        .dropdown-content a { color: var(--primary-color); padding: 10px 20px; text-decoration: none; display: block; text-align: left; margin: 0; font-weight: 400; transition: background-color 0.3s; }
+        .dropdown-content a:hover { background-color: rgba(0, 0, 0, 0.05); color: var(--primary-color); }
+        .dropdown:hover .dropdown-content { display: block; }
+        .menu-icon { display: none; cursor: pointer; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; }
+        .menu-icon span { display: block; width: 100%; height: 3px; margin: 4px 0; background: var(--primary-color); transition: 0.4s; border-radius: 3px; }
+
+        /* --- BUTTON & LINK STYLES (Common) --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color); 
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .cta-button:hover { background-color: #92a487; }
+        
+        /* --- FOOTER (Common Style) --- */
+        footer { 
+            background-color: var(--logo-bg); 
+            color: var(--primary-color); 
+            text-align: center; 
+            padding: 20px 0; 
+            font-size: 0.9em; 
+            margin-top: auto; 
+        }
+        footer a { color: var(--accent-color); text-decoration: none; }
+
+        /* --- PAGE-SPECIFIC STYLES: DETAIL CONTENT --- */
+        .detail-header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid var(--accent-color);
+            margin-bottom: 30px;
+        }
+        .detail-header h1 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .detail-header .price {
+            font-size: 1.6em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .tagline {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            border-bottom: 1px dashed #cccccc;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .feature-item {
+            background-color: var(--cream-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.95em;
+        }
+        .feature-item strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .process-list {
+            list-style: none;
+            counter-reset: detail-step;
+            padding-left: 0;
+        }
+        .process-list li {
+            position: relative;
+            padding: 10px 0 10px 40px;
+            margin-bottom: 10px;
+            background: var(--cream-bg);
+            border-radius: 4px;
+        }
+        .process-list li::before {
+            content: counter(detail-step);
+            counter-increment: detail-step;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            color: var(--cream-bg);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .call-to-action {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .container { margin-top: 90px; }
+            .detail-header h1 { font-size: 2.2em; }
+            .detail-header .price { font-size: 1.4em; }
+            .features-grid { grid-template-columns: 1fr; }
+            .menu-icon { display: flex; }
+            #main-nav { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar"> 
+            <a href="index.html" class="logo-area">
+                <img src="logo.jpg.webp" alt="The Organised Types Logo">
+            </a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html" id="nav-index">Home</a> 
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services" class="active">Services &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Packages</a>
+                        <a href="services.html#website-addons">Website Add-Ons</a>
+                        <a href="services.html#branding">Branding Packages</a>
+                        <a href="services.html#coaching">Coaching Packages</a>
+                        <a href="services.html#coaching-table">Coaching Comparison</a>
+                        <a href="services.html#templates">Digital Products</a>
+                    </div>
+                </div>
+                <a href="contact.html" id="nav-contact">Contact</a>
+                <a href="shop.html" id="nav-shop">Shop</a> 
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        
+        <div class="detail-header">
+            <h1>💼 Small Business Website Package</h1>
+            <p class="tagline">The essential, multi-page website solution for growing businesses that need clear organization and lead capture.</p>
+            <p class="price">Starting from £795</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Who Needs This Package?</h2>
+            <p>This package is perfectly suited for **small businesses, specialist consultants, and professionals** who have detailed services, multiple offerings, or need to incorporate a simple blog or portfolio. It provides more depth and functionality than the Starter package without the advanced complexity of the Pro option.</p>
+            <p>If you're ready to look established, handle more detailed inquiries, and clearly showcase your different services, this package is your next step.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Core Features Included</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <strong>4-5 Page Custom Build</strong>
+                    Includes Home, About, Services/Products, Contact, and either a Portfolio or Basic Blog page.
+                </div>
+                <div class="feature-item">
+                    <strong>Lead Magnet Integration</strong>
+                    Set up of a simple pop-up or dedicated section for collecting email addresses with a free offer (if provided).
+                </div>
+                <div class="feature-item">
+                    <strong>Customisable Template Design</strong>
+                    Professional, premium theme selected and fully customised to your brand identity, colours, and fonts.
+                </div>
+                <div class="feature-item">
+                    <strong>Basic Booking Integration</strong>
+                    Connection to your external booking system (e.g., Calendly, Acuity) on the contact or services page.
+                </div>
+                <div class="feature-item">
+                    <strong>Mid-Level SEO Optimisation</strong>
+                    Page titles, meta descriptions, and image alt tags optimised for key service search terms.
+                </div>
+                <div class="feature-item">
+                    <strong>Accessibility Check</strong>
+                    Basic checks for colour contrast and font readability to ensure a good user experience.
+                </div>
+                <div class="feature-item">
+                    <strong>2 Rounds of Revisions</strong>
+                    Time dedicated to ensuring all pages and layouts meet your strategic and aesthetic goals.
+                </div>
+                <div class="feature-item">
+                    <strong>Simple Training Video</strong>
+                    A recorded video showing you how to perform basic edits and manage your site's content.
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Small Business Website Process</h2>
+            <ol class="process-list">
+                <li>
+                    <strong>Phase 1: Planning Call & Strategy</strong>
+                    Define your site map, conversion goals, and gather integration details (branding, booking links).
+                </li>
+                <li>
+                    <strong>Phase 2: Content Collation</strong>
+                    You submit all text content and images for the 4-5 pages.
+                </li>
+                <li>
+                    <strong>Phase 3: Design & Build</strong>
+                    We build out all pages, focusing on clear navigation and smooth user flow.
+                </li>
+                <li>
+                    <strong>Phase 4: Client Review (2 Rounds)</strong>
+                    You test functionality, review design, and provide necessary feedback for refinement.
+                </li>
+                <li>
+                    <strong>Phase 5: Launch & Training</strong>
+                    The site goes live, and the recorded training session is provided.
+                </li>
+            </ol>
+        </div>
+        
+        <div class="call-to-action">
+            <h3>Ready for a professional, lead-capturing small business site?</h3>
+            <a href="contact.html" class="cta-button">Inquire About This Package</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Ready to start your project? <a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs.</p>
+            <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Placeholder script section
+    </script>
+
+</body>
+</html>
