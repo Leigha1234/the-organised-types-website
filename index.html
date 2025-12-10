@@ -26,7 +26,6 @@
             background-color: var(--cream-bg); 
             color: var(--text-color); 
             line-height: 1.7; 
-            /* **UPDATED: Setting base font weight to normal (400) for less harsh body text** */
             font-weight: 400; 
             min-height: 100vh; 
             display: flex; 
@@ -64,6 +63,8 @@
             height: 100px; 
             margin-right: 10px; 
         } 
+        
+        /* DESKTOP NAVIGATION */
         #main-nav a { 
             color: var(--primary-color); 
             text-decoration: none; 
@@ -76,6 +77,24 @@
         #main-nav a.active { 
             color: var(--accent-color); 
         }
+
+        /* HAMBURGER ICON (Desktop Hidden) */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+        }
+        .menu-icon span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
 
         /* --- BUTTONS & HEADINGS --- */
         .cta-button {
@@ -92,7 +111,6 @@
             cursor: pointer;
             white-space: nowrap;
         }
-        /* **BUTTON HOVER EFFECTS** */
         .cta-button:hover { 
             background-color: #92a487; /* Slightly darker sage */
         }
@@ -109,7 +127,6 @@
             text-align: center; 
             margin-bottom: 20px; 
             font-size: 2.4em; 
-            /* **Using Poppins 700 for headings** */
             font-weight: 700; 
             color: var(--primary-color); 
         }
@@ -161,7 +178,6 @@
         }
         .hero-banner-content h1 {
             font-size: 3.5em; 
-            /* **Using Poppins 900 for H1** */
             font-weight: 900; 
             line-height: 1.1;
             margin-bottom: 15px;
@@ -205,7 +221,6 @@
         }
         .mockup-text h3 {
             font-size: 2.5em;
-            /* **Using Poppins 700 for H3** */
             font-weight: 700;
             color: var(--primary-color);
             margin-top: 0;
@@ -237,6 +252,7 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
             border-radius: 8px;
         }
+        /* DESKTOP FLIP ON HOVER */
         .card-wrapper:hover .service-card {
             transform: rotateY(180deg);
         }
@@ -264,12 +280,10 @@
         }
         .card-face h4 {
             font-size: 1.4em;
-            /* **Using Poppins 700 for H4** */
             font-weight: 700; 
             margin-top: 0;
             color: var(--primary-color);
         }
-        /* Style for front face content, pushing text to center when button is removed */
         .card-face-front > div {
             flex-grow: 1;
             display: flex;
@@ -382,13 +396,38 @@
             margin-top: auto; 
         }
 
-        /* --- MOBILE SPECIFIC STYLES --- */
+        /* --- MOBILE SPECIFIC STYLES (Max 768px) --- */
         @media (max-width: 768px) {
             
+            /* GLOBAL SPACING AND FONT REDUCTIONS */
+            .container {
+                padding: 20px 0; /* Reduced vertical padding */
+            }
+            .hero-banner {
+                margin-top: 100px; /* Reduced top margin slightly */
+                height: 60vh; /* Reduced height */
+            }
+            .mockup-section {
+                padding: 40px 0; /* Reduced padding */
+            }
             .hero-banner-content h1 {
-                font-size: 2.2em; 
+                font-size: 2.2em; /* Reduced H1 size */
             }
             .hero-banner-content p {
+                font-size: 1em; /* Reduced body text size */
+                margin-bottom: 20px;
+            }
+            .section-heading {
+                font-size: 1.8em; /* Reduced H2 size */
+                margin-bottom: 15px;
+            }
+            .mockup-text h3 {
+                font-size: 1.8em; /* Reduced H3 size */
+            }
+            
+            /* BUTTON SIZES (Smaller CTAs) */
+            .cta-button {
+                padding: 12px 25px;
                 font-size: 1em;
             }
             .hero-banner .cta-group {
@@ -397,6 +436,34 @@
             }
             .cta-button.secondary {
                 margin-left: 0;
+            }
+            
+            /* HAMBURGER MENU STYLES */
+            .menu-icon {
+                display: flex; /* Show the hamburger icon */
+            }
+            #main-nav {
+                display: none; /* Hide desktop menu by default */
+                position: absolute;
+                top: 100px; /* Position below the header */
+                right: 0;
+                background-color: var(--logo-bg); 
+                width: 100%;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                padding: 10px 0;
+                flex-direction: column;
+            }
+            #main-nav.show-menu {
+                display: flex; /* Show menu when active */
+            }
+            #main-nav a { 
+                margin: 10px 0; /* Stack links vertically */
+                padding: 5px 0;
+                display: block;
+            }
+            .navbar {
+                 padding: 0 5%; /* Adjusted padding for better fit */
             }
             
             /* Mobile Mockup Section (Stacking) */
@@ -409,21 +476,24 @@
                 max-width: 100%; 
             }
 
-            /* Mobile Services Grid (Stacking & disabling flip) */
+            /* Mobile Services Grid (Stacking) */
             .services-preview-grid {
                 grid-template-columns: 1fr; 
+                gap: 20px; /* Reduced gap */
             }
             .card-wrapper {
                 perspective: none; 
                 height: auto; 
             }
+            
+            /* **KEY CHANGE: FORCE SHOWING BACK FACE ON MOBILE** */
             .service-card {
-                transform: none; 
+                transform: rotateY(180deg); /* Show back face by default */
                 transform-style: flat;
                 height: auto;
             }
             .card-wrapper:hover .service-card {
-                transform: none; 
+                transform: rotateY(180deg); /* Disable hover flip on mobile */
             }
             .card-face {
                 position: static; 
@@ -432,7 +502,7 @@
                 padding: 25px;
             }
             .card-face-back {
-                transform: none; 
+                transform: none; /* Reset rotation for back face */
                 background: var(--logo-bg); 
                 padding-top: 0;
                 border-top: 1px solid #e0e0e0;
@@ -612,6 +682,7 @@
     </footer>
     
     <script>
+        // TOGGLES THE MOBILE NAVIGATION MENU
         function toggleMenu() {
             var nav = document.getElementById("main-nav"); 
             nav.classList.toggle("show-menu");
