@@ -231,6 +231,8 @@
             flex-grow: 1;
             margin-bottom: 20px;
         }
+        
+        /* === FIX: Service CTA Button Width Adjustment === */
         .service-cta-btn {
             background: var(--accent-color);
             color: var(--primary-color);
@@ -241,7 +243,13 @@
             border: none;
             cursor: pointer;
             text-align: center;
-            width: 100%;
+            
+            /* ADJUSTED PROPERTIES */
+            width: auto; /* Allow button to size based on content */
+            max-width: 250px; /* Set a reasonable max width */
+            display: inline-block; /* Essential for auto width */
+            margin: 0 auto; /* Center the button within the card */
+            
             transition: background-color 0.3s ease;
             text-transform: uppercase;
             font-size: 0.95em;
@@ -249,6 +257,19 @@
         .service-cta-btn:hover {
             background-color: #92a487;
         }
+        /* Make sure the card footer can handle the centered button */
+        .service-card {
+            align-items: center; /* Center content vertically, helps center the button */
+            text-align: center; /* Center the text for better look with centered button */
+        }
+        .service-card h4, .service-card p, .service-card .price {
+             text-align: left; /* Keep text left-aligned inside the centered card */
+             width: 100%; /* Ensure text blocks span full width */
+        }
+        /* Re-center the price block that spans 100% width */
+        .service-card .price { text-align: center; } 
+
+
         
         /* Digital Product Card Styling */
         .product-image-area {
@@ -286,7 +307,7 @@
             margin-bottom: 15px;
         }
 
-        /* Quick Click Add to Basket Button */
+        /* Quick Click Add to Basket Button (Digital Products) */
         .add-to-basket-btn {
             background: var(--primary-color);
             color: #ffffff;
@@ -342,6 +363,10 @@
             }
             .service-card {
                 padding: 20px;
+            }
+            /* Ensure mobile service buttons remain centered and readable */
+            .service-cta-btn {
+                max-width: 100%; /* Go full width on small screens */
             }
         }
     </style>
