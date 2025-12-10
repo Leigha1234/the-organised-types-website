@@ -78,7 +78,7 @@
             white-space: nowrap;
         }
         #main-nav a:hover, 
-        #main-nav a.active { 
+        #main-nav a#nav-shop.active { /* Target shop active link */
             color: var(--accent-color); 
         }
         
@@ -151,53 +151,13 @@
         }
 
 
-        /* --- BUTTONS & HEADINGS --- */
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--primary-color); 
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            border: none;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-        .cta-button:hover { 
-            background-color: #92a487; 
-        }
-        .cta-button.secondary {
-            background: var(--secondary-cta);
-            color: var(--secondary-cta-text);
-            margin-left: 15px;
-        }
-        .cta-button.secondary:hover {
-            background-color: #6a635e; 
-        }
-        
+        /* --- BUTTONS & HEADINGS (Common Styles) --- */
         .section-heading { 
             text-align: center; 
             margin-bottom: 20px; 
             font-size: 2.4em; 
             font-weight: 700; 
             color: var(--primary-color); 
-        }
-        .card-link-button {
-            display: inline-block;
-            background: var(--primary-color);
-            color: #ffffff; 
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
-        }
-        .card-link-button:hover {
-            background-color: #6a635e; 
         }
         
         /* --- FOOTER --- */
@@ -261,6 +221,7 @@
             font-size: 1.5em;
             font-weight: 700;
             color: var(--accent-color);
+            margin-top: 5px;
             margin-bottom: 15px;
         }
 
@@ -287,7 +248,7 @@
         /* --- MOBILE SPECIFIC STYLES (Max 768px) --- */
         @media (max-width: 768px) {
             
-            /* MOBILE NAVIGATION STYLES (Reused from index.html) */
+            /* MOBILE NAVIGATION STYLES */
             .menu-icon {
                 display: flex; 
             }
@@ -318,9 +279,6 @@
                 margin: 8px 0; 
                 width: 100%;
             }
-            .dropdown-toggle {
-                cursor: pointer; 
-            }
             .dropdown-content {
                 position: static; 
                 width: 100%;
@@ -328,7 +286,7 @@
                 padding: 0;
                 transform: none; 
                 background-color: transparent; 
-                display: none; /* Hidden by default */
+                display: none; 
             }
             .dropdown.active .dropdown-content {
                 display: block; 
@@ -352,7 +310,7 @@
                 padding: 20px 0;
             }
             .product-image-area {
-                height: 200px; /* Slightly smaller image area on mobile */
+                height: 200px; 
             }
             .product-info {
                 padding: 15px;
@@ -373,21 +331,21 @@
                 <span></span>
             </div>
          <nav id="main-nav">
-    <a href="index.html" id="nav-index">Home</a> 
-    
-    <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-            <a href="services.html#templates">Templates, Tools & Courses</a>
-        </div>
-    </div>
-    <a href="faq.html" id="nav-faq">FAQ's</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-    <a href="shop.html" id="nav-shop">Shop</a> 
-</nav>
+            <a href="index.html" id="nav-index">Home</a> 
+            
+            <div class="dropdown" onclick="toggleDropdown(event)">
+                <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="services.html#website">Website Design & Development</a>
+                    <a href="services.html#branding">Brand Identity & Digital Design</a>
+                    <a href="services.html#coaching">Business Coaching & Strategy</a>
+                    <a href="services.html#templates">Templates, Tools & Courses</a>
+                </div>
+            </div>
+            <a href="faq.html" id="nav-faq">FAQ's</a>
+            <a href="contact.html" id="nav-contact">Contact</a>
+            <a href="shop.html" id="nav-shop" class="active">Shop</a> 
+        </nav>
         </div>
     </header>
 
@@ -521,10 +479,8 @@
         })();
         
         // **SHOP SPECIFIC SCRIPT**
-        // Placeholder function for Add to Basket
+        // Placeholder function for Add to Basket (to be replaced by Shopify integration)
         function addToBasket(productName) {
-            // In a real e-commerce setup, this would send an AJAX request to a server,
-            // update a visible cart icon, and store the item in local storage/session.
             console.log("Added to Basket:", productName);
             alert("Added " + productName + " to your basket! (Placeholder)");
         }

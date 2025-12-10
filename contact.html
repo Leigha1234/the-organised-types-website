@@ -204,13 +204,19 @@
             grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
-
-        /* Primary Contact & Alternatives Column */
+        
+        /* Ensure Info Column is left (default), Form is right (default) */
         .contact-info-column {
             display: flex;
             flex-direction: column;
             gap: 30px;
+            order: 1; /* Left Column */
         }
+        .contact-form-section {
+            order: 2; /* Right Column */
+        }
+        
+        /* Styling for the info boxes */
         .info-box, .alt-options, .support-options {
             background-color: var(--card-bg);
             padding: 30px;
@@ -241,10 +247,7 @@
             color: var(--accent-color);
         }
         
-        /* Contact Form Section */
-        .contact-form-section {
-            grid-column: 2 / 3;
-        }
+        /* Contact Form Styling */
         .contact-form {
             background-color: var(--card-bg);
             padding: 30px;
@@ -311,7 +314,7 @@
             margin-left: -1em;
         }
         
-        .faq-snippet > .contact-grid { /* Targeting the inner grid */
+        .faq-snippet > .contact-grid { 
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
@@ -325,14 +328,12 @@
             margin-top: 0;
             margin-bottom: 15px;
         }
-        .faq-snippet h3 { /* Used for quick answers */
-            font-size: 1.2em;
+        .faq-snippet h4 { /* Used for quick answers headers */
+            font-size: 1.1em;
             color: var(--primary-color);
             margin-top: 15px;
             margin-bottom: 5px;
-        }
-        .faq-snippet strong { /* Removed this, replaced with h3 */
-            display: none;
+            font-weight: 600;
         }
 
         .footer-cta {
@@ -385,20 +386,17 @@
             }
             .dropdown.active .dropdown-content { display: block; }
             
-            /* Mobile Contact Layout */
+            /* Mobile Contact Layout (Stacking) */
             .contact-content { margin-top: 110px; padding: 20px 10px; }
             .hero-section h1 { font-size: 2.2em; }
             .contact-grid {
                 grid-template-columns: 1fr; /* Stack columns on mobile */
                 gap: 25px;
             }
-            .contact-form-section {
-                grid-column: auto;
-                order: 1; /* Place form first on mobile */
-            }
-            .contact-info-column {
-                order: 2; /* Place info second */
-            }
+            /* Reverse order for mobile: Form first, Info second */
+            .contact-form-section { order: 1; }
+            .contact-info-column { order: 2; }
+            
             .why-contact, .faq-snippet { padding: 20px; }
             .link-button { width: 100%; }
             
@@ -450,31 +448,6 @@
 
             <div class="contact-grid">
                 
-                <div class="contact-form-section">
-                    <h2>Send Us a Message</h2>
-                    <p>Have an enquiry? Use the form below and we’ll get back to you as soon as we can.</p>
-                    <form class="contact-form" action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject / What’s this about?</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit">Send Message</button>
-                        <p class="privacy-note">We respect your privacy — your details will never be shared.</p>
-                    </form>
-                </div>
-
                 <div class="contact-info-column">
                     
                     <div class="info-box">
@@ -507,6 +480,32 @@
                     </div>
 
                 </div>
+                
+                <div class="contact-form-section">
+                    <h2>Send Us a Message</h2>
+                    <p>Have an enquiry? Use the form below and we’ll get back to you as soon as we can.</p>
+                    <form class="contact-form" action="#" method="POST" id="form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject / What’s this about?</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit">Send Message</button>
+                        <p class="privacy-note">We respect your privacy — your details will never be shared.</p>
+                    </form>
+                </div>
+
             </div>
             
             <div class="why-contact">
