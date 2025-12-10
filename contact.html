@@ -30,7 +30,7 @@
         }
         .container { 
             width: 90%; 
-            max-width: 1000px; /* Increased max-width for better content flow */
+            max-width: 1000px; 
             margin: auto; 
             padding: 30px 0; 
             box-sizing: border-box; 
@@ -311,25 +311,28 @@
             margin-left: -1em;
         }
         
-        .faq-snippet {
-            margin-top: 30px;
+        .faq-snippet > .contact-grid { /* Targeting the inner grid */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
         }
-        .faq-snippet h3 {
-            font-size: 1.4em;
+        .faq-snippet h2 {
+            font-size: 1.6em;
             color: var(--primary-color);
+            border-bottom: 1px dashed #cccccc;
+            padding-bottom: 10px;
             margin-top: 0;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 5px;
+            margin-bottom: 15px;
         }
-        .faq-snippet p {
-            margin-bottom: 10px;
-            font-weight: 400;
-            text-align: left;
+        .faq-snippet h3 { /* Used for quick answers */
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-top: 15px;
+            margin-bottom: 5px;
         }
-        .faq-snippet strong {
-            color: var(--accent-color);
-            display: block;
-            margin-top: 10px;
+        .faq-snippet strong { /* Removed this, replaced with h3 */
+            display: none;
         }
 
         .footer-cta {
@@ -398,6 +401,11 @@
             }
             .why-contact, .faq-snippet { padding: 20px; }
             .link-button { width: 100%; }
+            
+            /* Mobile FAQ Snippet */
+            .faq-snippet > .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -514,29 +522,33 @@
                 <p>we’ll help you take the next step with confidence.</p>
             </div>
             
-            <div class="faq-snippet contact-grid">
-                <div>
-                    <h2>Support for Purchases</h2>
-                    <p>If you’ve purchased a product from our shop and need help with:</p>
-                    <ul>
-                        <li>Download issues</li>
-                        <li>Instructions or templates</li>
-                        <li>Access links</li>
-                        <li>Licensing questions</li>
-                    </ul>
-                    <p>Email our support team at **<a href="mailto:support@theorganisedtypes.com">support@theorganisedtypes.com</a>**. We’re here to help!</p>
-                </div>
-                
-                <div>
-                    <h2>Quick Answers</h2>
-                    <strong>Do you offer custom work?</strong>
-                    <p>Yes — contact us with your brief and we’ll get back to you with options.</p>
+            <div class="faq-snippet">
+                <h2>Quick Help & Support</h2>
+                <div class="contact-grid">
+                    <div>
+                        <h3>Support for Purchases</h3>
+                        <p>If you’ve purchased a product from our shop and need help with:</p>
+                        <ul>
+                            <li>Download issues</li>
+                            <li>Instructions or templates</li>
+                            <li>Access links</li>
+                            <li>Licensing questions</li>
+                        </ul>
+                        <p>Email our support team at **<a href="mailto:support@theorganisedtypes.com">support@theorganisedtypes.com</a>**. We’re here to help!</p>
+                    </div>
                     
-                    <strong>How long will it take to hear from you?</strong>
-                    <p>We aim to respond within 24–48 hours on weekdays.</p>
-                    
-                    <strong>Can I chat over video?</strong>
-                    <p>Absolutely — book a coaching call or project consultation and we can connect on Zoom.</p>
+                    <div>
+                        <h3>Quick Answers</h3>
+                        
+                        <h4>Do you offer custom work?</h4>
+                        <p>Yes — contact us with your brief and we’ll get back to you with options.</p>
+                        
+                        <h4>How long will it take to hear from you?</h4>
+                        <p>We aim to respond within 24–48 hours on weekdays.</p>
+                        
+                        <h4>Can I chat over video?</h4>
+                        <p>Absolutely — book a coaching call or project consultation and we can connect on Zoom.</p>
+                    </div>
                 </div>
             </div>
             
