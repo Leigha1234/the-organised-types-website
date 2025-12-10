@@ -16,6 +16,8 @@
             --card-bg: #F5F2EF; 
             --text-color: #4f4a46; 
             --font-main: 'Poppins', sans-serif;
+            --light-text: #ffffff;
+            --highlight-text: #A9B897; /* Accent color for links/strong in dark boxes */
         }
         body { 
             font-family: var(--font-main); 
@@ -205,21 +207,13 @@
             gap: 40px;
         }
         
-        /* === BACKGROUND IMAGE ADDITION === */
+        /* Contact Info Column - Cleaned up to just be a container */
         .contact-info-column {
             display: flex;
             flex-direction: column;
             gap: 30px;
             order: 1; /* Left Column */
-            
-            /* Background Image Style */
-            background-image: url('contactbg.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 30px; /* Padding for the entire column to contain the image */
-            border-radius: 8px;
         }
-        /* END BACKGROUND IMAGE ADDITION */
         
         .contact-form-section {
             order: 2; /* Right Column */
@@ -227,16 +221,24 @@
         
         /* Styling for the info boxes */
         .info-box, .alt-options {
-            /* Adjust background for transparency/legibility */
-            background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for legibility */
+            /* === IMAGE BACKGROUND APPLIED HERE === */
+            background-image: url('contactbg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--primary-color); /* Fallback color for dark text overlay */
+            color: var(--light-text); /* Light text for readability over dark image */
+            
+            /* Basic styling */
             padding: 30px;
             border-radius: 8px;
             border-left: 3px solid var(--accent-color);
         }
-        .info-box h2, .alt-options h2, .contact-form-section h2, .why-contact h2 {
-            color: var(--primary-color);
+        
+        /* Text color overrides for light background */
+        .info-box h2, .alt-options h2 {
+            color: var(--light-text); /* Headings white */
             font-size: 1.6em;
-            border-bottom: 1px dashed #cccccc;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.4); /* Light dashed line */
             padding-bottom: 10px;
             margin-top: 0;
             margin-bottom: 15px;
@@ -245,16 +247,21 @@
             display: block;
             margin-top: 15px;
             font-size: 1.1em;
-            color: var(--accent-color);
+            color: var(--highlight-text); /* Accent color for strong text */
         }
-        .info-box a, .alt-options a, .why-contact a {
-            color: var(--primary-color);
+        .info-box a, .alt-options a {
+            color: var(--highlight-text); /* Accent color for links */
             font-weight: 600;
-            text-decoration: none;
+            text-decoration: underline;
             transition: color 0.3s;
         }
-        .info-box a:hover, .alt-options a:hover, .why-contact a:hover {
-            color: var(--accent-color);
+        .info-box a:hover, .alt-options a:hover {
+            color: var(--light-text);
+        }
+        /* Reset form section and other elements back to original style */
+        .contact-form-section h2, .why-contact h2 {
+            color: var(--primary-color);
+            border-bottom: 1px dashed #cccccc;
         }
         
         /* Contact Form Styling */
@@ -404,11 +411,25 @@
             }
             /* Reverse order for mobile: Form first, Info second */
             .contact-form-section { order: 1; }
-            .contact-info-column { 
-                order: 2; 
-                padding: 20px; /* Reduced padding on mobile */
-                background-image: none; /* Optional: Remove image on mobile for performance/simplicity */
-                background-color: var(--logo-bg); /* Use a solid color fallback */
+            .contact-info-column { order: 2; }
+            
+            /* Mobile Style: Remove image background and use solid colour/default text */
+            .info-box, .alt-options {
+                background-image: none; 
+                background-color: var(--card-bg); 
+                color: var(--text-color);
+                padding: 20px;
+            }
+             .info-box h2, .alt-options h2 {
+                color: var(--primary-color);
+                border-bottom: 1px dashed #cccccc;
+            }
+            .info-box a, .alt-options a {
+                color: var(--primary-color);
+                text-decoration: none;
+            }
+            .info-box strong {
+                 color: var(--accent-color);
             }
             
             .why-contact, .faq-snippet { padding: 20px; }
