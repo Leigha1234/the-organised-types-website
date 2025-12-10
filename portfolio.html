@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables (MUST MATCH INDEX.HTML & SERVICES.HTML) */
+        /* CSS Variables (MUST MATCH ALL PAGES) */
         :root {
             --primary-color: #1a1a1a; 
             --accent-color: #A9B897; /* Dull Sage Green */
@@ -40,8 +40,8 @@
         header { 
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
-            padding: 15px 0; 
-            position: sticky; /* Sticky header enabled */
+            padding: 10px 0; /* ADJUSTED PADDING */
+            position: sticky; 
             top: 0; 
             z-index: 20; 
         }
@@ -57,14 +57,10 @@
             color: var(--primary-color); 
         }
         .logo-area img { 
-            height: 60px; 
+            height: 150px; /* INCREASED SIZE */
             margin-right: 10px; 
         } 
-        .logo-text { 
-            font-size: 1.6em; 
-            font-weight: 700; 
-        }
-
+        
         /* Desktop Navigation Links */
         #main-nav { 
             display: flex; 
@@ -121,7 +117,7 @@
             background-color: var(--logo-bg); 
             color: var(--primary-color); 
             text-align: center; 
-            padding: 20px 0; /* Reduced padding for consistency */
+            padding: 20px 0; 
             font-size: 0.9em; 
             margin-top: auto; 
         }
@@ -143,7 +139,7 @@
         }
         .main-content h1 {
             font-size: 4em;
-            color: var(--accent-color); /* Used accent color for heading */
+            color: var(--accent-color); 
             margin-bottom: 10px;
         }
         .main-content p {
@@ -182,7 +178,7 @@
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 90px; /* Adjusted for sticky header */
+                top: 170px; /* ADJUSTED TOP POSITION */
                 left: 0;
                 border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0,0,0,0.1);
@@ -225,7 +221,6 @@
         <div class="container navbar">
             <a href="index.html" class="logo-area">
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
-                <span class="logo-text">The Organised Types</span>
             </a>
             <div class="menu-icon" onclick="toggleMenu()">
                 <span></span>
@@ -240,12 +235,12 @@
                 <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
             </nav>
         </div>
-        </header>
+    </header>
 
     <div class="main-content">
         <div class="container">
             <h1>Portfolio Under Construction 🚧</h1>
-            <p>We are currently compiling and curating recent case studies to showcase our work in **organizational systems and custom digital solutions**.</p>
+            <p>We are currently compiling and curating recent case studies to showcase our work in **organisational** systems and custom digital solutions.</p>
             <p>Please check back soon! In the meantime, you can <a href="contact.html">contact us directly</a> to discuss your project needs.</p>
             <a href="services.html" class="cta-button">View Our Solutions</a>
         </div>

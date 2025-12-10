@@ -23,7 +23,7 @@
             padding: 0; 
             background-color: var(--cream-bg); 
             color: var(--text-color); 
-            line-height: 1.7; /* Changed to 1.7 for consistency */
+            line-height: 1.7; 
             min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
@@ -40,8 +40,8 @@
         header { 
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
-            padding: 15px 0; 
-            position: sticky; /* Sticky header enabled */
+            padding: 10px 0; /* ADJUSTED PADDING */
+            position: sticky; 
             top: 0; 
             z-index: 20; 
         }
@@ -57,13 +57,9 @@
             color: var(--primary-color); 
         }
         .logo-area img { 
-            height: 60px; 
+            height: 150px; /* INCREASED SIZE */
             margin-right: 10px; 
         } 
-        .logo-text { 
-            font-size: 1.6em; 
-            font-weight: 700; 
-        }
 
         /* Desktop Navigation Links */
         #main-nav { 
@@ -121,7 +117,7 @@
             background-color: var(--logo-bg); 
             color: var(--primary-color); 
             text-align: center; 
-            padding: 20px 0; /* Reduced padding for consistency */
+            padding: 20px 0; 
             font-size: 0.9em; 
             margin-top: auto; 
         }
@@ -135,10 +131,10 @@
             max-width: 600px; 
             margin: 40px auto; 
             padding: 40px; 
-            background: var(--card-bg); /* Use card background color */
+            background: var(--card-bg); 
             border-radius: 8px; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-            border-top: 5px solid var(--accent-color); /* Added accent border for style consistency */
+            border-top: 5px solid var(--accent-color); 
         }
         .contact-content h1 { 
             text-align: center; 
@@ -192,7 +188,7 @@
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 90px; 
+                top: 170px; /* ADJUSTED TOP POSITION */
                 left: 0;
                 border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0,0,0,0.1);
@@ -202,19 +198,6 @@
             #main-nav.show-menu {
                 display: flex;
             }
-            #main-nav a {
-                text-align: center;
-                margin: 10px 0;
-                padding: 10px 0;
-                margin-left: 0; 
-                border-bottom: 1px solid #f5f5f5;
-                font-size: 1.2em;
-            }
-            #main-nav a:last-child {
-                border-bottom: none;
-            }
-
-            /* Mobile Contact */
             .contact-content { 
                 margin: 20px auto; 
                 padding: 25px; 
@@ -236,7 +219,6 @@
         <div class="container navbar">
             <a href="index.html" class="logo-area">
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
-                <span class="logo-text">The Organised Types</span>
             </a>
             <div class="menu-icon" onclick="toggleMenu()">
                 <span></span>
@@ -251,12 +233,12 @@
                 <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
             </nav>
         </div>
-        </header>
+    </header>
 
     <div class="container">
         <div class="contact-content">
-            <h1>Let's Organize Your Next Success 🚀</h1>
-            <p>Tell us about your organizational challenges or the custom system you need. We specialize in non-website digital solutions.</p>
+            <h1>Let's Organise Your Next Success 🚀</h1>
+            <p>Tell us about your organisational challenges or the custom system you need. We specialise in non-website digital solutions.</p>
             
             <form class="contact-form" action="#" method="POST">
                 <label for="name">Name (required)</label>
