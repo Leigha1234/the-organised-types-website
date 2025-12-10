@@ -16,6 +16,7 @@
             --card-bg: #F5F2EF; 
             --text-color: #4f4a46; 
             --font-main: 'Poppins', sans-serif;
+            --light-text: #ffffff; /* For contrast on dark/image backgrounds if needed */
         }
         body { 
             font-family: var(--font-main); 
@@ -112,13 +113,17 @@
             margin-bottom: 30px;
         }
 
-        /* Jump To/Table of Contents */
+        /* Jump To/Table of Contents - WITH IMAGE BACKGROUND */
         .jump-to-section {
-            background-color: var(--logo-bg);
-            padding: 20px;
+            background-image: url('faqbg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--logo-bg); /* Fallback */
+            padding: 30px; /* Increased padding slightly */
             border-radius: 8px;
             margin-bottom: 40px;
             text-align: center;
+            color: var(--primary-color); /* Ensure text is dark/taupe over image */
         }
         .jump-to-section h3 {
             margin-top: 0;
@@ -226,13 +231,18 @@
             padding-top: 0;
         }
 
+        /* Support Box - WITH IMAGE BACKGROUND */
         .support-box {
-            background-color: var(--logo-bg);
+            background-image: url('faqbg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: var(--primary-color); /* Fallback */
             padding: 30px;
             border-radius: 8px;
             text-align: center;
             margin-top: 40px;
             border: 1px solid var(--accent-color);
+            color: var(--primary-color); /* Ensure text is dark/taupe over image */
         }
         .support-box h3 {
             color: var(--primary-color);
@@ -251,6 +261,14 @@
             .page-header h1 { font-size: 2.2em; }
             .menu-icon { display: flex; }
             #main-nav { display: none; } 
+            
+            /* Mobile: Remove image background for performance/readability on small screens */
+            .jump-to-section, .support-box {
+                background-image: none;
+                background-color: var(--logo-bg); /* Revert to solid color */
+                color: var(--text-color); /* Revert text color */
+            }
+            
             .jump-to-list a { font-size: 0.9em; padding: 6px 12px; }
         }
     </style>
@@ -354,7 +372,7 @@
             </div>
 
             <div class="faq-item">
-                <div class="faq-question">Can I edit my website after it’s built?<span class="icon">&#9660;</span></div>
+                <div class="faq-question">Can I edit my website after it’s built?<span class="icon">&#9660;</div>
                 <div class="faq-answer"><div class="faq-answer-content">Absolutely! All websites come with full client access. We also offer a **Website Training Session** for £49 if you want a detailed walkthrough.</div></div>
             </div>
 
