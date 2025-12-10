@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Frequently Asked Questions | The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables (Must match previous files) */
+        :root {
+            --primary-color: #4f4a46; /* Dark Taupe */
+            --accent-color: #A9B897; /* Dull Sage Green */
+            --cream-bg: #FAF8F5; 
+            --logo-bg: #EFE6E1; 
+            --card-bg: #F5F2EF; 
+            --text-color: #4f4a46; 
+            --font-main: 'Poppins', sans-serif;
+        }
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.7; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 30px 0; 
+            box-sizing: border-box; 
+            margin-top: 110px; 
+        }
+
+        /* --- HEADER & NAVIGATION (Common Styles) --- */
+        header { 
+            background-color: var(--logo-bg); 
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 5px 0; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 20; 
+        }
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+            box-sizing: border-box;
+        }
+        .logo-area img { height: 100px; margin-right: 10px; } 
+        #main-nav { display: flex; align-items: center; }
+        #main-nav a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+            white-space: nowrap;
+        }
+        #main-nav a:hover, 
+        #main-nav a.active { color: var(--accent-color); }
+        .dropdown { position: relative; display: inline-block; margin-left: 25px; white-space: nowrap; }
+        .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; padding: 10px 0; cursor: default; display: block; }
+        .dropdown-toggle:hover { color: var(--accent-color); }
+        .dropdown-content {
+            display: none; position: absolute; background-color: var(--logo-bg); min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 2; padding: 10px 0; border-radius: 4px; top: 100%; left: 50%; transform: translateX(-50%);
+        }
+        .dropdown-content a { color: var(--primary-color); padding: 10px 20px; text-decoration: none; display: block; text-align: left; margin: 0; font-weight: 400; transition: background-color 0.3s; }
+        .dropdown-content a:hover { background-color: rgba(0, 0, 0, 0.05); color: var(--primary-color); }
+        .dropdown:hover .dropdown-content { display: block; }
+        .menu-icon { display: none; cursor: pointer; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; }
+        .menu-icon span { display: block; width: 100%; height: 3px; margin: 4px 0; background: var(--primary-color); transition: 0.4s; border-radius: 3px; }
+
+        /* --- FOOTER (Common Style) --- */
+        footer { 
+            background-color: var(--logo-bg); 
+            color: var(--primary-color); 
+            text-align: center; 
+            padding: 20px 0; 
+            font-size: 0.9em; 
+            margin-top: auto; 
+        }
+        footer a { color: var(--accent-color); text-decoration: none; }
+
+        /* --- PAGE-SPECIFIC STYLES: FAQ Content --- */
+        .page-header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        .page-header h1 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .intro-text {
+            font-size: 1.1em;
+            color: var(--text-color);
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 20px;
+        }
+        
+        .faq-section {
+            margin-bottom: 35px;
+            padding-top: 15px;
+        }
+        .faq-section h2 {
+            font-size: 2em;
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            background-color: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-color);
+        }
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question span.icon {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+        .faq-answer {
+            padding-top: 10px;
+            font-size: 0.95em;
+            border-top: 1px dashed #e0e0e0;
+            display: none; /* Initially hidden */
+            line-height: 1.6;
+        }
+        .faq-answer ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .faq-answer strong {
+            color: var(--primary-color);
+        }
+        .open .faq-answer {
+            display: block;
+        }
+        .open .faq-question span.icon {
+            transform: rotate(180deg);
+        }
+
+        .support-box {
+            background-color: var(--logo-bg);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+            border: 1px solid var(--accent-color);
+        }
+        .support-box h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+        .support-box a {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .container { margin-top: 90px; }
+            .page-header h1 { font-size: 2.2em; }
+            .menu-icon { display: flex; }
+            #main-nav { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar"> 
+            <a href="index.html" class="logo-area">
+                <img src="logo.jpg.webp" alt="The Organised Types Logo">
+            </a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html" id="nav-index">Home</a> 
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Packages</a>
+                        <a href="services.html#website-addons">Website Add-Ons</a>
+                        <a href="services.html#branding">Branding Packages</a>
+                        <a href="services.html#coaching">Coaching Packages</a>
+                        <a href="services.html#coaching-table">Coaching Comparison</a>
+                        <a href="services.html#templates">Digital Products</a>
+                    </div>
+                </div>
+                <a href="faq.html" id="nav-contact">FAQ's</a>
+                <a href="contact.html" id="nav-contact">Contact</a>
+                <a href="shop.html" id="nav-shop">Shop</a> 
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        
+        <div class="page-header">
+            <h1>FAQ PAGE</h1>
+        </div>
+        
+        <p class="intro-text">Welcome to our FAQ page! Here you’ll find answers to our most commonly asked questions about websites, branding, coaching, templates, digital downloads and more. If you still need help, feel free to contact us anytime.</p>
+
+
+        <div class="faq-section" id="website-faq">
+            <h2>⭐ WEBSITE DESIGN FAQ</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What platforms do you build websites on?<span class="icon">&#9660;</span></div>
+                <div class="faq-answer">We build on **Wix, Shopify, Squarespace and WordPress** depending on your needs, budget and required functionality.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How long does a website take to complete?<span class="icon">&#9660;</span></div>
+                <div class="faq-answer">
+                    The timeline depends entirely on the package chosen. This estimate begins once we have all content (text, images, branding) from you:
+                    <ul>
+                        <li>Micro Website: **5–7 days**</li>
+                        <li>Starter Website: **1–2 weeks**</li>
+                        <li>Small Business Website: **2–3 weeks**</li>
+                        <li>Professional Website: **3–4 weeks**</li>
+                        <li>Premium Website: **4–6+ weeks** depending on complexity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What do I need to provide for my website project?<span class="icon">&#9660;</span></div>
+                <div class="faq-answer">
+                    Once you book, you’ll receive an onboarding pack including:
+                    <ul>
+                        <li>Content checklist</li>
+                        <li>Copy collection document</li>
+                        <li>Branding assets</li>
+                        <li>Login access (if applicable)</li>
+                        <li>Any required imagery</li>
+                    </ul>
+                    We make this process as simple as possible.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer website hosting or domains?<span class="icon">&#9660;</span></div>
+                <div class="faq-answer">No — hosting and domains are purchased directly through Wix, Squarespace, Shopify or your hosting provider. We can guide you through this during onboarding.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I edit my website after it’s built?<span class="icon">&#9660;</span></div>
+                <div class="faq-answer">Absolutely! All websites come with full client access. We also offer a **Website Training Session** for £49 if you want a detailed walkthrough.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer ongoing support?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Yes. We offer **Monthly Maintenance Packages** from £49/month which include updates, improvements and small edits.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer refunds for website services?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Because this is a customised service, refunds are **not available** once work has begun.</div>
+            </div>
+
+        </div>
+
+        <div class="faq-section" id="branding-faq">
+            <h2>⭐ BRANDING FAQ</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What’s the difference between the Mini Brand Kit and the Full Brand Identity Kit?<span class="icon">&#9660;</div>
+                <div class="faq-answer">The **Mini Brand Kit** includes a logo, colour palette and typography. The **Full Brand Identity Kit** includes everything above plus sub-logos, icons, patterns, direction sheets and expanded branding elements.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I request changes to my branding?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Yes — each branding package includes **one or more revision rounds** depending on the package purchased.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What files do I receive?<span class="icon">&#9660;</div>
+                <div class="faq-answer">You’ll receive **PNG, JPG and SVG files**, plus a branded PDF guide showing how to use your assets.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use my branding on physical products?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Yes — once delivered, your branding is licensed for your own business use.</div>
+            </div>
+
+        </div>
+        
+        <div class="faq-section" id="coaching-faq">
+            <h2>⭐ BUSINESS COACHING FAQ</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How does a coaching session work?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Once purchased, you’ll receive a link to book your session and complete a short pre-call questionnaire. During the session, we’ll walk through your goals, challenges and strategy. Afterwards, you’ll receive a personalised action plan.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What topics can we cover in coaching?<span class="icon">&#9660;</div>
+                <div class="faq-answer">
+                    Anything related to your business, including:
+                    <ul>
+                        <li>Pricing & Offers</li>
+                        <li>Systems & Operations</li>
+                        <li>Branding & Marketing</li>
+                        <li>Content & Productivity</li>
+                        <li>Business planning & Etsy setup</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Are coaching sessions refundable?<span class="icon">&#9660;</div>
+                <div class="faq-answer">No — but you can reschedule with at least **24 hours’ notice**.</div>
+            </div>
+
+        </div>
+
+        <div class="faq-section" id="digital-faq">
+            <h2>⭐ DIGITAL PRODUCTS FAQ</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">I didn’t receive my download — what do I do?<span class="icon">&#9660;</div>
+                <div class="faq-answer">
+                    Please check:
+                    <ul>
+                        <li>Your email (including spam)</li>
+                        <li>Your account download section</li>
+                    </ul>
+                    If you still can’t access it, contact us at **support@theorganisedtypes.com**.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What software do your templates work with?<span class="icon">&#9660;</div>
+                <div class="faq-answer">
+                    Our templates may use:
+                    <ul>
+                        <li>Canva</li>
+                        <li>Notion</li>
+                        <li>PDF readers (e.g., Adobe Acrobat)</li>
+                        <li>GoodNotes / Notability (digital planners)</li>
+                        <li>Excel / Google Sheets</li>
+                    </ul>
+                    Each listing explains the format clearly.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I edit the templates?<span class="icon">&#9660;</div>
+                <div class="faq-answer">If it’s a Canva template, yes — fully editable. PDF downloads are **not editable** unless specifically stated.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I use your templates for client work?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Only if you’ve purchased a **commercial licence add-on**. Otherwise, they are for personal use only.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer refunds on digital products?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Due to automatic delivery, digital downloads are **non-refundable** once accessed.</div>
+            </div>
+
+        </div>
+        
+        <div class="faq-section" id="courses-faq">
+            <h2>⭐ COURSES & EDUCATION FAQ (Future-Proof)</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer courses?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Courses and workshops are **coming soon!** Join our mailing list to be notified when they launch.</div>
+            </div>
+        </div>
+
+        <div class="faq-section" id="general-faq">
+            <h2>⭐ GENERAL FAQ</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I book a service?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Choose your service → Add to Cart → Complete checkout. You’ll receive confirmation and your onboarding pack automatically.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer custom packages?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Yes — if you don’t see what you need, contact us and we can create a tailored package.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I purchase add-ons separately?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Yes! All add-ons (SEO, branding, extra pages, copywriting etc.) can be added to your cart individually or bundled with a website package.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer multi-buy discounts?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Yes — purchase a website package + any 3 add-ons and receive a multipurchase discount.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What payment methods do you accept?<span class="icon">&#9660;</div>
+                <div class="faq-answer">All major payment methods accepted.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How fast do you respond?<span class="icon">&#9660;</div>
+                <div class="faq-answer">Typically within **24–48 hours** (Mon–Fri).</div>
+            </div>
+
+        </div>
+        
+        <div class="support-box">
+            <h3>Still need help?</h3>
+            <p>📩 Email us at <a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a></p>
+            <p>We’re always happy to support you.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Ready to start your project? <a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs.</p>
+            <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                // Set the initial state of the first item to open for visibility
+                if (item.id === 'website-faq') {
+                    item.classList.add('open');
+                }
+
+                question.addEventListener('click', () => {
+                    // Toggle the 'open' class on the parent faq-item
+                    item.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
