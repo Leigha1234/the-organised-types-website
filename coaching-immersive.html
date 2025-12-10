@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immersive Strategy Coaching - The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* (Insert the exact same CSS structure as the previous files) */
+        :root {
+            --primary-color: #4f4a46; /* Dark Taupe */
+            --accent-color: #A9B897; /* Dull Sage Green */
+            --cream-bg: #FAF8F5; 
+            --logo-bg: #EFE6E1; 
+            --card-bg: #F5F2EF; 
+            --text-color: #4f4a46; 
+            --font-main: 'Poppins', sans-serif;
+        }
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.7; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 30px 0; 
+            box-sizing: border-box; 
+            margin-top: 110px; 
+        }
+
+        /* --- HEADER & NAVIGATION (Common Styles) */
+        header { 
+            background-color: var(--logo-bg); 
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 5px 0; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 20; 
+        }
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+            box-sizing: border-box;
+        }
+        .logo-area img { height: 100px; margin-right: 10px; } 
+        #main-nav { display: flex; align-items: center; }
+        #main-nav a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+            white-space: nowrap;
+        }
+        #main-nav a:hover, 
+        #main-nav a.active { color: var(--accent-color); }
+        .dropdown { position: relative; display: inline-block; margin-left: 25px; white-space: nowrap; }
+        .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; padding: 10px 0; cursor: default; display: block; }
+        .dropdown-toggle:hover { color: var(--accent-color); }
+        .dropdown-content {
+            display: none; position: absolute; background-color: var(--logo-bg); min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 2; padding: 10px 0; border-radius: 4px; top: 100%; left: 50%; transform: translateX(-50%);
+        }
+        .dropdown-content a { color: var(--primary-color); padding: 10px 20px; text-decoration: none; display: block; text-align: left; margin: 0; font-weight: 400; transition: background-color 0.3s; }
+        .dropdown-content a:hover { background-color: rgba(0, 0, 0, 0.05); color: var(--primary-color); }
+        .dropdown:hover .dropdown-content { display: block; }
+        .menu-icon { display: none; cursor: pointer; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; }
+        .menu-icon span { display: block; width: 100%; height: 3px; margin: 4px 0; background: var(--primary-color); transition: 0.4s; border-radius: 3px; }
+
+        /* --- BUTTON & LINK STYLES (Common) --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color); 
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .cta-button:hover { background-color: #92a487; }
+        
+        /* --- FOOTER (Common Style) --- */
+        footer { 
+            background-color: var(--logo-bg); 
+            color: var(--primary-color); 
+            text-align: center; 
+            padding: 20px 0; 
+            font-size: 0.9em; 
+            margin-top: auto; 
+        }
+        footer a { color: var(--accent-color); text-decoration: none; }
+
+        /* --- PAGE-SPECIFIC STYLES: DETAIL CONTENT --- */
+        .detail-header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid var(--accent-color);
+            margin-bottom: 30px;
+        }
+        .detail-header h1 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .detail-header .price {
+            font-size: 1.6em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .tagline {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            border-bottom: 1px dashed #cccccc;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .feature-item {
+            background-color: var(--cream-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.95em;
+        }
+        .feature-item strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .process-list {
+            list-style: none;
+            counter-reset: detail-step;
+            padding-left: 0;
+        }
+        .process-list li {
+            position: relative;
+            padding: 10px 0 10px 40px;
+            margin-bottom: 10px;
+            background: var(--cream-bg);
+            border-radius: 4px;
+        }
+        .process-list li::before {
+            content: counter(detail-step);
+            counter-increment: detail-step;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            color: var(--cream-bg);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .call-to-action {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .container { margin-top: 90px; }
+            .detail-header h1 { font-size: 2.2em; }
+            .detail-header .price { font-size: 1.4em; }
+            .features-grid { grid-template-columns: 1fr; }
+            .menu-icon { display: flex; }
+            #main-nav { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar"> 
+            <a href="index.html" class="logo-area">
+                <img src="logo.jpg.webp" alt="The Organised Types Logo">
+            </a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html" id="nav-index">Home</a> 
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services" class="active">Services &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Packages</a>
+                        <a href="services.html#website-addons">Website Add-Ons</a>
+                        <a href="services.html#branding">Branding Packages</a>
+                        <a href="services.html#coaching">Coaching Packages</a>
+                        <a href="services.html#coaching-table">Coaching Comparison</a>
+                        <a href="services.html#templates">Digital Products</a>
+                    </div>
+                </div>
+                <a href="contact.html" id="nav-contact">Contact</a>
+                <a href="shop.html" id="nav-shop">Shop</a> 
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        
+        <div class="detail-header">
+            <h1>✨ Immersive Strategy Coaching — 12 Sessions</h1>
+            <p class="tagline">The most comprehensive package for scaling, systematising, and transforming your business.</p>
+            <p class="price">Bundle price = £(Your Price × 10) + 2 Free</p>
+        </div>
+
+        <div class="content-section">
+            <h2>The Deep Dive for Maximum Impact</h2>
+            <p>The Immersive Strategy Coaching package is designed for **established business owners or leaders** ready to undergo a significant transformation. Over 12 sessions, we move beyond quick fixes and build robust, long-lasting systems and strategies for sustainable, high-level growth. This is the equivalent of a full 3-month strategic partnership.</p>
+            <p>This package is essential if you are planning major pivots, hiring key team members, restructuring your offers, or aiming for a significant revenue leap within the next year.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Immersive Package Inclusions</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <strong>12 x 60-Minute Sessions</strong>
+                    Regular, structured meetings over 3-6 months to ensure momentum.
+                </div>
+                <div class="feature-item">
+                    <strong>Business Audit & Systems Setup</strong>
+                    Full review of your current operations, finances, and time management systems.
+                </div>
+                <div class="feature-item">
+                    <strong>Custom Playbook Development</strong>
+                    Creation of a high-level strategic document outlining your next 6-12 month roadmap.
+                </div>
+                <div class="feature-item">
+                    <strong>Unlimited Email & Chat Support</strong>
+                    Access to quick advice and accountability between sessions.
+                </div>
+                <div class="feature-item">
+                    <strong>Resource Creation & Review</strong>
+                    We help create, review, and refine key documents like pricing sheets, job descriptions, or onboarding scripts.
+                </div>
+                <div class="feature-item">
+                    <strong>90-Day Post-Program Support</strong>
+                    Three full months of lighter accountability and check-ins following the final session.
+                </div>
+                <div class="feature-item">
+                    <strong>Access to Premium Templates</strong>
+                    Complimentary access to our entire suite of business and productivity templates from the shop.
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Transformative 12-Session Structure</h2>
+            <ol class="process-list">
+                <li>
+                    <strong>Phase 1 (Sessions 1-3): Foundation & Audit</strong>
+                    Goal setting, bottleneck identification, and system assessment.
+                </li>
+                <li>
+                    <strong>Phase 2 (Sessions 4-8): Deep Strategy & Restructure</strong>
+                    Focused work on pricing, team structures, offer development, and marketing funnels.
+                </li>
+                <li>
+                    <strong>Phase 3 (Sessions 9-11): Implementation & Refinement</strong>
+                    Reviewing early results, troubleshooting, and documenting new processes.
+                </li>
+                <li>
+                    <strong>Phase 4 (Session 12): Future Playbook & Transition</strong>
+                    Finalizing the long-term plan and preparing for independent implementation.
+                </li>
+            </ol>
+        </div>
+        
+        <div class="call-to-action">
+            <h3>Ready for strategic partnership and massive growth?</h3>
+            <a href="contact.html" class="cta-button">Apply for Immersive Coaching</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Ready to start your project? <a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs.</p>
+            <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Placeholder script section
+    </script>
+
+</body>
+</html>
