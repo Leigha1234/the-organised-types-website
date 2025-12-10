@@ -65,6 +65,10 @@
         } 
         
         /* DESKTOP NAVIGATION */
+        #main-nav {
+            display: flex;
+            align-items: center;
+        }
         #main-nav a { 
             color: var(--primary-color); 
             text-decoration: none; 
@@ -76,6 +80,57 @@
         #main-nav a:hover, 
         #main-nav a.active { 
             color: var(--accent-color); 
+        }
+        
+        /* DROPDOWN CONTAINER */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 25px;
+            white-space: nowrap;
+        }
+        .dropdown-toggle {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0; /* Add padding for click area */
+            cursor: default; /* Use cursor default for non-link parent */
+            display: block;
+        }
+        .dropdown-toggle:hover {
+            color: var(--accent-color);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--logo-bg);
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 2;
+            padding: 10px 0;
+            border-radius: 4px;
+            top: 100%; /* Position below the toggle */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin: 0; /* Override main-nav margin */
+            font-weight: 400;
+            transition: background-color 0.3s;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color); /* Keep primary color on hover */
+        }
+
+        /* SHOW DROPDOWN ON DESKTOP HOVER */
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         /* HAMBURGER ICON (Desktop Hidden) */
@@ -96,7 +151,7 @@
         }
 
 
-        /* --- BUTTONS & HEADINGS --- */
+        /* --- BUTTONS & HEADINGS (Rest of the styles remain the same) --- */
         .cta-button {
             display: inline-block;
             background: var(--accent-color);
@@ -112,7 +167,7 @@
             white-space: nowrap;
         }
         .cta-button:hover { 
-            background-color: #92a487; /* Slightly darker sage */
+            background-color: #92a487; 
         }
         .cta-button.secondary {
             background: var(--secondary-cta);
@@ -120,7 +175,7 @@
             margin-left: 15px;
         }
         .cta-button.secondary:hover {
-            background-color: #6a635e; /* Slightly lighter taupe */
+            background-color: #6a635e; 
         }
         
         .section-heading { 
@@ -142,7 +197,7 @@
             transition: background-color 0.3s ease;
         }
         .card-link-button:hover {
-            background-color: #6a635e; /* Subtle button hover */
+            background-color: #6a635e; 
         }
 
 
@@ -240,7 +295,7 @@
         }
         .card-wrapper {
             perspective: 1000px; 
-            height: 380px; /* **ADJUSTED: Increased card height for new content** */
+            height: 380px; 
         }
         .service-card {
             position: relative;
@@ -444,7 +499,7 @@
                  font-size: 0.85em; 
             }
             
-            /* HAMBURGER MENU STYLES (No change needed here) */
+            /* MOBILE NAVIGATION STYLES */
             .menu-icon {
                 display: flex; 
             }
@@ -472,6 +527,37 @@
                  padding: 0 5%; 
             }
             
+            /* MOBILE DROPDOWN (STACKED) */
+            .dropdown {
+                margin: 8px 0; /* Align with other mobile links */
+                width: 100%;
+            }
+            .dropdown-toggle {
+                cursor: pointer; /* Enable clicking to show/hide on mobile */
+            }
+            .dropdown-content {
+                position: static; /* Stack vertically */
+                width: 100%;
+                box-shadow: none;
+                padding: 0;
+                transform: none; 
+                background-color: transparent; /* Use transparent background */
+            }
+            .dropdown-content a {
+                padding: 5px 0;
+                font-size: 0.9em;
+                background-color: rgba(79, 74, 70, 0.05); /* Light background for sub-links */
+            }
+            /* Hide dropdown content by default on mobile */
+            .dropdown-content {
+                display: none;
+            }
+            /* Use a class to show/hide on mobile click */
+            .dropdown.active .dropdown-content {
+                display: block; 
+            }
+
+
             /* Mobile Mockup Section (Stacking) */
             .mockup-content {
                 flex-direction: column;
@@ -482,7 +568,6 @@
                 max-width: 90%; 
             }
             .mockup-visual img {
-                /* Ensures image itself fits within container */
                 max-width: 100%; 
             }
 
@@ -493,7 +578,7 @@
             }
             .card-wrapper {
                 perspective: none; 
-                height: auto; /* Allow auto height on mobile */
+                height: auto; 
             }
             .service-card {
                 transform: none; 
@@ -555,7 +640,16 @@
             </div>
             <nav id="main-nav">
                 <a href="index.html" id="nav-index">Home</a> 
-                <a href="services.html" id="nav-services">Services</a>
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">WEBSITE DESIGN & DEVELOPMENT</a>
+                        <a href="services.html#branding">BRAND IDENTITY & DIGITAL DESIGN</a>
+                        <a href="services.html#coaching">BUSINESS COACHING & STRATEGY</a>
+                        <a href="services.html#templates">TEMPLATES, TOOLS & COURSES</a>
+                    </div>
+                </div>
                 <a href="portfolio.html" id="nav-portfolio">Portfolio</a>
                 <a href="contact.html" id="nav-contact">Contact</a>
                 <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
@@ -712,6 +806,19 @@ Our solutions are meticulously organised and fully customised, providing the cla
             nav.classList.toggle("show-menu");
         }
         
+        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK
+        function toggleDropdown(event) {
+            // Check if the current view is mobile (width < 769px)
+            if (window.innerWidth < 769) {
+                // Prevent the link from navigating immediately
+                event.preventDefault(); 
+                
+                // Toggle the 'active' class on the clicked dropdown
+                const dropdown = event.currentTarget;
+                dropdown.classList.toggle('active');
+            }
+        }
+        
         // Function to set the active link dynamically
         (function setActiveLink() {
             const path = window.location.pathname.split('/').pop();
@@ -720,10 +827,16 @@ Our solutions are meticulously organised and fully customised, providing the cla
             document.querySelectorAll('#main-nav a').forEach(link => {
                 link.classList.remove('active');
             });
-
+            
+            // Note: The 'Services' link itself is now targeted via the dropdown-toggle class
             const activeLink = document.getElementById(`nav-${activePage}`);
             if (activeLink) {
                 activeLink.classList.add('active');
+                
+                // If the active link is inside a dropdown, highlight the dropdown toggle too
+                if (activeLink.closest('.dropdown')) {
+                    activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
+                }
             }
         })();
 
