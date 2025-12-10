@@ -13,11 +13,11 @@
             --accent-color: #A9B897; /* Dull Sage Green */
             --cream-bg: #FAF8F5; /* Main Page Background Colour (Soft Off-White) */
             --logo-bg: #EFE6E1; /* Header & Footer Colour (Warm Beige) */
-            --card-bg: #F5F2EF; /* Warm, light beige for cards and forms */
-            --text-color: #444444; /* Slightly softer text colour */
+            --card-bg: #FFFFFF; /* Using pure white for sharper, cleaner cards against cream-bg */
+            --text-color: #444444; 
             --font-main: 'Poppins', sans-serif;
-            --secondary-cta: #1a1a1a; /* Dark button color */
-            --secondary-cta-text: #ffffff; /* White text for dark button */
+            --secondary-cta: #1a1a1a; 
+            --secondary-cta-text: #ffffff; 
         }
         body { 
             font-family: var(--font-main); 
@@ -79,6 +79,22 @@
             color: var(--accent-color); 
         }
 
+        /* Menu Icon - Hidden by default on desktop (Remains the same) */
+        .menu-icon { 
+            display: none; 
+            cursor: pointer; 
+            font-size: 2em; 
+            line-height: 0; 
+        }
+        .menu-icon span { 
+            display: block; 
+            width: 25px; 
+            height: 3px; 
+            margin: 5px 0; 
+            background: var(--primary-color); 
+            transition: 0.4s; 
+        }
+
         /* --- BUTTON & LINK STYLES (Common) --- */
         .cta-button {
             display: inline-block;
@@ -114,6 +130,21 @@
             font-weight: 700; 
             color: var(--primary-color); 
         }
+        .card-link-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #ffffff; 
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .card-link-button:hover {
+            background-color: #333333;
+        }
+
 
         /* --- FOOTER (Common Style) --- */
         footer { 
@@ -129,14 +160,14 @@
 
         /* 1. HERO BANNER WITH BACKGROUND IMAGE */
         .hero-banner {
-            margin-top: 100px; /* Offset for fixed header */
+            margin-top: 100px; 
             position: relative;
-            height: 70vh; /* Make it vertically large */
+            height: 70vh; 
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-color: #e0e0e0; /* Placeholder color */
+            background-color: var(--logo-bg); /* Use a soft background colour */
         }
         .hero-banner-image {
             position: absolute;
@@ -144,10 +175,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('placeholder-banner-background.jpg'); /* REPLACE THIS WITH A HIGH-RES IMAGE */
+            /* Placeholder for background image. Replace 'soft-desk-view.jpg' */
+            background-image: url('soft-desk-view.jpg'); 
             background-size: cover;
             background-position: center;
-            opacity: 0.7; /* Make the background slightly muted */
+            opacity: 0.7; 
             z-index: 1;
         }
         .hero-banner-content {
@@ -159,7 +191,7 @@
         }
         .hero-banner-content h1 {
             font-size: 4.5em; 
-            font-weight: 900; 
+            font-weight: 900; /* Extra bold for the "Business Blueprint" look */
             line-height: 1.1;
             margin-bottom: 20px;
         }
@@ -173,21 +205,26 @@
             justify-content: center;
             gap: 20px;
         }
-
-        /* 2. SERVICES PREVIEW CARDS (Similar to existing design) */
+        
+        /* 2. SERVICES PREVIEW CARDS */
         .services-preview-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Three columns for services */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 30px;
             padding: 40px 0;
         }
         .service-card {
-            background: var(--card-bg);
+            background: var(--card-bg); /* Pure white for clean contrast */
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft, subtle shadow */
             border-top: 5px solid var(--accent-color);
             text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         .service-card h4 {
             font-size: 1.4em;
@@ -198,7 +235,7 @@
 
         /* 3. TESTIMONIALS SECTION */
         .testimonial-section {
-            background-color: var(--logo-bg); /* Use the warm beige background */
+            background-color: var(--logo-bg); /* Soft beige background */
             padding: 80px 0;
             text-align: center;
             margin: 40px 0;
@@ -222,14 +259,43 @@
             color: var(--accent-color);
             margin: 0;
         }
+        
+        /* MOCKUP SECTION STYLES (Kept as before, used for jillsexample.png) */
+        .mockup-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        .mockup-section h3 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .mockup-section p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+        .mockup-visual {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .mockup-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px; 
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
+        }
+
 
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
             
-            /* Mobile Header & Nav */
+            /* Mobile Header & Nav (Kept the same) */
             .logo-area img { 
                 height: 70px; 
             } 
+            
+            /* Mobile Hero Banner */
             .hero-banner {
                 height: 60vh;
                 margin-top: 100px; 
@@ -251,17 +317,6 @@
             /* Mobile Services Grid (Stacking) */
             .services-preview-grid {
                 grid-template-columns: 1fr; 
-            }
-
-            /* Mobile Testimonial */
-            .testimonial-section {
-                padding: 40px 0;
-            }
-            .testimonial-card {
-                padding: 25px;
-            }
-            .testimonial-card blockquote {
-                font-size: 1em;
             }
         }
     </style>
@@ -289,7 +344,7 @@
     </header>
 
     <div class="hero-banner">
-        <div class="hero-banner-image" style="background-image: url('placeholder-banner-background.jpg');"></div>
+        <div class="hero-banner-image" style="background-image: url('soft-desk-view.jpg');"></div>
         <div class="hero-banner-content">
             <h1>Launch Your Organized Digital Empire.</h1>
             
