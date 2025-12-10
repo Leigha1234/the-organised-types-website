@@ -9,14 +9,14 @@
     <style>
         /* CSS Variables */
         :root {
-            --primary-color: #4f4a46; /* NEW: Dark Taupe from Logo */
+            --primary-color: #4f4a46; /* Dark Taupe from Logo */
             --accent-color: #A9B897; /* Dull Sage Green */
             --cream-bg: #FAF8F5; 
             --logo-bg: #EFE6E1; 
             --card-bg: #FFFFFF; 
-            --text-color: #4f4a46; /* NEW: Dark Taupe from Logo */
+            --text-color: #4f4a46; 
             --font-main: 'Poppins', sans-serif;
-            --secondary-cta: #4f4a46; /* NEW: Using primary color for consistency */
+            --secondary-cta: #4f4a46; 
             --secondary-cta-text: #ffffff; 
         }
         body { 
@@ -59,7 +59,8 @@
             box-sizing: border-box;
         }
         .logo-area img { 
-            height: 90px; 
+            /* **UPDATED: INCREASED LOGO SIZE** */
+            height: 100px; 
             margin-right: 10px; 
         } 
         #main-nav a { 
@@ -90,11 +91,19 @@
             cursor: pointer;
             white-space: nowrap;
         }
+        /* **BUTTON HOVER EFFECTS** */
+        .cta-button:hover { 
+            background-color: #92a487; /* Slightly darker sage */
+        }
         .cta-button.secondary {
             background: var(--secondary-cta);
             color: var(--secondary-cta-text);
             margin-left: 15px;
         }
+        .cta-button.secondary:hover {
+            background-color: #6a635e; /* Slightly lighter taupe */
+        }
+        
         .section-heading { 
             text-align: center; 
             margin-bottom: 20px; 
@@ -113,11 +122,14 @@
             margin-top: 15px;
             transition: background-color 0.3s ease;
         }
+        .card-link-button:hover {
+            background-color: #6a635e; /* Subtle button hover */
+        }
 
 
         /* --- 1. HERO BANNER --- */
         .hero-banner {
-            margin-top: 100px; 
+            margin-top: 110px; /* Adjusted margin-top for larger logo */
             position: relative;
             height: 70vh; 
             display: flex;
@@ -132,7 +144,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* **UPDATED IMAGE NAME** */
             background-image: url('bg1.jpg'); 
             background-size: cover;
             background-position: center;
@@ -147,19 +158,17 @@
             padding: 20px;
         }
         .hero-banner-content h1 {
-            /* **SMALLER FONT SIZE** */
             font-size: 3.5em; 
             font-weight: 900; 
             line-height: 1.1;
             margin-bottom: 15px;
-            color: var(--primary-color); /* Ensure text color is applied */
+            color: var(--primary-color); 
         }
         .hero-banner-content p {
-            /* **SMALLER FONT SIZE** */
             font-size: 1.3em; 
             font-weight: 400;
             margin-bottom: 30px;
-            color: var(--primary-color); /* Ensure text color is applied */
+            color: var(--primary-color); 
         }
         .hero-banner .cta-group {
             display: flex;
@@ -212,7 +221,7 @@
         }
         .card-wrapper {
             perspective: 1000px; 
-            height: 350px; 
+            height: 300px; 
         }
         .service-card {
             position: relative;
@@ -255,39 +264,65 @@
             margin-top: 0;
             color: var(--primary-color);
         }
+        /* Style for front face content, pushing text to center when button is removed */
+        .card-face-front > div {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        /* --- 4. TESTIMONIALS CAROUSEL --- */
+        /* --- 4. TESTIMONIALS CAROUSEL (Centred View & Arrows) --- */
         .testimonial-section {
             background-color: var(--logo-bg); 
-            padding: 80px 0;
+            padding: 40px 0 80px; 
             margin: 40px 0;
+            position: relative;
+            overflow: hidden; 
+        }
+        .testimonial-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('testbg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; 
+            z-index: 1;
+        }
+        .testimonial-container {
+            position: relative;
+            z-index: 5;
+            padding: 0 15px;
         }
         .carousel-track {
             display: flex;
-            overflow-x: auto; /* Enables horizontal scrolling */
-            scroll-snap-type: x mandatory; /* Snaps to cards */
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-            padding-bottom: 20px; /* Space for scrollbar */
+            overflow-x: scroll; 
+            scroll-snap-type: x mandatory; 
+            -webkit-overflow-scrolling: touch; 
             margin-top: 40px;
+            justify-content: flex-start; 
+            padding: 0 10%; 
         }
-        /* Hide scrollbar for aesthetics (optional) */
         .carousel-track::-webkit-scrollbar {
             display: none;
         }
         .carousel-track {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         .testimonial-card {
-            flex: 0 0 75%; /* Card takes up 75% of container width on desktop */
-            max-width: 800px; /* Max width for a clean look */
+            flex: 0 0 50%; 
+            max-width: 600px;
             margin: 0 15px; 
             background-color: #ffffff;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            scroll-snap-align: center; /* Snaps card to the center */
+            scroll-snap-align: center; 
             text-align: center;
         }
         .testimonial-card blockquote {
@@ -300,6 +335,36 @@
             font-weight: 600;
             color: var(--accent-color);
             margin: 0;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none; 
+            padding: 0;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        .nav-arrow {
+            pointer-events: auto; 
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid var(--accent-color);
+            color: var(--primary-color);
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            border-radius: 50%;
+            transition: background 0.3s;
+            margin: 0 20px;
+            line-height: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-arrow:hover {
+            background: var(--accent-color);
+            color: #ffffff;
         }
         
         /* --- FOOTER --- */
@@ -368,9 +433,15 @@
                 border-top: 1px solid #e0e0e0;
             }
 
-            /* Mobile Carousel: Card takes up 90% of screen width */
+            /* Mobile Carousel: Full width scrolling, hide arrows */
             .testimonial-card {
                 flex: 0 0 90%; 
+            }
+            .carousel-nav {
+                display: none;
+            }
+            .carousel-track {
+                padding: 0 5%;
             }
         }
     </style>
@@ -436,10 +507,9 @@
                 <div class="service-card">
                     <div class="card-face card-face-front">
                         <div>
-                            <h4>Digital Strategy & Audits 💡</h4>
+                            <h4>Digital Strategy & Audits</h4>
                             <p>A comprehensive review of your current systems with a clear, actionable roadmap for efficiency and growth.</p>
                         </div>
-                        <a href="services.html" class="card-link-button">More Details</a>
                     </div>
                     <div class="card-face card-face-back">
                         <div>
@@ -455,10 +525,9 @@
                 <div class="service-card">
                     <div class="card-face card-face-front">
                         <div>
-                            <h4>Custom Digital Tools ⚙️</h4>
+                            <h4>Custom Digital Tools</h4>
                             <p>Bespoke templates and dashboards built on platforms like Notion and Airtable, tailored exactly to your workflow.</p>
                         </div>
-                        <a href="services.html" class="card-link-button">More Details</a>
                     </div>
                     <div class="card-face card-face-back">
                         <div>
@@ -474,10 +543,9 @@
                 <div class="service-card">
                     <div class="card-face card-face-front">
                         <div>
-                            <h4>Workflow Automation 🚀</h4>
+                            <h4>Workflow Automation</h4>
                             <p>Eliminate manual data entry and repetitive tasks with custom automation rules, saving you time and effort.</p>
                         </div>
-                        <a href="services.html" class="card-link-button">More Details</a>
                     </div>
                     <div class="card-face card-face-back">
                         <div>
@@ -496,29 +564,38 @@
     </div>
 
     <div class="testimonial-section">
-        <h2 class="section-heading" style="text-align: center;">What Our Clients Say</h2>
-        <div class="carousel-track">
+        <div class="testimonial-bg-image"></div>
+        <div class="testimonial-container">
+            <h2 class="section-heading" style="text-align: center;">What Our Clients Say</h2>
             
-            <div class="testimonial-card">
-                <blockquote>"The Organised Types completely transformed our client onboarding process. The new system is intuitive, saves us hours every week, and instantly looks more professional."</blockquote>
-                <p>— Sarah M., E-commerce Entrepreneur</p>
-            </div>
-            
-            <div class="testimonial-card">
-                <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for project tracking."</blockquote>
-                <p>— James K., UK Consultancy Owner</p>
+            <div class="carousel-nav">
+                <button class="nav-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+                <button class="nav-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
             </div>
 
-            <div class="testimonial-card">
-                <blockquote>"Working with The Organised Types was seamless. They delivered a custom database that made our inventory management simple and perfectly structured. Highly recommended!"</blockquote>
-                <p>— Chloe B., Retail Manager</p>
-            </div>
+            <div class="carousel-track" id="testimonial-carousel">
+                
+                <div class="testimonial-card">
+                    <blockquote>"The Organised Types completely transformed our client onboarding process. The new system is intuitive, saves us hours every week, and instantly looks more professional."</blockquote>
+                    <p>— Sarah M., E-commerce Entrepreneur</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for project tracking."</blockquote>
+                    <p>— James K., UK Consultancy Owner</p>
+                </div>
 
-            <div class="testimonial-card">
-                <blockquote>"Finally, a system that doesn't feel cluttered! The attention to detail in their custom workflows means we can focus entirely on our core business."</blockquote>
-                <p>— Mark D., Creative Agency Founder</p>
-            </div>
+                <div class="testimonial-card">
+                    <blockquote>"Working with The Organised Types was seamless. They delivered a custom database that made our inventory management simple and perfectly structured. Highly recommended!"</blockquote>
+                    <p>— Chloe B., Retail Manager</p>
+                </div>
 
+                <div class="testimonial-card">
+                    <blockquote>"Finally, a system that doesn't feel cluttered! The attention to detail in their custom workflows means we can focus entirely on our core business."</blockquote>
+                    <p>— Mark D., Creative Agency Founder</p>
+                </div>
+
+            </div>
         </div>
     </div>
     
@@ -549,6 +626,19 @@
                 activeLink.classList.add('active');
             }
         })();
+
+        // CAROUSEL NAVIGATION SCRIPT
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('testimonial-carousel');
+            // Get the width of the card and margin (30px total margin per card, 15px on each side)
+            const cardWidth = carousel.querySelector('.testimonial-card').offsetWidth + 30; 
+            
+            // Scroll by one card width
+            carousel.scrollBy({
+                left: direction * cardWidth,
+                behavior: 'smooth'
+            });
+        }
     </script>
 
 </body>
