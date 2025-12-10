@@ -13,7 +13,7 @@
             --accent-color: #A9B897; /* Dull Sage Green */
             --cream-bg: #FAF8F5; /* Main Page Background Colour (Soft Off-White) */
             --logo-bg: #EFE6E1; /* Header & Footer Colour (Warm Beige) */
-            --card-bg: #FFFFFF; /* Using pure white for sharper, cleaner cards against cream-bg */
+            --card-bg: #FFFFFF; /* Pure white for sharp cards */
             --text-color: #444444; 
             --font-main: 'Poppins', sans-serif;
             --secondary-cta: #1a1a1a; 
@@ -79,7 +79,7 @@
             color: var(--accent-color); 
         }
 
-        /* Menu Icon - Hidden by default on desktop (Remains the same) */
+        /* Menu Icon (Mobile) */
         .menu-icon { 
             display: none; 
             cursor: pointer; 
@@ -156,9 +156,9 @@
             margin-top: auto; 
         }
 
-        /* --- NEW STYLES FOR REDESIGN --- */
+        /* --- REDESIGN STYLES --- */
 
-        /* 1. HERO BANNER WITH BACKGROUND IMAGE */
+        /* 1. HERO BANNER */
         .hero-banner {
             margin-top: 100px; 
             position: relative;
@@ -167,7 +167,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-color: var(--logo-bg); /* Use a soft background colour */
+            background-color: var(--logo-bg); 
         }
         .hero-banner-image {
             position: absolute;
@@ -175,8 +175,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Placeholder for background image. Replace 'soft-desk-view.jpg' */
-            background-image: url('soft-desk-view.jpg'); 
+            /* **UPDATED IMAGE NAME** */
+            background-image: url('bg.jpg'); 
             background-size: cover;
             background-position: center;
             opacity: 0.7; 
@@ -191,7 +191,7 @@
         }
         .hero-banner-content h1 {
             font-size: 4.5em; 
-            font-weight: 900; /* Extra bold for the "Business Blueprint" look */
+            font-weight: 900; 
             line-height: 1.1;
             margin-bottom: 20px;
         }
@@ -206,36 +206,102 @@
             gap: 20px;
         }
         
-        /* 2. SERVICES PREVIEW CARDS */
+        /* 2. SERVICES PREVIEW CARDS (Soft Flip Animation) */
         .services-preview-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); 
             gap: 30px;
             padding: 40px 0;
         }
+        .card-wrapper {
+            perspective: 1000px; 
+            height: 350px; /* Fixed height for flip effect */
+        }
         .service-card {
-            background: var(--card-bg); /* Pure white for clean contrast */
-            padding: 30px;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.5, 1); /* Smoother transition */
+            transform-style: preserve-3d; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft, subtle shadow */
+        }
+        .card-wrapper:hover .service-card {
+            transform: rotateY(180deg);
+        }
+        
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; 
+            border-radius: 8px;
+            padding: 30px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Space out content for alignment */
+            box-sizing: border-box;
+        }
+        .card-face-front {
+            background: var(--card-bg); /* White */
             border-top: 5px solid var(--accent-color);
-            text-align: left;
-            transition: transform 0.3s ease;
         }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        .card-face-back {
+            background: var(--logo-bg); /* Soft beige for the flip side */
+            color: var(--primary-color);
+            transform: rotateY(180deg);
         }
-        .service-card h4 {
+        .card-face h4 {
             font-size: 1.4em;
             font-weight: 600;
             margin-top: 0;
             color: var(--primary-color);
         }
+        .card-face p {
+            margin-bottom: auto; /* Push content up */
+        }
 
-        /* 3. TESTIMONIALS SECTION */
+        /* 3. MOCKUP/FEATURE SECTION (Two-column layout) */
+        .mockup-section {
+            padding: 60px 0;
+            background-color: var(--cream-bg); 
+        }
+        .mockup-content {
+            display: flex;
+            align-items: center; /* Vertically centre align image and text */
+            gap: 50px;
+            text-align: left;
+        }
+        .mockup-visual {
+            flex: 1;
+            max-width: 450px; /* Reduced image size */
+        }
+        .mockup-visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px; 
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
+        }
+        .mockup-text {
+            flex: 2;
+        }
+        .mockup-text h3 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .mockup-text p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+
+        /* 4. TESTIMONIALS SECTION (Retained) */
         .testimonial-section {
-            background-color: var(--logo-bg); /* Soft beige background */
+            background-color: var(--logo-bg); 
             padding: 80px 0;
             text-align: center;
             margin: 40px 0;
@@ -259,52 +325,19 @@
             color: var(--accent-color);
             margin: 0;
         }
-        
-        /* MOCKUP SECTION STYLES (Kept as before, used for jillsexample.png) */
-        .mockup-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-        .mockup-section h3 {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        .mockup-section p {
-            font-size: 1.1em;
-            margin-bottom: 40px;
-        }
-        .mockup-visual {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .mockup-visual img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px; 
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
-        }
-
 
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
             
-            /* Mobile Header & Nav (Kept the same) */
-            .logo-area img { 
-                height: 70px; 
-            } 
-            
             /* Mobile Hero Banner */
             .hero-banner {
-                height: 60vh;
-                margin-top: 100px; 
+                height: 50vh; 
             }
             .hero-banner-content h1 {
-                font-size: 2.5em; 
+                font-size: 2.2em; 
             }
             .hero-banner-content p {
-                font-size: 1.1em;
+                font-size: 1em;
             }
             .hero-banner .cta-group {
                 flex-direction: column;
@@ -313,10 +346,45 @@
             .cta-button.secondary {
                 margin-left: 0;
             }
+            
+            /* Mobile Mockup Section (Stacking) */
+            .mockup-content {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            .mockup-visual {
+                max-width: 100%; 
+            }
 
-            /* Mobile Services Grid (Stacking) */
+            /* Mobile Services Grid (Stacking & disabling flip) */
             .services-preview-grid {
                 grid-template-columns: 1fr; 
+            }
+            .card-wrapper {
+                perspective: none; 
+                height: auto; 
+            }
+            .service-card {
+                transform: none; 
+                transform-style: flat;
+                height: auto;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+            }
+            .card-wrapper:hover .service-card {
+                transform: none; 
+            }
+            .card-face {
+                position: static; 
+                backface-visibility: visible;
+                height: auto;
+                padding: 25px;
+            }
+            .card-face-back {
+                transform: none; 
+                background: var(--logo-bg); 
+                padding-top: 0;
+                border-top: 1px solid #e0e0e0;
             }
         }
     </style>
@@ -344,9 +412,9 @@
     </header>
 
     <div class="hero-banner">
-        <div class="hero-banner-image" style="background-image: url('soft-desk-view.jpg');"></div>
+        <div class="hero-banner-image" style="background-image: url('bg.jpg');"></div>
         <div class="hero-banner-content">
-            <h1>Launch Your Organized Digital Empire.</h1>
+            <h1>Launch Your Organised Digital Empire.</h1>
             
             <p>From custom Notion systems to automated workflows, we build the digital infrastructure that drives UK small businesses.</p>
             
@@ -360,11 +428,16 @@
 
     <div class="mockup-section">
         <div class="container">
-            <h3>Designed for Clarity, Built for Growth</h3>
-            <p>Our solutions deliver a flawless user experience across all devices, ensuring your operations are always accessible and secure.</p>
-            
-            <div class="mockup-visual">
-                <img src="jillsexample.png" alt="Digital tools optimized for desktop and mobile devices."> 
+            <div class="mockup-content">
+                <div class="mockup-visual">
+                    <img src="jillsexample.png" alt="Digital tools optimized for desktop and mobile devices."> 
+                </div>
+                <div class="mockup-text">
+                    <h3>Design Focused, Results Driven</h3>
+                    <p>We ensure your digital platforms are not only beautifully designed but function flawlessly across all devices—delivering a seamless user experience for your clients and a robust system for your team.</p>
+                    <p>Our solutions are meticulously **organised** and fully customised, providing the clarity and efficiency your UK business requires to thrive.</p>
+                    <a href="portfolio.html" class="cta-button" style="padding: 12px 30px;">View Our Portfolio</a>
+                </div>
             </div>
         </div>
     </div>
@@ -374,22 +447,61 @@
 
         <div class="services-preview-grid">
             
-            <div class="service-card">
-                <h4>Digital Strategy & Audits 💡</h4>
-                <p>A comprehensive review of your current systems with a clear, actionable roadmap for efficiency and growth.</p>
-                <a href="services.html" class="card-link-button">Learn More</a>
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>Digital Strategy & Audits 💡</h4>
+                            <p>A comprehensive review of your current systems with a clear, actionable roadmap for efficiency and growth.</p>
+                        </div>
+                        <a href="services.html" class="card-link-button">More Details</a>
+                    </div>
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Planning & Insight</h4>
+                            <p>We audit your existing digital footprint to pinpoint bottlenecks and define the best technological path forward for your business goals.</p>
+                        </div>
+                        <a href="services.html" class="card-link-button">Start Your Audit</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="service-card">
-                <h4>Custom Digital Tools ⚙️</h4>
-                <p>Bespoke templates and dashboards built on platforms like Notion and Airtable, tailored exactly to your workflow.</p>
-                <a href="services.html" class="card-link-button">Learn More</a>
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>Custom Digital Tools ⚙️</h4>
+                            <p>Bespoke templates and dashboards built on platforms like Notion and Airtable, tailored exactly to your workflow.</p>
+                        </div>
+                        <a href="services.html" class="card-link-button">More Details</a>
+                    </div>
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Bespoke Organisation</h4>
+                            <p>Get custom project trackers, client portals, and CRM solutions that fit your specific processes, ensuring maximum productivity.</p>
+                        </div>
+                        <a href="services.html" class="card-link-button">Request a Quote</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="service-card">
-                <h4>Workflow Automation 🚀</h4>
-                <p>Eliminate manual data entry and repetitive tasks with custom automation rules, saving you time and effort.</p>
-                <a href="services.html" class="card-link-button">Learn More</a>
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>Workflow Automation 🚀</h4>
+                            <p>Eliminate manual data entry and repetitive tasks with custom automation rules, saving you time and effort.</p>
+                        </div>
+                        <a href="services.html" class="card-link-button">More Details</a>
+                    </div>
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Effortless Efficiency</h4>
+                            <p>We connect your favourite tools (like Zapier or Make) to create smart, hands-free systems for billing, scheduling, and communication.</p>
+                        </div>
+                        <a href="services.html" class="card-link-button">Automate My Business</a>
+                    </div>
+                </div>
             </div>
 
         </div>
