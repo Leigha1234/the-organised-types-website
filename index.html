@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Variables */
@@ -16,6 +16,8 @@
             --card-bg: #F5F2EF; /* Warm, light beige for cards and forms */
             --text-color: #444444; /* Slightly softer text colour */
             --font-main: 'Poppins', sans-serif;
+            --secondary-cta: #1a1a1a; /* Dark button color */
+            --secondary-cta-text: #ffffff; /* White text for dark button */
         }
         body { 
             font-family: var(--font-main); 
@@ -56,18 +58,10 @@
             padding: 0 15px; 
             box-sizing: border-box;
         }
-        .logo-area { 
-            display: flex; 
-            align-items: center; 
-            text-decoration: none; 
-            color: var(--primary-color); 
-        }
         .logo-area img { 
-            height: 90px; /* ADJUSTED LOGO SIZE */
+            height: 90px; 
             margin-right: 10px; 
         } 
-
-        /* Desktop Navigation Links */
         #main-nav { 
             display: flex; 
             align-items: center; 
@@ -85,22 +79,6 @@
             color: var(--accent-color); 
         }
 
-        /* Menu Icon - Hidden by default on desktop */
-        .menu-icon { 
-            display: none; 
-            cursor: pointer; 
-            font-size: 2em; 
-            line-height: 0; 
-        }
-        .menu-icon span { 
-            display: block; 
-            width: 25px; 
-            height: 3px; 
-            margin: 5px 0; 
-            background: var(--primary-color); 
-            transition: 0.4s; 
-        }
-
         /* --- BUTTON & LINK STYLES (Common) --- */
         .cta-button {
             display: inline-block;
@@ -114,26 +92,28 @@
             transition: background-color 0.3s ease;
             border: none;
             cursor: pointer;
+            white-space: nowrap;
         }
         .cta-button:hover { 
             background-color: #92a487; 
         }
-        
-        .card-link-button {
-            display: inline-block;
-            background: var(--primary-color);
-            color: #ffffff; 
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
+
+        .cta-button.secondary {
+            background: var(--secondary-cta);
+            color: var(--secondary-cta-text);
+            margin-left: 15px;
         }
-        .card-link-button:hover {
+        .cta-button.secondary:hover {
             background-color: #333333;
         }
-
+        
+        .section-heading { 
+            text-align: center; 
+            margin-bottom: 20px; 
+            font-size: 2.4em; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+        }
 
         /* --- FOOTER (Common Style) --- */
         footer { 
@@ -144,237 +124,144 @@
             font-size: 0.9em; 
             margin-top: auto; 
         }
-        footer a { 
-            color: var(--accent-color); 
-            text-decoration: none; 
-        }
 
-        /* --- PAGE-SPECIFIC STYLES: INDEX (Hero & New Content Section) --- */
-        .hero { 
-            text-align: center; 
-            padding: 60px 20px; 
-            background: var(--cream-bg); 
-            margin-bottom: 20px; 
-            margin-top: 130px; /* ADJUSTED OFFSET FOR SMALLER LOGO/HEADER */
-        }
-        .hero h2 { 
-            font-size: 3.5em; /* SLIGHTLY LARGER FONT */
-            font-weight: 700; 
-            color: var(--primary-color); 
-            margin-bottom: 10px; 
-            line-height: 1.2;
-        }
-        .hero p { 
-            font-size: 1.25em; /* SLIGHTLY LARGER FONT */
-            margin-bottom: 30px; 
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        /* --- NEW STYLES FOR REDESIGN --- */
 
-        /* NEW MOCKUP CONTENT SECTION CSS */
-        .mockup-section {
-            padding: 60px 0;
+        /* 1. HERO BANNER WITH BACKGROUND IMAGE */
+        .hero-banner {
+            margin-top: 100px; /* Offset for fixed header */
+            position: relative;
+            height: 70vh; /* Make it vertically large */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            background-color: #e0e0e0; /* Placeholder color */
         }
-        .mockup-section h3 {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        .hero-banner-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('placeholder-banner-background.jpg'); /* REPLACE THIS WITH A HIGH-RES IMAGE */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.7; /* Make the background slightly muted */
+            z-index: 1;
         }
-        .mockup-section p {
-            font-size: 1.1em;
+        .hero-banner-content {
+            position: relative;
+            z-index: 5;
+            color: var(--primary-color); 
+            max-width: 900px;
+            padding: 20px;
+        }
+        .hero-banner-content h1 {
+            font-size: 4.5em; 
+            font-weight: 900; 
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-banner-content p {
+            font-size: 1.5em;
+            font-weight: 400;
             margin-bottom: 40px;
         }
-        .mockup-visual {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .mockup-visual img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px; 
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
-        }
-        
-        .section-heading { 
-            text-align: center; 
-            margin-bottom: 20px; 
-            font-size: 2em; 
-            font-weight: 600; 
-            color: var(--primary-color); 
-        }
-        .intro-grid {
+        .hero-banner .cta-group {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px; 
             justify-content: center;
-            margin-top: 20px; 
-            margin-bottom: 30px; 
+            gap: 20px;
         }
-        
-        /* DESKTOP CARD FLIP CSS STRUCTURE */
-        .card-wrapper {
-            perspective: 1000px; 
-            flex: 1 1 45%; 
-            height: 250px; 
-            box-sizing: border-box;
-            max-width: 580px;
+
+        /* 2. SERVICES PREVIEW CARDS (Similar to existing design) */
+        .services-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns for services */
+            gap: 30px;
+            padding: 40px 0;
         }
-        .intro-card {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.8s;
-            transform-style: preserve-3d; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-radius: 6px;
-        }
-        .card-wrapper:hover .intro-card {
-            transform: rotateY(180deg);
-        }
-        
-        .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden; 
-            border-radius: 6px;
-            padding: 25px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-sizing: border-box;
-            border-top: 5px solid var(--accent-color);
-        }
-        .card-face-front {
+        .service-card {
             background: var(--card-bg);
-            color: var(--primary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--accent-color);
+            text-align: left;
         }
-        .card-face-back {
-            background: var(--accent-color); 
-            color: var(--primary-color);
-            transform: rotateY(180deg);
-            padding: 30px; 
-        }
-        .card-face h3 {
-            font-size: 1.6em;
-            color: var(--primary-color);
+        .service-card h4 {
+            font-size: 1.4em;
+            font-weight: 600;
             margin-top: 0;
-            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* 3. TESTIMONIALS SECTION */
+        .testimonial-section {
+            background-color: var(--logo-bg); /* Use the warm beige background */
+            padding: 80px 0;
+            text-align: center;
+            margin: 40px 0;
+        }
+        .testimonial-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 30px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        .testimonial-card blockquote {
+            font-style: italic;
+            font-size: 1.2em;
+            margin: 0 0 20px;
+            line-height: 1.6;
+        }
+        .testimonial-card p {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 0;
         }
 
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
-            .container { 
-                padding: 15px; 
-            }
-            header { 
-                padding: 5px 0; 
-            }
-            .navbar { 
-                padding: 0 15px; 
-            }
-            .menu-icon { 
-                display: block; 
-            }
+            
+            /* Mobile Header & Nav */
             .logo-area img { 
-                height: 70px; /* Mobile logo size reduction */
+                height: 70px; 
             } 
-            #main-nav {
-                display: none; 
-                flex-direction: column;
-                width: 100%;
-                background-color: #ffffff; 
-                position: absolute; 
-                top: 100px; /* Adjusted to fit smaller logo */
-                left: 0;
-                border-top: 1px solid #e0e0e0;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                z-index: 10;
-                padding: 10px 0;
+            .hero-banner {
+                height: 60vh;
+                margin-top: 100px; 
             }
-            #main-nav.show-menu {
-                display: flex;
+            .hero-banner-content h1 {
+                font-size: 2.5em; 
             }
-            #main-nav a {
-                text-align: center;
-                margin: 10px 0;
-                padding: 10px 0;
-                margin-left: 0; 
-                border-bottom: 1px solid #f5f5f5;
-                font-size: 1.2em;
-            }
-
-            /* Mobile Index */
-            .hero { 
-                padding: 30px 10px; 
-                margin-top: 130px; /* Adjusted Mobile offset */
-            }
-            .hero h2 { 
-                font-size: 2em; 
-            }
-            .hero p {
+            .hero-banner-content p {
                 font-size: 1.1em;
             }
-            .cta-button {
-                padding: 12px 25px; 
+            .hero-banner .cta-group {
+                flex-direction: column;
+                gap: 15px;
             }
-            .mockup-section h3 {
-                font-size: 1.8em;
-            }
-            .intro-grid { 
-                flex-direction: column; 
-                gap: 20px; 
+            .cta-button.secondary {
+                margin-left: 0;
             }
 
-            /* MOBILE CARD ADAPTATIONS: Disabling flip and stacking content */
-            .card-wrapper {
-                flex: 1 1 100%; 
-                height: auto; 
-                max-width: 100%;
-                perspective: none; 
-            }
-            .intro-card {
-                transform: none; 
-                transform-style: flat;
-                height: auto;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
-            }
-            .card-wrapper:hover .intro-card {
-                transform: none; 
-            }
-            .card-face {
-                position: static; 
-                backface-visibility: visible;
-                height: auto;
-                padding: 20px;
-                border-top: none; 
-            }
-            .card-face-front {
-                padding-bottom: 5px; 
-                border-top: 5px solid var(--accent-color); 
-            }
-            .card-face-back {
-                transform: none; 
-                background: var(--card-bg); 
-                padding-top: 0px; 
-                border-bottom-left-radius: 6px;
-                border-bottom-right-radius: 6px;
-            }
-            .card-face-back h3 {
-                display: none; 
+            /* Mobile Services Grid (Stacking) */
+            .services-preview-grid {
+                grid-template-columns: 1fr; 
             }
 
-            .section-heading { 
-                font-size: 1.8em; 
+            /* Mobile Testimonial */
+            .testimonial-section {
+                padding: 40px 0;
             }
-
-            /* Mobile Footer Alignment */
-            footer .container {
-                text-align: left; 
+            .testimonial-card {
+                padding: 25px;
+            }
+            .testimonial-card blockquote {
+                font-size: 1em;
             }
         }
     </style>
@@ -401,62 +288,78 @@
         </div>
     </header>
 
-    <div class="hero">
-        <div class="container">
-            <h2>Your Digital Toolkit, Streamlined and Systemized for Success</h2>
+    <div class="hero-banner">
+        <div class="hero-banner-image" style="background-image: url('placeholder-banner-background.jpg');"></div>
+        <div class="hero-banner-content">
+            <h1>Launch Your Organized Digital Empire.</h1>
             
-            <p>We are a UK-based consultancy providing **custom solutions, tools, and expertise** to maximize personal and business efficiency and organization.</p>
-            <a href="services.html" class="cta-button">Explore Our Solutions</a>
+            <p>From custom Notion systems to automated workflows, we build the digital infrastructure that drives UK small businesses.</p>
+            
+            <div class="cta-group">
+                <a href="contact.html" class="cta-button">Start Your Project</a>
+                
+                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank" class="cta-button secondary">Shop Templates</a>
+            </div>
         </div>
     </div>
+
     <div class="mockup-section">
         <div class="container">
-            <h3>See Clarity in Action</h3>
-            <p>Our organized approach ensures your digital platforms look great and function perfectly, whether on a laptop or mobile device.</p>
+            <h3>Designed for Clarity, Built for Growth</h3>
+            <p>Our solutions deliver a flawless user experience across all devices, ensuring your operations are always accessible and secure.</p>
             
             <div class="mockup-visual">
                 <img src="jillsexample.png" alt="Digital tools optimized for desktop and mobile devices."> 
             </div>
         </div>
     </div>
-    <div class="container">
-        <h2 class="section-heading">Ready to Optimize Your Efficiency?</h2>
 
-        <div class="intro-grid">
+    <div class="container">
+        <h2 class="section-heading">Our Expertise: Systems That Scale</h2>
+
+        <div class="services-preview-grid">
             
-            <div class="card-wrapper">
-                <div class="intro-card">
-                    <div class="card-face card-face-front">
-                        <h3>See Our Successful Implementations 📁</h3>
-                        <p>We believe digital success starts with clearly **organised** systems and beautiful design, ensuring every project is fit for purpose.</p>
-                        <a href="portfolio.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Case Studies</a>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <h3>Our Work</h3>
-                        <p>Review case studies demonstrating effective **system implementation and organisation** across diverse clients.</p>
-                        <a href="portfolio.html" class="card-link-button">View Portfolio Now</a>
-                    </div>
-                </div>
+            <div class="service-card">
+                <h4>Digital Strategy & Audits 💡</h4>
+                <p>A comprehensive review of your current systems with a clear, actionable roadmap for efficiency and growth.</p>
+                <a href="services.html" class="card-link-button">Learn More</a>
             </div>
 
-            <div class="card-wrapper">
-                <div class="intro-card">
-                    <div class="card-face card-face-front">
-                        <h3>Discuss Your Custom Needs 📧</h3>
-                        <p>Specialising in digital strategy for small UK businesses, ensuring your setup meets local compliance and market needs.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Send an Enquiry</a>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <h3>Get in Touch</h3>
-                        <p>Let's discuss how customized planning, organisation, and digital tools can solve your specific challenges.</p>
-                        <a href="contact.html" class="card-link-button">Start a Conversation</a>
-                    </div>
-                </div>
+            <div class="service-card">
+                <h4>Custom Digital Tools ⚙️</h4>
+                <p>Bespoke templates and dashboards built on platforms like Notion and Airtable, tailored exactly to your workflow.</p>
+                <a href="services.html" class="card-link-button">Learn More</a>
+            </div>
+
+            <div class="service-card">
+                <h4>Workflow Automation 🚀</h4>
+                <p>Eliminate manual data entry and repetitive tasks with custom automation rules, saving you time and effort.</p>
+                <a href="services.html" class="card-link-button">Learn More</a>
+            </div>
+
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="services.html" class="cta-button">View All Services</a>
+        </div>
+    </div>
+
+    <div class="testimonial-section">
+        <div class="container">
+            <h2 class="section-heading">What Our Clients Say</h2>
+            
+            <div class="testimonial-card">
+                <blockquote>"The Organised Types completely transformed our client onboarding process. The new system is intuitive, saves us hours every week, and instantly looks more professional."</blockquote>
+                <p>— Sarah M., E-commerce Entrepreneur</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for project tracking."</blockquote>
+                <p>— James K., UK Consultancy Owner</p>
             </div>
 
         </div>
     </div>
-
+    
     <footer>
         <div class="container">
             <p>Ready to start your project? <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to purchase a service or template.</p>
