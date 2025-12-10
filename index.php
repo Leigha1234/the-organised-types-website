@@ -32,8 +32,8 @@
             width: 90%; 
             max-width: 1200px; 
             margin: auto; 
-            overflow: hidden; 
             padding: 30px 0; 
+            box-sizing: border-box; 
         }
 
         /* --- HEADER & NAVIGATION (Common Styles) --- */
@@ -41,14 +41,20 @@
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
             padding: 5px 0; 
+            position: fixed; 
             top: 0; 
+            width: 100%; 
             z-index: 20; 
         }
         .navbar { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            position: fixed;
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+            box-sizing: border-box;
         }
         .logo-area { 
             display: flex; 
@@ -57,7 +63,7 @@
             color: var(--primary-color); 
         }
         .logo-area img { 
-            height: 150px; /* INCREASED SIZE */
+            height: 150px; 
             margin-right: 10px; 
         } 
 
@@ -72,6 +78,7 @@
             margin-left: 25px; 
             font-weight: 500; 
             transition: color 0.3s ease; 
+            white-space: nowrap;
         }
         #main-nav a:hover, 
         #main-nav a.active { 
@@ -148,6 +155,7 @@
             padding: 60px 20px; 
             background: var(--cream-bg); 
             margin-bottom: 20px; 
+            margin-top: 170px; /* REQUIRED OFFSET FOR FIXED HEADER */
         }
         .hero h2 { 
             font-size: 3em; 
@@ -247,7 +255,7 @@
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 160px; /* ADJUSTED TOP POSITION */
+                top: 160px; 
                 left: 0;
                 border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
@@ -269,6 +277,7 @@
             /* Mobile Index */
             .hero { 
                 padding: 30px 10px; 
+                margin-top: 170px; 
             }
             .hero h2 { 
                 font-size: 1.8em; 
@@ -335,32 +344,14 @@
 </head>
 <body>
 
-    <header>
-        <div class="container navbar">
-            <a href="index.html" class="logo-area">
-                <img src="logo.jpg.webp" alt="The Organised Types Logo">
-            </a>
-            <div class="menu-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav id="main-nav">
-                <a href="index.html" class="active">Home</a>
-                <a href="services.html">Services</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
-            </nav>
-        </div>
-    </header>
-
+    <?php include 'header.inc.php'; ?>
+    
     <div class="hero">
         <div class="container">
             <h2>Digital tools and templates that make life and business easier</h2>
             
             <p>We are a UK-based consultancy providing **custom solutions, tools, and expertise** to maximize personal and business efficiency.</p>
-            <a href="services.html" class="cta-button">Explore Our Solutions</a>
+            <a href="services.php" class="cta-button">Explore Our Solutions</a>
         </div>
     </div>
 
@@ -374,12 +365,12 @@
                     <div class="card-face card-face-front">
                         <h3>See Our Successful Implementations 📁</h3>
                         <p>We believe digital success starts with clearly **organised** systems and beautiful design, ensuring every project is fit for purpose.</p>
-                        <a href="portfolio.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Case Studies</a>
+                        <a href="portfolio.php" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Case Studies</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Our Work</h3>
                         <p>Review case studies demonstrating effective **system implementation and organisation** across diverse clients.</p>
-                        <a href="portfolio.html" class="card-link-button">View Portfolio Now</a>
+                        <a href="portfolio.php" class="card-link-button">View Portfolio Now</a>
                     </div>
                 </div>
             </div>
@@ -389,12 +380,12 @@
                     <div class="card-face card-face-front">
                         <h3>Discuss Your Custom Needs 📧</h3>
                         <p>Specialising in digital strategy for small UK businesses, ensuring your setup meets local compliance and market needs.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Send an Enquiry</a>
+                        <a href="contact.php" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Send an Enquiry</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Get in Touch</h3>
                         <p>Let's discuss how customized planning, organisation, and digital tools can solve your specific challenges.</p>
-                        <a href="contact.html" class="card-link-button">Start a Conversation</a>
+                        <a href="contact.php" class="card-link-button">Start a Conversation</a>
                     </div>
                 </div>
             </div>
@@ -402,19 +393,7 @@
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>Ready to start your project? <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to purchase a service or template.</p>
-            <p>Email: hello@theorganisedtypes.co.uk | &copy; 2025 The Organised Types.</p>
-        </div>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("main-nav"); 
-            nav.classList.toggle("show-menu");
-        }
-    </script>
+    <?php include 'footer.inc.php'; ?>
 
 </body>
 </html>

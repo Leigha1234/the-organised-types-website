@@ -7,14 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables (MUST MATCH INDEX.HTML) */
+        /* CSS Variables (Keep these here for all pages) */
         :root {
             --primary-color: #1a1a1a; 
             --accent-color: #A9B897; /* Dull Sage Green */
-            --cream-bg: #FAF8F5; /* Main Page Background Colour (Soft Off-White) */
-            --logo-bg: #EFE6E1; /* Header & Footer Colour (Warm Beige) */
-            --card-bg: #F5F2EF; /* Warm, light beige for cards and forms */
-            --text-color: #444444; /* Slightly softer text colour */
+            --cream-bg: #FAF8F5; 
+            --logo-bg: #EFE6E1; 
+            --card-bg: #F5F2EF; 
+            --text-color: #444444; 
             --font-main: 'Poppins', sans-serif;
         }
         body { 
@@ -32,70 +32,47 @@
             width: 90%; 
             max-width: 1200px; 
             margin: auto; 
-            overflow: hidden; 
             padding: 30px 0; 
+            box-sizing: border-box; 
         }
 
-        /* --- HEADER & NAVIGATION (Common Styles) --- */
+        /* --- HEADER & NAVIGATION (Common Styles - Must match index.php) --- */
         header { 
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
-            padding: 5px 0; /* Minimized Padding */
-            position: fixed; /* FIXED POSITION */
+            padding: 5px 0; 
+            position: fixed; 
             top: 0; 
-            width: 100%; /* ENSURES FULL WIDTH */
+            width: 100%; 
             z-index: 20; 
         }
         .navbar { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            padding: 0 15px; /* Added horizontal padding to navbar container */
-        }
-        .logo-area { 
-            display: flex; 
-            align-items: center; 
-            text-decoration: none; 
-            color: var(--primary-color); 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+            box-sizing: border-box;
         }
         .logo-area img { 
-            height: 150px; /* INCREASED SIZE */
+            height: 150px; 
             margin-right: 10px; 
         } 
-        
-        /* Desktop Navigation Links */
-        #main-nav { 
-            display: flex; 
-            align-items: center; 
-        }
+        #main-nav { display: flex; align-items: center; }
         #main-nav a { 
             color: var(--primary-color); 
             text-decoration: none; 
             margin-left: 25px; 
             font-weight: 500; 
             transition: color 0.3s ease; 
-            white-space: nowrap; /* Prevents links from breaking */
+            white-space: nowrap;
         }
         #main-nav a:hover, 
-        #main-nav a.active { 
-            color: var(--accent-color); 
-        }
-
-        /* Menu Icon - Hidden by default on desktop */
-        .menu-icon { 
-            display: none; 
-            cursor: pointer; 
-            font-size: 2em; 
-            line-height: 0; 
-        }
-        .menu-icon span { 
-            display: block; 
-            width: 25px; 
-            height: 3px; 
-            margin: 5px 0; 
-            background: var(--primary-color); 
-            transition: 0.4s; 
-        }
+        #main-nav a.active { color: var(--accent-color); }
+        .menu-icon { display: none; cursor: pointer; font-size: 2em; line-height: 0; }
+        .menu-icon span { display: block; width: 25px; height: 3px; margin: 5px 0; background: var(--primary-color); transition: 0.4s; }
 
         /* --- BUTTON & LINK STYLES (Common) --- */
         .cta-button {
@@ -111,10 +88,7 @@
             border: none;
             cursor: pointer;
         }
-        .cta-button:hover { 
-            background-color: #92a487; 
-        }
-        
+        .cta-button:hover { background-color: #92a487; }
         .card-link-button {
             display: inline-block;
             background: var(--primary-color);
@@ -126,12 +100,9 @@
             margin-top: 15px;
             transition: background-color 0.3s ease;
         }
-        .card-link-button:hover {
-            background-color: #333333;
-        }
+        .card-link-button:hover { background-color: #333333; }
 
-
-        /* --- FOOTER (Common Style) --- */
+        /* --- FOOTER (Common Style - Included for reference) --- */
         footer { 
             background-color: var(--logo-bg); 
             color: var(--primary-color); 
@@ -140,19 +111,15 @@
             font-size: 0.9em; 
             margin-top: auto; 
         }
-        footer a { 
-            color: var(--accent-color); 
-            text-decoration: none; 
-        }
+        footer a { color: var(--accent-color); text-decoration: none; }
 
         /* --- PAGE-SPECIFIC STYLES: SERVICES --- */
-
         .services-hero { 
             text-align: center; 
             padding: 40px 20px 20px; 
             background: var(--cream-bg); 
             margin-bottom: 0px; 
-            margin-top: 170px; /* REVISED: INCREASED OFFSET FOR FIXED HEADER CLEARANCE */
+            margin-top: 170px; /* OFFSET FOR FIXED HEADER CLEARANCE */
         }
         .services-hero h1 { 
             font-size: 3em; 
@@ -184,7 +151,7 @@
             width: 100%;
             height: 100%;
             text-align: center;
-            transition: transform 2.0s; /* SLOWER TRANSITION */
+            transition: transform 2.0s; 
             transform-style: preserve-3d; 
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             border-radius: 6px;
@@ -192,7 +159,6 @@
         .card-wrapper:hover .intro-card {
             transform: rotateY(180deg);
         }
-        
         .card-face {
             position: absolute;
             width: 100%;
@@ -235,123 +201,47 @@
         
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
-            .container { 
-                padding: 15px; 
-            }
-            header { 
-                padding: 5px 0; 
-            }
-            .navbar { 
-                padding: 0 15px; 
-            }
-            .menu-icon { 
-                display: block; 
-            }
+            .navbar { padding: 0 15px; }
+            .menu-icon { display: block; }
             #main-nav {
                 display: none; 
                 flex-direction: column;
                 width: 100%;
                 background-color: #ffffff; 
                 position: absolute; 
-                top: 160px; /* ADJUSTED TOP POSITION */
+                top: 160px; 
                 left: 0;
                 border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
                 z-index: 10;
                 padding: 10px 0;
             }
-            #main-nav.show-menu {
-                display: flex;
-            }
-            #main-nav a {
-                text-align: center;
-                margin: 10px 0;
-                padding: 10px 0;
-                margin-left: 0; 
-                border-bottom: 1px solid #f5f5f5;
-                font-size: 1.2em;
-            }
+            #main-nav.show-menu { display: flex; }
+            #main-nav a { text-align: center; margin: 10px 0 0; padding: 10px 0; margin-left: 0; border-bottom: 1px solid #f5f5f5; font-size: 1.2em; }
 
             /* Mobile Services Hero */
             .services-hero { 
                 padding: 30px 10px 10px; 
-                margin-top: 170px; /* REVISED: ENSURES MOBILE CONTENT CLEARS FIXED HEADER */
+                margin-top: 170px; 
             }
-            .services-hero h1 { 
-                font-size: 2.2em; 
-            }
-            .services-hero p { 
-                font-size: 1.1em;
-            }
-
+            .services-hero h1 { font-size: 2.2em; }
             /* Mobile Services Grid (Stacking) */
-            .services-grid {
-                grid-template-columns: 1fr; 
-                gap: 20px;
-                padding: 20px 0; 
-            }
+            .services-grid { grid-template-columns: 1fr; gap: 20px; padding: 20px 0; }
             
             /* Mobile Card Adaptations: Disabling flip and stacking content */
-            .card-wrapper {
-                height: auto; 
-                perspective: none; 
-            }
-            .intro-card {
-                transform: none; 
-                transform-style: flat;
-                height: auto;
-            }
-            .card-wrapper:hover .intro-card {
-                transform: none; 
-            }
-            .card-face {
-                position: static; 
-                backface-visibility: visible;
-                height: auto;
-                padding: 20px;
-                text-align: left;
-                justify-content: flex-start;
-                border-top: none; 
-            }
-            .card-face-front {
-                padding-bottom: 5px; 
-                border-top: 5px solid var(--accent-color); 
-            }
-            .card-face-back {
-                transform: none; 
-                background: var(--card-bg); 
-                padding-top: 0px; 
-                border-bottom-left-radius: 6px;
-                border-bottom-right-radius: 6px;
-                border-top: 1px solid #e0e0e0;
-            }
-            .card-face-back h3 {
-                display: none; 
-            }
+            .card-wrapper { height: auto; perspective: none; }
+            .intro-card { transform: none; transform-style: flat; height: auto; }
+            .card-wrapper:hover .intro-card { transform: none; }
+            .card-face { position: static; backface-visibility: visible; height: auto; padding: 20px; justify-content: flex-start; border-top: none; }
+            .card-face-front { padding-bottom: 5px; border-top: 5px solid var(--accent-color); }
+            .card-face-back { transform: none; background: var(--card-bg); padding-top: 0px; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; border-top: 1px solid #e0e0e0; }
+            .card-face-back h3 { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container navbar">
-            <a href="index.html" class="logo-area">
-                <img src="logo.jpg.webp" alt="The Organised Types Logo">
-            </a>
-            <div class="menu-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav id="main-nav">
-                <a href="index.html">Home</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
-            </nav>
-        </div>
-    </header>
+    <?php include 'header.inc.php'; ?>
     
     <div class="services-hero">
         <div class="container">
@@ -368,12 +258,12 @@
                     <div class="card-face card-face-front">
                         <h3>Digital Strategy & Audits 💡</h3>
                         <p>Analysis of your current systems, identification of bottlenecks, and a clear, actionable roadmap for optimisation.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Inquire Now</a>
+                        <a href="contact.php" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Inquire Now</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Strategic Roadmap</h3>
                         <p>Receive a comprehensive report outlining key areas for improvement in workflows, technology integration, and efficiency gains.</p>
-                        <a href="contact.html" class="card-link-button">Learn More</a>
+                        <a href="contact.php" class="card-link-button">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -383,12 +273,12 @@
                     <div class="card-face card-face-front">
                         <h3>Custom Digital Tool Design ⚙️</h3>
                         <p>Development of bespoke templates, trackers, and organisational documents (e.g., Notion, Airtable, Spreadsheets) tailored to your industry.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Start a Project</a>
+                        <a href="contact.php" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Start a Project</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Bespoke Workflows</h3>
                         <p>We build streamlined systems that handle repetitive tasks and centralise information, saving you valuable time and resources.</p>
-                        <a href="contact.html" class="card-link-button">Get Started</a>
+                        <a href="contact.php" class="card-link-button">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -398,12 +288,12 @@
                     <div class="card-face card-face-front">
                         <h3>Workflow Automation & Setup 🚀</h3>
                         <p>Integration of tools (like Zapier or IFTTT) to automate your processes, from lead management to data entry.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">See Packages</a>
+                        <a href="contact.php" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">See Packages</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Time Savings</h3>
                         <p>Eliminate manual tasks with custom automation rules, ensuring data accuracy and letting your team focus on high-value work.</p>
-                        <a href="contact.html" class="card-link-button">Request Demo</a>
+                        <a href="contact.php" class="card-link-button">Request Demo</a>
                     </div>
                 </div>
             </div>
@@ -413,12 +303,12 @@
                     <div class="card-face card-face-front">
                         <h3>Training & Ongoing Support 🎓</h3>
                         <p>We provide comprehensive training sessions and documentation to ensure your team adopts and utilises the new systems effectively.</p>
-                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Support Plans</a>
+                        <a href="contact.php" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Support Plans</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Guaranteed Adoption</h3>
                         <p>Our support packages include dedicated assistance to help you troubleshoot and evolve your custom tools as your business grows.</p>
-                        <a href="contact.html" class="card-link-button">Contact Support</a>
+                        <a href="contact.php" class="card-link-button">Contact Support</a>
                     </div>
                 </div>
             </div>
@@ -426,19 +316,7 @@
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>Ready to start your project? <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to purchase a service or template.</p>
-            <p>Email: hello@theorganisedtypes.co.uk | &copy; 2025 The Organised Types.</p>
-        </div>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById("main-nav"); 
-            nav.classList.toggle("show-menu");
-        }
-    </script>
+    <?php include 'footer.inc.php'; ?>
 
 </body>
 </html>

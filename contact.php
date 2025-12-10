@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables (Keep these here for all pages) */
+        :root {
+            --primary-color: #1a1a1a; 
+            --accent-color: #A9B897; 
+            --cream-bg: #FAF8F5; 
+            --logo-bg: #EFE6E1; 
+            --card-bg: #F5F2EF; 
+            --text-color: #444444; 
+            --font-main: 'Poppins', sans-serif;
+        }
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.7; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: auto; 
+            padding: 30px 0; 
+            box-sizing: border-box; 
+        }
+
+        /* --- HEADER & NAVIGATION (Common Styles - Must match index.php) --- */
+        header { 
+            background-color: var(--logo-bg); 
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 5px 0; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 20; 
+        }
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+            box-sizing: border-box;
+        }
+        .logo-area img { 
+            height: 150px; 
+            margin-right: 10px; 
+        } 
+        #main-nav { display: flex; align-items: center; }
+        #main-nav a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+            white-space: nowrap;
+        }
+        #main-nav a:hover, 
+        #main-nav a.active { color: var(--accent-color); }
+        .menu-icon { display: none; cursor: pointer; font-size: 2em; line-height: 0; }
+        .menu-icon span { display: block; width: 25px; height: 3px; margin: 5px 0; background: var(--primary-color); transition: 0.4s; }
+
+        /* --- BUTTON & LINK STYLES (Common) --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color); 
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover { background-color: #92a487; }
+        
+        /* --- FOOTER (Common Style - Included for reference) --- */
+        footer { 
+            background-color: var(--logo-bg); 
+            color: var(--primary-color); 
+            text-align: center; 
+            padding: 20px 0; 
+            font-size: 0.9em; 
+            margin-top: auto; 
+        }
+        footer a { color: var(--accent-color); text-decoration: none; }
+
+
+        /* --- PAGE-SPECIFIC STYLES: CONTACT --- */
+        .contact-content {
+            padding: 40px 20px;
+            margin-top: 170px; /* OFFSET FOR FIXED HEADER CLEARANCE */
+            flex-grow: 1;
+        }
+        .contact-content h1 {
+            text-align: center;
+            font-size: 2.8em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .contact-content p {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: var(--font-main);
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #333333;
+        }
+
+        /* --- MOBILE SPECIFIC STYLES --- */
+        @media (max-width: 768px) {
+            .navbar { padding: 0 15px; }
+            .menu-icon { display: block; }
+            #main-nav {
+                display: none; 
+                flex-direction: column;
+                width: 100%;
+                background-color: #ffffff; 
+                position: absolute; 
+                top: 160px; 
+                left: 0;
+                border-top: 1px solid #e0e0e0;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                z-index: 10;
+                padding: 10px 0;
+            }
+            #main-nav.show-menu { display: flex; }
+            #main-nav a { text-align: center; margin: 10px 0 0; padding: 10px 0; margin-left: 0; border-bottom: 1px solid #f5f5f5; font-size: 1.2em; }
+
+            /* Mobile Contact */
+            .contact-content { 
+                padding: 30px 10px; 
+                margin-top: 170px; 
+            }
+            .contact-content h1 { font-size: 2.2em; }
+            .contact-form { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <?php include 'header.inc.php'; ?>
+    
+    <div class="contact-content">
+        <div class="container">
+            <h1>Let's Get Your Business Organized</h1>
+            <p>Whether you need a full audit, a custom Notion template, or workflow automation, tell us about your project and we'll be in touch.</p>
+            
+            <form class="contact-form" action="submit_form.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service of Interest</label>
+                    <select id="service" name="service" required>
+                        <option value="">-- Select a Service --</option>
+                        <option value="digital_strategy">Digital Strategy & Audits</option>
+                        <option value="tool_design">Custom Digital Tool Design</option>
+                        <option value="automation">Workflow Automation & Setup</option>
+                        <option value="training">Training & Support</option>
+                        <option value="other">Other/General Enquiry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send Enquiry</button>
+                <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">
+                    Alternatively, email us directly at **theorganisedtypes@gmail.com**
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <?php include 'footer.inc.php'; ?>
+
+</body>
+</html>
