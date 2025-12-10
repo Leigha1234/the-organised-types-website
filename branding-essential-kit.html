@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential Brand Identity Kit - The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* (Insert the exact same CSS as website-micro.html or link to a common stylesheet) */
+        /* CSS Variables (Must match index.html and services.html) */
+        :root {
+            --primary-color: #4f4a46; /* Dark Taupe */
+            --accent-color: #A9B897; /* Dull Sage Green */
+            --cream-bg: #FAF8F5; 
+            --logo-bg: #EFE6E1; 
+            --card-bg: #F5F2EF; 
+            --text-color: #4f4a46; 
+            --font-main: 'Poppins', sans-serif;
+        }
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.7; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .container { 
+            width: 90%; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 30px 0; 
+            box-sizing: border-box; 
+            margin-top: 110px; 
+        }
+
+        /* --- HEADER & NAVIGATION (Common Styles) --- */
+        header { 
+            background-color: var(--logo-bg); 
+            border-bottom: 1px solid #e0e0e0; 
+            padding: 5px 0; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 20; 
+        }
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 90%; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 0 15px; 
+            box-sizing: border-box;
+        }
+        .logo-area img { height: 100px; margin-right: 10px; } 
+        #main-nav { display: flex; align-items: center; }
+        #main-nav a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+            white-space: nowrap;
+        }
+        #main-nav a:hover, 
+        #main-nav a.active { color: var(--accent-color); }
+        .dropdown { position: relative; display: inline-block; margin-left: 25px; white-space: nowrap; }
+        .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; padding: 10px 0; cursor: default; display: block; }
+        .dropdown-toggle:hover { color: var(--accent-color); }
+        .dropdown-content {
+            display: none; position: absolute; background-color: var(--logo-bg); min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 2; padding: 10px 0; border-radius: 4px; top: 100%; left: 50%; transform: translateX(-50%);
+        }
+        .dropdown-content a { color: var(--primary-color); padding: 10px 20px; text-decoration: none; display: block; text-align: left; margin: 0; font-weight: 400; transition: background-color 0.3s; }
+        .dropdown-content a:hover { background-color: rgba(0, 0, 0, 0.05); color: var(--primary-color); }
+        .dropdown:hover .dropdown-content { display: block; }
+        .menu-icon { display: none; cursor: pointer; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; }
+        .menu-icon span { display: block; width: 100%; height: 3px; margin: 4px 0; background: var(--primary-color); transition: 0.4s; border-radius: 3px; }
+
+        /* --- BUTTON & LINK STYLES (Common) --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color); 
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .cta-button:hover { background-color: #92a487; }
+        
+        /* --- FOOTER (Common Style) --- */
+        footer { 
+            background-color: var(--logo-bg); 
+            color: var(--primary-color); 
+            text-align: center; 
+            padding: 20px 0; 
+            font-size: 0.9em; 
+            margin-top: auto; 
+        }
+        footer a { color: var(--accent-color); text-decoration: none; }
+
+        /* --- PAGE-SPECIFIC STYLES: DETAIL CONTENT --- */
+        .detail-header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid var(--accent-color);
+            margin-bottom: 30px;
+        }
+        .detail-header h1 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .detail-header .price {
+            font-size: 1.6em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .tagline {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .content-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            border-bottom: 1px dashed #cccccc;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .feature-item {
+            background-color: var(--cream-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.95em;
+        }
+        .feature-item strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .process-list {
+            list-style: none;
+            counter-reset: detail-step;
+            padding-left: 0;
+        }
+        .process-list li {
+            position: relative;
+            padding: 10px 0 10px 40px;
+            margin-bottom: 10px;
+            background: var(--cream-bg);
+            border-radius: 4px;
+        }
+        .process-list li::before {
+            content: counter(detail-step);
+            counter-increment: detail-step;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            color: var(--cream-bg);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .call-to-action {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .container { margin-top: 90px; }
+            .detail-header h1 { font-size: 2.2em; }
+            .detail-header .price { font-size: 1.4em; }
+            .features-grid { grid-template-columns: 1fr; }
+            .menu-icon { display: flex; }
+            #main-nav { display: none; } 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar"> 
+            <a href="index.html" class="logo-area">
+                <img src="logo.jpg.webp" alt="The Organised Types Logo">
+            </a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html" id="nav-index">Home</a> 
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services" class="active">Services &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Packages</a>
+                        <a href="services.html#website-addons">Website Add-Ons</a>
+                        <a href="services.html#branding">Branding Packages</a>
+                        <a href="services.html#coaching">Coaching Packages</a>
+                        <a href="services.html#coaching-table">Coaching Comparison</a>
+                        <a href="services.html#templates">Digital Products</a>
+                    </div>
+                </div>
+                <a href="contact.html" id="nav-contact">Contact</a>
+                <a href="shop.html" id="nav-shop">Shop</a> 
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        
+        <div class="detail-header">
+            <h1>⭐ Essential Brand Identity Kit</h1>
+            <p class="tagline">The polished, cohesive brand kit to establish consistency and professionalism.</p>
+            <p class="price">Starting from £149</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Why Your Brand Needs This</h2>
+            <p>Moving beyond just a simple logo, the Essential Brand Identity Kit provides you with a full suite of foundational visual assets necessary to maintain a professional and recognizable look across all platforms. This kit ensures your business looks intentional, trustworthy, and ready for growth.</p>
+            <p>This package is ideal for small businesses, online sellers, and growing service providers who are ready to invest in a stronger, more defined aesthetic.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>What You Receive</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <strong>Primary & Secondary Logos</strong>
+                    Different layout options for versatility (horizontal and vertical use).
+                </div>
+                <div class="feature-item">
+                    <strong>Submark / Favicon</strong>
+                    A small, recognizable icon for social media avatars and browser tabs.
+                </div>
+                <div class="feature-item">
+                    <strong>Curated Colour Palette</strong>
+                    6–8 hand-picked colours with HEX and RGB codes for web and print.
+                </div>
+                <div class="feature-item">
+                    <strong>Typography Suite</strong>
+                    A defined font pairing (heading and body text) with usage instructions.
+                </div>
+                <div class="feature-item">
+                    <strong>Image & Texture Inspiration</strong>
+                    A small moodboard to guide your future image selection and aesthetic.
+                </div>
+                <div class="feature-item">
+                    <strong>Brand Usage Sheet</strong>
+                    A simple document explaining how and where to use your new assets.
+                </div>
+                <div class="feature-item">
+                    <strong>High-Quality Files</strong>
+                    All logos delivered in PNG (transparent), JPG, and PDF formats.
+                </div>
+                <div class="feature-item">
+                    <strong>2 Rounds of Revisions</strong>
+                    Time dedicated to ensuring you are 100% happy with the final outcome.
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Branding Process Timeline</h2>
+            <p>Typically completed within 2 weeks after initial concept approval.</p>
+            <ol class="process-list">
+                <li>
+                    <strong>Phase 1: Deep Dive Questionnaire</strong>
+                    You answer questions about your target audience, competitors, and aesthetic preferences.
+                </li>
+                <li>
+                    <strong>Phase 2: Moodboard Approval</strong>
+                    We create and refine a visual moodboard to define the look and feel.
+                </li>
+                <li>
+                    <strong>Phase 3: Logo & Asset Design</strong>
+                    We create the full logo suite, select the colours, and pair the fonts.
+                </li>
+                <li>
+                    <strong>Phase 4: Revision & Finalisation</strong>
+                    We apply your two rounds of feedback to the entire kit.
+                </li>
+                <li>
+                    <strong>Phase 5: Delivery & Guidelines</strong>
+                    You receive all high-quality files and the easy-to-use Brand Usage Sheet.
+                </li>
+            </ol>
+        </div>
+        
+        <div class="call-to-action">
+            <h3>Ready to upgrade your visual identity?</h3>
+            <a href="contact.html" class="cta-button">Start Your Brand Project</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Ready to start your project? <a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs.</p>
+            <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Placeholder script section
+    </script>
+
+</body>
+</html>

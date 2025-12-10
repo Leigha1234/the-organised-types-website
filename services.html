@@ -149,10 +149,10 @@
             display: inline-block;
             background: var(--accent-color);
             color: var(--primary-color); 
-            padding: 12px 25px; /* Slightly smaller padding */
+            padding: 12px 25px; 
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1em; /* Slightly smaller font */
+            font-size: 1em; 
             font-weight: 600;
             transition: background-color 0.3s ease;
             border: none;
@@ -327,7 +327,9 @@
             margin-top: auto; /* Pushes the button to the bottom */
             padding: 10px 20px;
             font-size: 1em;
-            width: 100%; 
+            width: 100%;
+            max-width: 200px; /* NEW: Restricts button width */
+            align-self: center; /* NEW: Centers the button */
         }
 
         /* Process & Add-Ons */
@@ -416,6 +418,9 @@
             .package-card {
                 min-height: auto; /* Remove fixed height on mobile */
             }
+            .package-card .cta-button {
+                max-width: 100%; /* Full width on mobile */
+            }
             #quick-links {
                 padding: 15px;
                 margin-bottom: 20px;
@@ -476,10 +481,12 @@
                 <div class="dropdown" onclick="toggleDropdown(event)">
                     <a href="services.html" class="dropdown-toggle" id="nav-services" class="active">Services &#9662;</a>
                     <div class="dropdown-content">
-                        <a href="#website">Website Design & Development</a>
-                        <a href="#branding">Brand Identity & Digital Design</a>
-                        <a href="#coaching">Business Coaching & Strategy</a>
-                        <a href="#templates">Templates, Tools & Courses</a>
+                        <a href="services.html#website">Website Packages</a>
+                        <a href="services.html#website-addons">Website Add-Ons</a>
+                        <a href="services.html#branding">Branding Packages</a>
+                        <a href="services.html#coaching">Coaching Packages</a>
+                        <a href="services.html#coaching-table">Coaching Comparison</a>
+                        <a href="services.html#templates">Digital Products</a>
                     </div>
                 </div>
                 <a href="contact.html" id="nav-contact">Contact</a>
