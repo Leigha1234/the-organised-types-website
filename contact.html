@@ -205,25 +205,35 @@
             gap: 40px;
         }
         
-        /* Ensure Info Column is left (default), Form is right (default) */
+        /* === BACKGROUND IMAGE ADDITION === */
         .contact-info-column {
             display: flex;
             flex-direction: column;
             gap: 30px;
             order: 1; /* Left Column */
+            
+            /* Background Image Style */
+            background-image: url('contactbg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 30px; /* Padding for the entire column to contain the image */
+            border-radius: 8px;
         }
+        /* END BACKGROUND IMAGE ADDITION */
+        
         .contact-form-section {
             order: 2; /* Right Column */
         }
         
         /* Styling for the info boxes */
-        .info-box, .alt-options, .support-options {
-            background-color: var(--card-bg);
+        .info-box, .alt-options {
+            /* Adjust background for transparency/legibility */
+            background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent white for legibility */
             padding: 30px;
             border-radius: 8px;
             border-left: 3px solid var(--accent-color);
         }
-        .info-box h2, .alt-options h2, .support-options h2, .contact-form-section h2, .why-contact h2 {
+        .info-box h2, .alt-options h2, .contact-form-section h2, .why-contact h2 {
             color: var(--primary-color);
             font-size: 1.6em;
             border-bottom: 1px dashed #cccccc;
@@ -237,13 +247,13 @@
             font-size: 1.1em;
             color: var(--accent-color);
         }
-        .info-box a, .alt-options a, .support-options a, .why-contact a {
+        .info-box a, .alt-options a, .why-contact a {
             color: var(--primary-color);
             font-weight: 600;
             text-decoration: none;
             transition: color 0.3s;
         }
-        .info-box a:hover, .alt-options a:hover, .support-options a:hover {
+        .info-box a:hover, .alt-options a:hover, .why-contact a:hover {
             color: var(--accent-color);
         }
         
@@ -369,7 +379,6 @@
 
             /* Mobile Dropdown Sync */
             .dropdown { margin: 8px 0; width: 100%; }
-            .dropdown-toggle { cursor: pointer; }
             .dropdown-content {
                 position: static; 
                 width: 100%;
@@ -395,7 +404,12 @@
             }
             /* Reverse order for mobile: Form first, Info second */
             .contact-form-section { order: 1; }
-            .contact-info-column { order: 2; }
+            .contact-info-column { 
+                order: 2; 
+                padding: 20px; /* Reduced padding on mobile */
+                background-image: none; /* Optional: Remove image on mobile for performance/simplicity */
+                background-color: var(--logo-bg); /* Use a solid color fallback */
+            }
             
             .why-contact, .faq-snippet { padding: 20px; }
             .link-button { width: 100%; }
@@ -464,19 +478,19 @@
                             <a href="https://pinterest.com/theorganisedtypes" target="_blank" rel="noopener noreferrer">Pinterest • The Organised Types</a><br>
                             <small>(Links open in new tabs)</small>
                         </p>
-                        <p>Prefer something quick? Use the form above to send us a message directly.</p>
+                        <p>Prefer something quick? Use the form to send us a message directly.</p>
                     </div>
 
                     <div class="alt-options">
                         <h2>Book a Call or Coaching Session</h2>
                         <p>Want personalised support or a clear plan for your business?</p>
                         <a href="coaching-single-session.html" class="link-button">Book a 1:1 Coaching Session</a>
-                        <p class="mt-2"><small>We’ll schedule a call to walk through your goals, strategy and next steps.</small></p>
+                        <p><small>We’ll schedule a call to walk through your goals, strategy and next steps.</small></p>
                         
-                        <h2 class="mt-4">Got a Website Inquiry?</h2>
+                        <h2>Got a Website Inquiry?</h2>
                         <p>Looking for a custom website or branding package?</p>
                         <a href="contact.html#form" class="link-button">Request a Quote</a>
-                        <p class="mt-2"><small>Tell us about your vision and we’ll send you a tailored proposal.</small></p>
+                        <p><small>Tell us about your vision and we’ll send you a tailored proposal.</small></p>
                     </div>
 
                 </div>
