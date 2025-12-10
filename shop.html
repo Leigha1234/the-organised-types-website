@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Digital Tools & Templates</title>
+    <title>Shop - Services, Digital Tools & Templates</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -18,6 +18,7 @@
             --font-main: 'Poppins', sans-serif;
             --secondary-cta: #4f4a46; 
             --secondary-cta-text: #ffffff; 
+            --service-highlight: #EFE6E1; /* Light background for service cards */
         }
         body { 
             font-family: var(--font-main); 
@@ -65,10 +66,7 @@
         } 
         
         /* DESKTOP NAVIGATION */
-        #main-nav {
-            display: flex;
-            align-items: center;
-        }
+        #main-nav { display: flex; align-items: center; }
         #main-nav a { 
             color: var(--primary-color); 
             text-decoration: none; 
@@ -78,9 +76,7 @@
             white-space: nowrap;
         }
         #main-nav a:hover, 
-        #main-nav a#nav-shop.active { /* Target shop active link */
-            color: var(--accent-color); 
-        }
+        #main-nav a.active { color: var(--accent-color); }
         
         /* DROPDOWN CONTAINER */
         .dropdown {
@@ -127,13 +123,9 @@
             background-color: rgba(0, 0, 0, 0.05);
             color: var(--primary-color); 
         }
-
-        /* SHOW DROPDOWN ON DESKTOP HOVER */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* HAMBURGER ICON (Desktop Hidden) */
+        .dropdown:hover .dropdown-content { display: block; }
+        
+        /* HAMBURGER ICON */
         .menu-icon {
             display: none;
             cursor: pointer;
@@ -159,6 +151,15 @@
             font-weight: 700; 
             color: var(--primary-color); 
         }
+        .sub-heading {
+            text-align: center;
+            font-size: 1.8em;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin: 40px auto 30px;
+            max-width: 800px;
+        }
         
         /* --- FOOTER --- */
         footer { 
@@ -169,6 +170,8 @@
             font-size: 0.9em; 
             margin-top: auto; 
         }
+        footer a { color: var(--accent-color); text-decoration: none; }
+
 
         /* --- SHOP SPECIFIC STYLES --- */
 
@@ -179,7 +182,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 40px;
-            padding: 40px 0;
+            padding: 40px 0 60px;
         }
         .product-card {
             background-color: var(--card-bg);
@@ -190,6 +193,64 @@
             display: flex;
             flex-direction: column;
         }
+        
+        /* Service Card Specific Styles (Full width and different look) */
+        .service-grid {
+            grid-template-columns: 1fr 1fr; /* Two columns for services */
+            padding-top: 20px;
+        }
+        .service-card {
+            background-color: var(--service-highlight);
+            border: 1px solid var(--accent-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        .service-card h4 {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .service-card .price {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+        .service-card .price small {
+            font-weight: 400;
+            color: var(--text-color);
+            font-style: italic;
+        }
+        .service-card p {
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+        .service-cta-btn {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.95em;
+        }
+        .service-cta-btn:hover {
+            background-color: #92a487;
+        }
+        
+        /* Digital Product Card Styling */
         .product-image-area {
             height: 250px;
             overflow: hidden;
@@ -249,71 +310,38 @@
         @media (max-width: 768px) {
             
             /* MOBILE NAVIGATION STYLES */
-            .menu-icon {
-                display: flex; 
-            }
-            #main-nav {
+            .menu-icon { display: flex; }
+            #main-nav { 
                 display: none; 
                 position: absolute;
                 top: 100px; 
                 right: 0;
-                background-color: var(--logo-bg); 
                 width: 100%;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-                padding: 10px 0;
                 flex-direction: column;
             }
-            #main-nav.show-menu {
-                display: flex; 
-            }
-            #main-nav a { 
-                margin: 8px 0; 
-                padding: 5px 0;
-                display: block;
-            }
-            .navbar {
-                 padding: 0 5%; 
-            }
-            .dropdown {
-                margin: 8px 0; 
-                width: 100%;
-            }
-            .dropdown-content {
-                position: static; 
-                width: 100%;
-                box-shadow: none;
-                padding: 0;
-                transform: none; 
-                background-color: transparent; 
-                display: none; 
-            }
-            .dropdown.active .dropdown-content {
-                display: block; 
-            }
-            .dropdown-content a {
-                padding: 5px 0;
-                font-size: 0.9em;
-                background-color: rgba(79, 74, 70, 0.05); 
-            }
+            #main-nav.show-menu { display: flex; }
+            .dropdown-content { position: static; transform: none; }
 
-            /* MOBILE SHOP GRID */
-            .shop-page {
-                padding-top: 110px; 
-            }
-            .section-heading {
-                font-size: 1.6em; 
-            }
+            /* MOBILE SHOP LAYOUT */
+            .shop-page { padding-top: 110px; }
+            .section-heading { font-size: 1.6em; }
+            .sub-heading { font-size: 1.4em; }
+
+            /* Digital Products: Stack to 1 column */
             .shop-grid {
-                grid-template-columns: 1fr; /* Single column on mobile */
+                grid-template-columns: 1fr;
                 gap: 20px;
                 padding: 20px 0;
             }
-            .product-image-area {
-                height: 200px; 
+            .product-image-area { height: 200px; }
+            
+            /* Services: Stack to 1 column */
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
             }
-            .product-info {
-                padding: 15px;
+            .service-card {
+                padding: 20px;
             }
         }
     </style>
@@ -350,8 +378,46 @@
     </header>
 
     <div class="container shop-page">
-        <h2 class="section-heading">Browse Our Digital Templates & Tools</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Instant download templates built on Notion, Airtable, and Google Sheets to help you manage your business, projects, and life.</p>
+        <h2 class="section-heading">All Our Offerings in One Place</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Find the perfect solution for your business, from immediate digital downloads to fully managed service packages and one-on-one consulting.</p>
+
+        <h3 class="sub-heading">Managed Services & Custom Solutions</h3>
+
+        <div class="shop-grid service-grid">
+            
+            <div class="product-card service-card">
+                <h4>Custom Website Development Package</h4>
+                <span class="price">From £2,500 <small>(Est. cost)</small></span>
+                <p>Full design, development, and launch of a professional, conversion-focused website tailored to your brand goals. Ideal for new businesses or complete rebrands.</p>
+                <a href="contact.html?subject=Custom%20Website%20Inquiry" class="service-cta-btn">Request a Custom Quote</a>
+            </div>
+
+            <div class="product-card service-card">
+                <h4>Comprehensive Brand Identity Package</h4>
+                <span class="price">From £800 <small>(Est. cost)</small></span>
+                <p>Everything needed for a cohesive, powerful brand presence: logo suite, colour palettes, typography, and brand guidelines for all digital and print assets.</p>
+                <a href="contact.html?subject=Brand%20Identity%20Inquiry" class="service-cta-btn">Request a Custom Quote</a>
+            </div>
+            
+            <div class="product-card service-card">
+                <h4>Business Clarity Coaching Session (60 Min)</h4>
+                <span class="price">£120 <small>(Fixed Fee)</small></span>
+                <p>One-hour intensive call to map out your business strategy, refine a system, or solve a specific creative/technical block. Includes a comprehensive action plan.</p>
+                <button class="service-cta-btn" onclick="addToBasket('60%20Min%20Coaching%20Session')">Book Now / Add to Basket</button>
+            </div>
+            
+            <div class="product-card service-card">
+                <h4>Professional Logo Design Suite</h4>
+                <span class="price">£350 <small>(Fixed Fee)</small></span>
+                <p>A refined logo suite including primary, secondary, and sub-marks, provided in all necessary file formats (vector, PNG, etc.) for high-quality usage.</p>
+                <button class="service-cta-btn" onclick="addToBasket('Logo%20Design%20Suite')">Buy Now / Add to Basket</button>
+            </div>
+            
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid #ccc; margin: 60px 0;">
+
+        <h3 class="sub-heading">Instant Download Templates & Digital Tools</h3>
 
         <div class="shop-grid">
 
@@ -482,7 +548,7 @@
         // Placeholder function for Add to Basket (to be replaced by Shopify integration)
         function addToBasket(productName) {
             console.log("Added to Basket:", productName);
-            alert("Added " + productName + " to your basket! (Placeholder)");
+            alert("Action: Added/Purchased " + decodeURIComponent(productName) + " (Placeholder)");
         }
 
     </script>
