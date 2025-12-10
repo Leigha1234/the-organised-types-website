@@ -149,10 +149,10 @@
             display: inline-block;
             background: var(--accent-color);
             color: var(--primary-color); 
-            padding: 15px 35px;
+            padding: 12px 25px; /* Slightly smaller padding */
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.1em;
+            font-size: 1em; /* Slightly smaller font */
             font-weight: 600;
             transition: background-color 0.3s ease;
             border: none;
@@ -193,13 +193,47 @@
             margin-bottom: 20px; 
         }
 
+        /* Quick Links / Context Box */
+        #quick-links {
+            background-color: var(--logo-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+        }
+        #quick-links h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        #quick-links nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 15px;
+        }
+        #quick-links nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 0.95em;
+        }
+        #quick-links nav a:hover {
+            background-color: var(--accent-color);
+            color: var(--cream-bg);
+        }
+
         /* General Section Styling */
         .service-section {
-            padding: 40px 0;
+            padding: 40px;
             border-top: 2px solid var(--accent-color);
             margin-top: 40px;
-            background: var(--card-bg); /* Use a slight offset background */
-            padding: 40px;
+            background: var(--card-bg); 
             border-radius: 8px;
         }
         .service-section:first-of-type {
@@ -238,6 +272,8 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
             display: flex;
             flex-direction: column;
+            /* Ensure cards have roughly equal height to align buttons */
+            min-height: 480px; 
         }
         .package-card.featured {
             border: 3px solid var(--accent-color);
@@ -288,11 +324,10 @@
             color: var(--primary-color);
         }
         .package-card .cta-button {
-            margin-top: 20px;
+            margin-top: auto; /* Pushes the button to the bottom */
             padding: 10px 20px;
             font-size: 1em;
-            align-self: flex-start;
-            width: 100%; /* Full width for cards */
+            width: 100%; 
         }
 
         /* Process & Add-Ons */
@@ -378,13 +413,26 @@
                 padding: 20px;
                 margin-top: 20px;
             }
+            .package-card {
+                min-height: auto; /* Remove fixed height on mobile */
+            }
+            #quick-links {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            #quick-links nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            /* Table Fix */
             .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td, .comparison-table th {
                 display: block;
                 width: 100%;
                 text-align: left;
             }
             .comparison-table thead {
-                display: none; /* Hide header on mobile for vertical stacking */
+                display: none; 
             }
             .comparison-table tr {
                 margin-bottom: 10px;
@@ -448,6 +496,18 @@
     </div>
 
     <div class="container">
+        <div id="quick-links">
+            <h3>Jump to Section</h3>
+            <nav>
+                <a href="#website">Website Packages</a>
+                <a href="#website-addons">Website Add-Ons</a>
+                <a href="#branding">Branding Packages</a>
+                <a href="#coaching">Coaching Packages</a>
+                <a href="#coaching-table">Coaching Comparison</a>
+                <a href="#templates">Digital Products</a>
+            </nav>
+        </div>
+
         <section id="website" class="service-section">
             <h2>💻 Website Design & Development</h2>
             <p>Your website is your digital storefront — and first impressions matter. We build high-performing, visually stunning websites designed to elevate your credibility, attract your ideal clients, and turn visitors into customers. Every site is strategically planned, professionally designed, and built with user experience at the center.</p>
@@ -473,7 +533,7 @@
                     <div class="best-for">
                         Best for: ✔ New businesses, ✔ Landing pages for campaigns, ✔ “Coming soon” websites, ✔ Simple brochure-style sites
                     </div>
-                    <a href="contact.html" class="cta-button">Inquire Now</a>
+                    <a href="website-micro.html" class="cta-button">View Full Details</a>
                 </div>
 
                 <div class="package-card">
@@ -493,7 +553,7 @@
                     <div class="best-for">
                         Best for: ✔ New entrepreneurs, ✔ Freelancers & creators, ✔ Local service businesses, ✔ Coaches & consultants
                     </div>
-                    <a href="contact.html" class="cta-button">Start a Project</a>
+                    <a href="website-starter.html" class="cta-button">View Full Details</a>
                 </div>
 
                 <div class="package-card featured">
@@ -513,7 +573,7 @@
                     <div class="best-for">
                         Best for: ✔ Businesses ready to level up, ✔ Wellness, beauty, fitness, creative, or retail services, ✔ Consultants & small agencies
                     </div>
-                    <a href="contact.html" class="cta-button">Book a Consultation</a>
+                    <a href="website-small-business.html" class="cta-button">View Full Details</a>
                 </div>
 
                 <div class="package-card">
@@ -533,7 +593,7 @@
                     <div class="best-for">
                         Best for: ✔ Coaches, consultants, and educators, ✔ Creatives needing portfolios, ✔ Growing service-based businesses, ✔ Brands preparing for bigger visibility
                     </div>
-                    <a href="contact.html" class="cta-button">Inquire Now</a>
+                    <a href="website-professional.html" class="cta-button">View Full Details</a>
                 </div>
                 
                 <div class="package-card" style="grid-column: span 1 / auto;">
@@ -553,11 +613,11 @@
                     <div class="best-for">
                         Best for: ✔ Ecommerce brands, ✔ Gyms, fitness coaches, wellness professionals, ✔ Businesses needing automation
                     </div>
-                    <a href="contact.html" class="cta-button">Request a Custom Quote</a>
+                    <a href="website-premium.html" class="cta-button">Request a Custom Quote</a>
                 </div>
             </div>
 
-            <h3 style="margin-top: 40px;">The Process</h3>
+            <h3 id="website-process" style="margin-top: 40px;">The Process</h3>
             <ol class="process-list">
                 <li>**Consultation Call:** Discuss your goals, audience, style and required features.</li>
                 <li>**Creative Direction:** We map your brand colours, fonts and visual identity for consistency.</li>
@@ -568,7 +628,7 @@
                 <li>**30-Day Aftercare:** We’re here for tweaks, help and guidance post-launch.</li>
             </ol>
             
-            <h3 style="margin-top: 40px;">Who This Is Perfect For</h3>
+            <h3 id="website-who-for" style="margin-top: 40px;">Who This Is Perfect For</h3>
             <ul class="who-for-list">
                 <li>New businesses launching their first professional website</li>
                 <li>Established businesses ready for a modern redesign</li>
@@ -577,7 +637,7 @@
                 <li>Anyone needing a beautiful, reliable site they can easily manage</li>
             </ul>
 
-            <h3 style="margin-top: 40px;">Website Add-Ons</h3>
+            <h3 id="website-addons" style="margin-top: 40px;">Website Add-Ons</h3>
             <div class="add-ons-list">
                 <h4 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Branding Add-Ons</h4>
                 <ul>
@@ -626,7 +686,7 @@
             <p>Branding is more than a pretty logo — it’s the personality, emotion and story behind your business. We craft cohesive brand identities that feel aligned, recognizable and trustworthy so your business instantly stands out.</p>
             <p>From complete branding kits to logo packages, color palettes and Canva templates, we design everything you need to look polished across your website, social media, and marketing materials.</p>
 
-            <h3>Brand Identity Packages</h3>
+            <h3 id="branding-packages">Brand Identity Packages</h3>
             <div class="package-grid">
                 
                 <div class="package-card">
@@ -643,7 +703,7 @@
                     <div class="best-for">
                         Best for: Start-ups, side hustles, Etsy sellers, creators.
                     </div>
-                    <a href="shop.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">Add to Cart</a>
+                    <a href="branding-mini-kit.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">View Full Details</a>
                 </div>
 
                 <div class="package-card">
@@ -661,7 +721,7 @@
                     <div class="best-for">
                         Best for: Small businesses wanting a well-defined aesthetic and a more professional presence online.
                     </div>
-                    <a href="shop.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">Add to Cart</a>
+                    <a href="branding-essential-kit.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">View Full Details</a>
                 </div>
 
                 <div class="package-card featured">
@@ -679,7 +739,7 @@
                     <div class="best-for">
                         Best for: Established businesses, coaches, wellness brands, boutiques, creatives.
                     </div>
-                    <a href="contact.html" class="cta-button">Request Custom Branding</a>
+                    <a href="branding-complete-suite.html" class="cta-button">View Full Details</a>
                 </div>
 
                 <div class="package-card">
@@ -697,7 +757,7 @@
                     <div class="best-for">
                         Best for: Influencers, coaches, product-based businesses, small agencies.
                     </div>
-                    <a href="contact.html" class="cta-button">Request Custom Branding</a>
+                    <a href="branding-premium-social.html" class="cta-button">View Full Details</a>
                 </div>
                 
                 <div class="package-card" style="grid-column: span 1 / auto;">
@@ -715,11 +775,11 @@
                     <div class="best-for">
                         Best for: Ambitious businesses looking to scale, long-term brand building, premium services, agencies, ecommerce brands.
                     </div>
-                    <a href="contact.html" class="cta-button">Request Custom Branding</a>
+                    <a href="branding-signature-kit.html" class="cta-button">Request Custom Branding</a>
                 </div>
             </div>
 
-            <h3 style="margin-top: 40px;">The Process</h3>
+            <h3 id="branding-process" style="margin-top: 40px;">The Process</h3>
             <ol class="process-list">
                 <li>**Brand Questionnaire:** We uncover your aesthetic, audience and values.</li>
                 <li>**Moodboard & Direction:** You approve the creative direction before design begins.</li>
@@ -739,7 +799,7 @@
             <p>Running a business is easier when you’re not doing it alone. Our coaching sessions help you stop guessing and start growing. With personalised guidance, practical strategies and step-by-step support, you’ll gain clarity, confidence, and a plan that feels achievable.</p>
             <p>Perfect for new entrepreneurs, Etsy sellers, freelancers and service-based businesses needing structure, systems and direction.</p>
 
-            <h3>Coaching Packages</h3>
+            <h3 id="coaching-packages">Coaching Packages</h3>
             <div class="package-grid">
                 
                 <div class="package-card">
@@ -756,7 +816,7 @@
                     <div class="best-for">
                         Best for: ✔ Quick wins and immediate clarity, ✔ Troubleshooting specific challenges, ✔ Flexible, no-commitment coaching
                     </div>
-                    <a href="contact.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">Book a Single Session</a>
+                    <a href="coaching-payg.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">Book a Single Session</a>
                 </div>
 
                 <div class="package-card featured">
@@ -774,7 +834,7 @@
                     <div class="best-for">
                         Best for: ✔ New business owners building foundations, ✔ Entrepreneurs needing consistency & accountability, ✔ Anyone wanting structured step-by-step growth
                     </div>
-                    <a href="contact.html" class="cta-button">Start the Growth Bundle</a>
+                    <a href="coaching-growth.html" class="cta-button">Start the Growth Bundle</a>
                 </div>
 
                 <div class="package-card">
@@ -793,11 +853,11 @@
                     <div class="best-for">
                         Best for: ✔ Entrepreneurs scaling to the next level, ✔ People ready for a full business overhaul, ✔ Long-term vision builders
                     </div>
-                    <a href="contact.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">Start Your Transformation</a>
+                    <a href="coaching-transformation.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">Start Your Transformation</a>
                 </div>
             </div>
 
-            <h3 style="margin-top: 40px;">Coaching Comparison Chart</h3>
+            <h3 id="coaching-table" style="margin-top: 40px;">Coaching Comparison Chart</h3>
             <table class="comparison-table">
                 <thead>
                     <tr>
@@ -853,7 +913,7 @@
                 </tbody>
             </table>
 
-            <h3 style="margin-top: 40px;">The Process</h3>
+            <h3 id="coaching-process" style="margin-top: 40px;">The Process</h3>
             <ol class="process-list">
                 <li>**Book your session**</li>
                 <li>**Complete the onboarding questions**</li>
@@ -861,6 +921,20 @@
                 <li>**Receive your personalised roadmap**</li>
                 <li>**Start implementing with confidence**</li>
             </ol>
+            
+            <h3 id="coaching-addons" style="margin-top: 40px;">Optional Add-Ons for Coaching</h3>
+            <div class="add-ons-list">
+                <ul>
+                    <li>Brand Kit add-on</li>
+                    <li>Website audit</li>
+                    <li>Full Offer Suite mapping</li>
+                    <li>Pricing overhaul session</li>
+                    <li>Content strategy workbook</li>
+                    <li>Productivity system setup</li>
+                    <li>One-page business plan</li>
+                    <li>Accountability check-ins (weekly or monthly)</li>
+                </ul>
+            </div>
 
             <p style="text-align: center; margin-top: 40px;">
                 <a href="contact.html" class="cta-button">Book a Coaching Session</a>
@@ -872,7 +946,7 @@
             <p>Instant downloads designed to make life and business easier. Our digital store includes business templates, planners, AI prompt packs, branding bundles, productivity tools, courses and more — all created to help you stay organised, save time, and scale your business with confidence.</p>
             <p>Every product is crafted to be simple, beautiful and incredibly practical.</p>
 
-            <h3>What’s Included (Product Examples)</h3>
+            <h3 id="templates-included">What’s Included (Product Examples)</h3>
             <div class="add-ons-list">
                 <ul>
                     <li>Canva templates</li>
@@ -887,7 +961,7 @@
                 </ul>
             </div>
 
-            <h3 style="margin-top: 40px;">The Process (Instant Download)</h3>
+            <h3 id="templates-process" style="margin-top: 40px;">The Process (Instant Download)</h3>
             <ol class="process-list">
                 <li>**Add your chosen product to cart**</li>
                 <li>**Download instantly**</li>
