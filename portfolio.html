@@ -41,8 +41,9 @@
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
             padding: 5px 0; /* Minimized Padding */
-            position: fixed;
+            position: fixed; /* SET TO FIXED */
             top: 0; 
+            width: 100%; /* ENSURES FULL WIDTH */
             z-index: 20; 
         }
         .navbar { 
@@ -136,6 +137,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            margin-top: 162px; /* CORRECTED: OFFSET FOR FIXED HEADER */
         }
         .main-content h1 {
             font-size: 4em;
@@ -200,6 +202,7 @@
             /* Mobile Portfolio */
             .main-content { 
                 padding: 80px 10px; 
+                margin-top: 162px; /* ENSURES MOBILE CONTENT CLEARS FIXED HEADER */
             }
             .main-content h1 { 
                 font-size: 3em; 

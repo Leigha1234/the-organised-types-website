@@ -41,8 +41,9 @@
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
             padding: 5px 0; /* Minimized Padding */
-           position: fixed;
+            position: fixed; /* SET TO FIXED */
             top: 0; 
+            width: 100%; /* ENSURES FULL WIDTH */
             z-index: 20; 
         }
         .navbar { 
@@ -149,6 +150,7 @@
             padding: 40px 20px 20px; 
             background: var(--cream-bg); 
             margin-bottom: 0px; 
+            margin-top: 162px; /* CORRECTED: OFFSET FOR FIXED HEADER */
         }
         .services-hero h1 { 
             font-size: 3em; 
@@ -271,6 +273,7 @@
             /* Mobile Services Hero */
             .services-hero { 
                 padding: 30px 10px 10px; 
+                margin-top: 162px; /* ENSURES MOBILE CONTENT CLEARS FIXED HEADER */
             }
             .services-hero h1 { 
                 font-size: 2.2em; 
