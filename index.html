@@ -344,14 +344,32 @@
 </head>
 <body>
 
-    <?php include 'header.inc.php'; ?>
-    
+    <header>
+        <div class="navbar"> 
+            <a href="index.html" class="logo-area">
+                <img src="logo.jpg.webp" alt="The Organised Types Logo">
+            </a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav id="main-nav">
+                <a href="index.html" id="nav-index">Home</a> 
+                <a href="services.html" id="nav-services">Services</a>
+                <a href="portfolio.html" id="nav-portfolio">Portfolio</a>
+                <a href="contact.html" id="nav-contact">Contact</a>
+                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Etsy Shop</a>
+            </nav>
+        </div>
+    </header>
+
     <div class="hero">
         <div class="container">
             <h2>Digital tools and templates that make life and business easier</h2>
             
             <p>We are a UK-based consultancy providing **custom solutions, tools, and expertise** to maximize personal and business efficiency.</p>
-            <a href="services.php" class="cta-button">Explore Our Solutions</a>
+            <a href="services.html" class="cta-button">Explore Our Solutions</a>
         </div>
     </div>
 
@@ -365,12 +383,12 @@
                     <div class="card-face card-face-front">
                         <h3>See Our Successful Implementations 📁</h3>
                         <p>We believe digital success starts with clearly **organised** systems and beautiful design, ensuring every project is fit for purpose.</p>
-                        <a href="portfolio.php" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Case Studies</a>
+                        <a href="portfolio.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">View Case Studies</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Our Work</h3>
                         <p>Review case studies demonstrating effective **system implementation and organisation** across diverse clients.</p>
-                        <a href="portfolio.php" class="card-link-button">View Portfolio Now</a>
+                        <a href="portfolio.html" class="card-link-button">View Portfolio Now</a>
                     </div>
                 </div>
             </div>
@@ -380,12 +398,12 @@
                     <div class="card-face card-face-front">
                         <h3>Discuss Your Custom Needs 📧</h3>
                         <p>Specialising in digital strategy for small UK businesses, ensuring your setup meets local compliance and market needs.</p>
-                        <a href="contact.php" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Send an Enquiry</a>
+                        <a href="contact.html" class="card-link-button" style="background: var(--accent-color); color: var(--primary-color);">Send an Enquiry</a>
                     </div>
                     <div class="card-face card-face-back">
                         <h3>Get in Touch</h3>
                         <p>Let's discuss how customized planning, organisation, and digital tools can solve your specific challenges.</p>
-                        <a href="contact.php" class="card-link-button">Start a Conversation</a>
+                        <a href="contact.html" class="card-link-button">Start a Conversation</a>
                     </div>
                 </div>
             </div>
@@ -393,7 +411,34 @@
         </div>
     </div>
 
-    <?php include 'footer.inc.php'; ?>
+    <footer>
+        <div class="container">
+            <p>Ready to start your project? <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to purchase a service or template.</p>
+            <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("main-nav"); 
+            nav.classList.toggle("show-menu");
+        }
+        
+        // Function to set the active link dynamically
+        (function setActiveLink() {
+            const path = window.location.pathname.split('/').pop();
+            const activePage = path.split('.')[0] || 'index'; 
+            
+            document.querySelectorAll('#main-nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            const activeLink = document.getElementById(`nav-${activePage}`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        })();
+    </script>
 
 </body>
 </html>
