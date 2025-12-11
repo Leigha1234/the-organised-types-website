@@ -176,6 +176,22 @@
         }
         footer a { color: var(--accent-color); text-decoration: none; }
 
+        /* Footer Socials Style - ADDED FOR CONSISTENCY */
+        .social-links {
+            margin-bottom: 15px;
+        }
+        .social-links a {
+            color: var(--primary-color); 
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
 
         /* --- PAGE-SPECIFIC STYLES: CONTACT --- */
         .contact-content {
@@ -596,13 +612,14 @@
                         <p>Whether you’re planning a new website, need help with branding, want to book a coaching session, or just have a question about our digital tools — drop us a message!</p>
                         
                         <strong>Email:</strong>
-                        <p><a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a><br>
+                        <p><a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a><br>
                         We aim to reply within 24–48 hours (Mon–Fri)</p>
                         
                         <strong>Follow Us:</strong>
                         <p>
-                            <a href="https://instagram.com/theorganisedtypes" target="_blank" rel="noopener noreferrer">Instagram • @theorganisedtypes</a><br>
-                            <a href="https://pinterest.com/theorganisedtypes" target="_blank" rel="noopener noreferrer">Pinterest • The Organised Types</a><br>
+                            <a href="https://www.instagram.com/theorganisedtypes/" target="_blank" rel="noopener noreferrer">Instagram • @theorganisedtypes</a><br>
+                            <a href="https://www.tiktok.com/@theorganisedtypes" target="_blank" rel="noopener noreferrer">TikTok • @theorganisedtypes</a><br>
+                            <a href="https://www.pinterest.co.uk/theorganisedtypes/" target="_blank" rel="noopener noreferrer">Pinterest • The Organised Types</a><br>
                             <small>(Links open in new tabs)</small>
                         </p>
                         <p>Prefer something quick? Use the form to send us a message directly.</p>
@@ -625,7 +642,7 @@
                 <div class="contact-form-section">
                     <h2>Send Us a Message</h2>
                     <p>Have an enquiry? Use the form below and we’ll get back to you as soon as we can.</p>
-                    <form class="contact-form" action="#" method="POST" id="form">
+                    <form class="contact-form" action="mailto:theorganisedtypes@gmail.com" method="POST" enctype="text/plain" id="form">
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" required>
@@ -704,8 +721,13 @@
 
     <footer>
         <div class="container">
-            <p>Ready to start your project? <a href="services.html#templates">Explore our templates</a>, digital tools, systems, and productivity packs.</p>
-            <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/theorganisedtypes/" target="_blank">Instagram</a> |
+                <a href="https://www.tiktok.com/@theorganisedtypes" target="_blank">TikTok</a> |
+                <a href="https://www.pinterest.co.uk/theorganisedtypes/" target="_blank">Pinterest</a>
+            </div>
+            <p>Email: <a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a></p>
+            &copy; 2025 The Organised Types. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
         </div>
     </footer>
     
@@ -720,20 +742,10 @@
         function toggleDropdown(event) {
             // Only execute the dropdown toggle logic on desktop (769px and up)
             if (window.innerWidth >= 769) {
-                // Original dropdown logic (which is handled by :hover on desktop, but keeping this check here for robustness if you reuse the click event)
                 return;
             }
             
-            // 🛑 On Mobile (below 769px), we now prevent the default link action (event.preventDefault())
-            // and simply allow the link to navigate to 'services.html' 
-            // The links inside the dropdown are now always visible when the menu is open (via CSS).
-            
             // To ensure the parent link is always clickable on mobile, we explicitly allow the default action:
-            // event.preventDefault() removed, allowing the `services.html` link to function as a link.
-
-            // The class manipulation below is no longer needed since we forced display: block in CSS
-            // const dropdown = event.currentTarget;
-            // dropdown.classList.toggle('active');
         }
         
         // Function to set the active link dynamically
