@@ -269,7 +269,7 @@
 
         /* Quick Links / Context Box */
         #quick-links {
-            background-color: var(--logo-bg);
+            background-color: var(--accent-color);
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 40px;
@@ -349,6 +349,7 @@
             flex-direction: column;
             min-height: 380px; 
             transition: transform 0.2s, box-shadow 0.2s;
+            position: relative; /* Needed for z-index of button */
         }
         .package-card[data-details-url]:hover {
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -827,7 +828,7 @@
                     <div class="best-for">
                         Best for: ✔ New businesses, ✔ Landing pages for campaigns, ✔ “Coming soon” websites, ✔ Simple brochure-style sites
                     </div>
-                    <a href="website-micro.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                    <a href="/cart/add?id=MICRO_VARIANT_ID" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
 
                 <div class="package-card" data-details-url="website-starter.html">
@@ -850,7 +851,7 @@
                     <div class="best-for">
                         Best for: ✔ New entrepreneurs, ✔ Freelancers & creators, ✔ Local service businesses, ✔ Coaches & consultants
                     </div>
-                    <a href="website-starter.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                    <a href="/cart/add?id=STARTER_VARIANT_ID" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
 
                 <div class="package-card featured" data-details-url="website-small-business.html">
@@ -871,108 +872,54 @@
                     <div class="best-for">
                         Best for: ✔ Businesses ready to level up, ✔ Wellness, beauty, fitness, creative, or retail services, ✔ Consultants & small agencies
                     </div>
-                    <a href="website-small-business.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                    <a href="/cart/add?id=SMALLBIZ_VARIANT_ID" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
 
                 <div class="package-card" data-details-url="website-pro.html">
                     <h4>Professional Website</h4>
                     <div class="package-image-placeholder bg-accent">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">£1,195</span>
-                    <p>Perfect for: Established businesses needing a fully custom, conversion-focused site</p>
-                    <p>A bespoke, high-converting website crafted around your brand story, services, and long-term goals. Includes deeper SEO setup, blog or portfolio functionality, and enhanced design elements.</p>
+                    <span class="price">£1295</span>
+                    <p>Perfect for: Established businesses needing a comprehensive, high-conversion website, potential e-commerce integration, or complex features.</p>
+                    <p>This is our most powerful package, built for comprehensive functionality, high traffic, and maximum conversion. It includes detailed SEO strategy, full content mapping, and premium design features.</p>
                     <ul>
-                        <li>6-8 page fully custom website</li>
-                        <li>Blog or portfolio setup</li>
-                        <li>Custom-designed page layouts</li>
-                        <li>2 rounds of revisions</li>
-                        <li>Enhanced SEO setup</li>
-                        <li>Mobile-first design</li>
-                        <li>Launch support + testing, Professional UX and strategic layout</li>
-                        
-                    </ul>
-                    <div class="best-for">
-                        Best for: ✔ Coaches, consultants, and educators, ✔ Creatives needing portfolios, ✔ Growing service-based businesses, ✔ Brands preparing for bigger visibility
-                    </div>
-                    <a href="website-pro.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
-                </div>
-                
-                <div class="package-card" style="grid-column: span 1 / auto;" data-details-url="website-ecommerce.html">
-                    <h4>Premium Website (Advanced Features)</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">£1,800</span>
-                    <p>Perfect for: Businesses needing ecommerce, booking systems, memberships or advanced integrations</p>
-                    <p>A comprehensive, strategy-led website with everything your brand needs to scale. Designed for businesses requiring automation, online sales, memberships, or more complex customer journeys.</p>
-                    <ul>
-                        <li>8-12+ pages</li>
-                        <li>Ecommerce OR booking system integration</li>
-                        <li>Custom functionality (forms, portals, memberships, calendars)</li>
-                        <li>Full SEO setup (keywords, metadata, structure, optimisation)</li>
+                        <li>Up to 8-10 page website</li>
+                        <li>Advanced SEO setup and analysis</li>
+                        <li>Professional Copywriting guidance</li>
                         <li>3 rounds of revisions</li>
-                        <li>Advanced custom layouts, Third-party integrations</li>
-                        <li>30-day post-launch support</li>
+                        <li>Custom integrations (e.g., booking software, email marketing)</li>
+                        <li>Full mobile & tablet optimisation</li>
+                        <li>Detailed content strategy</li>
                     </ul>
                     <div class="best-for">
-                        Best for: ✔ Ecommerce brands, ✔ Gyms, fitness coaches, wellness professionals, ✔ Businesses needing automation
+                        Best for: ✔ E-commerce, ✔ Large service firms, ✔ Online course creators, ✔ Businesses focused on growth & traffic
                     </div>
-                    <a href="website-ecommerce.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                    <a href="/cart/add?id=PRO_VARIANT_ID" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
+
+            </div> <div style="text-align: center; margin-top: 40px;">
+                <a href="YOUR_SHOPIFY_TEMPLATES_URL" class="cta-button" target="_blank">
+                    Browse All Templates
+                </a>
             </div>
+
         </section>
 
         <section id="website-addons" class="service-section">
-            <h2>Website Add-Ons & Extras</h2>
-            <p>Further enhance your website package with these optional additions. Pricing is based on complexity and time needed for implementation.</p>
+            <h2>Website Add-Ons</h2>
+            <p>Enhance your website package with these optional additions.</p>
             <div class="add-ons-list">
-                
-                <h4>Pre-Launch Essentials</h4>
                 <ul>
                     <li>
-                        <span>Logo Design (Simple Text-Based)</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
+                        <span>Extra Page Design & Development</span>
+                        <a href="/cart/add?id=ADDON_PAGE_ID" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
-                        <span>Basic Brand Style Guide (Colors & Fonts)</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
+                        <span>Custom Code Snippet Integration (e.g., complex calculator)</span>
+                        <a href="/cart/add?id=ADDON_CUSTOM_CODE_ID" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
-                        <span>Professional Photography Integration (Your provided photos)</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
-                    </li>
-                </ul>
-
-                <h4>Functionality & Content</h4>
-                <ul>
-                    <li>
-                        <span>Extra Page Design & Implementation (per page)</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
-                    </li>
-                    <li>
-                        <span>Advanced SEO & Content Optimisation</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
-                    </li>
-                    <li>
-                        <span>CRM or Email Marketing Integration (e.g., MailChimp, Flodesk)</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
-                    </li>
-                    <li>
-                        <span>Membership or Client Portal Setup</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
-                    </li>
-                    <li>
-                        <span>Dedicated Blog Setup & 2 initial posts</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
-                    </li>
-                </ul>
-
-                <h4>Maintenance & Support</h4>
-                <ul>
-                    <li>
-                        <span>Monthly Website Maintenance Package (Contact for tailored pricing)</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
-                    </li>
-                    <li>
-                        <span>One-off Maintenance & Troubleshooting (Hourly Rate)</span>
-                        <a href="contact.html" class="cta-button small">Add to Cart</a>
+                        <span>Basic E-commerce Setup (up to 5 products)</span>
+                        <a href="/cart/add?id=ADDON_ECOMMERCE_ID" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                 </ul>
             </div>
@@ -980,454 +927,133 @@
 
         <section id="branding" class="service-section">
             <h2>Brand Identity & Digital Design</h2>
-            <p>Beyond the website, a cohesive brand identity is vital. We offer strategic design services to ensure your entire digital presence speaks with one powerful, professional voice.</p>
-
-            <h3>Core Branding Packages</h3>
-            <div class="package-grid">
-                
-                <div class="package-card" data-details-url="branding-starter.html">
-                    <h4>Brand Starter Kit</h4>
-                    <div class="package-image-placeholder bg-accent">Branding Placeholder</div>
-                    <span class="price">£295</span>
-                    <p>The essential foundations for a professional look. Ideal for new businesses that need a simple, consistent visual identity.</p>
-                    <ul>
-                        <li>Primary Logo Design</li>
-                        <li>Basic Colour Palette</li>
-                        <li>Recommended Typography Pairings</li>
-                        <li>Basic Brand Guidelines PDF</li>
-                        <li>Digital file formats included</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: ✔ Freelancers, ✔ New side hustles, ✔ Businesses integrating branding into a Micro or Starter Website package
-                    </div>
-                    <a href="branding-starter.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
-                </div>
-
-                <div class="package-card featured" data-details-url="branding-full.html">
-                    <h4>Complete Brand Identity</h4>
-                    <div class="package-image-placeholder">Branding Placeholder</div>
-                    <span class="price">£595</span>
-                    <p>A full, in-depth brand package that prepares your business for high-level visibility across all platforms.</p>
-                    <ul>
-                        <li>Primary & Secondary Logos</li>
-                        <li>Full Logo Variations (Wordmark, Favicon)</li>
-                        <li>Extended Colour Palette</li>
-                        <li>Comprehensive Typography Suite</li>
-                        <li>Detailed Brand Guidelines Document</li>
-                        <li>Social Media Profile Kit</li>
-                        <li>1 Round of Concept Revisions</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: ✔ Growing businesses, ✔ Professionals needing a high-trust presence, ✔ Website clients needing seamless integration
-                    </div>
-                    <a href="branding-full.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
-                </div>
-
-                <div class="package-card" data-details-url="branding-marketing.html">
-                    <h4>Digital Marketing Kit</h4>
-                    <div class="package-image-placeholder bg-accent">Digital Marketing Placeholder</div>
-                    <span class="price">£250 + VAT</span>
-                    <p>Designed to help you launch campaigns or consistently show up on social media using your new brand identity.</p>
-                    <ul>
-                        <li>10 Custom Social Media Templates (Canva)</li>
-                        <li>2 Email Signature Designs</li>
-                        <li>Business Card Design (Print-ready file)</li>
-                        <li>Branded PDF/Workbook Cover Design</li>
-                        <li>1 Round of Revisions</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: ✔ Coaches, ✔ Consultants, ✔ Any business with a heavy social media presence
-                    </div>
-                    <a href="branding-marketing.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
-                </div>
-
-            </div>
-        </section>
+            <p>We craft unique, memorable, and strategic brand identities that resonate with your ideal customers.</p>
+            </section>
 
         <section id="coaching" class="service-section">
             <h2>Business Coaching & Strategy</h2>
-            <p>Sometimes, what you really need is an organised mind and a strategic plan. Our coaching services focus on clarity, efficiency, and creating sustainable systems for long-term growth.</p>
-            
-            <h3>How It Works: Our Process</h3>
-            <ul class="process-list">
-                <li>**Assessment:** We start with an in-depth review of your current business structure, challenges, and goals.</li>
-                <li>**Strategy Session:** A dedicated 90-minute session to define your core problems and outline a 90-day action plan.</li>
-                <li>**Implementation Plan:** Receive a comprehensive, step-by-step plan for the first 30 days, focused on immediate efficiency gains.</li>
-                <li>**Follow-up & Support:** Ongoing check-ins, accountability, and resource recommendations based on your chosen package.</li>
-            </ul>
-
-            <h3>Coaching Packages</h3>
-            <div class="package-grid">
-                
-                <div class="package-card" data-details-url="coaching-mini.html">
-                    <h4>The Clarity Call</h4>
-                    <div class="package-image-placeholder">Placeholder Image</div>
-                    <span class="price">£99</span>
-                    <p>A powerful, one-off session to tackle a single, critical business challenge and leave with immediate next steps.</p>
-                    <ul>
-                        <li>60-Minute Focused Strategy Call</li>
-                        <li>Pre-call questionnaire and preparation</li>
-                        <li>1 Core Problem Solved</li>
-                        <li>Immediate Action Plan PDF</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: ✔ Decision-making, ✔ Overcoming a creative block, ✔ Quick guidance on a specific tool (e.g., Notion setup)
-                    </div>
-                    <a href="coaching-mini.html" class="cta-button" onclick="event.stopPropagation()">Book Now</a>
-                </div>
-
-                <div class="package-card featured" data-details-url="coaching-90day.html">
-                    <h4>90-Day Organiser Package</h4>
-                    <div class="package-image-placeholder bg-accent">Placeholder Image</div>
-                    <span class="price">£450/month (3-month commitment)</span>
-                    <p>Our most popular option. Dedicated coaching and support to build sustainable systems, scale your operations, and refine your business model over three months.</p>
-                    <ul>
-                        <li>6 x 60-Minute Strategy Sessions</li>
-                        <li>Weekly Accountability Check-ins</li>
-                        <li>Custom System Implementation Roadmap</li>
-                        <li>Unlimited Email Support (9am-5pm Mon-Fri)</li>
-                        <li>Business Audit & Goal Setting</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: ✔ Launching a new offer, ✔ Scaling operations, ✔ Automating client onboarding, ✔ Full business model overhaul
-                    </div>
-                    <a href="coaching-90day.html" class="cta-button" onclick="event.stopPropagation()">Book Now</a>
-                </div>
-
-                <div class="package-card" data-details-url="coaching-executive.html">
-                    <h4>Executive Strategy (6 Months)</h4>
-                    <div class="package-image-placeholder">Placeholder Image</div>
-                    <span class="price">£750/month (6-month commitment)</span>
-                    <p>Long-term partnership focused on strategic planning, leadership development, and preparing your business for major expansion.</p>
-                    <ul>
-                        <li>Bi-Weekly 90-Minute Strategy Sessions</li>
-                        <li>Full Quarterly Goal Planning</li>
-                        <li>Custom Executive Dashboard Setup</li>
-                        <li>Priority Access to Tools & Templates</li>
-                        <li>Emergency Support via WhatsApp/Slack</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: ✔ Established businesses, ✔ Leaders transitioning roles, ✔ Teams planning major product or market expansion
-                    </div>
-                    <a href="coaching-executive.html" class="cta-button" onclick="event.stopPropagation()">Book Now</a>
-                </div>
-
-            </div>
-
-            <h3 id="coaching-table">Coaching Package Comparison</h3>
-            <div style="overflow-x: auto;">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Clarity Call (£99)</th>
-                            <th>90-Day Organiser</th>
-                            <th>Executive Strategy</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Duration</td>
-                            <td>1 Hour (One-Off)</td>
-                            <td>3 Months</td>
-                            <td>6 Months</td>
-                        </tr>
-                        <tr>
-                            <td>Number of Sessions</td>
-                            <td>1</td>
-                            <td>6 x 60 mins</td>
-                            <td>12 x 90 mins</td>
-                        </tr>
-                        <tr>
-                            <td>Accountability/Check-ins</td>
-                            <td>No</td>
-                            <td>Weekly Email</td>
-                            <td>Bi-weekly (Full Review)</td>
-                        </tr>
-                        <tr>
-                            <td>Custom Roadmap/System Building</td>
-                            <td>Basic Action Plan</td>
-                            <td>Full Roadmap</td>
-                            <td>Full Roadmap + Quarterly Planning</td>
-                        </tr>
-                        <tr>
-                            <td>Email Support</td>
-                            <td>7 days post-call</td>
-                            <td>Unlimited (Mon-Fri)</td>
-                            <td>Priority Unlimited + WhatsApp/Slack</td>
-                        </tr>
-                        <tr>
-                            <td>Ideal for</td>
-                            <td>Quick fixes</td>
-                            <td>Scaling & automation</td>
-                            <td>Major expansion & long-term growth</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+            <p>Gain clarity, build a roadmap, and develop systems for sustainable growth with our one-on-one coaching.</p>
+            </section>
 
         <section id="templates" class="service-section">
-            <h2>Templates, Tools & Courses (Digital Products)</h2>
-            <p>Access our curated collection of digital products designed for immediate impact, efficiency, and a touch of organisation. These are DIY resources to help you implement systems fast.</p>
-            
-            <h3>Who are these products for?</h3>
-            <ul class="who-for-list">
-                <li>The DIY business owner who knows what they need but lacks the time to build it from scratch.</li>
-                <li>Small businesses looking for affordable, professional tools without a custom development cost.</li>
-                <li>Entrepreneurs who want instant access to high-quality templates (e.g., Notion, Canva, Spreadsheets).</li>
-            </ul>
+            <h2>Templates, Tools & Courses</h2>
+            <p>Organised, ready-to-use digital products to help you systemise and automate your business processes affordably.</p>
+            </section>
 
-            <h3>Shop Highlights</h3>
-            <div class="package-grid">
-                
-                <div class="package-card" data-details-url="product-business-plan.html">
-                    <h4>Business Plan Template Kit</h4>
-                    <div class="package-image-placeholder bg-accent">Business Template</div>
-                    <span class="price">£6.99</span>
-                    <p>A fully organised, editable template to quickly structure your business plan, mission, and financial projections. Available in Word/Google Docs format.</p>
-               </div>
-
-                <div class="package-card" data-details-url="product-notion-system.html">
-                    <h4>Ultimate Notion Business System</h4>
-                    <div class="package-image-placeholder">Digital Tool</div>
-                    <span class="price">£49.00</span>
-                    <p>Our complete Notion workspace template, including project management, content calendar, client CRM, and financial trackers—all interlinked for maximum efficiency.</p>
-               </div>
-
-                <div class="package-card" data-details-url="product-instagram-course.html">
-                    <h4>Organised Instagram Course</h4>
-                    <div class="package-image-placeholder bg-accent">Digital Course</div>
-                    <span class="price">£129.00</span>
-                    <p>A self-paced online course focused on creating a consistent content strategy, automating your posting, and building a high-converting Instagram bio and feed.</p>
-                </div>
-            </div>
-
-            <a href="YOUR_SHOPIFY_TEMPLATES_URL" class="cta-button" target="_blank">
-    Browse All Templates
-</a>
-        </section>
 
     </div> <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="#">Instagram</a> |
-                <a href="#">LinkedIn</a> |
-                <a href="#">Pinterest</a>
-            </div>
-            <p>&copy; 2024 The Organised Types. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a> | 
+            <a href="#" target="_blank">Pinterest</a> | 
+            <a href="#" target="_blank">LinkedIn</a> | 
+            <a href="#" target="_blank">Email</a>
         </div>
+        &copy; 2025 The Organised Types. All rights reserved.
     </footer>
 
     <script>
-        // --- Existing Navigation Functions ---
+        // --- Navigation Menu Toggle ---
         function toggleMenu() {
             const nav = document.getElementById('main-nav');
             nav.classList.toggle('show-menu');
         }
 
-        function toggleDropdown(event) {
-            const dropdown = event.currentTarget;
-            // Only show/hide on click if on mobile (max-width: 768px). 
-            if (window.innerWidth <= 768) {
-                const content = dropdown.querySelector('.dropdown-content');
-                content.style.display = content.style.display === 'block' ? 'none' : 'block';
-            }
-            // Prevent the default link action on the Services link when clicking the dropdown container
-            event.preventDefault(); 
-        }
-
-        // --- New Search Functionality ---
-
-        // Helper function to safely remove previous highlights
-        function removeHighlights(container) {
-            container.querySelectorAll('.highlight').forEach(mark => {
-                // Replace the <mark> element with its own text content
-                mark.replaceWith(...mark.childNodes);
-            });
-            // Normalize merges adjacent text nodes created by the replacement logic
-            container.normalize(); 
-        }
-
-        // Main search function to find and highlight terms
+        // --- Search Functionality ---
         function searchPage(event) {
             event.preventDefault(); // Stop form submission/page reload
-            const input = document.getElementById('search-input');
-            const searchTerm = input.value.trim();
-            // Target the main content container (the second .container)
-            const contentArea = document.querySelector('.container:nth-of-type(2)'); 
+            const searchTerm = document.getElementById('search-input').value.trim();
 
-            // 1. Clear previous highlights first
-            removeHighlights(contentArea);
+            // 1. Clear previous highlights
+            const highlightedElements = document.querySelectorAll('.highlight');
+            highlightedElements.forEach(el => {
+                // Restore text content by replacing the span with its content
+                el.replaceWith(document.createTextNode(el.textContent));
+            });
 
-            if (searchTerm.length < 2) { 
-                // Only search if the term is at least 2 characters long
-                if (searchTerm.length > 0) {
-                    alert("Please enter at least 2 characters to search.");
-                }
-                return; 
+            if (!searchTerm) {
+                return; // Do nothing if search term is empty
             }
 
-            // 2. Prepare regex for safe, global, case-insensitive replacement
-            // Escape special regex characters
-            const escapedSearchTerm = searchTerm.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-            // Regex for case-insensitive test
-            const regexTest = new RegExp(escapedSearchTerm, 'i');
-            // Regex for global replacement, with capture group for the highlight text
-            const regexGlobal = new RegExp(`(${escapedSearchTerm})`, 'gi'); 
-
-            let firstMatchElement = null;
-            let matchCount = 0;
-
-            // 3. Tree Walker to safely traverse only text nodes
-            const walker = document.createTreeWalker(
-                contentArea,
-                NodeFilter.SHOW_TEXT,
-                // Filter: Skip nodes inside elements where we don't want highlighting (e.g., button/link content)
-                { acceptNode: function(node) {
-                    if (node.parentElement.matches('script, style, .search-container, .logo-area, .dropdown-toggle, #quick-links a, .cta-button, .search-button')) {
-                        return NodeFilter.FILTER_SKIP;
-                    }
-                    return NodeFilter.FILTER_ACCEPT;
-                }},
-                false
-            );
-
-            let node;
-            while (node = walker.nextNode()) {
-                const text = node.nodeValue;
+            // 2. Prepare for new highlighting (case-insensitive, global)
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            // Search the entire body content
+            const container = document.body;
+            
+            if (container) {
                 
-                if (regexTest.test(text)) {
-                    // Found a match in this text node
-
-                    // 4. Create a document fragment to hold the new content
-                    const fragment = document.createDocumentFragment();
-                    let lastIndex = 0;
-                    let match;
-
-                    // Use regexGlobal for multiple matches in the same text node
-                    while ((match = regexGlobal.exec(text)) !== null) {
-                        matchCount++;
-
-                        // Append text before the match
-                        fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
-
-                        // Create the highlight element
-                        const mark = document.createElement('mark');
-                        mark.className = 'highlight';
-                        mark.textContent = match[0]; // The matched word
-                        fragment.appendChild(mark);
-                        
-                        // Set first match for scrolling
-                        if (!firstMatchElement) {
-                            firstMatchElement = mark;
+                // Function to recursively traverse nodes and replace matching text
+                function highlightTextNodes(node) {
+                    if (node.nodeType === 3) { // Node is a text node
+                        const parent = node.parentNode;
+                        // Avoid highlighting within the search bar, script, or style tags
+                        if (!parent || parent.closest('#search-form') || parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                            return;
                         }
 
-                        lastIndex = match.index + match[0].length;
+                        // Check if text contains the search term
+                        if (regex.test(node.nodeValue)) {
+                            // Split text node by the search term and wrap matches in a span
+                            const fragments = node.nodeValue.split(regex);
+                            
+                            const fragment = document.createDocumentFragment();
+
+                            fragments.forEach((fragmentText, index) => {
+                                if (index % 2 === 1) { // This is a match
+                                    const span = document.createElement('span');
+                                    span.className = 'highlight';
+                                    span.textContent = fragmentText;
+                                    fragment.appendChild(span);
+                                } else if (fragmentText.length > 0) { // Text before/between/after matches
+                                    fragment.appendChild(document.createTextNode(fragmentText));
+                                }
+                            });
+
+                            // Replace the original text node with the fragment
+                            parent.replaceChild(fragment, node);
+                        }
+                    } else if (node.nodeType === 1) { // Node is an element
+                        // Recurse into children
+                        if (node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+                            // Convert ChildNode list to Array before iteration to avoid issues when replacing nodes
+                            Array.from(node.childNodes).forEach(highlightTextNodes);
+                        }
                     }
+                }
 
-                    // Append remaining text after the last match
-                    fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
-
-                    // 5. Replace the original text node with the fragment
-                    node.parentNode.replaceChild(fragment, node);
-
-                    // Must adjust the walker to continue after the replaced node's content
-                    // The simplest adjustment is to continue the loop as the walker advances naturally
-                    // to the next text node after the fragment's children.
+                highlightTextNodes(container);
+                
+                // 3. Scroll to the first highlighted element
+                const firstHighlight = document.querySelector('.highlight');
+                if (firstHighlight) {
+                    firstHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             }
-            
-            // 6. Scroll to the first match
-            if (firstMatchElement) {
-                // Scroll slightly above the element for better context (accounting for fixed header)
-                const headerHeight = 120; 
-                const elementPosition = firstMatchElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
-                window.scrollTo({
-                    top: offsetPosition > 0 ? offsetPosition : 0,
-                    behavior: 'smooth'
-                });
-                
-                // Keep the term in the input field
-                input.value = searchTerm;
-            } else if (searchTerm.length >= 2) {
-                alert(`No matches found for "${searchTerm}" on this page.`);
-            }
         }
-
-        // Search Functionality
-    function searchPage(event) {
-        event.preventDefault(); // Stop form submission/page reload
-        const searchTerm = document.getElementById('search-input').value.trim();
-
-        // 1. Clear previous highlights
-        const highlightedElements = document.querySelectorAll('.highlight');
-        highlightedElements.forEach(el => {
-            // Restore text content by replacing the span with its content
-            el.replaceWith(document.createTextNode(el.textContent));
-        });
-
-        if (!searchTerm) {
-            return; // Do nothing if search term is empty
-        }
-
-        // 2. Prepare for new highlighting (case-insensitive, global)
-        const regex = new RegExp(`(${searchTerm})`, 'gi');
-        // Search the entire body content
-        const container = document.body;
         
-        if (container) {
-            
-            // Function to recursively traverse nodes and replace matching text
-            function highlightTextNodes(node) {
-                if (node.nodeType === 3) { // Node is a text node
-                    const parent = node.parentNode;
-                    // Avoid highlighting within the search bar, script, or style tags
-                    if (!parent || parent.closest('#search-form') || parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+        // --- Card Click Handler (New Feature) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.package-card[data-details-url]');
+
+            cards.forEach(card => {
+                card.style.cursor = 'pointer'; // Visual cue that the card is clickable
+                
+                const cardClickHandler = (event) => {
+                    // Prevent navigation if the click target is the button or an element inside it
+                    // The button uses event.stopPropagation(), but this is a double-check/failsafe
+                    if (event.target.closest('.cta-button')) {
                         return;
                     }
 
-                    // Check if text contains the search term
-                    if (regex.test(node.nodeValue)) {
-                        // Split text node by the search term and wrap matches in a span
-                        const fragments = node.nodeValue.split(regex);
-                        
-                        const fragment = document.createDocumentFragment();
-
-                        fragments.forEach((fragmentText, index) => {
-                            if (index % 2 === 1) { // This is a match
-                                const span = document.createElement('span');
-                                span.className = 'highlight';
-                                span.textContent = fragmentText;
-                                fragment.appendChild(span);
-                            } else if (fragmentText.length > 0) { // Text before/between/after matches
-                                fragment.appendChild(document.createTextNode(fragmentText));
-                            }
-                        });
-
-                        // Replace the original text node with the fragment
-                        parent.replaceChild(fragment, node);
+                    const url = card.getAttribute('data-details-url');
+                    if (url) {
+                        window.location.href = url;
                     }
-                } else if (node.nodeType === 1) { // Node is an element
-                    // Recurse into children
-                    if (node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
-                        // Convert ChildNode list to Array before iteration to avoid issues when replacing nodes
-                        Array.from(node.childNodes).forEach(highlightTextNodes);
-                    }
-                }
-            }
+                };
 
-            highlightTextNodes(container);
-            
-            // 3. Scroll to the first highlighted element
-            const firstHighlight = document.querySelector('.highlight');
-            if (firstHighlight) {
-                firstHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        }
-    }
+                // Add the primary click handler for navigation
+                card.addEventListener('click', cardClickHandler);
+            });
+        });
     </script>
 </body>
 </html>
