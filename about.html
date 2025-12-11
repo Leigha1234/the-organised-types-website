@@ -193,12 +193,11 @@
             display: grid;
             grid-template-columns: 1fr; /* Default to single column on mobile */
             gap: 40px;
-            padding: 40px 0;
-            /* Adjust padding-top to compensate for removed hero and fixed header */
+            padding: 40px 30px;
+            /* ADJUSTMENT HERE: Added padding-top to compensate for fixed header */
             padding-top: 150px; 
             background: var(--card-bg);
             border-radius: 8px;
-            padding: 30px;
         }
         
         /* Desktop: Two-column layout */
@@ -339,8 +338,9 @@
                 padding: 20px 10px; 
                 max-width: 100%;
             }
-            /* Adjust padding-top for mobile content since hero is gone */
+            /* ADJUSTMENT HERE: Added padding-top for mobile content */
             .about-content-grid {
+                padding: 20px;
                 padding-top: 130px; 
             }
 
@@ -394,10 +394,6 @@
             }
             
             /* Mobile Layout: Image stacks above text */
-            .about-content-grid {
-                grid-template-columns: 1fr;
-                padding: 20px;
-            }
             .about-image {
                 margin-bottom: 20px;
             }
