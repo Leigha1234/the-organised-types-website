@@ -224,6 +224,16 @@
             object-fit: cover; /* Ensures image fills container while maintaining aspect ratio */
             max-height: 550px; /* Restrict height for vertical image */
         }
+
+        /* NEW: Styling for images embedded in text flow */
+        .embedded-image {
+            width: 100%; /* Default to full width of the text column */
+            height: auto;
+            margin: 20px 0;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: block; /* Ensures proper block spacing */
+        }
         
         /* Text Content Styling */
         .about-text h2 {
@@ -258,10 +268,7 @@
         .about-text ul li::before {
             content: none; /* Remove list item content */
         }
-        .text-separator {
-            border-top: 1px dashed #cccccc;
-            margin: 25px 0;
-        }
+        /* .text-separator is removed */
         .core-philosophy {
             background-color: var(--logo-bg);
             padding: 20px;
@@ -475,14 +482,13 @@
 
                 <p>But this business wasn’t just a “let’s start a company” moment. It grew out of real life — out of challenges, resilience, and the decision to build something together that genuinely helps people.</p>
 
-                <div class="text-separator"></div>
-
                 <h3>How We Started</h3>
 
                 <p>The Organised Types began at a time when everything in life felt busy and uncertain. Sam had spent years helping businesses with systems, design and strategy, while Leigha was developing her own skills in tech, design and digital creativity. We were already helping people — friends, small business owners, clients — without ever naming it.</p>
 
                 <p>One day it clicked: What if we built something together? Something we wish we had when we started? Something that made business feel lighter, easier and more organised for everyone else?</p>
 
+                <img src="beginnings.jpg" alt="A photo representing the beginning stages of The Organised Types business." class="embedded-image">
                 <p>We combined:</p>
                 <ul>
                     <li>Sam’s experience in strategy, business structure, design and organisation</li>
@@ -494,8 +500,6 @@
 
                 <p>What makes this business special isn’t just what we create. It’s who we are together. We’re a team that genuinely cares. We know what it feels like to juggle life, work, ideas, responsibilities, overwhelm, dreams and deadlines. And we wanted to build a space that gives people that feeling of **manageability** again.</p>
 
-                <div class="text-separator"></div>
-
                 <h3>What We Believe</h3>
                 <p>Running a business shouldn’t feel confusing or chaotic. We built The Organised Types to help people:</p>
                 <ul>
@@ -505,8 +509,9 @@
                     <li>get moving again</li>
                 </ul>
                 <p>Because when your business feels organised, your life opens up.</p>
-
-            </div>
+                
+                <img src="earth.jpeg" alt="A graphic representing global connection, organized types of businesses, and systems." class="embedded-image">
+                </div>
         </div>
 
         <div class="mission-section">
