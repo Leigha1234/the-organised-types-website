@@ -221,7 +221,7 @@
         
         /* Styling for the info boxes (Image Background 1) */
         .info-box, .alt-options {
-            /* === IMAGE BACKGROUND APPLIED HERE === */
+            /* === IMAGE BACKGROUND APPLIED HERE (Kept for these top sections) === */
             background-image: url('contactbg.jpg');
             background-size: cover;
             background-position: center;
@@ -321,10 +321,10 @@
         /* === IMAGE BACKGROUND ADDITION 2 (Bottom Sections) === */
         .why-contact, .faq-snippet {
             padding: 30px;
-            background-image: url('contactbg2.jpg');
+            /* === MODIFICATION: REMOVED background-image: url('contactbg2.jpg'); === */
             background-size: cover;
             background-position: center;
-            background-color: var(--logo-bg); /* Fallback */
+            background-color: var(--logo-bg); /* Fallback/Solid color */
             border-radius: 8px;
             margin-top: 30px;
             color: var(--primary-color); /* **TEXT: BLACK/TAUPE** */
@@ -441,6 +441,7 @@
             }
             
             /* Mobile Style: Bottom Sections (Image 2 sections) - Revert to solid color */
+            /* These already match the new desktop style, but keeping the rule for safety */
             .why-contact, .faq-snippet { 
                 background-image: none; 
                 background-color: var(--logo-bg); 
