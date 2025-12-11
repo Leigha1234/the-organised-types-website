@@ -440,7 +440,7 @@
                 left: 0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
                 padding: 10px 0;
-                background-color: var(--logo-bg); /* Added background for mobile menu visibility */
+                background-color: var(--logo-bg);
             }
             #main-nav.show-menu { display: flex; }
             #main-nav a { 
@@ -448,14 +448,45 @@
                 padding: 5px 0;
                 display: block;
                 border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
-                text-align: center; /* Center nav links on mobile */
+                text-align: center;
             }
-            .dropdown { margin: 0; width: 100%; }
-            .dropdown-toggle { text-align: center; } /* Center dropdown toggle */
-            .dropdown-content { position: static; width: 100%; transform: none; box-shadow: none; background-color: transparent; border-top: 1px solid rgba(79, 74, 70, 0.1); }
-            .dropdown-content a { padding: 5px 0; font-size: 0.9em; background-color: rgba(79, 74, 70, 0.03); text-align: center; }
-            .dropdown-content { display: none; }
-            .dropdown.active .dropdown-content { display: block; }
+            
+            /* 🛑 Mobile Fix: Show all dropdown content links when menu is visible */
+            .dropdown { 
+                margin: 0; 
+                width: 100%; 
+                /* Ensures all links inside dropdown are treated as list items */
+                display: contents; 
+            }
+            .dropdown-toggle { 
+                text-align: center;
+                /* Remove the arrow (if any) if we are making it just a link */
+                content: none !important; 
+            } 
+            .dropdown-toggle:after { content: none; }
+
+            .dropdown-content { 
+                display: block; /* Show content immediately on mobile */
+                position: static; 
+                width: 100%; 
+                transform: none; 
+                box-shadow: none; 
+                background-color: transparent; 
+                border-top: 1px solid rgba(79, 74, 70, 0.1); 
+                padding: 0; /* Remove padding here to adjust styling on child links */
+            }
+            .dropdown-content a { 
+                padding: 5px 0; 
+                font-size: 0.9em; 
+                background-color: rgba(79, 74, 70, 0.03); 
+                text-align: center; 
+                border-bottom: 1px solid rgba(79, 74, 70, 0.1); /* Match main links */
+            }
+            .dropdown-content a:last-child {
+                border-bottom: none; /* Clean up last border */
+            }
+            /* End of Mobile Fix for Nav */
+
 
             /* --- MOBILE CONTACT LAYOUT --- */
             .contact-grid { 
@@ -470,13 +501,13 @@
                 order: 2; 
             }
             
-            /* Button & Grid Fitting - *** ADJUSTED FOR EQUAL SIDE SPACING *** */
+            /* Button & Grid Fitting - ADJUSTED FOR EQUAL SIDE SPACING */
             .link-button { 
-                display: block; /* Important for margin: auto to work */
-                width: 80%; /* Reduced width for side space (10% on each side) */
-                margin: 5px auto; /* Center the button, providing equal space on left and right */
-                font-size: 0.85em; /* Slightly smaller font for tighter fit */
-                padding: 8px 12px; /* Reduced padding to shrink button size */
+                display: block;
+                width: 80%;
+                margin: 5px auto; 
+                font-size: 0.85em;
+                padding: 8px 12px;
             }
             
             /* Override colors for buttons in footer CTA for better contrast */
@@ -490,16 +521,15 @@
             }
             /* Override for alt-options buttons to maintain the new margin: auto */
             .alt-options .link-button {
-                margin: 5px auto; /* Ensure centering is applied here too */
+                margin: 5px auto;
             }
 
 
             .faq-snippet > .contact-grid { 
-                grid-template-columns: 1fr; /* Stack quick help answers */
+                grid-template-columns: 1fr;
             }
 
             /* --- BACKGROUND ADJUSTMENTS FOR MOBILE --- */
-            /* Remove image background and reset colors for better mobile readability */
             .info-box, .alt-options {
                 background-image: none; 
                 background-color: var(--card-bg); 
@@ -533,7 +563,7 @@
                 <a href="index.html" id="nav-index">Home</a> 
                 
                 <div class="dropdown" onclick="toggleDropdown(event)">
-                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
+                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
                     <div class="dropdown-content">
                         <a href="services.html#website">Website Design & Development</a>
                         <a href="services.html#branding">Brand Identity & Digital Design</a>
@@ -543,8 +573,7 @@
                 </div>
                 <a href="faq.html" id="nav-faq">FAQ's</a>
                 <a href="contact.html" id="nav-contact" class="active">Contact</a>
-                <a href="shop.html" id="nav-shop">Shop</a> 
-            </nav>
+                </nav>
         </div>
     </header>
     
@@ -664,7 +693,7 @@
             <div class="footer-cta">
                 <h3>Ready to start?</h3>
                 <a href="services.html" class="link-button">Visit Our Services Page</a>
-                <a href="shop.html" class="link-button">Explore Our Shop</a>
+                <a href="services.html#templates" class="link-button">Explore Our Templates</a> 
                 <a href="coaching-single-session.html" class="link-button">Book a Call</a>
             </div>
 
@@ -673,7 +702,7 @@
 
     <footer>
         <div class="container">
-            <p>Ready to start your project? <a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs.</p>
+            <p>Ready to start your project? <a href="services.html#templates">Explore our templates</a>, digital tools, systems, and productivity packs.</p>
             <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
         </div>
     </footer>
@@ -685,13 +714,24 @@
             nav.classList.toggle("show-menu");
         }
 
-        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK
+        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK - MODIFIED
         function toggleDropdown(event) {
-            if (window.innerWidth < 769) {
-                event.preventDefault(); 
-                const dropdown = event.currentTarget;
-                dropdown.classList.toggle('active');
+            // Only execute the dropdown toggle logic on desktop (769px and up)
+            if (window.innerWidth >= 769) {
+                // Original dropdown logic (which is handled by :hover on desktop, but keeping this check here for robustness if you reuse the click event)
+                return;
             }
+            
+            // 🛑 On Mobile (below 769px), we now prevent the default link action (event.preventDefault())
+            // and simply allow the link to navigate to 'services.html' 
+            // The links inside the dropdown are now always visible when the menu is open (via CSS).
+            
+            // To ensure the parent link is always clickable on mobile, we explicitly allow the default action:
+            // event.preventDefault() removed, allowing the `services.html` link to function as a link.
+
+            // The class manipulation below is no longer needed since we forced display: block in CSS
+            // const dropdown = event.currentTarget;
+            // dropdown.classList.toggle('active');
         }
         
         // Function to set the active link dynamically
