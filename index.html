@@ -94,7 +94,7 @@
             text-decoration: none;
             font-weight: 500;
             padding: 10px 0; /* Add padding for click area */
-            cursor: default; /* Use cursor default for non-link parent */
+            cursor: pointer; /* Changed to pointer to indicate clickability on desktop/mobile */
             display: block;
         }
         .dropdown-toggle:hover {
@@ -129,8 +129,11 @@
         }
 
         /* SHOW DROPDOWN ON DESKTOP HOVER */
-        .dropdown:hover .dropdown-content {
-            display: block;
+        /* Only apply hover/static display logic above mobile breakpoint */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
 
         /* HAMBURGER ICON (Desktop Hidden) */
@@ -484,6 +487,10 @@
             .container {
                 padding: 20px 0; 
             }
+            body {
+                /* Overall text reduction */
+                font-size: 0.95em; 
+            }
             .hero-banner {
                 margin-top: 100px; 
                 height: 55vh; 
@@ -494,18 +501,21 @@
             
             /* ADJUSTED: Headings and Paragraphs */
             .hero-banner-content h1 {
-                font-size: 1.8em; 
+                font-size: 1.8em; /* Smaller h1 */
             }
             .hero-banner-content p {
-                font-size: 0.9em; 
+                font-size: 0.9em; /* Smaller paragraph text */
                 margin-bottom: 15px;
             }
             .section-heading {
-                font-size: 1.6em; 
+                font-size: 1.6em; /* Smaller section heading */
                 margin-bottom: 15px;
             }
             .mockup-text h3 {
-                font-size: 1.6em; 
+                font-size: 1.6em; /* Smaller h3 */
+            }
+            .mockup-text p {
+                 font-size: 1em; /* Smaller paragraph text */
             }
             
             /* ADJUSTED: CTA Buttons */
@@ -548,6 +558,10 @@
                 margin: 8px 0; 
                 padding: 5px 0;
                 display: block;
+                border-bottom: 1px solid rgba(79, 74, 70, 0.1); /* Separator */
+            }
+            #main-nav a:last-child {
+                border-bottom: none;
             }
             .navbar {
                  padding: 0 5%; 
@@ -555,24 +569,28 @@
             
             /* MOBILE DROPDOWN (STACKED) */
             .dropdown {
-                margin: 8px 0; /* Align with other mobile links */
+                margin: 0; /* Remove horizontal margin */
                 width: 100%;
             }
             .dropdown-toggle {
                 cursor: pointer; /* Enable clicking to show/hide on mobile */
+                margin: 8px 0;
+                padding: 5px 0;
             }
             .dropdown-content {
                 position: static; /* Stack vertically */
                 width: 100%;
+                min-width: unset;
                 box-shadow: none;
                 padding: 0;
                 transform: none; 
                 background-color: transparent; /* Use transparent background */
+                border-top: 1px solid rgba(79, 74, 70, 0.1);
             }
             .dropdown-content a {
                 padding: 5px 0;
                 font-size: 0.9em;
-                background-color: rgba(79, 74, 70, 0.05); /* Light background for sub-links */
+                background-color: rgba(79, 74, 70, 0.03); /* Light background for sub-links */
             }
             /* Hide dropdown content by default on mobile */
             .dropdown-content {
@@ -584,14 +602,14 @@
             }
 
 
-            /* Mobile Mockup Section (Stacking) */
+            /* Mobile Mockup Section (Stacking and Smaller Image) */
             .mockup-content {
                 flex-direction: column;
                 gap: 20px;
                 text-align: center;
             }
             .mockup-visual {
-                max-width: 90%; 
+                max-width: 90%; /* Smaller image container on mobile */
             }
             .mockup-visual img {
                 max-width: 100%; 
@@ -608,9 +626,7 @@
                 gap: 15px; 
             }
             .service-banner-image {
-                /* Reset banner for mobile */
-                height: 300px; /* Give it a fixed height on mobile */
-                background-position: center center;
+                display: none; /* HIDE legs2.png image on mobile */
             }
             
             /* Mobile Card Display */
@@ -634,7 +650,7 @@
                 padding: 20px; 
             }
             .card-face-front {
-                display: none; 
+                display: none; /* Hide the short-text front face on mobile */
             }
             .card-face-back {
                 transform: none; 
@@ -671,7 +687,7 @@
             <a href="index.html" class="logo-area">
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
             </a>
-            <div class="menu-icon" onclick="toggleMenu()">
+            <div class="menu-icon" onclick="toggleMenu()" role="button" aria-expanded="false" aria-controls="main-nav">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -679,7 +695,7 @@
         <nav id="main-nav">
             <a href="index.html" id="nav-index" class="active">Home</a> 
             
-            <div class="dropdown" onclick="toggleDropdown(event)">
+            <div class="dropdown" onclick="toggleDropdown(event)" tabindex="0">
                 <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
                 <div class="dropdown-content">
                     <a href="services.html#website">Website Design & Development</a>
@@ -780,7 +796,7 @@ Our solutions are meticulously organised and fully customised, providing the cla
                         <div class="card-face card-face-back">
                             <div>
                                 <h4>Business Coaching & Strategy</h4>
-                            <p>1:1 coaching for clarity, growth and direction. Perfect for new entrepreneurs, service providers, creators, or anyone needing structure.</p>
+                                <p>1:1 coaching for clarity, growth and direction. Perfect for new entrepreneurs, service providers, creators, or anyone needing structure.</p>
                             </div>
                             <a href="services.html#coaching" class="card-link-button">Book a Strategy Session</a>
                         </div>
@@ -880,82 +896,71 @@ Our solutions are meticulously organised and fully customised, providing the cla
                 </div>
 
                 <div class="testimonial-card">
-                    <blockquote>"Finally, a system that doesn't feel cluttered! The attention to detail in their custom workflows means we can focus entirely on our core business."</blockquote>
-                    <p>— Mark D., Creative Agency Founder</p>
+                    <blockquote>"Finally, a system that doesn't feel cluttered! The attention to detail in their custom workflows means we can focus entirely on growth."</blockquote>
+                    <p>— David A., Marketing Agency</p>
                 </div>
 
             </div>
         </div>
     </div>
-    
+
+
     <footer>
         <div class="container">
-            <p>Ready to get organised & grow? </p>
-            <p><a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank">Visit our Etsy Shop</a> to explore templates, digital tools, systems, and productivity packs — or book a consultation to build something unique for your business.</p>
-            <p>Email: theorganisedtypes@gmail.com | &copy; 2025 The Organised Types.</p>
+            &copy; 2023 The Organised Types. All Rights Reserved.
         </div>
     </footer>
-    
-    <script>
-        // TOGGLES THE MOBILE NAVIGATION MENU
-        function toggleMenu() {
-            var nav = document.getElementById("main-nav"); 
-            nav.classList.toggle("show-menu");
-        }
-        
-        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK
-        function toggleDropdown(event) {
-            // Check if the current view is mobile (width < 769px)
-            if (window.innerWidth < 769) {
-                // Prevent the link from navigating immediately
-                event.preventDefault(); 
-                
-                // Toggle the 'active' class on the clicked dropdown
-                const dropdown = event.currentTarget;
-                dropdown.classList.toggle('active');
-            }
-        }
-        
-        // Function to set the active link dynamically
-        (function setActiveLink() {
-            const path = window.location.pathname.split('/').pop();
-            const activePage = path.split('.')[0] || 'index'; 
-            
-            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
-                el.classList.remove('active');
-            });
 
-            const activeLink = document.getElementById(`nav-${activePage}`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-                
-                // If the active link is inside a dropdown, highlight the dropdown toggle too
-                if (activeLink.closest('.dropdown')) {
-                    activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
-                }
-            }
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            const icon = document.querySelector('.menu-icon');
+            const isExpanded = nav.classList.toggle('show-menu');
             
-        })();
-        
-        // CAROUSEL SCROLL FUNCTIONALITY
-        const carousel = document.getElementById('testimonial-carousel');
-        
+            // Update aria-expanded attribute for accessibility
+            icon.setAttribute('aria-expanded', isExpanded);
+
+            // Hide all dropdowns when the main menu is closed
+            if (!isExpanded) {
+                document.querySelectorAll('.dropdown.active').forEach(d => {
+                    d.classList.remove('active');
+                });
+            }
+        }
+
+        // Toggle Dropdown for Mobile
+        function toggleDropdown(event) {
+            const dropdown = event.currentTarget;
+            
+            // Check if we are on a mobile screen size (matches the CSS media query)
+            if (window.matchMedia("(max-width: 768px)").matches) {
+                // Prevent default navigation if it's the main link on mobile
+                // If the user clicks on the link inside, it will navigate, but if they click the DIV it toggles.
+                
+                // Toggle the 'active' class on the dropdown container
+                dropdown.classList.toggle('active');
+                
+                // Prevent event from bubbling up and closing the menu if it's already open
+                event.stopPropagation();
+            }
+            // On desktop (>= 769px), the hover CSS handles the display, so we don't need JS logic.
+            // Clicking the Services link on desktop will still navigate to services.html.
+        }
+
+        // Carousel Scroll Logic (Existing Function)
+        const track = document.getElementById('testimonial-carousel');
+        const cardWidth = 600 + 30; // Card width + margin (adjust to your testimonial-card size + margin)
+
         function scrollCarousel(direction) {
-            const scrollAmount = carousel.clientWidth / 2; 
-            carousel.scrollBy({
-                left: scrollAmount * direction,
+            const scrollDistance = direction * cardWidth;
+            
+            // Use smooth scrolling
+            track.scrollBy({
+                left: scrollDistance,
                 behavior: 'smooth'
             });
         }
-        
-        // Prevent default click behavior on dropdown toggle (desktop)
-        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                if (window.innerWidth >= 769) {
-                    e.preventDefault(); 
-                }
-            });
-        });
     </script>
 
 </body>
