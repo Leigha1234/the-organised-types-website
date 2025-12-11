@@ -489,7 +489,7 @@
             }
             body {
                 /* Overall text reduction */
-                font-size: 0.95em; 
+                font-size: 0.85em; /* FURTHER REDUCED BASE FONT SIZE */
             }
             .hero-banner {
                 margin-top: 100px; 
@@ -501,27 +501,27 @@
             
             /* ADJUSTED: Headings and Paragraphs */
             .hero-banner-content h1 {
-                font-size: 1.8em; /* Smaller h1 */
+                font-size: 1.6em; /* FURTHER REDUCED h1 */
             }
             .hero-banner-content p {
-                font-size: 0.9em; /* Smaller paragraph text */
+                font-size: 0.85em; /* FURTHER REDUCED paragraph text */
                 margin-bottom: 15px;
             }
             .section-heading {
-                font-size: 1.6em; /* Smaller section heading */
+                font-size: 1.4em; /* FURTHER REDUCED section heading */
                 margin-bottom: 15px;
             }
             .mockup-text h3 {
-                font-size: 1.6em; /* Smaller h3 */
+                font-size: 1.4em; /* FURTHER REDUCED h3 */
             }
             .mockup-text p {
-                 font-size: 1em; /* Smaller paragraph text */
+                 font-size: 0.9em; /* FURTHER REDUCED paragraph text */
             }
             
             /* ADJUSTED: CTA Buttons */
             .cta-button {
-                padding: 9px 18px; 
-                font-size: 0.9em; 
+                padding: 8px 16px; /* Slightly smaller padding */
+                font-size: 0.85em; /* Slightly smaller font size */
             }
             .hero-banner .cta-group {
                 flex-direction: column;
@@ -531,8 +531,8 @@
                 margin-left: 0;
             }
             .card-link-button {
-                 padding: 8px 15px; 
-                 font-size: 0.85em; 
+                 padding: 7px 14px; /* Slightly smaller padding */
+                 font-size: 0.8em; /* Slightly smaller font size */
             }
             
             /* MOBILE NAVIGATION STYLES */
@@ -609,7 +609,7 @@
                 text-align: center;
             }
             .mockup-visual {
-                max-width: 90%; /* Smaller image container on mobile */
+                max-width: 70%; /* REDUCED: Smaller image container for jillsexample.png */
             }
             .mockup-visual img {
                 max-width: 100%; 
@@ -660,7 +660,7 @@
                 display: block; 
             }
             .card-face h4 {
-                font-size: 1.1em; 
+                font-size: 1em; /* FURTHER REDUCED card heading */
             }
 
             /* Mobile Carousel: Full width scrolling, hide arrows */
@@ -669,7 +669,7 @@
                 padding: 25px; 
             }
             .testimonial-card blockquote {
-                font-size: 1em; 
+                font-size: 0.9em; /* FURTHER REDUCED blockquote font size */
             }
             .carousel-nav {
                 display: none;
@@ -886,78 +886,53 @@ Our solutions are meticulously organised and fully customised, providing the cla
                 </div>
                 
                 <div class="testimonial-card">
-                    <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for project tracking."</blockquote>
-                    <p>— James K., UK Consultancy Owner</p>
+                    <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for workflow management."</blockquote>
+                    <p>— James K., Service Provider</p>
                 </div>
 
                 <div class="testimonial-card">
-                    <blockquote>"Working with The Organised Types was seamless. They delivered a custom database that made our inventory management simple and perfectly structured. Highly recommended!"</blockquote>
-                    <p>— Chloe B., Retail Manager</p>
+                    <blockquote>"The website design was flawless—exactly what we envisioned, but even easier to use. The branding is consistent and truly elevated our image."</blockquote>
+                    <p>— Emma L., Boutique Owner</p>
                 </div>
-
-                <div class="testimonial-card">
-                    <blockquote>"Finally, a system that doesn't feel cluttered! The attention to detail in their custom workflows means we can focus entirely on growth."</blockquote>
-                    <p>— David A., Marketing Agency</p>
-                </div>
-
+                
             </div>
         </div>
     </div>
 
-
     <footer>
         <div class="container">
-            &copy; 2023 The Organised Types. All Rights Reserved.
+            &copy; 2025 The Organised Types. All rights reserved. | <a href="privacy.html" style="color: inherit; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: inherit; text-decoration: none;">Terms of Service</a>
         </div>
     </footer>
 
     <script>
-        // Toggle Mobile Menu
         function toggleMenu() {
             const nav = document.getElementById('main-nav');
-            const icon = document.querySelector('.menu-icon');
-            const isExpanded = nav.classList.toggle('show-menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
             
-            // Update aria-expanded attribute for accessibility
-            icon.setAttribute('aria-expanded', isExpanded);
-
-            // Hide all dropdowns when the main menu is closed
-            if (!isExpanded) {
-                document.querySelectorAll('.dropdown.active').forEach(d => {
-                    d.classList.remove('active');
-                });
-            }
+            nav.classList.toggle('show-menu');
+            menuIcon.setAttribute('aria-expanded', !isExpanded);
         }
 
-        // Toggle Dropdown for Mobile
         function toggleDropdown(event) {
             const dropdown = event.currentTarget;
             
-            // Check if we are on a mobile screen size (matches the CSS media query)
-            if (window.matchMedia("(max-width: 768px)").matches) {
-                // Prevent default navigation if it's the main link on mobile
-                // If the user clicks on the link inside, it will navigate, but if they click the DIV it toggles.
-                
-                // Toggle the 'active' class on the dropdown container
+            // Only toggle on mobile (max-width: 768px check)
+            if (window.innerWidth <= 768) {
                 dropdown.classList.toggle('active');
-                
-                // Prevent event from bubbling up and closing the menu if it's already open
-                event.stopPropagation();
+                event.preventDefault(); // Prevent default link navigation on first click
             }
-            // On desktop (>= 769px), the hover CSS handles the display, so we don't need JS logic.
-            // Clicking the Services link on desktop will still navigate to services.html.
+            // On desktop, the :hover CSS handles the display
         }
 
-        // Carousel Scroll Logic (Existing Function)
-        const track = document.getElementById('testimonial-carousel');
-        const cardWidth = 600 + 30; // Card width + margin (adjust to your testimonial-card size + margin)
-
         function scrollCarousel(direction) {
-            const scrollDistance = direction * cardWidth;
+            const carousel = document.getElementById('testimonial-carousel');
+            const cardWidth = carousel.querySelector('.testimonial-card').offsetWidth;
+            const scrollAmount = cardWidth + 30; // Card width + margin (15px left + 15px right)
             
-            // Use smooth scrolling
-            track.scrollBy({
-                left: scrollDistance,
+            carousel.scrollBy({
+                left: direction * scrollAmount,
                 behavior: 'smooth'
             });
         }
