@@ -88,7 +88,7 @@
             text-decoration: none;
             font-weight: 500;
             padding: 10px 0; 
-            cursor: default; 
+            cursor: pointer; /* Changed to pointer for consistency */
             display: block;
         }
         .dropdown-toggle:hover {
@@ -121,9 +121,12 @@
             background-color: rgba(0, 0, 0, 0.05);
             color: var(--primary-color); 
         }
-        .dropdown:hover .dropdown-content {
-            display: block;
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
+
 
         /* HAMBURGER ICON */
         .menu-icon { 
@@ -221,14 +224,11 @@
         
         /* Styling for the info boxes (Image Background 1) */
         .info-box, .alt-options {
-            /* === IMAGE BACKGROUND APPLIED HERE (Kept for these top sections) === */
             background-image: url('contactbg.jpg');
             background-size: cover;
             background-position: center;
             background-color: var(--logo-bg); /* Fallback color */
-            color: var(--primary-color); /* **TEXT: BLACK/TAUPE** */
-            
-            /* Basic styling */
+            color: var(--primary-color); 
             padding: 30px;
             border-radius: 8px;
             border-left: 3px solid var(--accent-color);
@@ -250,7 +250,7 @@
             color: var(--accent-color); /* Accent color for strong text */
         }
         .info-box a, .alt-options a {
-            color: var(--primary-color); /* **LINKS: BLACK/TAUPE** */
+            color: var(--primary-color); 
             font-weight: 600;
             text-decoration: underline;
             transition: color 0.3s;
@@ -321,7 +321,6 @@
         /* === IMAGE BACKGROUND ADDITION 2 (Bottom Sections) === */
         .why-contact, .faq-snippet {
             padding: 30px;
-            /* === MODIFICATION: REMOVED background-image: url('contactbg2.jpg'); === */
             background-size: cover;
             background-position: center;
             background-color: var(--logo-bg); /* Fallback/Solid color */
@@ -387,6 +386,7 @@
         .footer-cta .link-button {
             background: var(--primary-color); /* **BUTTON BG: TAUPE** */
             color: var(--light-text); /* **BUTTON TEXT: WHITE** */
+            margin: 5px 10px; /* Add margin between buttons on desktop */
         }
         .footer-cta .link-button:hover {
             background-color: var(--accent-color); /* **HOVER BG: GREEN** */
@@ -395,81 +395,113 @@
 
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
-            .navbar { padding: 0 15px; }
-            .menu-icon { display: flex; } 
+            
+            /* --- TEXT SIZE REDUCTION (MATCHING INDEX PAGE MOBILE FONT SCALE) --- */
+            body { 
+                font-size: 0.85em; /* General text scale down */
+            }
+            .contact-content {
+                margin-top: 110px; 
+                padding: 20px 10px; 
+            }
+            .hero-section {
+                padding: 20px 0;
+                margin-bottom: 20px;
+            }
+            .hero-section h1 {
+                font-size: 2.2em; /* Reduced Page Title */
+            }
+            .hero-section p {
+                font-size: 0.9em; /* Reduced paragraph text */
+            }
+             .info-box h2, .alt-options h2, .why-contact h2, .faq-snippet h2 {
+                font-size: 1.4em; /* Reduced Section Headings */
+            }
+            .info-box strong, .faq-snippet h4 {
+                font-size: 1em; /* Reduced highlight text */
+            }
+            .form-group input, .form-group textarea {
+                font-size: 0.9em; /* Reduced form input text */
+            }
+            .privacy-note {
+                font-size: 0.75em;
+            }
+            
+            /* --- MOBILE NAVIGATION --- */
+            .menu-icon { 
+                display: flex; 
+            }
             #main-nav {
                 display: none; 
                 flex-direction: column;
                 width: 100%;
-                background-color: var(--logo-bg); 
                 position: absolute; 
                 top: 110px; 
                 left: 0;
-                border-top: 1px solid #e0e0e0;
                 box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                z-index: 10;
                 padding: 10px 0;
             }
             #main-nav.show-menu { display: flex; }
+            #main-nav a { 
+                margin: 8px 0; 
+                padding: 5px 0;
+                display: block;
+                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
+            }
+            .dropdown { margin: 0; width: 100%; }
+            .dropdown-content { position: static; width: 100%; transform: none; box-shadow: none; background-color: transparent; border-top: 1px solid rgba(79, 74, 70, 0.1); }
+            .dropdown-content a { padding: 5px 0; font-size: 0.9em; background-color: rgba(79, 74, 70, 0.03); }
+            .dropdown-content { display: none; }
             .dropdown.active .dropdown-content { display: block; }
+
+            /* --- MOBILE CONTACT LAYOUT --- */
+            .contact-grid { 
+                grid-template-columns: 1fr; 
+                gap: 25px; 
+            }
+            /* Form moves to the top on mobile */
+            .contact-form-section { 
+                order: 1; 
+            }
+            .contact-info-column { 
+                order: 2; 
+            }
             
-            /* Mobile Contact Layout (Stacking) */
-            .contact-content { margin-top: 110px; padding: 20px 10px; }
-            .contact-grid { grid-template-columns: 1fr; gap: 25px; }
-            .contact-form-section { order: 1; }
-            .contact-info-column { order: 2; }
-            
-            /* Mobile Style: Info Boxes (Image 1 sections) - Revert to solid color */
+            /* Button & Grid Fitting */
+            .link-button { 
+                width: 100%; /* Make buttons full width */
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+            .footer-cta .link-button {
+                margin: 5px 0; /* Remove horizontal margin for stacking */
+            }
+            .faq-snippet > .contact-grid { 
+                grid-template-columns: 1fr; /* Stack quick help answers */
+            }
+
+            /* --- BACKGROUND ADJUSTMENTS FOR MOBILE --- */
+            /* Remove image background and reset colors for better mobile readability */
             .info-box, .alt-options {
                 background-image: none; 
                 background-color: var(--card-bg); 
-                color: var(--text-color); 
                 padding: 20px;
             }
-             .info-box h2, .alt-options h2 {
-                color: var(--primary-color);
-                border-bottom: 1px dashed #cccccc;
-            }
-             .info-box a, .alt-options a {
-                color: var(--primary-color);
-                text-decoration: none;
-            }
+            /* Reset button colors in the alt-options section for better visibility on mobile card background */
             .alt-options .link-button {
                 background: var(--accent-color); 
                 color: var(--primary-color); 
-                border: none;
             }
-            
-            /* Mobile Style: Bottom Sections (Image 2 sections) - Revert to solid color */
-            /* These already match the new desktop style, but keeping the rule for safety */
-            .why-contact, .faq-snippet { 
-                background-image: none; 
-                background-color: var(--logo-bg); 
-                color: var(--text-color); 
-                padding: 20px; 
-            }
-            .why-contact h2, .faq-snippet h2 {
-                color: var(--primary-color);
-                border-bottom: 1px dashed #cccccc;
-            }
-            .faq-snippet h4 {
-                 color: var(--primary-color);
-            }
-            .why-contact ul li::before {
-                color: var(--accent-color);
-            }
-            .why-contact a, .faq-snippet a {
+            .alt-options .link-button:hover {
+                 background-color: #92a487;
                  color: var(--primary-color);
             }
             
-            /* Mobile Footer CTA Button */
+            /* Reset footer CTA button colors for contrast */
             .footer-cta .link-button {
                  background: var(--accent-color); 
                  color: var(--primary-color); 
             }
-            
-            .link-button { width: 100%; }
-            .faq-snippet > .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -499,7 +531,7 @@
                 </div>
                 <a href="faq.html" id="nav-faq">FAQ's</a>
                 <a href="contact.html" id="nav-contact" class="active">Contact</a>
-                
+                <a href="shop.html" id="nav-shop">Shop</a> 
             </nav>
         </div>
     </header>
@@ -659,7 +691,6 @@
                 el.classList.remove('active');
             });
             
-            // Check if the current page path matches the link ID (e.g., contact.html matches nav-contact)
             const activeLink = document.getElementById(`nav-${activePage}`);
             if (activeLink) {
                 activeLink.classList.add('active');
@@ -669,12 +700,6 @@
                     activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
                 }
             }
-            
-            // Special case for contact page (since the link is explicitly contact.html)
-            if (activePage === 'contact') {
-                document.getElementById('nav-contact').classList.add('active');
-            }
-            
         })();
     </script>
 
