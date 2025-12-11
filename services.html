@@ -320,6 +320,32 @@
             display: flex;
             flex-direction: column;
         }
+        
+        /* New Style: Branding Cards with Sage Green Background */
+        .branding-card {
+            background-color: var(--accent-color); /* Sage Green Background */
+            color: var(--light-text); /* White Text */
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .branding-card h3 {
+            color: var(--primary-color); /* Dark Taupe Heading */
+            font-size: 1.4em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color); /* Dark Taupe Separator */
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .branding-card .card-price {
+            color: var(--primary-color); /* Dark Taupe Price */
+        }
+        .branding-card .features-list .material-icons {
+            color: var(--primary-color); /* Dark Taupe Icons */
+        }
+        
         .service-card h3 {
             color: var(--primary-color);
             font-size: 1.4em;
@@ -352,7 +378,7 @@
             font-size: 1.2em;
             margin-bottom: 10px;
         }
-
+        
         /* Templates/Digital Section Specific */
         #templates .service-card {
             background-color: var(--card-bg);
@@ -556,7 +582,7 @@
                         <li><span class="material-icons">check</span> Basic Branding Integration</li>
                         <li><span class="material-icons">check</span> Advanced SEO Optimisation</li>
                         <li><span class="material-icons">check</span> Custom Forms & Email Integration</li>
-                        <li><span class="material-icons">check</span> **1-2 Week Turnaround**</li>
+                        <li><span class="material-icons">check</span> 1-2 Week Turnaround</li>
                     </ul>
                     <a href="#cart-link-starter" class="cta-button">Select Package</a>
                 </div>
@@ -570,7 +596,7 @@
                         <li><span class="material-icons">check</span> Advanced Booking/Membership Integration</li>
                         <li><span class="material-icons">check</span> Content Upload & Formatting</li>
                         <li><span class="material-icons">check</span> 30-Day Post-Launch Support</li>
-                        <li><span class="material-icons">check</span> **3-4 Week Turnaround**</li>
+                        <li><span class="material-icons">check</span> 3-4 Week Turnaround</li>
                     </ul>
                     <a href="#cart-link-pro" class="cta-button">Select Package</a>
                 </div>
@@ -615,7 +641,7 @@
 
             <div class="service-cards-grid">
                 
-                <div class="service-card">
+                <div class="branding-card">
                     <h3>Mini Brand Kit</h3>
                     <div class="card-price">£249</div>
                     <ul class="features-list">
@@ -625,24 +651,24 @@
                         <li><span class="material-icons">style</span> Final files (PNG, JPG)</li>
                         <li><span class="material-icons">description</span> Simple Brand Guide PDF</li>
                     </ul>
-                    <a href="#cart-link-mini-brand" class="cta-button">Select Package</a>
+                    <a href="#cart-link-mini-brand" class="cta-button" style="background-color: var(--primary-color);">Select Package</a>
                 </div>
 
-                <div class="service-card">
+                <div class="branding-card">
                     <h3>Full Brand Identity Kit</h3>
                     <div class="card-price">£499</div>
                     <ul class="features-list">
-                        <li><span class="material-icons">check</span> **Includes everything in Mini Kit**</li>
+                        <li><span class="material-icons">check</span> Includes everything in Mini Kit</li>
                         <li><span class="material-icons">brush</span> Sub-logo & Icon Design</li>
                         <li><span class="material-icons">layers</span> Brand Patterns/Textures</li>
                         <li><span class="material-icons">format_paint</span> Expanded Color Palette</li>
                         <li><span class="material-icons">auto_stories</span> Full Brand Direction Sheet</li>
                         <li><span class="material-icons">style</span> All files including SVG/Vector</li>
                     </ul>
-                    <a href="#cart-link-full-brand" class="cta-button">Select Package</a>
+                    <a href="#cart-link-full-brand" class="cta-button" style="background-color: var(--primary-color);">Select Package</a>
                 </div>
 
-                <div class="service-card">
+                <div class="branding-card">
                     <h3>Digital Design Package</h3>
                     <div class="card-price">£POA (Starting from £199)</div>
                     <ul class="features-list">
@@ -652,7 +678,7 @@
                         <li><span class="material-icons">book</span> Business Card/Stationery Design</li>
                         <li><span class="material-icons">edit</span> 1 Revision Round included</li>
                     </ul>
-                    <a href="contact.html" class="cta-button">Enquire Now</a>
+                    <a href="#cart-link-digital-design" class="cta-button" style="background-color: var(--primary-color);">Add to Cart</a>
                 </div>
 
             </div>
@@ -688,7 +714,7 @@
                         <li><span class="material-icons">person</span> Accountability & Progress Tracking</li>
                         <li><span class="material-icons">autorenew</span> Minimum 3-Month Commitment</li>
                     </ul>
-                    <a href="contact.html" class="cta-button">Enquire About This</a>
+                    <a href="#cart-link-3month-deepdive" class="cta-button">Add to Cart</a>
                 </div>
             </div>
         </div>
@@ -738,7 +764,7 @@
             </div>
             
             <div class="templates-cta-row">
-                <a href="#shopify-shop-link" class="cta-button" style="background-color: var(--primary-color);">View all in our Shopify Shop</a>
+                <a href="#shopify-shop-link" class="cta-button" style="background-color: var(--primary-color);">Browse All Templates</a>
             </div>
 
         </div>
