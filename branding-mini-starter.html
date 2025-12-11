@@ -243,6 +243,7 @@
             margin-bottom: 10px;
             background: var(--cream-bg);
             border-radius: 4px;
+            line-height: 1.5;
         }
         .process-list li::before {
             content: counter(detail-step);
@@ -271,37 +272,51 @@
         /* --- MOBILE SPECIFIC STYLES (768px and below) --- */
         @media (max-width: 768px) {
             
-            /* --- FONT SIZE SCALING (Matching Index Page) --- */
+            /* --- FONT SIZE SCALING --- */
             body { 
-                font-size: 0.85em; /* General text scale down (paragraph text) */
+                font-size: 0.9em; 
             }
             .container { 
-                margin-top: 110px; 
-                padding: 20px 10px; 
+                margin-top: 90px; /* Reduced margin to 90px */
+                padding: 15px; /* Reduced padding */
             }
+            
+            /* HEADER ELEMENTS REDUCTION */
             .detail-header h1 { 
-                font-size: 2.2em; /* Page Title */
+                font-size: 2em; /* Reduced from 3em */
             }
             .detail-header .price { 
-                font-size: 1.4em; /* Price text */
+                font-size: 1.2em; /* Reduced from 1.6em */
             }
             .tagline {
-                font-size: 1em; /* Tagline text */
+                font-size: 1em; 
             }
             .content-section h2 { 
-                font-size: 1.6em; /* Section Headings */
+                font-size: 1.5em; /* Reduced from 1.8em */
             }
-            .feature-item, .feature-item strong {
-                font-size: 0.9em; /* Feature text */
+            .content-section p, 
+            .content-section ul li {
+                font-size: 0.9em; 
+            }
+            .feature-item {
+                font-size: 0.85em; 
+            }
+            .process-list li {
+                font-size: 0.9em;
             }
             .cta-button {
-                padding: 10px 20px;
-                font-size: 1em;
+                padding: 12px 25px; 
+                font-size: 1em; 
             }
-            .features-grid { 
-                grid-template-columns: 1fr; 
+            footer {
+                font-size: 0.8em;
             }
 
+            /* --- LAYOUT FIXES --- */
+            .features-grid { 
+                grid-template-columns: 1fr; /* Stack features vertically */
+            }
+            
             /* --- NAVIGATION FIXES --- */
             .menu-icon { display: flex; }
             #main-nav {
@@ -322,20 +337,15 @@
                 display: block;
                 border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
                 text-align: center;
+                margin-left: 0;
             }
             
-            /* Mobile: Show all dropdown content links when menu is visible */
+            /* Mobile: Handling Dropdown */
             .dropdown { 
                 margin: 0; 
                 width: 100%; 
                 display: contents; 
             }
-            .dropdown-toggle { 
-                text-align: center;
-                content: none !important; 
-            } 
-            .dropdown-toggle:after { content: none; }
-
             .dropdown-content { 
                 display: block; 
                 position: static; 
@@ -348,7 +358,7 @@
             }
             .dropdown-content a { 
                 padding: 5px 0; 
-                font-size: 0.85em; /* Slightly smaller for sub-links */
+                font-size: 0.8em; 
                 background-color: rgba(79, 74, 70, 0.03); 
                 text-align: center; 
                 border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
@@ -494,11 +504,27 @@
                 el.classList.remove('active');
             });
             
-            // Manually handle the case where a detail page should activate the parent 'Services' link
+            // List of potential detail pages that should activate the Services link
+            const detailPages = [
+                'branding-suite', 'website-design', 'coaching-session', 
+                'essential-brand-identity-kit', 'branding-kickstart-package', 
+                'mini-brand-starter-kit', 'premium-brand-social-kit', 
+                'signature-brand-kit', 'complete-brand-identity-suite',
+                'growth-bundle-coaching', 
+                'immersive-strategy-coaching', 
+                'pay-as-you-go-coaching', 
+                'transformation-package'
+            ];
+            
             const servicesLink = document.getElementById('nav-services');
-            if (activePage.includes('branding-suite') || activePage.includes('website-design') || activePage.includes('coaching-session') || activePage.includes('essential-brand-identity-kit') || activePage.includes('branding-kickstart-package') || activePage.includes('mini-brand-starter-kit') || activePage.includes('complete-brand-identity-suite')) {
+            
+            if (detailPages.some(page => activePage.includes(page))) {
                 if (servicesLink) {
                     servicesLink.classList.add('active');
+                    // Ensure dropdown toggle is also active 
+                    if (servicesLink.closest('.dropdown')) {
+                        servicesLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
+                    }
                 }
             } else {
                 const activeLink = document.getElementById(`nav-${activePage}`);

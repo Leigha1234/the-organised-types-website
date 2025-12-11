@@ -38,7 +38,7 @@
             margin-top: 110px; /* OFFSET FOR FIXED HEADER CLEARANCE */
         }
 
-        /* --- HEADER & NAVIGATION (Common Styles) --- */
+        /* --- HEADER & NAVIGATION (Common Styles) */
         header { 
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
@@ -245,6 +245,7 @@
             margin-bottom: 10px;
             background: var(--cream-bg);
             border-radius: 4px;
+            line-height: 1.5;
         }
         .process-list li::before {
             content: counter(detail-step);
@@ -272,13 +273,49 @@
 
         /* Mobile specific adjustments */
         @media (max-width: 768px) {
+            
+            /* GLOBAL TEXT SIZE ADJUSTMENT */
+            body {
+                font-size: 0.9em; 
+            }
+            
             .container { 
                 margin-top: 90px; 
                 padding: 15px;
             }
-            .detail-header h1 { font-size: 2.2em; }
-            .detail-header .price { font-size: 1.4em; }
-            .features-grid { grid-template-columns: 1fr; }
+            
+            /* HEADER ELEMENTS REDUCTION */
+            .detail-header h1 { 
+                font-size: 2em; 
+            }
+            .detail-header .price { 
+                font-size: 1.2em; 
+            }
+            .tagline {
+                font-size: 1em; 
+            }
+            .content-section h2 {
+                font-size: 1.5em; 
+            }
+            .content-section p, 
+            .content-section ul li {
+                font-size: 0.9em; 
+            }
+            .feature-item {
+                font-size: 0.85em; 
+            }
+            .process-list li {
+                font-size: 0.9em;
+            }
+            .cta-button {
+                font-size: 1em; 
+                padding: 12px 25px;
+            }
+
+            /* Layout adjustments */
+            .features-grid { 
+                grid-template-columns: 1fr; 
+            }
             
             /* Mobile Nav Overrides */
             .menu-icon { display: flex; }
@@ -303,8 +340,17 @@
                 margin-left: 0;
             }
             .dropdown { margin: 0; width: 100%; display: contents; }
-            .dropdown-content { display: block; position: static; width: 100%; transform: none; box-shadow: none; background-color: transparent; border-top: 1px solid rgba(79, 74, 70, 0.1); padding: 0; }
-            .dropdown-content a { padding: 5px 0; font-size: 0.85em; background-color: rgba(79, 74, 70, 0.03); text-align: center; border-bottom: 1px solid rgba(79, 74, 70, 0.1); }
+            .dropdown-content { 
+                display: none; 
+                position: static; 
+                width: 100%; 
+                transform: none; 
+                box-shadow: none; 
+                background-color: transparent; 
+                border-top: 1px solid rgba(79, 74, 70, 0.1); 
+                padding: 0; 
+            }
+            .dropdown-content a { padding: 5px 0; font-size: 0.8em; background-color: rgba(79, 74, 70, 0.03); text-align: center; border-bottom: 1px solid rgba(79, 74, 70, 0.1); }
             .dropdown-content a:last-child { border-bottom: none; }
         }
     </style>
@@ -414,11 +460,13 @@
     </footer>
 
     <script>
+        // TOGGLES THE MOBILE NAVIGATION MENU
         function toggleMenu() {
             var nav = document.getElementById("main-nav"); 
             nav.classList.toggle("show-menu");
         }
 
+        // Toggles the dropdown menu on mobile. Ignored for desktop hover effect managed by CSS.
         function toggleDropdown(event) {
             if (window.innerWidth >= 769) {
                 return;
@@ -428,19 +476,17 @@
         // Function to set the active link dynamically
         (function setActiveLink() {
             const path = window.location.pathname.split('/').pop();
-            const activePage = path.split('.')[0] || 'index'; 
             
             document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
                 el.classList.remove('active');
             });
             
-            // For detail pages that belong under Services, activate the Services link
+            // Activate the Services link for this detail page
             const servicesLink = document.getElementById('nav-services');
             if (servicesLink) {
                 servicesLink.classList.add('active');
                 servicesLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
             }
-
         })();
     </script>
 
