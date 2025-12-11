@@ -554,64 +554,58 @@
             background-color: #F8F4F0;
         }
 
-/* Updated Search Bar Styles - Modernized Look */
+/* Updated Search Bar Styles - Minimalist & Integrated Look */
 .search-container {
     display: flex;
     align-items: center;
     margin-right: 20px; 
-    /* Use a softer border and background to integrate with header */
-    border: 1px solid rgba(79, 74, 70, 0.3); /* Lighter primary color border */
-    border-radius: 25px; /* Added significant rounding */
+    
+    /* NEW: Remove hard border. Use a softer background or shadow. */
+    border: none; 
+    border-radius: 5px; /* Use slight rounding, not full pills */
     overflow: hidden; 
-    background-color: var(--cream-bg); /* Use cream background for contrast against header */
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Soft initial shadow */
+    
+    background-color: var(--logo-bg); /* Use the logo background color for a fully integrated look */
+    box-shadow: 0 0 0 1px #e0e0e0; /* Very light, thin line to define the box */
+    
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover effect */
-.search-container:hover {
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Optional Hover/Focus: Highlight gently on interaction */
+.search-container:hover,
+.search-input:focus-within {
+    box-shadow: 0 0 0 1px var(--accent-color); /* Highlight border in Sage Green */
+    background-color: var(--cream-bg); /* Use cream background when focused for better contrast */
 }
 
 .search-input {
-    padding: 8px 15px 8px 15px; /* Increased padding */
+    padding: 8px 12px;
     border: none; 
     font-family: var(--font-main);
     font-size: 0.9em;
-    width: 180px; /* Slightly wider input area */
+    width: 180px; 
     box-sizing: border-box;
-    background-color: transparent;
+    background-color: transparent; /* Ensure input is transparent */
+    color: var(--primary-color);
 }
 .search-input:focus {
     outline: none;
 }
 
 .search-button {
-    background-color: var(--primary-color);
-    color: var(--cream-bg);
+    /* NEW: Make the button accent/primary color, but keep it subtle */
+    background-color: transparent; /* No strong background for the button */
+    color: var(--primary-color); 
     border: none; 
-    /* Make button fit the rounded end */
     padding: 8px 15px; 
     cursor: pointer;
-    font-size: 1.1em; /* Larger icon size */
+    font-size: 1.1em; 
     line-height: 1;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border-top-right-radius: 25px; /* Rounding to match container */
-    border-bottom-right-radius: 25px;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 .search-button:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-}
-
-/* Styling for the Google Icon */
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    background-color: var(--logo-bg); /* Subtle background change on hover */
+    color: var(--accent-color); /* Change icon color to accent color */
 }
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
@@ -794,7 +788,7 @@
             </nav>
         </div>
 
-       <form class="search-container" id="search-form" onsubmit="searchPage(event)">
+      <form class="search-container" id="search-form" onsubmit="searchPage(event)">
     <input type="text" placeholder="Search this page..." class="search-input" id="search-input">
     <button type="submit" class="search-button" title="Search">
         <span class="material-symbols-outlined">search</span>
@@ -1204,6 +1198,10 @@
                     <p>A self-paced online course focused on creating a consistent content strategy, automating your posting, and building a high-converting Instagram bio and feed.</p>
                 </div>
             </div>
+
+            <a href="YOUR_SHOPIFY_TEMPLATES_URL" class="cta-button" target="_blank">
+    Browse All Templates
+</a>
         </section>
 
     </div> <footer>
