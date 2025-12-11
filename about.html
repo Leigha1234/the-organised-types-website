@@ -228,19 +228,25 @@
         /* NEW: Two-Column Image/Text Row */
         .content-image-row {
             display: grid;
-            grid-template-columns: 2fr 1fr; /* 2/3 text, 1/3 image */
+            grid-template-columns: 2fr 1fr; /* Default: 2/3 text, 1/3 image (Text Left) */
             gap: 30px;
             align-items: start;
-            margin-bottom: 40px; /* Space between sections */
+            margin-bottom: 40px; 
             border-top: 1px solid var(--accent-color);
             padding-top: 30px;
         }
-        .content-image-row .text-block {
-            grid-column: 1 / 2;
+        /* Default order: Text (1), Image (2) */
+        .content-image-row .text-block { order: 1; }
+        .content-image-row .image-block { order: 2; }
+
+        /* Modifier for Image Left, Text Right */
+        .content-image-row.image-left {
+            grid-template-columns: 1fr 2fr; /* 1/3 image, 2/3 text */
         }
-        .content-image-row .image-block {
-            grid-column: 2 / 3;
-        }
+        /* Reversed order for image-left: Image (1), Text (2) */
+        .content-image-row.image-left .text-block { order: 2; }
+        .content-image-row.image-left .image-block { order: 1; }
+
         .content-image-row img {
             width: 100%;
             height: auto;
@@ -261,7 +267,7 @@
         .about-text h3 {
             font-size: 1.6em;
             color: var(--accent-color);
-            margin-top: 0; /* Reset top margin here as sections are now in separate blocks */
+            margin-top: 30px; /* Reinstated margin for regular flow headers */
             margin-bottom: 10px;
             font-weight: 600;
         }
@@ -275,13 +281,13 @@
         }
         .about-text ul li {
             position: relative;
-            padding-left: 0; /* Remove padding */
+            padding-left: 0; 
             margin-bottom: 8px;
         }
         .about-text ul li::before {
-            content: none; /* Remove list item content */
+            content: none; 
         }
-        /* .text-separator is removed */
+        
         .core-philosophy {
             background-color: var(--logo-bg);
             padding: 20px;
@@ -334,6 +340,27 @@
             font-size: 1.3em;
             margin-top: 0;
         }
+        
+        /* NEW: Two-column grid inside Who We Work With */
+        .who-we-work-with-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Image Left, Text/List Right */
+            gap: 30px;
+            align-items: start;
+        }
+        .who-we-work-with-grid .image-block {
+            order: 1;
+        }
+        .who-we-work-with-grid .text-block {
+            order: 2;
+        }
+        .who-we-work-with-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
         .who-we-work-with ul {
             columns: 2; /* Two columns for the list on desktop */
             list-style: disc;
@@ -352,13 +379,12 @@
         @media (max-width: 768px) {
             
             body { 
-                font-size: 0.9em; /* Matching index page mobile text size */
+                font-size: 0.9em; 
             }
             .container { 
                 padding: 20px 10px; 
                 max-width: 100%;
             }
-            /* Added padding-top for mobile content */
             .about-content-grid {
                 padding: 20px;
                 padding-top: 130px; 
@@ -424,15 +450,18 @@
                 font-size: 1.8em;
             }
             
-            /* New: Two-Column Stacks on Mobile */
-            .content-image-row {
+            /* Two-Column Stacks on Mobile */
+            .content-image-row, .who-we-work-with-grid {
                 grid-template-columns: 1fr; /* Single column stack */
                 gap: 20px;
                 margin-bottom: 30px;
             }
             .content-image-row .text-block, 
-            .content-image-row .image-block {
+            .content-image-row .image-block,
+            .who-we-work-with-grid .text-block, 
+            .who-we-work-with-grid .image-block {
                 grid-column: 1 / 2;
+                order: initial; /* Reset order, let blocks stack top-to-bottom */
             }
             
             .mission-section {
@@ -442,14 +471,14 @@
                 columns: 1; /* Single column for list on mobile */
             }
 
-            /* NEW: CTA button centering on mobile */
+            /* CTA button centering on mobile */
             .cta-group .cta-button {
                 display: block;
-                width: calc(100% - 40px); /* 100% minus padding/margin allowance if needed */
-                margin: 10px auto; /* Centers the block button */
+                width: calc(100% - 40px); 
+                margin: 10px auto; 
             }
             .cta-group .cta-button.secondary {
-                margin: 10px auto; /* Centers the block button */
+                margin: 10px auto; 
             }
         }
     </style>
@@ -507,7 +536,10 @@
 
                 <p>But this business wasn't just a “let's start a company” moment. It grew out of real life — out of challenges, resilience, and the decision to build something together that genuinely helps people.</p>
 
-                <div class="content-image-row">
+                <div class="content-image-row image-left">
+                    <div class="image-block">
+                        <img src="earth.jpg" alt="A graphic representing global connection, organized types of businesses, and systems.">
+                    </div>
                     <div class="text-block">
                         <h3>How We Started</h3>
 
@@ -526,27 +558,17 @@
 
                         <p>What makes this business special isn't just what we create. It's who we are together. We're a team that genuinely cares. We know what it feels like to juggle life, work, ideas, responsibilities, overwhelm, dreams and deadlines. And we wanted to build a space that gives people that feeling of **manageability** again.</p>
                     </div>
-                    <div class="image-block">
-                        <img src="earth.jpg" alt="A graphic representing global connection, organized types of businesses, and systems.">
-                    </div>
                 </div>
                 
-                <div class="content-image-row">
-                    <div class="text-block">
-                        <h3>What We Believe</h3>
-                        <p>Running a business shouldn't feel confusing or chaotic. We built The Organised Types to help people:</p>
-                        <ul>
-                            <li>get clear</li>
-                            <li>get organised</li>
-                            <li>get confident</li>
-                            <li>get moving again</li>
-                        </ul>
-                        <p>Because when your business feels organised, your life opens up.</p>
-                    </div>
-                    <div class="image-block">
-                        <img src="beginings.jpg" alt="A photo representing the beginning stages of The Organised Types business.">
-                    </div>
-                </div>
+                <h3>What We Believe</h3>
+                <p>Running a business shouldn't feel confusing or chaotic. We built The Organised Types to help people:</p>
+                <ul>
+                    <li>get clear</li>
+                    <li>get organised</li>
+                    <li>get confident</li>
+                    <li>get moving again</li>
+                </ul>
+                <p>Because when your business feels organised, your life opens up.</p>
 
             </div>
         </div>
@@ -578,19 +600,26 @@
             </div>
 
             <div class="who-we-work-with">
-                <h4>Who We Work With</h4>
-                <p>We support people who are building something meaningful:</p>
-                <ul>
-                    <li>Small business owners</li>
-                    <li>Start-ups</li>
-                    <li>Coaches & creators</li>
-                    <li>Women in business</li>
-                    <li>Freelancers</li>
-                    <li>Etsy and Shopify sellers</li>
-                    <li>Wellness professionals</li>
-                    <li>Anyone starting from scratch</li>
-                </ul>
-                <p style="font-style: italic; margin-top: 15px;">If you want to feel more organised, more confident and more in control — we're here for you.</p>
+                <div class="who-we-work-with-grid">
+                    <div class="image-block">
+                        <img src="beginings.jpg" alt="A photo representing the beginning stages of The Organised Types business.">
+                    </div>
+                    <div class="text-block">
+                        <h4>Who We Work With</h4>
+                        <p>We support people who are building something meaningful:</p>
+                        <ul>
+                            <li>Small business owners</li>
+                            <li>Start-ups</li>
+                            <li>Coaches & creators</li>
+                            <li>Women in business</li>
+                            <li>Freelancers</li>
+                            <li>Etsy and Shopify sellers</li>
+                            <li>Wellness professionals</li>
+                            <li>Anyone starting from scratch</li>
+                        </ul>
+                        <p style="font-style: italic; margin-top: 15px;">If you want to feel more organised, more confident and more in control — we're here for you.</p>
+                    </div>
+                </div>
             </div>
             
         </div>
