@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
-    <style>
+<style>
         /* CSS Variables */
         :root {
             --primary-color: #4f4a46; /* Dark Taupe from Logo */
@@ -295,7 +287,7 @@
         /* New Wrapper for cards + banner */
         .service-wrapper {
             display: grid;
-            grid-template-columns: 3fr 1fr; /* 3 parts for cards, 1 part for image */
+            grid-template-columns: 3fr 1fr; /* 3 parts for cards, 1 part for image/video */
             gap: 30px;
             padding: 40px 0;
             align-items: stretch; /* Ensure children stretch to match height */
@@ -309,16 +301,22 @@
             padding: 0; /* Resetting padding from the old style */
         }
         
-        /* New Banner Image Style */
+        /* New Banner Image/Video Style */
         .service-banner-image {
-            /* UPDATED: Image file changed to legs2.png */
-            background-image: url('legs2.png');
+            /* Background image removed as requested */
             background-size: cover;
             background-position: right center; 
             border-radius: 8px;
             min-height: 100%; /* Important for stretching */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
             height: 100%; 
+            overflow: hidden; /* New: Essential to keep video contained by border-radius */
+        }
+        /* NEW: Style the video element inside the banner container */
+        .service-banner-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video fills the container without distortion */
         }
         
         /* Card Styles */
@@ -629,7 +627,7 @@
                 gap: 15px; 
             }
             .service-banner-image {
-                display: none; /* HIDE legs2.png image on mobile */
+                display: none; /* HIDE video container on mobile */
             }
             
             /* Mobile Card Display */
@@ -682,265 +680,3 @@
             }
         }
     </style>
-</head>
-<body>
-
-    <header>
-        <div class="navbar"> 
-            <a href="index.html" class="logo-area">
-                <img src="logo.jpg.webp" alt="The Organised Types Logo">
-            </a>
-            <div class="menu-icon" onclick="toggleMenu()" role="button" aria-expanded="false" aria-controls="main-nav">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-      <nav id="main-nav">
-    <a href="index.html" id="nav-index">Home</a> 
-    
-    <a href="about.html" id="nav-about">About</a> 
-    
-    <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-            <a href="services.html#templates">Templates, Tools & Courses</a>
-        </div>
-    </div>
-    <a href="faq.html" id="nav-faq">FAQ's</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-</nav>
-        </div>
-    </header>
-
-    <div class="hero-banner">
-        <div class="hero-banner-image" style="background-image: url('bg1.jpg');"></div>
-        <div class="hero-banner-content">
-            <h1>Digital tools and templates that make life and business easier.</h1>
-            
-            <p>From custom templates to automated workflows, we build the digital infrastructure that drives UK small businesses forward.</p>
-            
-            <div class="cta-group">
-                <a href="contact.html" class="cta-button">Start Your Project</a>
-                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes?ref=shop_sugg_market" target="_blank" class="cta-button secondary">Shop Templates</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="mockup-section">
-        <div class="container">
-            <div class="mockup-content">
-                <div class="mockup-visual">
-                    <img src="jillsexample.png" alt="Digital tools optimized for desktop and mobile devices."> 
-                </div>
-                <div class="mockup-text">
-                    <h3>Design Focused, Results Driven</h3>
-                    <p>We ensure your digital platforms are not only visually beautiful but also engineered to perform, delivering a seamless user experience for your clients and a robust system for your team.
-Our solutions are meticulously organised and fully customised, providing the clarity and efficiency your UK business needs to thrive.
-</p>
-                    <a href="portfolio.html" class="cta-button">View Our Portfolio</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <h2 class="section-heading">Everything You Need to Build, Brand & Grow Your Business</h2>
-
-        <div class="service-wrapper">
-            
-            <div class="services-preview-grid">
-                
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Website Design & Development</h4>
-                                <p>Get a functional, user-friendly website built on platforms like Wix, Shopify, or Squarespace that converts visitors into clients.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Website Design & Development</h4>
-                                <p>Your website should look beautiful and work beautifully. We design modern, user-friendly websites that make your business look polished and professional.</p>
-                            </div>
-                            <a href="services.html#website" class="card-link-button">Explore Website Packages</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Brand Identity & Digital Design</h4>
-                                <p>Logo sets, colour palettes, social templates, and packaging design—we create cohesive branding that elevates your entire business.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Brand Identity & Digital Design</h4>
-                                <p>Logo sets, colour palettes, social templates, stickers — we create cohesive branding that elevates your entire business.</p>
-                            </div>
-                            <a href="services.html#branding" class="card-link-button">View Branding Packages</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Business Coaching & Strategy</h4>
-                                <p>1:1 coaching for clarity, growth, and direction. Perfect for new entrepreneurs, service providers, or anyone needing structure.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Business Coaching & Strategy</h4>
-                                <p>1:1 coaching for clarity, growth and direction. Perfect for new entrepreneurs, service providers, creators, or anyone needing structure.</p>
-                            </div>
-                            <a href="services.html#coaching" class="card-link-button">Book a Strategy Session</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Templates, Tools & Courses</h4>
-                                <p>Pre-designed Canva templates, Notion systems, and digital courses to learn how to manage your own back-end business systems.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Templates, Tools & Courses</h4>
-                                <p>Build your business systems instantly with our range of ready-to-use digital products and educational courses.</p>
-                            </div>
-                            <a href="services.html#templates" class="card-link-button">Browse Digital Products</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Custom Templates & Systems</h4>
-                                <p>Need a custom Notion database, Airtable setup, or automated workflow? We build bespoke organisational systems tailored to your business needs.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Custom Templates & Systems</h4>
-                                <p>We build bespoke systems for client onboarding, product management, or marketing tracking, giving you back precious time.</p>
-                            </div>
-                            <a href="services.html#custom-systems" class="card-link-button">Request a Custom Build</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Marketing & SEO Add-Ons</h4>
-                                <p>Enhance your online presence with professional copywriting, SEO optimisation, and social media strategy bundled with your website or branding.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Marketing & SEO Add-Ons</h4>
-                                <p>Maximise your traffic and visibility with specialised add-on services for Search Engine Optimisation, content, and strategy.</p>
-                            </div>
-                            <a href="services.html#website-addons" class="card-link-button">See Add-On Services</a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <div class="service-banner-image">
-                </div>
-
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="services.html" class="cta-button">View All Services</a>
-        </div>
-    </div>
-
-    <div class="testimonial-section">
-        <div class="testimonial-bg-image"></div>
-        <div class="testimonial-container">
-            <h2 class="section-heading" style="text-align: center;">What Our Clients Say</h2>
-            
-            <div class="carousel-nav">
-                <button class="nav-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
-                <button class="nav-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
-            </div>
-
-            <div class="carousel-track" id="testimonial-carousel">
-                
-                <div class="testimonial-card">
-                    <blockquote>"The Organised Types completely transformed our client onboarding process. The new system is intuitive, saves us hours every week, and instantly looks more professional."</blockquote>
-                    <p>— Sarah M., E-commerce Entrepreneur</p>
-                </div>
-                
-                <div class="testimonial-card">
-                    <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for workflow management."</blockquote>
-                    <p>— James K., Service Provider</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <blockquote>"The website design was flawless—exactly what we envisioned, but even easier to use. The branding is consistent and truly elevated our image."</blockquote>
-                    <p>— Emma L., Boutique Owner</p>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            &copy; 2025 The Organised Types. All rights reserved. | <a href="privacy.html" style="color: inherit; text-decoration: none;">Privacy Policy</a> | <a href="terms.html" style="color: inherit; text-decoration: none;">Terms of Service</a>
-        </div>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('main-nav');
-            const menuIcon = document.querySelector('.menu-icon');
-            const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
-            
-            nav.classList.toggle('show-menu');
-            menuIcon.setAttribute('aria-expanded', !isExpanded);
-        }
-
-        function toggleDropdown(event) {
-            const dropdown = event.currentTarget;
-            
-            // Only toggle on mobile (max-width: 768px check)
-            if (window.innerWidth <= 768) {
-                dropdown.classList.toggle('active');
-                event.preventDefault(); // Prevent default link navigation on first click
-            }
-            // On desktop, the :hover CSS handles the display
-        }
-
-        function scrollCarousel(direction) {
-            const carousel = document.getElementById('testimonial-carousel');
-            const cardWidth = carousel.querySelector('.testimonial-card').offsetWidth;
-            const scrollAmount = cardWidth + 30; // Card width + margin (15px left + 15px right)
-            
-            carousel.scrollBy({
-                left: direction * scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    </script>
-
-</body>
-</html>
