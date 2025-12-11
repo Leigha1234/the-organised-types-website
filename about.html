@@ -161,9 +161,20 @@
             border: none;
             cursor: pointer;
             text-align: center;
+            white-space: nowrap; /* Prevent button text wrapping */
         }
         .cta-button:hover { background-color: #92a487; }
         
+        /* Secondary CTA style */
+        .cta-button.secondary {
+            background: var(--primary-color);
+            color: var(--light-text);
+            margin-left: 15px;
+        }
+        .cta-button.secondary:hover {
+            background-color: #3b3734;
+        }
+
         /* --- FOOTER (Common Style) --- */
         footer { 
             background-color: var(--logo-bg); 
@@ -221,16 +232,6 @@
             .about-text {
                 grid-column: 2 / 3; /* Text on the right */
             }
-            /* Optional: To place image on the right */
-            /* .about-content-grid.right-image {
-                grid-template-columns: 2fr 1fr;
-            }
-            .about-content-grid.right-image .about-image {
-                grid-column: 2 / 3;
-            }
-            .about-content-grid.right-image .about-text {
-                grid-column: 1 / 2;
-            } */
         }
 
         /* Image Styling */
@@ -265,9 +266,33 @@
             margin-bottom: 15px;
         }
         .about-text ul {
-            list-style: disc;
-            padding-left: 25px;
+            list-style: none;
+            padding-left: 0;
             margin-bottom: 20px;
+        }
+        .about-text ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+        }
+        .about-text ul li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+        .text-separator {
+            border-top: 1px dashed #cccccc;
+            margin: 25px 0;
+        }
+        .core-philosophy {
+            background-color: var(--logo-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--primary-color);
         }
 
         /* The Mission/Values Section */
@@ -300,6 +325,30 @@
             margin-top: 0;
             font-weight: 700;
         }
+        .who-we-work-with {
+            background-color: var(--cream-bg);
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+        .who-we-work-with h4 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            margin-top: 0;
+        }
+        .who-we-work-with ul {
+            columns: 2; /* Two columns for the list on desktop */
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .who-we-work-with ul li {
+            margin-bottom: 5px;
+            padding-left: 0;
+        }
+        .who-we-work-with ul li::before {
+            content: none;
+        }
+
 
         /* --- MOBILE SPECIFIC STYLES (Refined) --- */
         @media (max-width: 768px) {
@@ -369,6 +418,17 @@
             .mission-section {
                 padding: 20px;
             }
+            .who-we-work-with ul {
+                columns: 1; /* Single column for list on mobile */
+            }
+            .cta-group .cta-button {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+            .cta-group .cta-button.secondary {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -385,22 +445,22 @@
                 <span></span>
             </div>
             <nav id="main-nav">
-    <a href="index.html" id="nav-index">Home</a> 
-    
-    <a href="about.html" id="nav-about">About</a> 
-    
-    <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-            <a href="services.html#templates">Templates, Tools & Courses</a>
-        </div>
-    </div>
-    <a href="faq.html" id="nav-faq">FAQ's</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-</nav>
+                <a href="index.html" id="nav-index">Home</a> 
+                
+                <a href="about.html" id="nav-about">About</a> 
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Design & Development</a>
+                        <a href="services.html#branding">Brand Identity & Digital Design</a>
+                        <a href="services.html#coaching">Business Coaching & Strategy</a>
+                        <a href="services.html#templates">Templates, Tools & Courses</a>
+                    </div>
+                </div>
+                <a href="faq.html" id="nav-faq">FAQ's</a>
+                <a href="contact.html" id="nav-contact">Contact</a>
+            </nav>
         </div>
     </header>
     
@@ -416,57 +476,112 @@
         <div class="about-content-grid">
             
             <div class="about-image">
-                <img src="aboutus.jpeg" alt="A photo of the founder, a woman smiling while working in a clean, organized office.">
+                <img src="aboutus.jpg" alt="A photo of the founders, Sam and Leigha, the mother-daughter duo.">
             </div>
 
             <div class="about-text">
-                <h2>Hello, We're Leigha and Sam, Founder of The Organised Types</h2>
-                <p>My journey into business systems and design started from a deep frustration with complexity. I watched countless brilliant professionals—coaches, consultants, creatives—get bogged down by messy tech, confusing websites, and workflows that sapped their energy.</p>
-                <p>The core philosophy of The Organised Types is simple: **An organized business performs better.** It sells more, attracts better clients, and ultimately, gives you back your most valuable asset: time.</p>
+                <h2>The Organised Types: Our Story</h2>
+                
+                <p>We’re **Sam and Leigha** — the mother–daughter duo behind The Organised Types.</p>
+                <p>Two creative, organised, tea-fuelled women who’ve always loved turning chaos into calm, ideas into plans, and problems into beautifully designed solutions.</p>
+                
+                <div class="core-philosophy">
+                    The core philosophy of The Organised Types is simple: **An organised business performs better.**
+                </div>
 
-                <h3>Our Unique Approach</h3>
-                <p>We don't just build websites or design logos; we build *functional foundations*. We merge strategic business consulting with high-quality design and development. This means every project we deliver is:</p>
+                <p>But this business wasn’t just a “let’s start a company” moment. It grew out of real life — out of challenges, resilience, and the decision to build something together that genuinely helps people.</p>
+
+                <div class="text-separator"></div>
+
+                <h3>⭐ How We Started</h3>
+
+                <p>The Organised Types began at a time when everything in life felt busy and uncertain. Sam had spent years helping businesses with systems, design and strategy, while Leigha was developing her own skills in tech, design and digital creativity. We were already helping people — friends, small business owners, clients — without ever naming it.</p>
+
+                <p>One day it clicked: **What if we built something together?** Something we wish we had when we started? Something that made business feel lighter, easier and more organised for everyone else?</p>
+
+                <p>We combined:</p>
                 <ul>
-                    <li>Conversion-Focused: Designed not just to look good, but to capture leads and sales.</li>
-                    <li>System-First: Built on simple, scalable systems you can actually maintain.</li>
-                    <li>Clarity-Driven: Centred around clear messaging and user experience.</li>
+                    <li>**Sam’s experience** in strategy, business structure, design and organisation</li>
+                    <li>**Leigha’s talent** for modern aesthetics, tech integration and digital systems</li>
                 </ul>
+                <p>…and The Organised Types was born.</p>
 
-                <p>We believe your online presence should feel as calm, collected, and competent as you are in your service. Let's make that happen.</p>
+                <p>A tiny idea turned into a full studio — branding, websites, business tools, templates, coaching, systems — everything we naturally gravitated toward anyway.</p>
+
+                <p>What makes this business special isn’t just what we create. It’s who we are together. We’re a team that genuinely cares. We know what it feels like to juggle life, work, ideas, responsibilities, overwhelm, dreams and deadlines. And we wanted to build a space that gives people that feeling of **manageability** again.</p>
+
+                <div class="text-separator"></div>
+
+                <h3>⭐ What We Believe</h3>
+                <p>Running a business shouldn’t feel confusing or chaotic. We built The Organised Types to help people:</p>
+                <ul>
+                    <li>get clear</li>
+                    <li>get organised</li>
+                    <li>get confident</li>
+                    <li>get moving again</li>
+                </ul>
+                <p>Because when your business feels organised, your life opens up.</p>
+
             </div>
         </div>
 
         <div class="mission-section">
-            <h2>Our Core Values</h2>
+            <h2>⭐ What We Do (But With Heart)</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Every product and service exists because we’ve needed it ourselves — or because one of our clients did.</p>
             <div class="value-grid">
                 
                 <div class="value-card">
-                    <h4>Clarity Over Chaos</h4>
-                    <p>We cut through the noise to define clear goals, clear messaging, and clear actions. Complexity is the enemy of progress.</p>
+                    <h4>Website Design</h4>
+                    <p>Clean, modern, minimal websites that feel calm, professional and trustworthy — built to grow with you.</p>
                 </div>
                 
                 <div class="value-card">
-                    <h4>Functional First</h4>
-                    <p>Beauty without function is useless. Every design choice and system implementation must serve a measurable business purpose.</p>
+                    <h4>Branding & Identity</h4>
+                    <p>Logos, colour palettes, visuals and digital assets that help you show up with confidence and consistency.</p>
                 </div>
                 
                 <div class="value-card">
-                    <h4>Intentional Design</h4>
-                    <p>We craft digital spaces that are beautiful, intuitive, and intentionally designed to guide the user towards your desired outcome.</p>
+                    <h4>Business Coaching & Strategy</h4>
+                    <p>Practical, honest sessions designed to help you understand your business, simplify it, and move forward with clarity.</p>
                 </div>
 
                 <div class="value-card">
-                    <h4>Empowerment</h4>
-                    <p>Our goal is to build systems and sites that you feel fully confident managing yourself, providing full training and support.</p>
+                    <h4>Digital Templates & Tools</h4>
+                    <p>A library of intentionally designed planners, systems, dashboards and branding kits that make everyday work easier.</p>
                 </div>
-
             </div>
-        </div>
 
+            <div class="who-we-work-with">
+                <h4>⭐ Who We Work With</h4>
+                <p>We support people who are building something meaningful:</p>
+                <ul>
+                    <li>Small business owners</li>
+                    <li>Start-ups</li>
+                    <li>Coaches & creators</li>
+                    <li>Women in business</li>
+                    <li>Freelancers</li>
+                    <li>Etsy and Shopify sellers</li>
+                    <li>Wellness professionals</li>
+                    <li>Anyone starting from scratch</li>
+                </ul>
+                <p style="font-style: italic; margin-top: 15px;">If you want to feel more organised, more confident and more in control — we’re here for you.</p>
+            </div>
+            
+        </div>
+        
         <div style="text-align: center; margin: 60px 0;">
-            <h3>Ready to Organise Your Digital Presence?</h3>
-            <p>Whether you need a full website overhaul or a consultation to fix a single workflow, we are here to help.</p>
-            <a href="contact.html" class="cta-button" style="margin-top: 15px;">Book a Discovery Call</a>
+            <h3>⭐ Why Choose Us</h3>
+            <p>Because you’re not just hiring a studio. You’re working with two people who genuinely want the best for you.</p>
+            <p style="font-weight: 600;">We keep everything: Simple, Beautiful, Clear, Organised, and Human.</p>
+            <p>We’ll help you understand your business, feel proud of your brand, and create systems that support your growth — not drain your time.</p>
+
+            <h3 style="margin-top: 30px;">Let’s Build Something You’re Proud Of</h3>
+            <p>You don’t have to do business alone — we’re right here with you.</p>
+            
+            <div class="cta-group" style="margin-top: 20px;">
+                <a href="contact.html" class="cta-button">Book a Consultation</a>
+                <a href="shop.html" class="cta-button secondary">Explore Our Templates</a>
+            </div>
         </div>
 
     </div>
@@ -505,17 +620,17 @@
         
         // Function to set the active link dynamically
         (function setActiveLink() {
-            // Since we don't have a dedicated "About" link in the main nav, 
-            // we will stick to the existing navigation and ensure no other link is active here.
+            // Since this is about.html, we set nav-about as active
+            const activeId = 'nav-about'; 
+
+            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
+                el.classList.remove('active');
+            });
             
-            // If you add an "About" link later:
-            /* const activeId = 'nav-about'; 
             const aboutLink = document.getElementById(activeId);
             if (aboutLink) {
                 aboutLink.classList.add('active');
             }
-            */
-            // For now, ensure nothing is active if about.html isn't a main nav link
         })();
     </script>
 
