@@ -309,17 +309,19 @@
         .service-banner-image {
             background-image: url('legs1.jpg');
             background-size: cover;
-            background-position: left center; /* Crop the left side */
+            /* CHANGED: Position to the right side of the image */
+            background-position: right center; 
             border-radius: 8px;
             min-height: 100%; /* Important for stretching */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
-            height: 100%; /* Must use 100% height here */
+            height: 100%; 
         }
         
         /* Card Styles */
         .card-wrapper {
             perspective: 1000px; 
-            height: 380px; 
+            /* CHANGED: Increased height to ensure buttons fit comfortably */
+            height: 420px; 
         }
         .service-card {
             position: relative;
@@ -614,7 +616,7 @@
             /* Mobile Card Display */
             .card-wrapper {
                 perspective: none; 
-                height: auto; 
+                height: auto; /* Reset height for content flow */
             }
             .service-card {
                 transform: none; 
@@ -778,7 +780,7 @@ Our solutions are meticulously organised and fully customised, providing the cla
                         <div class="card-face card-face-back">
                             <div>
                                 <h4>Business Coaching & Strategy</h4>
-                                <p>1:1 coaching for clarity, growth and direction. Perfect for new entrepreneurs, service providers, creators, or anyone needing structure.</p>
+                            <p>1:1 coaching for clarity, growth and direction. Perfect for new entrepreneurs, service providers, creators, or anyone needing structure.</p>
                             </div>
                             <a href="services.html#coaching" class="card-link-button">Book a Strategy Session</a>
                         </div>
