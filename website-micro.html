@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables (Must match index.html and services.html) */
+        /* CSS Variables (Synchronized) */
         :root {
             --primary-color: #4f4a46; /* Dark Taupe */
             --accent-color: #A9B897; /* Dull Sage Green */
@@ -16,6 +16,7 @@
             --card-bg: #F5F2EF; 
             --text-color: #4f4a46; 
             --font-main: 'Poppins', sans-serif;
+            --light-text: #ffffff;
         }
         body { 
             font-family: var(--font-main); 
@@ -30,11 +31,11 @@
         }
         .container { 
             width: 90%; 
-            max-width: 900px; /* Smaller container for detail page focus */
+            max-width: 900px; 
             margin: auto; 
             padding: 30px 0; 
             box-sizing: border-box; 
-            margin-top: 110px; /* Offset for fixed header */
+            margin-top: 110px; 
         }
 
         /* --- HEADER & NAVIGATION (Common Styles) --- */
@@ -57,7 +58,12 @@
             padding: 0 15px; 
             box-sizing: border-box;
         }
-        .logo-area img { height: 100px; margin-right: 10px; } 
+        .logo-area img { 
+            height: 100px; 
+            margin-right: 10px; 
+        } 
+        
+        /* DESKTOP NAVIGATION */
         #main-nav { display: flex; align-items: center; }
         #main-nav a { 
             color: var(--primary-color); 
@@ -69,17 +75,78 @@
         }
         #main-nav a:hover, 
         #main-nav a.active { color: var(--accent-color); }
-        .dropdown { position: relative; display: inline-block; margin-left: 25px; white-space: nowrap; }
-        .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; padding: 10px 0; cursor: default; display: block; }
-        .dropdown-toggle:hover { color: var(--accent-color); }
-        .dropdown-content {
-            display: none; position: absolute; background-color: var(--logo-bg); min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 2; padding: 10px 0; border-radius: 4px; top: 100%; left: 50%; transform: translateX(-50%);
+        
+        /* DROPDOWN CONTAINER */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 25px;
+            white-space: nowrap;
         }
-        .dropdown-content a { color: var(--primary-color); padding: 10px 20px; text-decoration: none; display: block; text-align: left; margin: 0; font-weight: 400; transition: background-color 0.3s; }
-        .dropdown-content a:hover { background-color: rgba(0, 0, 0, 0.05); color: var(--primary-color); }
-        .dropdown:hover .dropdown-content { display: block; }
-        .menu-icon { display: none; cursor: pointer; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; }
-        .menu-icon span { display: block; width: 100%; height: 3px; margin: 4px 0; background: var(--primary-color); transition: 0.4s; border-radius: 3px; }
+        .dropdown-toggle {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0; 
+            cursor: pointer; 
+            display: block;
+        }
+        .dropdown-toggle:hover {
+            color: var(--accent-color);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--logo-bg);
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 2;
+            padding: 10px 0;
+            border-radius: 4px;
+            top: 100%; 
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin: 0; 
+            font-weight: 400;
+            transition: background-color 0.3s;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color); 
+        }
+
+        /* SHOW DROPDOWN ON DESKTOP HOVER */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* HAMBURGER ICON */
+        .menu-icon { 
+            display: none; 
+            cursor: pointer; 
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px; 
+        }
+        .menu-icon span { 
+            display: block; 
+            width: 100%; 
+            height: 3px; 
+            margin: 4px 0; 
+            background: var(--primary-color); 
+            transition: 0.4s; 
+            border-radius: 3px;
+        }
 
         /* --- BUTTON & LINK STYLES (Common) --- */
         .cta-button {
@@ -148,6 +215,14 @@
             padding-bottom: 10px;
             margin-top: 0;
         }
+        .content-section ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .content-section ul li {
+            margin-bottom: 8px;
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -178,6 +253,7 @@
             margin-bottom: 10px;
             background: var(--cream-bg);
             border-radius: 4px;
+            line-height: 1.5;
         }
         .process-list li::before {
             content: counter(detail-step);
@@ -205,12 +281,40 @@
 
         /* Mobile specific adjustments */
         @media (max-width: 768px) {
-            .container { margin-top: 90px; }
+            .container { 
+                margin-top: 90px; 
+                padding: 15px;
+            }
             .detail-header h1 { font-size: 2.2em; }
             .detail-header .price { font-size: 1.4em; }
             .features-grid { grid-template-columns: 1fr; }
+            
+            /* Mobile Nav Overrides */
             .menu-icon { display: flex; }
-            #main-nav { display: none; } /* Ensure menu is hidden on mobile */
+            #main-nav {
+                display: none; 
+                flex-direction: column;
+                width: 100%;
+                position: absolute; 
+                top: 110px; 
+                left: 0;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                padding: 10px 0;
+                background-color: var(--logo-bg);
+            }
+            #main-nav.show-menu { display: flex; }
+            #main-nav a { 
+                margin: 8px 0; 
+                padding: 5px 0;
+                display: block;
+                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
+                text-align: center;
+                margin-left: 0;
+            }
+            .dropdown { margin: 0; width: 100%; display: contents; }
+            .dropdown-content { display: block; position: static; width: 100%; transform: none; box-shadow: none; background-color: transparent; border-top: 1px solid rgba(79, 74, 70, 0.1); padding: 0; }
+            .dropdown-content a { padding: 5px 0; font-size: 0.85em; background-color: rgba(79, 74, 70, 0.03); text-align: center; border-bottom: 1px solid rgba(79, 74, 70, 0.1); }
+            .dropdown-content a:last-child { border-bottom: none; }
         }
     </style>
 </head>
@@ -227,20 +331,20 @@
                 <span></span>
             </div>
            <nav id="main-nav">
-    <a href="index.html" id="nav-index">Home</a> 
-    
-    <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-            <a href="services.html#templates">Templates, Tools & Courses</a>
-        </div>
-    </div>
-    <a href="faq.html" id="nav-faq">FAQ's</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-</nav>
+                <a href="index.html" id="nav-index">Home</a> 
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Design & Development</a>
+                        <a href="services.html#branding">Brand Identity & Digital Design</a>
+                        <a href="services.html#coaching">Business Coaching & Strategy</a>
+                        <a href="services.html#templates">Templates, Tools & Courses</a>
+                    </div>
+                </div>
+                <a href="faq.html" id="nav-faq">FAQ's</a>
+                <a href="contact.html" id="nav-contact">Contact</a>
+            </nav>
         </div>
     </header>
     
@@ -334,15 +438,40 @@
 
     <footer>
         <div class="container">
-            <p>Ready to start your project? <a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs.</p>
+            <p>Ready to start your project? <a href="services.html#templates">Explore our templates</a>, digital tools, systems, and productivity packs.</p>
             <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
         </div>
     </footer>
 
     <script>
-        // Note: The script section from the services page for mobile menu handling should be included here if needed,
-        // but for brevity and focus on content, I've omitted the full script logic in the detail pages template.
-        // Assume basic JavaScript functions are available or you will include the full script later.
+        // TOGGLES THE MOBILE NAVIGATION MENU
+        function toggleMenu() {
+            var nav = document.getElementById("main-nav"); 
+            nav.classList.toggle("show-menu");
+        }
+
+        // Toggles the dropdown menu on mobile. Ignored for desktop hover effect managed by CSS.
+        function toggleDropdown(event) {
+            if (window.innerWidth >= 769) {
+                return;
+            }
+        }
+        
+        // Function to set the active link dynamically
+        (function setActiveLink() {
+            const path = window.location.pathname.split('/').pop();
+            
+            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Activate the Services link for this detail page
+            const servicesLink = document.getElementById('nav-services');
+            if (servicesLink) {
+                servicesLink.classList.add('active');
+                servicesLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
+            }
+        })();
     </script>
 
 </body>

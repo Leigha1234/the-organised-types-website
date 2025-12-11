@@ -7,15 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables (Must match index.html) */
+        /* CSS Variables (Synchronized) */
         :root {
             --primary-color: #4f4a46; /* Dark Taupe */
             --accent-color: #A9B897; /* Dull Sage Green */
             --cream-bg: #FAF8F5; 
             --logo-bg: #EFE6E1; 
             --card-bg: #F5F2EF; 
-            --text-color: #4f4a46; /* Updated to match primary color for consistency */
+            --text-color: #4f4a46; 
             --font-main: 'Poppins', sans-serif;
+            --light-text: #ffffff;
         }
         body { 
             font-family: var(--font-main); 
@@ -57,7 +58,7 @@
             box-sizing: border-box;
         }
         .logo-area img { 
-            height: 100px; /* Adjusted height to match index.html */
+            height: 100px; 
             margin-right: 10px; 
         } 
         
@@ -86,7 +87,7 @@
             text-decoration: none;
             font-weight: 500;
             padding: 10px 0; 
-            cursor: default; 
+            cursor: pointer; 
             display: block;
         }
         .dropdown-toggle:hover {
@@ -121,8 +122,10 @@
         }
 
         /* SHOW DROPDOWN ON DESKTOP HOVER */
-        .dropdown:hover .dropdown-content {
-            display: block;
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
         }
 
         /* HAMBURGER ICON */
@@ -328,13 +331,14 @@
             padding: 10px 20px;
             font-size: 1em;
             width: 100%;
-            max-width: 200px; /* NEW: Restricts button width */
-            align-self: center; /* NEW: Centers the button */
+            max-width: 200px; 
+            align-self: center; 
         }
 
         /* Process & Add-Ons */
-        .process-list, .who-for-list, .add-ons-list {
+        .process-list {
             list-style: none;
+            counter-reset: process-step; /* Added reset for counter */
             padding-left: 0;
         }
         .process-list li {
@@ -342,14 +346,32 @@
             padding-left: 25px;
             position: relative;
         }
+        /* Adjusted process list styling to match previous pages */
         .process-list li::before {
             content: counter(process-step);
             counter-increment: process-step;
-            font-weight: 700;
-            color: var(--accent-color);
             position: absolute;
             left: 0;
+            top: 0; 
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            color: var(--cream-bg);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-weight: 700;
+            font-size: 0.8em;
         }
+
+        .who-for-list {
+            list-style: disc; /* Use standard disc for who-for */
+            padding-left: 20px;
+        }
+        .who-for-list li {
+            margin-bottom: 5px;
+        }
+        
         .add-ons-list h4 {
             color: var(--primary-color);
             font-size: 1.2em;
@@ -364,7 +386,7 @@
             gap: 15px;
         }
         .add-ons-list ul li {
-            background-color: #ffffff;
+            background-color: var(--cream-bg); /* Match package card inner background */
             padding: 15px;
             border-left: 3px solid var(--accent-color);
             border-radius: 4px;
@@ -397,14 +419,75 @@
 
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
+            
+            /* --- FONT SIZE SCALING (Matching Index Page) --- */
+            body { 
+                font-size: 0.85em; 
+            }
+            .container { 
+                padding: 20px 10px; 
+                max-width: 100%;
+            }
+
+            /* --- NAVIGATION FIXES --- */
             .menu-icon { display: flex; } 
             #main-nav {
                 display: none; 
+                flex-direction: column;
+                width: 100%;
+                position: absolute; 
                 top: 110px; 
+                left: 0;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                padding: 10px 0;
+                background-color: var(--logo-bg);
             }
+            #main-nav.show-menu { display: flex; }
+            #main-nav a { 
+                margin: 8px 0; 
+                padding: 5px 0;
+                display: block;
+                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
+                text-align: center;
+                margin-left: 0;
+            }
+            
+            /* Mobile: Show all dropdown content links when menu is visible */
+            .dropdown { 
+                margin: 0; 
+                width: 100%; 
+                display: contents; 
+            }
+            .dropdown-toggle { 
+                text-align: center;
+                content: none !important; 
+            } 
+            .dropdown-toggle:after { content: none; }
+
+            .dropdown-content { 
+                display: block; 
+                position: static; 
+                width: 100%; 
+                transform: none; 
+                box-shadow: none; 
+                background-color: transparent; 
+                border-top: 1px solid rgba(79, 74, 70, 0.1); 
+                padding: 0; 
+            }
+            .dropdown-content a { 
+                padding: 5px 0; 
+                font-size: 0.85em; 
+                background-color: rgba(79, 74, 70, 0.03); 
+                text-align: center; 
+                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
+            }
+            .dropdown-content a:last-child {
+                border-bottom: none; 
+            }
+
+            /* --- SERVICES SPECIFIC MOBILE FIXES --- */
             .services-hero { margin-top: 110px; }
             .services-hero h1 { font-size: 2.2em; }
-
             .package-grid {
                 grid-template-columns: 1fr; 
             }
@@ -416,10 +499,10 @@
                 margin-top: 20px;
             }
             .package-card {
-                min-height: auto; /* Remove fixed height on mobile */
+                min-height: auto; 
             }
             .package-card .cta-button {
-                max-width: 100%; /* Full width on mobile */
+                max-width: 100%; 
             }
             #quick-links {
                 padding: 15px;
@@ -430,7 +513,7 @@
                 gap: 5px;
             }
             
-            /* Table Fix */
+            /* Mobile Table Reflow */
             .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td, .comparison-table th {
                 display: block;
                 width: 100%;
@@ -475,21 +558,21 @@
                 <span></span>
                 <span></span>
             </div>
-           <nav id="main-nav">
-    <a href="index.html" id="nav-index">Home</a> 
-    
-    <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-            <a href="services.html#templates">Templates, Tools & Courses</a>
-        </div>
-    </div>
-    <a href="faq.html" id="nav-faq">FAQ's</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-</nav>
+            <nav id="main-nav">
+                <a href="index.html" id="nav-index">Home</a> 
+                
+                <div class="dropdown" onclick="toggleDropdown(event)">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Design & Development</a>
+                        <a href="services.html#branding">Brand Identity & Digital Design</a>
+                        <a href="services.html#coaching">Business Coaching & Strategy</a>
+                        <a href="services.html#templates">Templates, Tools & Courses</a>
+                    </div>
+                </div>
+                <a href="faq.html" id="nav-faq">FAQ's</a>
+                <a href="contact.html" id="nav-contact">Contact</a>
+            </nav>
         </div>
     </header>
     
@@ -708,7 +791,7 @@
                     <div class="best-for">
                         Best for: Start-ups, side hustles, Etsy sellers, creators.
                     </div>
-                    <a href="branding-mini-kit.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">View Full Details</a>
+                    <a href="branding-mini-kit.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text);">View Full Details</a>
                 </div>
 
                 <div class="package-card">
@@ -726,7 +809,7 @@
                     <div class="best-for">
                         Best for: Small businesses wanting a well-defined aesthetic and a more professional presence online.
                     </div>
-                    <a href="branding-essential-kit.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">View Full Details</a>
+                    <a href="branding-essential-kit.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text);">View Full Details</a>
                 </div>
 
                 <div class="package-card featured">
@@ -755,235 +838,221 @@
                         <li>Complete logo suite</li>
                         <li>Colour palette + typography</li>
                         <li>Brand elements/icons</li>
-                        <li>Social media starter pack (12 Canva templates)</li>
-                        <li>Highlight covers, Brand board + usage guidelines</li>
-                        <li>3 revision rounds</li>
+                        <li>Social media starter pack (10 custom templates)</li>
+                        <li>Email signature design</li>
+                        <li>Business card design, 3 revision rounds</li>
                     </ul>
                     <div class="best-for">
-                        Best for: Influencers, coaches, product-based businesses, small agencies.
+                        Best for: Brands needing a seamless transition from concept to social media launch.
                     </div>
-                    <a href="branding-premium-social.html" class="cta-button">View Full Details</a>
-                </div>
-                
-                <div class="package-card" style="grid-column: span 1 / auto;">
-                    <h4>5. FULL-SCALE BRANDING PACKAGE (THE SIGNATURE BRAND KIT)</h4>
-                    <span class="price">From £499-£695</span>
-                    <p>Perfect for: **Your brand — built from the ground up with strategy, visuals and assets that reflect your mission, values and message.**</p>
-                    <ul>
-                        <li>Full logo suite (all variations)</li>
-                        <li>Colour palette + accessibility notes, Typography suite</li>
-                        <li>Brand elements & iconography, Pattern/texture library</li>
-                        <li>Brand messaging (tone of voice, tagline, mission + values)</li>
-                        <li>20 social media Canva templates, Business card design</li>
-                        <li>Brand identity guidelines (Full PDF), 3-4 revision rounds</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Ambitious businesses looking to scale, long-term brand building, premium services, agencies, ecommerce brands.
-                    </div>
-                    <a href="branding-signature-kit.html" class="cta-button">Request Custom Branding</a>
+                    <a href="branding-premium-social-kit.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text);">View Full Details</a>
                 </div>
             </div>
-
-            <h3 id="branding-process" style="margin-top: 40px;">The Process</h3>
-            <ol class="process-list">
-                <li>**Brand Questionnaire:** We uncover your aesthetic, audience and values.</li>
-                <li>**Moodboard & Direction:** You approve the creative direction before design begins.</li>
-                <li>**Brand Creation:** We build your logos, colours, fonts and assets.</li>
-                <li>**Design Delivery:** You receive high-quality JPG, PNG + SVG files.</li>
-                <li>**Brand Kit Presentation:** A clean, easy-to-understand brand sheet showing how to use your new look.</li>
-            </ol>
-
+            
             <p style="text-align: center; margin-top: 40px;">
-                <a href="contact.html" class="cta-button">Request Custom Branding</a>
+                <a href="contact.html" class="cta-button">Discuss Custom Branding or Digital Assets</a>
             </p>
         </section>
 
 
         <section id="coaching" class="service-section">
             <h2>Business Coaching & Strategy</h2>
-            <p>Running a business is easier when you're not doing it alone. Our coaching sessions help you stop guessing and start growing. With personalised guidance, practical strategies and step-by-step support, you’ll gain clarity, confidence, and a plan that feels achievable.</p>
-            <p>Perfect for new entrepreneurs, Etsy sellers, freelancers and service-based businesses needing structure, systems and direction.</p>
+            <p>Ready to move from overwhelmed to organised? Our one-on-one coaching helps you streamline your business, define your strategy, and build scalable systems. We focus on practical, actionable steps to boost productivity and efficiency.</p>
 
-            <h3 id="coaching-packages">Coaching Packages</h3>
+            <h3>Coaching Packages</h3>
             <div class="package-grid">
                 
                 <div class="package-card">
-                    <h4>1. PAY-AS-YOU-GO COACHING SESSION</h4>
-                    <span class="price">£(your price) per session</span>
-                    <p>Ideal for: **Business owners, creatives or entrepreneurs who want support as and when they need it.**</p>
+                    <h4>Pay As You Go Session</h4>
+                    <span class="price">£85 per session</span>
+                    <p>Perfect for: **A quick brainstorm, tackling a single blocker, or trying out coaching without commitment.**</p>
                     <ul>
-                        <li>1 x 60-minute 1:1 coaching session</li>
-                        <li>Pre-session questionnaire</li>
-                        <li>Personalised action plan</li>
-                        <li>48-hour follow-up support (email/message)</li>
-                        <li>One topic of focus per session</li>
+                        <li>Single 60-minute session</li>
+                        <li>Focused on one key problem/topic</li>
+                        <li>Follow-up summary of action points</li>
+                        <li>Ideal for accountability & clarity</li>
+                        <li>Flexible scheduling (when slots are available)</li>
                     </ul>
                     <div class="best-for">
-                        Best for: ✔ Quick wins and immediate clarity, ✔ Troubleshooting specific challenges, ✔ Flexible, no-commitment coaching
+                        Best for: ✔ Urgent troubleshooting, ✔ Quick strategy sessions, ✔ Testing coaching waters.
                     </div>
-                    <a href="coaching-payg.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">Book a Single Session</a>
-                </div>
-
-                <div class="package-card featured">
-                    <h4>2. GROWTH BUNDLE — 5 SESSIONS + 1 FREE</h4>
-                    <span class="price">Bundle price = £(your price × 5)</span>
-                    <p>Perfect for: **Consistent support, deeper strategy, and accountability as you grow.**</p>
-                    <p>You'll get 6 full coaching sessions for the price of 5 — meaning you save AND get more time with me to build your business properly.</p>
-                    <ul>
-                        <li>6 x 60-minute coaching sessions</li>
-                        <li>Personalised goal plan for the full duration</li>
-                        <li>Unlimited notes + strategy documents</li>
-                        <li>Priority scheduling, Weekly check-in messages</li>
-                        <li>30-day accountability after the final session</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: ✔ New business owners building foundations, ✔ Entrepreneurs needing consistency & accountability, ✔ Anyone wanting structured step-by-step growth
-                    </div>
-                    <a href="coaching-growth.html" class="cta-button">Start the Growth Bundle</a>
+                    <a href="pay-as-you-go-coaching.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text);">Book a Session</a>
                 </div>
 
                 <div class="package-card">
-                    <h4>3. TRANSFORMATION PACKAGE — 10 SESSIONS + 2 FREE</h4>
-                    <span class="price">Bundle price = £(your price × 10)</span>
-                    <p>Perfect for: **Your full business transformation — clarity, confidence & long-term strategy.**</p>
-                    <p>Over 12 sessions, we'll build your strategy, systems, mindset and processes — giving you full support for several months.</p>
+                    <h4>Growth Bundle Coaching</h4>
+                    <span class="price">£239 (3 Sessions)</span>
+                    <p>Perfect for: **Targeting a specific goal, building new habits, or establishing a new core system (e.g., email management).**</p>
                     <ul>
-                        <li>12 x 60-minute coaching sessions</li>
-                        <li>Comprehensive business audit, Full strategic roadmap</li>
-                        <li>Custom productivity or business template</li>
-                        <li>Unlimited weekly check-ins, Access to supporting guides</li>
-                        <li>Priority support throughout the entire program</li>
-                        <li>30-day follow-up accountability after completion</li>
+                        <li>Three 60-minute sessions</li>
+                        <li>Scheduled over 4-6 weeks</li>
+                        <li>Dedicated goal tracking and accountability</li>
+                        <li>Resource pack (templates/worksheets)</li>
+                        <li>Email support between sessions (1 week after final session)</li>
                     </ul>
                     <div class="best-for">
-                        Best for: ✔ Entrepreneurs scaling to the next level, ✔ People ready for a full business overhaul, ✔ Long-term vision builders
+                        Best for: ✔ Launch preparation, ✔ Defining ideal client, ✔ Workflow optimization.
                     </div>
-                    <a href="coaching-transformation.html" class="cta-button" style="background: var(--primary-color); color: #ffffff;">Start Your Transformation</a>
+                    <a href="growth-bundle-coaching.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text);">Buy the Bundle</a>
+                </div>
+
+                <div class="package-card featured">
+                    <h4>Immersive Strategy Coaching</h4>
+                    <span class="price">£395 (5 Sessions)</span>
+                    <p>Perfect for: **Making significant, mid-term changes to business structure, scaling services, or creating passive income streams.**</p>
+                    <ul>
+                        <li>Five 60-minute sessions</li>
+                        <li>Scheduled over 2-3 months</li>
+                        <li>Priority email support for 1 month</li>
+                        <li>Comprehensive resource library access</li>
+                        <li>Deep dive into multiple business areas (marketing, systems, productivity)</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Scaling services, ✔ Creating automation, ✔ Complete mindset shifts.
+                    </div>
+                    <a href="immersive-strategy-coaching.html" class="cta-button">View Full Details</a>
+                </div>
+
+                <div class="package-card">
+                    <h4>Transformation Package</h4>
+                    <span class="price">From £895 (12 Sessions)</span>
+                    <p>Perfect for: **The ultimate commitment to deep, lasting change. Total personal or business systems overhaul over 3+ months.**</p>
+                    <ul>
+                        <li>Twelve 60-minute sessions (10 paid + 2 free)</li>
+                        <li>Scheduled over 3-6 months</li>
+                        <li>Full accountability monitoring</li>
+                        <li>3 months of priority email support</li>
+                        <li>Personalised Action Blueprint (15-page document)</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Launching a new business, ✔ Total work-life balance overhaul, ✔ Long-term mentorship.
+                    </div>
+                    <a href="transformation-package.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text);">Apply Now</a>
                 </div>
             </div>
 
-            <h3 id="coaching-table" style="margin-top: 40px;">Coaching Comparison Chart</h3>
+            <h3 id="coaching-table" style="margin-top: 40px;">Coaching Comparison at a Glance</h3>
             <table class="comparison-table">
                 <thead>
                     <tr>
                         <th>Feature</th>
-                        <th>Pay-as-you-go</th>
-                        <th>Growth Bundle</th>
-                        <th>Transformation Bundle</th>
+                        <th>Pay As You Go</th>
+                        <th>Growth Bundle (3)</th>
+                        <th>Immersive Strategy (5)</th>
+                        <th>Transformation (12)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Feature">Number of sessions</td>
-                        <td data-label="Pay-as-you-go">1</td>
-                        <td data-label="Growth Bundle">6</td>
-                        <td data-label="Transformation Bundle">12</td>
+                        <td data-label="Feature">Total Sessions</td>
+                        <td data-label="Pay As You Go">1</td>
+                        <td data-label="Growth Bundle (3)">3</td>
+                        <td data-label="Immersive Strategy (5)">5</td>
+                        <td data-label="Transformation (12)">12</td>
                     </tr>
                     <tr>
-                        <td data-label="Feature">Free sessions</td>
-                        <td data-label="Pay-as-you-go">0</td>
-                        <td data-label="Growth Bundle">1</td>
-                        <td data-label="Transformation Bundle">2</td>
+                        <td data-label="Feature">Session Length</td>
+                        <td data-label="Pay As You Go">60 mins</td>
+                        <td data-label="Growth Bundle (3)">60 mins</td>
+                        <td data-label="Immersive Strategy (5)">60 mins</td>
+                        <td data-label="Transformation (12)">60 mins</td>
                     </tr>
                     <tr>
-                        <td data-label="Feature">Action plan</td>
-                        <td data-label="Pay-as-you-go">✓</td>
-                        <td data-label="Growth Bundle">✓</td>
-                        <td data-label="Transformation Bundle">✓</td>
+                        <td data-label="Feature">Email Support</td>
+                        <td data-label="Pay As You Go">None</td>
+                        <td data-label="Growth Bundle (3)">1 Week Post-Bundle</td>
+                        <td data-label="Immersive Strategy (5)">1 Month Priority</td>
+                        <td data-label="Transformation (12)">3 Months Priority</td>
                     </tr>
                     <tr>
-                        <td data-label="Feature">Weekly check-ins</td>
-                        <td data-label="Pay-as-you-go">optional</td>
-                        <td data-label="Growth Bundle">✓</td>
-                        <td data-label="Transformation Bundle">✓</td>
+                        <td data-label="Feature">Duration / Pacing</td>
+                        <td data-label="Pay As You Go">Ad-hoc</td>
+                        <td data-label="Growth Bundle (3)">4-6 Weeks</td>
+                        <td data-label="Immersive Strategy (5)">2-3 Months</td>
+                        <td data-label="Transformation (12)">3-6 Months</td>
                     </tr>
                     <tr>
-                        <td data-label="Feature">Priority scheduling</td>
-                        <td data-label="Pay-as-you-go">✕</td>
-                        <td data-label="Growth Bundle">✓</td>
-                        <td data-label="Transformation Bundle">✓</td>
+                        <td data-label="Feature">Accountability/Tracking</td>
+                        <td data-label="Pay As You Go">Summary only</td>
+                        <td data-label="Growth Bundle (3)">Dedicated Goal Tracking</td>
+                        <td data-label="Immersive Strategy (5)">Dedicated Goal Tracking + Check-ins</td>
+                        <td data-label="Transformation (12)">Full Monitoring & Weekly Check-ins</td>
                     </tr>
                     <tr>
-                        <td data-label="Feature">Business audit</td>
-                        <td data-label="Pay-as-you-go">✕</td>
-                        <td data-label="Growth Bundle">✕</td>
-                        <td data-label="Transformation Bundle">✓</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Feature">Biggest saving</td>
-                        <td data-label="Pay-as-you-go">✕</td>
-                        <td data-label="Growth Bundle">Save 1 session</td>
-                        <td data-label="Transformation Bundle">Save 2 sessions</td>
+                        <td data-label="Feature">Target Scope</td>
+                        <td data-label="Pay As You Go">Single issue</td>
+                        <td data-label="Growth Bundle (3)">Specific goal/system</td>
+                        <td data-label="Immersive Strategy (5)">Multiple business areas/scaling</td>
+                        <td data-label="Transformation (12)">Total business/life overhaul</td>
                     </tr>
                 </tbody>
             </table>
-
-            <h3 id="coaching-process" style="margin-top: 40px;">The Process</h3>
-            <ol class="process-list">
-                <li>**Book your session**</li>
-                <li>**Complete the onboarding questions**</li>
-                <li>**Join your 1:1 call** (Zoom or audio)</li>
-                <li>**Receive your personalised roadmap**</li>
-                <li>**Start implementing with confidence**</li>
-            </ol>
             
-            <h3 id="coaching-addons" style="margin-top: 40px;">Optional Add-Ons for Coaching</h3>
-            <div class="add-ons-list">
-                <ul>
-                    <li>Brand Kit add-on</li>
-                    <li>Website audit</li>
-                    <li>Full Offer Suite mapping</li>
-                    <li>Pricing overhaul session</li>
-                    <li>Content strategy workbook</li>
-                    <li>Productivity system setup</li>
-                    <li>One-page business plan</li>
-                    <li>Accountability check-ins (weekly or monthly)</li>
-                </ul>
-            </div>
-
             <p style="text-align: center; margin-top: 40px;">
-                <a href="contact.html" class="cta-button">Book a Coaching Session</a>
+                <a href="contact.html" class="cta-button">Ready to Commit? Apply Today!</a>
             </p>
         </section>
+
 
         <section id="templates" class="service-section">
             <h2>Templates, Tools & Courses</h2>
-            <p>Instant downloads designed to make life and business easier. Our digital store includes business templates, planners, AI prompt packs, branding bundles, productivity tools, courses and more — all created to help you stay organised, save time, and scale your business with confidence.</p>
-            <p>Every product is crafted to be simple, beautiful and incredibly practical.</p>
+            <p>For the organised type who loves a DIY solution! Our digital shop is filled with instant-access templates, tools, courses, and guides designed to help you streamline your life and business without needing custom work.</p>
 
-            <h3 id="templates-included">What's Included (Product Examples)</h3>
-            <div class="add-ons-list">
-                <ul>
-                    <li>Canva templates</li>
-                    <li>Printable planners</li>
-                    <li>Business spreadsheets</li>
-                    <li>Branding kits</li>
-                    <li>AI prompts</li>
-                    <li>Notion templates</li>
-                    <li>Digital stickers</li>
-                    <li>Checklists & guides</li>
-                    <li>Future courses & workshops</li>
-                </ul>
+            <h3 style="margin-top: 25px;">Popular Digital Tools</h3>
+            <div class="package-grid">
+                
+                <div class="package-card">
+                    <h4>Notion Workflow Template</h4>
+                    <span class="price">£29</span>
+                    <p>A comprehensive Notion dashboard designed to manage client onboarding, project timelines, content calendars, and financial tracking for freelancers and small agencies.</p>
+                    <ul>
+                        <li>Full Client Management Dashboard</li>
+                        <li>Project Tracker (Kanban & Calendar Views)</li>
+                        <li>Automated Content Planner</li>
+                        <li>Financial Tracker Integration</li>
+                    </ul>
+                    <a href="https://www.etsy.com/listing/123456789/notion-template" target="_blank" class="cta-button">View on Etsy</a>
+                </div>
+
+                <div class="package-card">
+                    <h4>Productivity Toolkit (Canva)</h4>
+                    <span class="price">£19</span>
+                    <p>Over 50 editable Canva templates for daily planners, weekly schedules, meeting minutes, goal setting, and time blocking. Perfect for boosting personal or team productivity.</p>
+                    <ul>
+                        <li>50+ Canva Templates (A4/US Letter)</li>
+                        <li>Goal Setting Worksheets</li>
+                        <li>Time Blocking & Schedule Templates</li>
+                        <li>Daily & Weekly Planners</li>
+                    </ul>
+                    <a href="https://www.etsy.com/listing/987654321/productivity-toolkit" target="_blank" class="cta-button">View on Etsy</a>
+                </div>
+
+                <div class="package-card">
+                    <h4>SEO Quick Guide & Checklist</h4>
+                    <span class="price">£12</span>
+                    <p>An instant download PDF guide breaking down complex SEO concepts into simple, actionable steps. Includes a checklist for website optimization and keyword research.</p>
+                    <ul>
+                        <li>20-Page SEO Action Guide</li>
+                        <li>Step-by-Step Optimization Checklist</li>
+                        <li>Keyword Research Tutorial</li>
+                        <li>Beginner-friendly Language</li>
+                    </ul>
+                    <a href="https://www.etsy.com/listing/111222333/seo-quick-guide" target="_blank" class="cta-button">View on Etsy</a>
+                </div>
+
             </div>
-
-            <h3 id="templates-process" style="margin-top: 40px;">The Process (Instant Download)</h3>
-            <ol class="process-list">
-                <li>**Add your chosen product to cart**</li>
-                <li>**Download instantly**</li>
-                <li>**Edit, print or use digitally**</li>
-                <li>**Start seeing results right away**</li>
-            </ol>
-
+            
             <p style="text-align: center; margin-top: 40px;">
-                <a href="shop.html" class="cta-button">Shop Digital Products</a>
+                <a href="https://www.etsy.com/uk/shop/TheOrganisedTypes" target="_blank" class="cta-button">Visit Our Full Digital Shop (Etsy)</a>
             </p>
         </section>
         
+
     </div>
 
     <footer>
         <div class="container">
-            <p>Ready to start your project? <a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs.</p>
+            <p>Ready to start your project? <a href="services.html#templates">Explore our templates</a>, digital tools, systems, and productivity packs.</p>
             <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
         </div>
     </footer>
@@ -994,16 +1063,14 @@
             var nav = document.getElementById("main-nav"); 
             nav.classList.toggle("show-menu");
         }
-        
-        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK
+
+        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK - MODIFIED for mobile fix
         function toggleDropdown(event) {
-            if (window.innerWidth < 769) {
-                event.preventDefault(); 
-                const dropdown = event.currentTarget;
-                dropdown.classList.toggle('active');
+            if (window.innerWidth >= 769) {
+                return;
             }
         }
-
+        
         // Function to set the active link dynamically
         (function setActiveLink() {
             const path = window.location.pathname.split('/').pop();
@@ -1012,15 +1079,22 @@
             document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
                 el.classList.remove('active');
             });
-
-            const activeLink = document.getElementById(`nav-${activePage}`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-                
-                // If the active link is inside a dropdown, highlight the dropdown toggle too
-                if (activeLink.closest('.dropdown')) {
-                    activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
-                }
+            
+            // List of potential detail pages that should activate the Services link
+            const detailPages = [
+                'branding-suite', 'website-design', 'coaching-session', 
+                'essential-brand-identity-kit', 'branding-kickstart-package', 
+                'mini-brand-starter-kit', 'premium-brand-social-kit', 
+                'signature-brand-kit', 'complete-brand-identity-suite',
+                'growth-bundle-coaching', 'immersive-strategy-coaching',
+                'pay-as-you-go-coaching', 'transformation-package'
+            ];
+            
+            // Since this page IS services.html, we force the Services link to be active.
+            const servicesLink = document.getElementById('nav-services');
+            if (servicesLink) {
+                servicesLink.classList.add('active');
+                servicesLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
             }
         })();
     </script>
