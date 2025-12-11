@@ -513,35 +513,9 @@
                 gap: 5px;
             }
             
-            /* Mobile Table Reflow */
-            .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td, .comparison-table th {
-                display: block;
-                width: 100%;
-                text-align: left;
-            }
-            .comparison-table thead {
-                display: none; 
-            }
-            .comparison-table tr {
-                margin-bottom: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-            .comparison-table td {
-                border: none;
-                border-bottom: 1px dashed #eee;
-                position: relative;
-                padding-left: 50%;
-            }
-            .comparison-table td::before {
-                content: attr(data-label); 
-                position: absolute;
-                left: 6px;
-                width: 45%;
-                padding-right: 10px;
-                white-space: nowrap;
-                font-weight: 600;
-                color: var(--primary-color);
+            /* Mobile Table HIDE Rule */
+            .hide-on-mobile {
+                display: none !important;
             }
         }
     </style>
@@ -679,6 +653,7 @@
                         <li>Enhanced SEO setup</li>
                         <li>Mobile-first design</li>
                         <li>Launch support + testing, Professional UX and strategic layout</li>
+                        
                     </ul>
                     <div class="best-for">
                         Best for: ✔ Coaches, consultants, and educators, ✔ Creatives needing portfolios, ✔ Growing service-based businesses, ✔ Brands preparing for bigger visibility
@@ -797,213 +772,250 @@
                 </div>
                 
                 <div class="package-card featured">
-                    <h4>2. FULL BRAND IDENTITY KIT</h4>
-                    <span class="price">From £249</span>
-                    <p>Perfect for: **Businesses seeking a fully defined, comprehensive, and scalable visual brand identity.**</p>
-                    <ul>
-                        <li>Primary logo + secondary logo + submark</li>
-                        <li>Comprehensive colour system (8+ colours)</li>
-                        <li>Typography hierarchy</li>
-                        <li>Icon/pattern suggestions</li>
-                        <li>Full Brand Style Guide PDF</li>
-                        <li>2 revision rounds</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Growing agencies, established coaches, product-based businesses.
-                    </div>
-                    <a href="branding-full-kit.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">View Full Details</a>
-                </div>
-                
-                <div class="package-card">
-                    <h4>3. THE BRAND REFRESH</h4>
+                    <h4>2. ESSENTIAL BRAND IDENTITY KIT</h4>
                     <span class="price">From £149</span>
-                    <p>Perfect for: **Businesses with an existing logo but needing a full visual update and alignment.**</p>
+                    <p>Perfect for: **Growing service providers and online sellers ready to establish consistency and professionalism.**</p>
                     <ul>
-                        <li>Assessment of existing assets</li>
-                        <li>New colour palette and typography pairing</li>
-                        <li>Brand messaging review (taglines, mission)</li>
-                        <li>Refreshed brand direction sheet</li>
-                        <li>1 revision round</li>
+                        <li>Primary & secondary logos</li>
+                        <li>Submark / favicon</li>
+                        <li>Curated colour palette (6-8 colours with HEX/RGB)</li>
+                        <li>Typography suite (heading and body text)</li>
+                        <li>Image & texture inspiration moodboard</li>
+                        <li>Brand usage sheet</li>
+                        <li>2 rounds of revisions</li>
                     </ul>
                     <div class="best-for">
-                        Best for: Rebranding, post-growth adjustments, aligning visuals with new goals.
+                        Best for: Small businesses, online sellers, growing service providers.
                     </div>
-                    <a href="branding-refresh.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">View Full Details</a>
+                    <a href="essential-brand-identity-kit.html" class="cta-button">View Full Details</a>
                 </div>
 
                 <div class="package-card">
-                    <h4>Digital Marketing Assets</h4>
-                    <span class="price">From £50 per asset</span>
-                    <p>Perfect for: **Any business needing consistent, high-quality collateral for specific campaigns.**</p>
+                    <h4>3. COMPLETE BRAND IDENTITY SUITE</h4>
+                    <span class="price">From £249</span>
+                    <p>Perfect for: **Established businesses, coaches, and creatives who need a strategic, high-impact brand identity.**</p>
                     <ul>
-                        <li>Custom branded Canva templates (for social media, ebooks, workbooks, etc.)</li>
-                        <li>Digital stationery design (proposals, invoices)</li>
-                        <li>Presentation template design</li>
-                        <li>Branded email signatures</li>
+                        <li>Full logo suite (4 variations total)</li>
+                        <li>Extended colour palette (primary, secondary, tonal variations)</li>
+                        <li>Typography hierarchy</li>
+                        <li>Icon set or brand elements</li>
+                        <li>Comprehensive brand direction & guidelines PDF</li>
+                        <li>3 rounds of revisions</li>
+                        <li>High-quality file delivery (PNG, JPEG, PDF, source files)</li>
                     </ul>
                     <div class="best-for">
-                        Best for: Content creators, event speakers, course sellers.
+                        Best for: Established businesses, wellness brands, coaches, creatives.
                     </div>
-                    <a href="contact.html" class="cta-button">Request a Custom Quote</a>
+                    <a href="complete-brand-identity-suite.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">View Full Details</a>
+                </div>
+
+                <div class="package-card">
+                    <h4>4. PREMIUM BRAND + SOCIAL KIT</h4>
+                    <span class="price">From £395</span>
+                    <p>Perfect for: **Brands focusing heavily on social media and digital marketing who need a polished aesthetic and assets.**</p>
+                    <ul>
+                        <li>Full logo suite & brand guidelines</li>
+                        <li>Social media templates (10 custom Canva templates)</li>
+                        <li>Email signature design</li>
+                        <li>E-book/Lead magnet template</li>
+                        <li>3 rounds of revisions</li>
+                        <li>Content ideas and moodboard for social</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: E-commerce, bloggers, content creators, online educators.
+                    </div>
+                    <a href="premium-brand-social-kit.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">View Full Details</a>
+                </div>
+
+                <div class="package-card featured">
+                    <h4>5. SIGNATURE BRAND + WEBSITE BUNDLE</h4>
+                    <span class="price">From £895</span>
+                    <p>Perfect for: **Those starting from scratch who need a complete, seamless brand identity and a professional website.**</p>
+                    <ul>
+                        <li>Complete Brand Identity Suite (Package 3)</li>
+                        <li>Starter Website (Package above)</li>
+                        <li>Seamless integration of brand assets into website</li>
+                        <li>Dedicated project management</li>
+                        <li>Launch support</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: New businesses, rebranding efforts, premium service launches.
+                    </div>
+                    <a href="signature-brand-kit.html" class="cta-button">View Full Details</a>
                 </div>
                 
             </div>
             
             <p style="text-align: center; margin-top: 40px;">
-                <a href="contact.html" class="cta-button">Inquire About Branding & Design</a>
+                <a href="contact.html" class="cta-button">Contact us to discuss your brand vision</a>
             </p>
         </section>
 
 
         <section id="coaching" class="service-section">
             <h2>Business Coaching & Strategy</h2>
-            <p>Before design, comes strategy. Our coaching services are designed to help you gain clarity on your business goals, streamline your systems, and create organized, scalable processes so you can focus on high-impact work.</p>
+            <p>Ready to move from chaos to clarity? Our coaching packages are designed to give you the strategic roadmap, accountability, and organised systems needed to grow your business effectively and sustainably. We focus on streamlining your operations, defining your strategy, and tackling specific business problems.</p>
+            <p>From one-off clarity calls to ongoing mentorship, we help you master the business side of being a creative entrepreneur.</p>
 
             <h3 id="coaching-packages">Coaching & Strategy Packages</h3>
             <div class="package-grid">
                 
                 <div class="package-card">
-                    <h4>The Clarity Call</h4>
-                    <span class="price">£99 (60-minute session)</span>
-                    <p>Perfect for: **Quick fixes, specific system questions, or immediate roadmap needs.**</p>
-                    <p>A focused, single session to tackle a specific challenge: systems audit, software recommendations, project planning, or defining the next step for your business.</p>
+                    <h4>1. THE CLARITY CALL</h4>
+                    <span class="price">£49 / 60 min</span>
+                    <p>Perfect for: **One specific problem, decision, or roadblock you need solved quickly.**</p>
                     <ul>
-                        <li>60-minute virtual session</li>
-                        <li>Pre-call questionnaire</li>
-                        <li>One clear action plan post-session</li>
-                        <li>7 days of email support</li>
+                        <li>60-minute one-off session via video call</li>
+                        <li>Focused on immediate problem-solving</li>
+                        <li>Quick action plan summary delivered post-call</li>
+                        <li>7 days of email support post-session</li>
                     </ul>
                     <div class="best-for">
-                        Best for: Getting unstuck, decisive problem-solving, immediate guidance.
+                        Best for: Decision-making, pricing review, tech questions, roadmap validation.
                     </div>
-                    <a href="coaching-clarity.html" class="cta-button">Book Now</a>
+                    <a href="coaching-clarity-call.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">Book Now</a>
                 </div>
-
+                
                 <div class="package-card featured">
-                    <h4>The System Audit & Build</h4>
-                    <span class="price">£299 (2-week container)</span>
-                    <p>Perfect for: **Businesses struggling with inefficient systems, tools, and organization.**</p>
-                    <p>We deep dive into your current processes (client onboarding, product delivery, finance tracking) and design/implement a clean, automated system (e.g., in Trello, Asana, Notion) built specifically for your business.</p>
+                    <h4>2. THE SYSTEM AUDIT & BUILD</h4>
+                    <span class="price">£199 / 4 Weeks</span>
+                    <p>Perfect for: **Building one clean, automated system (e.g., onboarding, content creation, client delivery) from the ground up.**</p>
                     <ul>
-                        <li>Full audit of one key workflow</li>
-                        <li>New system built and tested in your tool of choice</li>
-                        <li>Custom system blueprint + SOPs</li>
-                        <li>1 x 90-minute handover call</li>
-                        <li>30 days of check-in support</li>
+                        <li>Kick-off strategy session (90 min)</li>
+                        <li>**Custom system built** (e.g., Notion, ClickUp, or Dubsado)</li>
+                        <li>Full Standard Operating Procedures (SOPs) created</li>
+                        <li>30 days of check-in and refinement support</li>
                     </ul>
                     <div class="best-for">
-                        Best for: Automation, saving time, reducing admin, improving client experience.
+                        Best for: Automation, efficiency, scaling operations, reducing delivery time.
                     </div>
-                    <a href="coaching-system-build.html" class="cta-button">Inquire Now</a>
+                    <a href="coaching-system-audit.html" class="cta-button">View Full Details</a>
                 </div>
 
                 <div class="package-card">
-                    <h4>VIP Strategy Day</h4>
-                    <span class="price">£695 (Full Day Immersion)</span>
-                    <p>Perfect for: **Business owners ready for rapid growth and a complete strategic overhaul.**</p>
-                    <p>An intensive, focused day designed to map out your entire business plan—from offerings and pricing to systems and marketing strategy—resulting in a complete, actionable 90-day roadmap.</p>
+                    <h4>3. VIP STRATEGY DAY</h4>
+                    <span class="price">£395 / Full Day (6 hours)</span>
+                    <p>Perfect for: **A complete strategic roadmap and overhaul of your business model, services, or launch plan.**</p>
                     <ul>
-                        <li>Full day (6 hours) intensive session</li>
-                        <li>Complete strategy workbook</li>
-                        <li>Post-session priority email support (30 days)</li>
-                        <li>Detailed 90-day action plan/roadmap</li>
+                        <li>Full Day (6 hours) dedicated 1:1 strategy</li>
+                        <li>Deep dive into pricing, offers, and market position</li>
+                        <li>Detailed 90-day roadmap delivered</li>
+                        <li>Access to all templates and resources</li>
+                        <li>60 days of accountability/refinement support</li>
                     </ul>
                     <div class="best-for">
-                        Best for: Scaling, major launch planning, full business clarity.
+                        Best for: Major pivot, large launch planning, complete business overhaul.
                     </div>
-                    <a href="coaching-vip-day.html" class="cta-button">Apply Now</a>
+                    <a href="coaching-vip-day.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">View Full Details</a>
                 </div>
             </div>
 
             <h3 id="coaching-table" style="margin-top: 40px;">Coaching Package Comparison</h3>
-            <table class="comparison-table">
+            
+            <table class="comparison-table hide-on-mobile">
                 <thead>
                     <tr>
                         <th>Feature</th>
-                        <th>The Clarity Call (£99)</th>
-                        <th>The System Audit & Build (£299)</th>
-                        <th>VIP Strategy Day (£695)</th>
+                        <th>The Clarity Call</th>
+                        <th>The System Audit & Build</th>
+                        <th>VIP Strategy Day</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Feature">Duration / Timeframe</td>
-                        <td data-label="The Clarity Call">60-minute session</td>
-                        <td data-label="The System Audit & Build">2-week container</td>
-                        <td data-label="VIP Strategy Day">Full Day (6 hours)</td>
+                        <td>Duration / Timeframe</td>
+                        <td>60-minute session</td>
+                        <td>4-week container</td>
+                        <td>Full Day (6 hours)</td>
                     </tr>
                     <tr>
-                        <td data-label="Feature">Primary Goal</td>
-                        <td data-label="The Clarity Call">Decisive problem-solving</td>
-                        <td data-label="The System Audit & Build">Building one clean, automated system</td>
-                        <td data-label="VIP Strategy Day">Complete strategic roadmap & overhaul</td>
+                        <td>Primary Goal</td>
+                        <td>Decisive problem-solving</td>
+                        <td>Building one clean, automated system</td>
+                        <td>Complete strategic roadmap & overhaul</td>
                     </tr>
                     <tr>
-                        <td data-label="Feature">Deliverable</td>
-                        <td data-label="The Clarity Call">Action plan summary</td>
-                        <td data-label="The System Audit & Build">Custom system built + SOPs</td>
-                        <td data-label="VIP Strategy Day">Detailed 90-day roadmap</td>
+                        <td>Deliverable</td>
+                        <td>Action plan summary</td>
+                        <td>Custom system built + SOPs</td>
+                        <td>Detailed 90-day roadmap</td>
                     </tr>
                     <tr>
-                        <td data-label="Feature">Post-Session Support</td>
-                        <td data-label="The Clarity Call">7 days email</td>
-                        <td data-label="The System Audit & Build">30 days check-in</td>
-                        <td data-label="VIP Strategy Day">30 days priority email</td>
+                        <td>Post-Session Support</td>
+                        <td>7 days email</td>
+                        <td>30 days check-in</td>
+                        <td>60 days email & check-ins</td>
                     </tr>
                 </tbody>
             </table>
+        
+            <p style="text-align: center; margin-top: 40px;">
+                <a href="contact.html" class="cta-button">Ready for clarity? Start here.</a>
+            </p>
         </section>
 
 
         <section id="templates" class="service-section">
             <h2>Templates, Tools & Courses</h2>
-            <p>Need a quick, affordable fix? Our digital shop is stocked with templates, planners, mini-courses, and systems designed to fast-track your business organisation without needing custom services. These are instantly downloadable products for the DIY entrepreneur.</p>
+            <p>Self-study solutions for quick wins. These digital products and resources are perfect if you're working on a budget but still need high-quality, professional tools to organise and automate your business.</p>
+            <p>From Notion workspaces to Canva templates, we provide the building blocks you need to save time and look professional.</p>
 
-            <h3 id="templates-products">Popular Digital Products</h3>
+            <h3 id="templates-list">Our Digital Store</h3>
             <div class="package-grid">
                 
                 <div class="package-card">
-                    <h4>Notion Project Management Hub</h4>
-                    <span class="price">£39 (Template)</span>
-                    <p>A ready-to-use Notion template with dashboards for client management, content creation, finance tracking, and a full task list to run your organized business.</p>
+                    <h4>The Ultimate Notion Workspace</h4>
+                    <span class="price">£29</span>
+                    <p>Perfect for: **Organising your entire business, content, projects, and clients in one central hub.**</p>
                     <ul>
-                        <li>Client & Lead Tracking</li>
-                        <li>Content Calendar</li>
-                        <li>Finance Dashboard</li>
-                        <li>Ultimate Task Manager</li>
+                        <li>Pre-built dashboards and templates</li>
+                        <li>Project management system</li>
+                        <li>Client portal setup</li>
+                        <li>Content calendar</li>
+                        <li>Quick start video guide</li>
                     </ul>
-                    <a href="shop.html#notion" class="cta-button">View in Shop</a>
+                    <div class="best-for">
+                        Best for: Solopreneurs, freelancers, anyone new to Notion.
+                    </div>
+                    <a href="digital-notion-template.html" class="cta-button">Shop Now</a>
                 </div>
-
-                <div class="package-card">
-                    <h4>Website Copywriter's Guide</h4>
-                    <span class="price">£25 (Workbook)</span>
-                    <p>A step-by-step workbook to help you write engaging, conversion-focused copy for your homepage, about page, and services page—optimized for service-based businesses.</p>
-                    <ul>
-                        <li>Wireframing guides</li>
-                        <li>Headline formulas</li>
-                        <li>Tone of voice exercises</li>
-                        <li>SEO basic checklist</li>
-                    </ul>
-                    <a href="shop.html#copy-guide" class="cta-button">View in Shop</a>
-                </div>
-
+                
                 <div class="package-card">
                     <h4>Canva Social Media Template Pack</h4>
-                    <span class="price">£49 (Template Bundle)</span>
-                    <p>100+ fully editable, professionally designed templates for Instagram, Pinterest, and Facebook to ensure your social media presence is cohesive and on-brand, even if you DIY.</p>
+                    <span class="price">£19</span>
+                    <p>Perfect for: **Creating cohesive, professional, and on-brand social media graphics in minutes.**</p>
                     <ul>
-                        <li>50 Instagram posts</li>
-                        <li>30 Pinterest pins</li>
-                        <li>20 Facebook cover/banner templates</li>
-                        <li>Brand style guide tips</li>
+                        <li>50+ ready-to-use templates</li>
+                        <li>Designed for Instagram (posts & stories)</li>
+                        <li>Editable colours and fonts</li>
+                        <li>PDF guide on usage</li>
                     </ul>
-                    <a href="shop.html#canva-pack" class="cta-button">View in Shop</a>
+                    <div class="best-for">
+                        Best for: Content creators, small businesses on social media.
+                    </div>
+                    <a href="digital-canva-pack.html" class="cta-button">Shop Now</a>
+                </div>
+
+                <div class="package-card">
+                    <h4>The Service Provider Starter Pack</h4>
+                    <span class="price">£49</span>
+                    <p>Perfect for: **Service providers and coaches needing professional client forms and onboarding documents.**</p>
+                    <ul>
+                        <li>Welcome guide template</li>
+                        <li>Client contract template</li>
+                        <li>Invoice template</li>
+                        <li>Onboarding questionnaire</li>
+                        <li>Offboarding checklist</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: Coaches, consultants, agencies.
+                    </div>
+                    <a href="digital-service-pack.html" class="cta-button">Shop Now</a>
                 </div>
             </div>
             
             <p style="text-align: center; margin-top: 40px;">
-                <a href="shop.html" class="cta-button">Explore the Full Digital Shop</a>
+                <a href="digital-store.html" class="cta-button">View All Digital Products</a>
             </p>
         </section>
 
@@ -1023,41 +1035,20 @@
             nav.classList.toggle("show-menu");
         }
 
-        // Handles click on dropdown toggle on mobile. On desktop, hover works via CSS.
+        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK - MODIFIED for mobile fix
         function toggleDropdown(event) {
+            // Only execute the dropdown toggle logic (e.g., stopping link action) on desktop (769px and up)
             if (window.innerWidth >= 769) {
-                // If on desktop, do nothing, let CSS handle hover
                 return;
             }
-            // Mobile functionality
-            const dropdown = event.currentTarget;
-            const content = dropdown.querySelector('.dropdown-content');
-            
-            // Check if the content is currently visible
-            const isVisible = content.style.display === 'block';
-
-            // Close all other dropdowns if open
-            document.querySelectorAll('.dropdown-content').forEach(dc => {
-                dc.style.display = 'none';
-            });
-
-            // Toggle the current one
-            content.style.display = isVisible ? 'none' : 'block';
+            // On mobile, the CSS forces the dropdown content to show and the parent link is made clickable.
         }
         
-        // Function to set the active link dynamically
+        // Function to set the active link dynamically (Always active on Services page)
         (function setActiveLink() {
-            // Find the active link ID based on the current page's file name
-            const activeId = 'nav-services'; // This is the services page
-
-            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // Activate the Services link
-            const servicesLink = document.getElementById(activeId);
-            if (servicesLink) {
-                servicesLink.classList.add('active');
+            const activeLink = document.getElementById('nav-services');
+            if (activeLink) {
+                activeLink.classList.add('active');
             }
         })();
     </script>
