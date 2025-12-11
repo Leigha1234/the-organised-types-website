@@ -274,13 +274,13 @@
             text-decoration: none;
             font-weight: 500;
             padding: 5px 10px;
-            border: 1px solid var(--primary-color); /* CHANGED to primary-color (taupe) */
+            border: 1px solid var(--primary-color); 
             border-radius: 4px;
             transition: background-color 0.3s, color 0.3s;
             font-size: 0.95em;
         }
         #quick-links nav a:hover {
-            background-color: var(--primary-color); /* CHANGED to primary-color (taupe) */
+            background-color: var(--primary-color); 
             color: var(--cream-bg);
         }
 
@@ -323,12 +323,17 @@
         .package-card {
             background-color: var(--cream-bg);
             border: 1px solid #e0e0e0;
-            border-radius: 8px;
+            border-radius: 8px; /* MODIFICATION: Slight border radius for corners */
             padding: 25px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
             display: flex;
             flex-direction: column;
             min-height: 380px; 
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .package-card[data-details-url]:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
         .package-card.featured {
             border: 3px solid var(--accent-color);
@@ -342,13 +347,13 @@
             font-weight: 700;
         }
         
-        /* Image Placeholder Style (Works for both text and actual image) */
+        /* Image Placeholder Style (Standardized for all images) */
         .package-image-placeholder {
             width: 100%;
-            height: 180px; /* Fixed height for the image area */
-            border-radius: 6px;
+            height: 180px; 
+            border-radius: 6px; /* MODIFICATION: Added border radius */
             margin-bottom: 15px;
-            border: 1px solid #E0E0E0;
+            border: none; /* MODIFICATION: Removed border for image consistency */
             box-sizing: border-box;
             overflow: hidden; 
             
@@ -371,13 +376,13 @@
             border: none;
             font-weight: 700;
         }
-        /* Style for the actual image inside the placeholder container, ensuring it fills the box */
+        /* Style for the actual image inside the placeholder container */
         .package-image-placeholder img {
             width: 100%;
             height: 100%;
             object-fit: cover; 
             display: block;
-            border-radius: 0;
+            border-radius: 6px; /* MODIFICATION: Added border radius to images */
         }
         
         .package-card .price {
@@ -424,6 +429,7 @@
             width: 100%;
             max-width: 200px; 
             align-self: center; 
+            z-index: 10; /* Ensure button click takes precedence */
         }
 
         /* Process & Add-Ons */
@@ -501,6 +507,8 @@
             margin-left: 10px;
             flex-shrink: 0;
             max-width: 100px;
+            /* Ensure the small CTA is clickable and doesn't trigger parent card click */
+            pointer-events: all;
         }
 
         /* Coaching Comparison Table */
@@ -720,12 +728,12 @@
             <h3>Professional Website Packages</h3>
             <div class="package-grid">
                 
-                <div class="package-card">
+                <div class="package-card" data-details-url="website-micro.html">
                     <h4>Micro Website</h4>
                     <div class="package-image-placeholder">
                         <img src="laptopeg.png" alt="Professional website design mockup on a laptop">
                     </div>
-                    <span class="price">From £195</span>
+                    <span class="price">£195</span>
                     <p>Perfect for: Start-ups, simple landing pages, single-service businesses</p>
                     <p>A clean, simple, strategic one-page website designed to introduce your brand, capture leads, and give your business a professional online home — without the complexity of a multi-page build.</p>
                     <ul>
@@ -740,13 +748,15 @@
                     <div class="best-for">
                         Best for: ✔ New businesses, ✔ Landing pages for campaigns, ✔ “Coming soon” websites, ✔ Simple brochure-style sites
                     </div>
-                    <a href="website-micro.html" class="cta-button">Add to Cart</a>
+                    <a href="website-micro.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
 
-                <div class="package-card">
+                <div class="package-card" data-details-url="website-starter.html">
                     <h4>Starter Website</h4>
-                       <img src="laptopeg2.png" alt="Professional website design mockup on a laptop">
-                     <span class="price">From £495</span>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg2.png" alt="Professional website design mockup on a laptop">
+                    </div>
+                    <span class="price">£495</span>
                     <p>Perfect for: Small businesses needing a clean, simple and functional online presence</p>
                     <p>A beautifully designed, user-friendly website with the key pages every business needs. Ideal for service-based businesses wanting a professional presence without overwhelming features.</p>
                     <ul>
@@ -761,13 +771,13 @@
                     <div class="best-for">
                         Best for: ✔ New entrepreneurs, ✔ Freelancers & creators, ✔ Local service businesses, ✔ Coaches & consultants
                     </div>
-                    <a href="website-starter.html" class="cta-button">Add to Cart</a>
+                    <a href="website-starter.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
 
-                <div class="package-card featured">
+                <div class="package-card featured" data-details-url="website-small-business.html">
                     <h4>Small Business Website</h4>
                     <div class="package-image-placeholder bg-accent">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £795</span>
+                    <span class="price">£795</span>
                     <p>Perfect for: Growing businesses ready for a more complete, high-quality website</p>
                     <p>A polished and strategically designed website that showcases your brand, builds trust, and helps convert visitors into customers. Includes all essential core pages plus improved structure and SEO.</p>
                     <ul>
@@ -782,13 +792,13 @@
                     <div class="best-for">
                         Best for: ✔ Businesses ready to level up, ✔ Wellness, beauty, fitness, creative, or retail services, ✔ Consultants & small agencies
                     </div>
-                    <a href="website-small-business.html" class="cta-button">Add to Cart</a>
+                    <a href="website-small-business.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
 
-                <div class="package-card">
+                <div class="package-card" data-details-url="website-pro.html">
                     <h4>Professional Website</h4>
                     <div class="package-image-placeholder bg-accent">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £1,195</span>
+                    <span class="price">£1,195</span>
                     <p>Perfect for: Established businesses needing a fully custom, conversion-focused site</p>
                     <p>A bespoke, high-converting website crafted around your brand story, services, and long-term goals. Includes deeper SEO setup, blog or portfolio functionality, and enhanced design elements.</p>
                     <ul>
@@ -804,13 +814,13 @@
                     <div class="best-for">
                         Best for: ✔ Coaches, consultants, and educators, ✔ Creatives needing portfolios, ✔ Growing service-based businesses, ✔ Brands preparing for bigger visibility
                     </div>
-                    <a href="website-pro.html" class="cta-button">Add to Cart</a>
+                    <a href="website-pro.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
                 
-                <div class="package-card" style="grid-column: span 1 / auto;">
+                <div class="package-card" style="grid-column: span 1 / auto;" data-details-url="website-ecommerce.html">
                     <h4>Premium Website (Advanced Features)</h4>
                     <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £1,800 - £2,500</span>
+                    <span class="price">£1,800</span>
                     <p>Perfect for: Businesses needing ecommerce, booking systems, memberships or advanced integrations</p>
                     <p>A comprehensive, strategy-led website with everything your brand needs to scale. Designed for businesses requiring automation, online sales, memberships, or more complex customer journeys.</p>
                     <ul>
@@ -825,7 +835,7 @@
                     <div class="best-for">
                         Best for: ✔ Ecommerce brands, ✔ Gyms, fitness coaches, wellness professionals, ✔ Businesses needing automation
                     </div>
-                    <a href="website-ecommerce.html" class="cta-button">Add to Cart</a>
+                    <a href="website-ecommerce.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
             </div>
 
@@ -854,24 +864,24 @@
                 <h4 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Branding Add-Ons</h4>
                 <ul>
                     <li>
-                        <span><strong>Mini Brand Kit</strong> — from £95 (Logo, colour palette, typography & brand guide.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <span><strong>Mini Brand Kit</strong> — £95 (Logo, colour palette, typography & brand guide.)</span>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Full Brand Identity Kit</strong> — £249 (Multiple logos, full colour system, typography, icons, patterns & brand direction sheet.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                 </ul>
 
                 <h4 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Content & Copy Add-Ons</h4>
                 <ul>
                     <li>
-                        <span><strong>Copywriting</strong> — from £35 per page (Homepage, About, Services, Contact or product pages.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <span><strong>Copywriting</strong> — £35 per page (Homepage, About, Services, Contact or product pages.)</span>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Brand Messaging Add-On</strong> — £79 (Taglines, mission statements, value statements, tone of voice guide.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                 </ul>
 
@@ -879,23 +889,23 @@
                 <ul>
                     <li>
                         <span><strong>Additional Web Page</strong> — £75 per page</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Booking System Integration</strong> — £99 (Appointment scheduler + payment links + confirmation emails.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Ecommerce Setup</strong> — £149 (Shop setup + payment integration.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Product Upload Pack</strong> — £25 per 10 products</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Custom Forms / Questionnaires</strong> — £35</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                 </ul>
                 
@@ -903,15 +913,15 @@
                 <ul>
                     <li>
                         <span><strong>SEO Upgrade</strong> — £99 (Keyword research + metadata + alt text + SEO structure.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>SEO Blog Setup</strong> — £49 (Blog structure + template design + SEO fields.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Analytics Dashboard Setup</strong> — £35 (Website analytics tracking.)</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                 </ul>
 
@@ -919,15 +929,15 @@
                 <ul>
                     <li>
                         <span><strong>Monthly Website Maintenance</strong> — £49/month</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Website Training Session</strong> — £49</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                     <li>
                         <span><strong>Rush Delivery</strong> — £49-£95</span>
-                        <a href="#" class="cta-button small">Add to Cart</a>
+                        <a href="#" class="cta-button small" onclick="event.stopPropagation()">Add to Cart</a>
                     </li>
                 </ul>
             </div>
@@ -944,29 +954,29 @@
 
             <h3>Brand Packages (Example Structure)</h3>
             <div class="package-grid">
-                <div class="package-card">
+                <div class="package-card" data-details-url="branding-basic.html">
                     <h4>Basic Logo Suite</h4>
                     <div class="package-image-placeholder">Placeholder Image</div>
-                    <span class="price">From £150</span>
+                    <span class="price">£150</span>
                     <p>Ideal for: New businesses establishing their core visual identity.</p>
                     <ul>
                         <li>Primary Logo Design</li>
                         <li>Colour Palette</li>
                         <li>Font Selection</li>
                     </ul>
-                    <a href="branding-basic.html" class="cta-button">Add to Cart</a>
+                    <a href="branding-basic.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
-                <div class="package-card featured">
+                <div class="package-card featured" data-details-url="branding-full.html">
                     <h4>Full Brand Kit</h4>
                     <div class="package-image-placeholder bg-accent">Placeholder Image</div>
-                    <span class="price">From £350</span>
+                    <span class="price">£350</span>
                     <p>Comprehensive kit including variations, guidelines, and digital assets.</p>
                     <ul>
                         <li>Logo Variations & Sub-marks</li>
                         <li>Full Brand Style Guide</li>
                         <li>Digital Asset Files</li>
                     </ul>
-                    <a href="branding-full.html" class="cta-button">Add to Cart</a>
+                    <a href="branding-full.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
             </div>
             
@@ -981,7 +991,7 @@
 
             <h3>Coaching Packages</h3>
             <div class="package-grid">
-                <div class="package-card">
+                <div class="package-card" data-details-url="coaching-clarity.html">
                     <h4>Clarity Session (90 Min)</h4>
                     <div class="package-image-placeholder bg-accent">Placeholder Image</div>
                     <span class="price">£120</span>
@@ -991,9 +1001,9 @@
                         <li>Follow-up Action Plan</li>
                         <li>7-day Email Support</li>
                     </ul>
-                    <a href="coaching-clarity.html" class="cta-button">Book Now</a>
+                    <a href="coaching-clarity.html" class="cta-button" onclick="event.stopPropagation()">Book Now</a>
                 </div>
-                <div class="package-card featured">
+                <div class="package-card featured" data-details-url="coaching-vip.html">
                     <h4>VIP Strategy Intensive (Half Day)</h4>
                     <div class="package-image-placeholder">Placeholder Image</div>
                     <span class="price">£395</span>
@@ -1003,7 +1013,7 @@
                         <li>Custom Trello/Asana Board Setup</li>
                         <li>30-day Follow-up Support</li>
                     </ul>
-                    <a href="coaching-vip.html" class="cta-button">Book Now</a>
+                    <a href="coaching-vip.html" class="cta-button" onclick="event.stopPropagation()">Book Now</a>
                 </div>
             </div>
 
@@ -1046,19 +1056,19 @@
 
             <h3>Popular Products (Example Structure)</h3>
             <div class="package-grid">
-                <div class="package-card">
+                <div class="package-card" data-details-url="template-business-plan.html">
                     <h4>Business Plan Template</h4>
                     <div class="package-image-placeholder">Placeholder Image</div>
                     <span class="price">£6.99</span>
                     <p>A fully editable template for writing a professional business plan quickly and efficiently.</p>
-                    <a href="#" class="cta-button">Add to Cart</a>
+                    <a href="#" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
-                <div class="package-card">
+                <div class="package-card" data-details-url="template-social-media-guide.html">
                     <h4>Social Media Strategy Guide</h4>
                     <div class="package-image-placeholder bg-accent">Placeholder Image</div>
                     <span class="price">£9.99</span>
                     <p>A guide and workbook for structuring your social media content and strategy.</p>
-                    <a href="#" class="cta-button">Add to Cart</a>
+                    <a href="#" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
             </div>
             
@@ -1091,9 +1101,31 @@
         function toggleDropdown(event) {
             if (window.innerWidth <= 768) {
                 // For mobile, the CSS handles the display when #main-nav.show-menu is applied.
-                // We keep this function for semantic purposes if needed later.
             }
         }
+
+        // MODIFICATION: JavaScript for making entire package cards clickable
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.package-card').forEach(card => {
+                const detailUrl = card.getAttribute('data-details-url');
+                if (detailUrl) {
+                    card.style.cursor = 'pointer'; // Indicate clickability
+                    card.addEventListener('click', (event) => {
+                        // Check if the click target is the CTA button or inside it
+                        const ctaButton = card.querySelector('.cta-button');
+                        
+                        // Check if the click originated from the CTA button or any of its children
+                        if (ctaButton && ctaButton.contains(event.target)) {
+                            // If CTA is clicked, do nothing (event.stopPropagation() is also applied in HTML)
+                            return;
+                        }
+                        
+                        // If any other part of the card is clicked, navigate to details page
+                        window.location.href = detailUrl;
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
