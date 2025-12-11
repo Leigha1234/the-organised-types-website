@@ -1428,6 +1428,31 @@
             }
         }
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    // 1. Select all cards that have a details URL
+    const cards = document.querySelectorAll('.package-card[data-details-url]');
+
+    cards.forEach(card => {
+        card.style.cursor = 'pointer'; // Visual cue that the card is clickable
+        
+        const cardClickHandler = (event) => {
+            // Check if the click originated from the .cta-button or anything inside it
+            // (Note: event.stopPropagation() on the button handles most cases, but this is a safety check)
+            if (event.target.closest('.cta-button')) {
+                return; // Do nothing if the user clicked the button
+            }
+
+            const url = card.getAttribute('data-details-url');
+            if (url) {
+                window.location.href = url; // Navigate to the stored URL
+            }
+        };
+
+        // Add the primary click handler for navigation
+        card.addEventListener('click', cardClickHandler);
+    });
+});
     </script>
 </body>
 </html>
