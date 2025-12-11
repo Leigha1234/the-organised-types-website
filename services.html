@@ -147,6 +147,42 @@
             border-radius: 3px;
         }
 
+        /* NEW WRAPPER for Nav/Search/Menu */
+        .nav-right-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* New Search Bar Styles */
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px; /* Space between search and nav links */
+        }
+        .search-input {
+            padding: 8px 12px;
+            border: 1px solid var(--primary-color);
+            border-radius: 4px 0 0 4px;
+            font-size: 0.9em;
+            width: 150px;
+            box-sizing: border-box;
+        }
+        .search-button {
+            background-color: var(--primary-color);
+            color: var(--cream-bg);
+            border: 1px solid var(--primary-color);
+            border-left: none;
+            padding: 8px 10px;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.9em;
+            line-height: 1;
+        }
+        .search-button:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
         /* --- BUTTON & LINK STYLES (Common) --- */
         .cta-button {
             display: inline-block;
@@ -232,18 +268,19 @@
             flex-wrap: wrap;
             gap: 10px 15px;
         }
+        /* MODIFICATION: Jump to Section - Change green border/hover to taupe */
         #quick-links nav a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
             padding: 5px 10px;
-            border: 1px solid var(--accent-color);
+            border: 1px solid var(--primary-color); /* CHANGED to primary-color (taupe) */
             border-radius: 4px;
             transition: background-color 0.3s, color 0.3s;
             font-size: 0.95em;
         }
         #quick-links nav a:hover {
-            background-color: var(--accent-color);
+            background-color: var(--primary-color); /* CHANGED to primary-color (taupe) */
             color: var(--cream-bg);
         }
 
@@ -326,6 +363,13 @@
             text-align: center;
             padding: 10px;
             font-style: italic;
+        }
+        /* MODIFICATION: Sage green background for selected placeholders */
+        .package-card .package-image-placeholder.bg-accent {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            font-weight: 700;
         }
         /* Style for the actual image inside the placeholder container, ensuring it fills the box */
         .package-image-placeholder img {
@@ -432,12 +476,31 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
         }
+        /* MODIFICATION: Flex layout for add-ons to accommodate button */
         .add-ons-list ul li {
             background-color: var(--cream-bg); /* Match package card inner background */
             padding: 15px;
             border-left: 3px solid var(--accent-color);
             border-radius: 4px;
             font-size: 0.95em;
+            
+            /* New flex styles for alignment */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* New style for the content span */
+        .add-ons-list ul li > span {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        /* New style for smaller CTA button in add-ons */
+        .add-ons-list .cta-button.small {
+            padding: 8px 15px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            flex-shrink: 0;
+            max-width: 100px;
         }
 
         /* Coaching Comparison Table */
@@ -478,6 +541,20 @@
 
             /* --- NAVIGATION FIXES --- */
             .menu-icon { display: flex; } 
+            
+            /* Adjust wrapper for mobile: logo left, menu right */
+            .nav-right-container {
+                order: 2;
+            }
+            .menu-icon { 
+                display: flex; /* Always show menu icon on mobile */
+                order: 2; /* Push to far right */
+                margin-left: auto;
+            } 
+            .search-container {
+                display: none; /* Hide search bar on mobile */
+            }
+            
             #main-nav {
                 display: none; 
                 flex-direction: column;
@@ -565,6 +642,15 @@
                 display: none !important;
             }
         }
+        @media (min-width: 769px) {
+            /* Desktop layout overrides for the new wrapper */
+            .nav-right-container {
+                display: flex;
+            }
+            .menu-icon {
+                display: none; /* Hide menu icon on desktop */
+            }
+        }
     </style>
 </head>
 <body>
@@ -574,28 +660,35 @@
             <a href="index.html" class="logo-area">
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
             </a>
-            <div class="menu-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav id="main-nav">
-                <a href="index.html" id="nav-index">Home</a> 
-                
-                <a href="about.html" id="nav-about">About</a> 
-                
-                <div class="dropdown" onclick="toggleDropdown(event)">
-                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
-                    <div class="dropdown-content">
-                        <a href="services.html#website">Website Design & Development</a>
-                        <a href="services.html#branding">Brand Identity & Digital Design</a>
-                        <a href="services.html#coaching">Business Coaching & Strategy</a>
-                        <a href="services.html#templates">Templates, Tools & Courses</a>
-                    </div>
+            
+            <div class="nav-right-container"> <div class="search-container">
+                    <input type="text" placeholder="Search..." class="search-input">
+                    <button type="submit" class="search-button">🔍</button>
                 </div>
-                <a href="faq.html" id="nav-faq">FAQ's</a>
-                <a href="contact.html" id="nav-contact">Contact</a>
-            </nav>
+
+                <nav id="main-nav">
+                    <a href="index.html" id="nav-index">Home</a> 
+                    <a href="about.html" id="nav-about">About</a> 
+                    
+                    <div class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
+                        <div class="dropdown-content">
+                            <a href="services.html#website">Website Design & Development</a>
+                            <a href="services.html#branding">Brand Identity & Digital Design</a>
+                            <a href="services.html#coaching">Business Coaching & Strategy</a>
+                            <a href="services.html#templates">Templates, Tools & Courses</a>
+                        </div>
+                    </div>
+                    <a href="faq.html" id="nav-faq">FAQ's</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </nav>
+                
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
     </header>
     
@@ -633,7 +726,7 @@
                         <img src="laptopeg.png" alt="Professional website design mockup on a laptop">
                     </div>
                     <span class="price">From £195</span>
-                    <p>Perfect for: **Start-ups, simple landing pages, single-service businesses**</p>
+                    <p>Perfect for: Start-ups, simple landing pages, single-service businesses</p>
                     <p>A clean, simple, strategic one-page website designed to introduce your brand, capture leads, and give your business a professional online home — without the complexity of a multi-page build.</p>
                     <ul>
                         <li>1-2 page website</li>
@@ -647,14 +740,14 @@
                     <div class="best-for">
                         Best for: ✔ New businesses, ✔ Landing pages for campaigns, ✔ “Coming soon” websites, ✔ Simple brochure-style sites
                     </div>
-                    <a href="website-micro.html" class="cta-button">View Full Details</a>
+                    <a href="website-micro.html" class="cta-button">Add to Cart</a>
                 </div>
 
                 <div class="package-card">
                     <h4>Starter Website</h4>
-                    <div class="laptopeg2.png">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £495</span>
-                    <p>Perfect for: **Small businesses needing a clean, simple and functional online presence**</p>
+                       <img src="laptopeg2.png" alt="Professional website design mockup on a laptop">
+                     <span class="price">From £495</span>
+                    <p>Perfect for: Small businesses needing a clean, simple and functional online presence</p>
                     <p>A beautifully designed, user-friendly website with the key pages every business needs. Ideal for service-based businesses wanting a professional presence without overwhelming features.</p>
                     <ul>
                         <li>2-3 page website</li>
@@ -668,14 +761,14 @@
                     <div class="best-for">
                         Best for: ✔ New entrepreneurs, ✔ Freelancers & creators, ✔ Local service businesses, ✔ Coaches & consultants
                     </div>
-                    <a href="website-starter.html" class="cta-button">View Full Details</a>
+                    <a href="website-starter.html" class="cta-button">Add to Cart</a>
                 </div>
 
                 <div class="package-card featured">
                     <h4>Small Business Website</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <div class="package-image-placeholder bg-accent">Placeholder Image (2:1 Aspect Ratio)</div>
                     <span class="price">From £795</span>
-                    <p>Perfect for: **Growing businesses ready for a more complete, high-quality website**</p>
+                    <p>Perfect for: Growing businesses ready for a more complete, high-quality website</p>
                     <p>A polished and strategically designed website that showcases your brand, builds trust, and helps convert visitors into customers. Includes all essential core pages plus improved structure and SEO.</p>
                     <ul>
                         <li>3-5 page website</li>
@@ -689,14 +782,14 @@
                     <div class="best-for">
                         Best for: ✔ Businesses ready to level up, ✔ Wellness, beauty, fitness, creative, or retail services, ✔ Consultants & small agencies
                     </div>
-                    <a href="website-small-business.html" class="cta-button">View Full Details</a>
+                    <a href="website-small-business.html" class="cta-button">Add to Cart</a>
                 </div>
 
                 <div class="package-card">
                     <h4>Professional Website</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <div class="package-image-placeholder bg-accent">Placeholder Image (2:1 Aspect Ratio)</div>
                     <span class="price">From £1,195</span>
-                    <p>Perfect for: **Established businesses needing a fully custom, conversion-focused site**</p>
+                    <p>Perfect for: Established businesses needing a fully custom, conversion-focused site</p>
                     <p>A bespoke, high-converting website crafted around your brand story, services, and long-term goals. Includes deeper SEO setup, blog or portfolio functionality, and enhanced design elements.</p>
                     <ul>
                         <li>6-8 page fully custom website</li>
@@ -711,14 +804,14 @@
                     <div class="best-for">
                         Best for: ✔ Coaches, consultants, and educators, ✔ Creatives needing portfolios, ✔ Growing service-based businesses, ✔ Brands preparing for bigger visibility
                     </div>
-                    <a href="website-pro.html" class="cta-button">View Full Details</a>
+                    <a href="website-pro.html" class="cta-button">Add to Cart</a>
                 </div>
                 
                 <div class="package-card" style="grid-column: span 1 / auto;">
                     <h4>Premium Website (Advanced Features)</h4>
                     <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
                     <span class="price">From £1,800 - £2,500</span>
-                    <p>Perfect for: **Businesses needing ecommerce, booking systems, memberships or advanced integrations**</p>
+                    <p>Perfect for: Businesses needing ecommerce, booking systems, memberships or advanced integrations</p>
                     <p>A comprehensive, strategy-led website with everything your brand needs to scale. Designed for businesses requiring automation, online sales, memberships, or more complex customer journeys.</p>
                     <ul>
                         <li>8-12+ pages</li>
@@ -732,19 +825,19 @@
                     <div class="best-for">
                         Best for: ✔ Ecommerce brands, ✔ Gyms, fitness coaches, wellness professionals, ✔ Businesses needing automation
                     </div>
-                    <a href="website-ecommerce.html" class="cta-button">View Full Details</a>
+                    <a href="website-ecommerce.html" class="cta-button">Add to Cart</a>
                 </div>
             </div>
 
             <h3 id="website-process" style="margin-top: 40px;">The Process</h3>
             <ol class="process-list">
-                <li>**Consultation Call:** Discuss your goals, audience, style and required features.</li>
-                <li>**Creative Direction:** We map your brand colours, fonts and visual identity for consistency.</li>
-                <li>**Onboarding + Content Collection:** You'll receive a simple checklist and copy guide to supply what we need.</li>
-                <li>**Design & Build:** We create your website's structure, layout and visuals.</li>
-                <li>**Review & Revisions:** You receive 1-2 rounds of revisions (depending on package).</li>
-                <li>**Website Launch:** Your site goes live — with testing, optimisation and full support.</li>
-                <li>**30-Day Aftercare:** We're here for tweaks, help and guidance post-launch.</li>
+                <li><strong>Consultation Call:</strong> Discuss your goals, audience, style and required features.</li>
+                <li><strong>Creative Direction:</strong> We map your brand colours, fonts and visual identity for consistency.</li>
+                <li><strong>Onboarding + Content Collection:</strong> You'll receive a simple checklist and copy guide to supply what we need.</li>
+                <li><strong>Design & Build:</strong> We create your website's structure, layout and visuals.</li>
+                <li><strong>Review & Revisions:</strong> You receive 1-2 rounds of revisions (depending on package).</li>
+                <li><strong>Website Launch:</strong> Your site goes live — with testing, optimisation and full support.</li>
+                <li><strong>30-Day Aftercare:</strong> We're here for tweaks, help and guidance post-launch.</li>
             </ol>
             
             <h3 id="website-who-for" style="margin-top: 40px;">Who This Is Perfect For</h3>
@@ -760,37 +853,82 @@
             <div class="add-ons-list">
                 <h4 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Branding Add-Ons</h4>
                 <ul>
-                    <li>**Mini Brand Kit** — from £95 (Logo, colour palette, typography & brand guide.)</li>
-                    <li>**Full Brand Identity Kit** — £249 (Multiple logos, full colour system, typography, icons, patterns & brand direction sheet.)</li>
+                    <li>
+                        <span><strong>Mini Brand Kit</strong> — from £95 (Logo, colour palette, typography & brand guide.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Full Brand Identity Kit</strong> — £249 (Multiple logos, full colour system, typography, icons, patterns & brand direction sheet.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
                 </ul>
 
                 <h4 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Content & Copy Add-Ons</h4>
                 <ul>
-                    <li>**Copywriting** — from £35 per page (Homepage, About, Services, Contact or product pages.)</li>
-                    <li>**Brand Messaging Add-On** — £79 (Taglines, mission statements, value statements, tone of voice guide.)</li>
+                    <li>
+                        <span><strong>Copywriting</strong> — from £35 per page (Homepage, About, Services, Contact or product pages.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Brand Messaging Add-On</strong> — £79 (Taglines, mission statements, value statements, tone of voice guide.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
                 </ul>
 
                 <h4 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Website Functionality Add-Ons</h4>
                 <ul>
-                    <li>**Additional Web Page** — £75 per page</li>
-                    <li>**Booking System Integration** — £99 (Appointment scheduler + payment links + confirmation emails.)</li>
-                    <li>**Ecommerce Setup** — £149 (Shop setup + payment integration.)</li>
-                    <li>**Product Upload Pack** — £25 per 10 products</li>
-                    <li>**Custom Forms / Questionnaires** — £35</li>
+                    <li>
+                        <span><strong>Additional Web Page</strong> — £75 per page</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Booking System Integration</strong> — £99 (Appointment scheduler + payment links + confirmation emails.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Ecommerce Setup</strong> — £149 (Shop setup + payment integration.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Product Upload Pack</strong> — £25 per 10 products</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Custom Forms / Questionnaires</strong> — £35</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
                 </ul>
                 
                 <h4 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">SEO & Analytics Add-Ons</h4>
                 <ul>
-                    <li>**SEO Upgrade** — £99 (Keyword research + metadata + alt text + SEO structure.)</li>
-                    <li>**SEO Blog Setup** — £49 (Blog structure + template design + SEO fields.)</li>
-                    <li>**Analytics Dashboard Setup** — £35 (Website analytics tracking.)</li>
+                    <li>
+                        <span><strong>SEO Upgrade</strong> — £99 (Keyword research + metadata + alt text + SEO structure.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>SEO Blog Setup</strong> — £49 (Blog structure + template design + SEO fields.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Analytics Dashboard Setup</strong> — £35 (Website analytics tracking.)</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
                 </ul>
 
                 <h4 style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">Support Add-Ons</h4>
                 <ul>
-                    <li>**Monthly Website Maintenance** — £49/month</li>
-                    <li>**Website Training Session** — £49</li>
-                    <li>**Rush Delivery** — £49-£95</li>
+                    <li>
+                        <span><strong>Monthly Website Maintenance</strong> — £49/month</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Website Training Session</strong> — £49</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span><strong>Rush Delivery</strong> — £49-£95</span>
+                        <a href="#" class="cta-button small">Add to Cart</a>
+                    </li>
                 </ul>
             </div>
 
@@ -802,307 +940,159 @@
 
         <section id="branding" class="service-section">
             <h2>Brand Identity & Digital Design</h2>
-            <p>Branding is more than a pretty logo — it's the personality, emotion and story behind your business. We craft cohesive brand identities that feel aligned, recognizable and trustworthy so your business instantly stands out.</p>
-            <p>From complete branding kits to logo packages, color palettes and Canva templates, we design everything you need to look polished across your website, social media, and marketing materials.</p>
+            <p>Branding is more than a pretty logo — it's the personality, emotion and story behind your business. We craft cohesive brand identities that feel aligned, recognizable and memorable.</p>
 
-            <h3 id="branding-packages">Brand Identity Packages</h3>
+            <h3>Brand Packages (Example Structure)</h3>
             <div class="package-grid">
-                
                 <div class="package-card">
-                    <h4>1. MINI BRAND STARTER KIT</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £95</span>
-                    <p>Perfect for: **New entrepreneurs who need a clean, professional visual identity without the overwhelm.**</p>
+                    <h4>Basic Logo Suite</h4>
+                    <div class="package-image-placeholder">Placeholder Image</div>
+                    <span class="price">From £150</span>
+                    <p>Ideal for: New businesses establishing their core visual identity.</p>
                     <ul>
-                        <li>Primary logo</li>
-                        <li>Colour palette (5 colours with HEX codes)</li>
-                        <li>Typography pairing (2 fonts)</li>
-                        <li>Simple brand direction sheet</li>
-                        <li>1 revision round</li>
+                        <li>Primary Logo Design</li>
+                        <li>Colour Palette</li>
+                        <li>Font Selection</li>
                     </ul>
-                    <div class="best-for">
-                        Best for: Start-ups, side hustles, Etsy sellers, creators.
-                    </div>
-                    <a href="branding-mini-kit.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">View Full Details</a>
+                    <a href="branding-basic.html" class="cta-button">Add to Cart</a>
                 </div>
-                
                 <div class="package-card featured">
-                    <h4>2. ESSENTIAL BRAND IDENTITY KIT</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £149</span>
-                    <p>Perfect for: **Growing service providers and online sellers ready to establish consistency and professionalism.**</p>
+                    <h4>Full Brand Kit</h4>
+                    <div class="package-image-placeholder bg-accent">Placeholder Image</div>
+                    <span class="price">From £350</span>
+                    <p>Comprehensive kit including variations, guidelines, and digital assets.</p>
                     <ul>
-                        <li>Primary & secondary logos</li>
-                        <li>Submark / favicon</li>
-                        <li>Curated colour palette (6-8 colours with HEX/RGB)</li>
-                        <li>Typography suite (heading and body text)</li>
-                        <li>Image & texture inspiration moodboard</li>
-                        <li>Brand usage sheet</li>
-                        <li>2 rounds of revisions</li>
+                        <li>Logo Variations & Sub-marks</li>
+                        <li>Full Brand Style Guide</li>
+                        <li>Digital Asset Files</li>
                     </ul>
-                    <div class="best-for">
-                        Best for: Small businesses, online sellers, growing brands.
-                    </div>
-                    <a href="branding-essential-kit.html" class="cta-button">View Full Details</a>
+                    <a href="branding-full.html" class="cta-button">Add to Cart</a>
                 </div>
-
-                <div class="package-card">
-                    <h4>3. COMPLETE BRAND IDENTITY SUITE</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £299</span>
-                    <p>Perfect for: **Established businesses needing a fully defined, cohesive brand personality and style guide.**</p>
-                    <ul>
-                        <li>Everything in Essential Kit</li>
-                        <li>Brand Strategy Questionnaire</li>
-                        <li>Full Brand Style Guide PDF</li>
-                        <li>5 Branded Social Media Templates (Canva)</li>
-                        <li>Brand Voice & Messaging Guidelines</li>
-                        <li>3 rounds of revisions</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Service agencies, large consultancies, premium brands.
-                    </div>
-                    <a href="branding-complete-suite.html" class="cta-button">View Full Details</a>
-                </div>
-
-                <div class="package-card">
-                    <h4>4. PREMIUM BRAND + SOCIAL KIT</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £499</span>
-                    <p>Perfect for: **Brands requiring high-end visuals, detailed brand collateral, and an integrated social media launch kit.**</p>
-                    <ul>
-                        <li>Everything in Complete Suite</li>
-                        <li>15 Custom Instagram/Social Media Templates (Canva)</li>
-                        <li>Email Signature Design</li>
-                        <li>Business Card Design</li>
-                        <li>Custom Pattern/Icon Set</li>
-                        <li>4 rounds of revisions</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Businesses launching a major product or rebranding entirely.
-                    </div>
-                    <a href="branding-premium-kit.html" class="cta-button">View Full Details</a>
-                </div>
-                
-                <div class="package-card" style="grid-column: span 1 / auto;">
-                    <h4>SIGNATURE BRAND + WEBSITE BUNDLE</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £1,500+</span>
-                    <p>Perfect for: **The ultimate solution for a seamless brand and web presence designed for high conversions and growth.**</p>
-                    <ul>
-                        <li>Complete Brand Identity Suite</li>
-                        <li>Small Business Website Package (3-5 pages)</li>
-                        <li>Copywriting Add-On (3 pages)</li>
-                        <li>Basic SEO setup and Launch Support</li>
-                        <li>Integrated Brand Style Guide</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Businesses starting from scratch or undertaking a full, professional relaunch.
-                    </div>
-                    <a href="branding-website-bundle.html" class="cta-button">Contact for Quote</a>
-                </div>
-                
             </div>
             
             <p style="text-align: center; margin-top: 40px;">
-                <a href="contact.html" class="cta-button">Ready to define your brand? Let's chat.</a>
+                <a href="contact.html" class="cta-button">Request a Custom Branding Quote</a>
             </p>
         </section>
 
         <section id="coaching" class="service-section">
             <h2>Business Coaching & Strategy</h2>
-            <p>Our coaching services focus on streamlining your operations, defining your strategy, and building systems that allow your business to run smoothly, even when you step away. We transform chaos into clarity, giving you back precious time.</p>
-            
-            <h3 id="coaching-packages">Our Coaching Packages</h3>
-            <div class="package-grid">
-                
-                <div class="package-card">
-                    <h4>1. THE CLARITY CALL (90-Minute Session)</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">£199</span>
-                    <p>Perfect for: **Targeted problem-solving or a quick strategy session on a specific topic.**</p>
-                    <ul>
-                        <li>90-minute 1:1 video call</li>
-                        <li>Focused on a single pain point (e.g., pricing, lead generation, tool choice)</li>
-                        <li>Action plan summary provided afterward</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Quick decisions, specific roadblocks, budget-friendly strategy.
-                    </div>
-                    <a href="coaching-clarity-call.html" class="cta-button">Book Now</a>
-                </div>
+            <p>Get clarity and direction with strategic one-on-one coaching designed to organise your business processes and accelerate growth.</p>
 
-                <div class="package-card featured">
-                    <h4>2. THE SYSTEM AUDIT & BUILD</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">£499</span>
-                    <p>Perfect for: **Identifying operational bottlenecks and setting up a core business system (CRM, Project Management, or Content Planning).**</p>
-                    <ul>
-                        <li>2 x 60-minute calls</li>
-                        <li>Full audit of existing tools and processes</li>
-                        <li>Build-out of ONE core system (e.g., Notion, ClickUp, or Dubsado setup)</li>
-                        <li>Custom SOP/Workflow documentation</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Reducing operational overwhelm, scaling service delivery, improving client journey.
-                    </div>
-                    <a href="coaching-system-audit.html" class="cta-button">Enquire</a>
-                </div>
-                
+            <h3>Coaching Packages</h3>
+            <div class="package-grid">
                 <div class="package-card">
-                    <h4>3. VIP STRATEGY DAY (Full Day Intensive)</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">£1,999</span>
-                    <p>Perfect for: **Business owners ready for a deep, high-impact overhaul of their entire strategy and systems in one intensive day.**</p>
+                    <h4>Clarity Session (90 Min)</h4>
+                    <div class="package-image-placeholder bg-accent">Placeholder Image</div>
+                    <span class="price">£120</span>
+                    <p>A deep-dive session to troubleshoot specific problems, organise your immediate tasks, and set clear next steps.</p>
                     <ul>
-                        <li>6-hour dedicated strategy & build session</li>
-                        <li>Review and optimize all systems (client process, content, finance)</li>
-                        <li>Comprehensive 90-day Action Plan</li>
-                        <li>30 days of email support post-session</li>
+                        <li>90-minute 1:1 Call</li>
+                        <li>Follow-up Action Plan</li>
+                        <li>7-day Email Support</li>
                     </ul>
-                    <div class="best-for">
-                        Best for: Major business transition, preparing for team growth, achieving high-level clarity.
-                    </div>
-                    <a href="coaching-vip-day.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">Learn More</a>
+                    <a href="coaching-clarity.html" class="cta-button">Book Now</a>
                 </div>
-                
+                <div class="package-card featured">
+                    <h4>VIP Strategy Intensive (Half Day)</h4>
+                    <div class="package-image-placeholder">Placeholder Image</div>
+                    <span class="price">£395</span>
+                    <p>A half-day dedicated to mapping out your entire business strategy, systems, and workflow organisation.</p>
+                    <ul>
+                        <li>3-hour 1:1 Deep Dive</li>
+                        <li>Custom Trello/Asana Board Setup</li>
+                        <li>30-day Follow-up Support</li>
+                    </ul>
+                    <a href="coaching-vip.html" class="cta-button">Book Now</a>
+                </div>
             </div>
-            
-            <h3 id="coaching-table" style="margin-top: 40px;">Coaching Comparison at a Glance</h3>
+
+            <h3 id="coaching-table">Comparison Table</h3>
             <table class="comparison-table">
                 <thead>
                     <tr>
-                        <th class="hide-on-mobile">Feature</th>
-                        <th>The Clarity Call</th>
-                        <th>System Audit & Build</th>
-                        <th>VIP Strategy Day</th>
+                        <th>Feature</th>
+                        <th>Clarity Session</th>
+                        <th>VIP Intensive</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="hide-on-mobile">Duration</td>
-                        <td>90 Minutes</td>
-                        <td>2 x 60-Min Sessions</td>
-                        <td>6-Hour Intensive</td>
+                        <td>Duration</td>
+                        <td>90 minutes</td>
+                        <td>3 hours</td>
                     </tr>
                     <tr>
-                        <td class="hide-on-mobile">Focus Area</td>
-                        <td>Specific Problem</td>
-                        <td>1 Core System</td>
-                        <td>Full Business Overhaul</td>
+                        <td>Custom Action Plan</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
                     </tr>
                     <tr>
-                        <td class="hide-on-mobile">Post-Session Support</td>
-                        <td>Action Plan Summary</td>
-                        <td>Custom SOPs</td>
-                        <td>30 Days Email Support</td>
-                    </tr>
-                    <tr>
-                        <td class="hide-on-mobile">Best for</td>
-                        <td>Quick Answers</td>
-                        <td>Efficiency & Automation</td>
-                        <td>Maximum Impact & Clarity</td>
+                        <td>System Setup</td>
+                        <td>No</td>
+                        <td>Yes</td>
                     </tr>
                 </tbody>
             </table>
-
+            
             <p style="text-align: center; margin-top: 40px;">
-                <a href="contact.html" class="cta-button">Ready to stop feeling busy and start feeling effective?</a>
+                <a href="contact.html" class="cta-button">Enquire About Long-Term Coaching</a>
             </p>
         </section>
 
         <section id="templates" class="service-section">
             <h2>Templates, Tools & Courses</h2>
-            <p>For the DIY-savvy business owner, our collection of digital products provides instant solutions for everything from business planning and financial forecasting to social media content and personal organization. All templates are instantly downloadable and fully editable.</p>
-            
-            <h3 id="template-categories">Popular Digital Product Categories</h3>
+            <p>Ready-to-use digital templates and tools to help you instantly organise your business, marketing, and client processes.</p>
+
+            <h3>Popular Products (Example Structure)</h3>
             <div class="package-grid">
-                
                 <div class="package-card">
-                    <h4>Business & Finance Templates</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £6.99</span>
-                    <p>Business Plan, Cash Flow, Invoice, Proposal, and CRM templates designed for operational excellence.</p>
-                    <ul>
-                        <li>Business Plan Templates</li>
-                        <li>Financial Spreadsheets</li>
-                        <li>Proposal & Quote Templates</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: New businesses, managing finances, professional client communication.
-                    </div>
-                    <a href="templates-business.html" class="cta-button">Shop Now</a>
+                    <h4>Business Plan Template</h4>
+                    <div class="package-image-placeholder">Placeholder Image</div>
+                    <span class="price">£6.99</span>
+                    <p>A fully editable template for writing a professional business plan quickly and efficiently.</p>
+                    <a href="#" class="cta-button">Add to Cart</a>
                 </div>
-
                 <div class="package-card">
-                    <h4>Marketing & Social Templates</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £7.99</span>
-                    <p>Canva kits, content planners, and social media bundles to maintain a beautiful and consistent online presence.</p>
-                    <ul>
-                        <li>Social Media Content Planners</li>
-                        <li>Branded Canva Templates</li>
-                        <li>Instagram Highlight Icons</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Content creators, boosting brand visuals, social media consistency.
-                    </div>
-                    <a href="templates-marketing.html" class="cta-button">Shop Now</a>
+                    <h4>Social Media Strategy Guide</h4>
+                    <div class="package-image-placeholder bg-accent">Placeholder Image</div>
+                    <span class="price">£9.99</span>
+                    <p>A guide and workbook for structuring your social media content and strategy.</p>
+                    <a href="#" class="cta-button">Add to Cart</a>
                 </div>
-
-                <div class="package-card">
-                    <h4>AI & Productivity Systems</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
-                    <span class="price">From £12.99</span>
-                    <p>Prompts, guides, and tools leveraging AI for faster content creation, strategic thinking, and system automation.</p>
-                    <ul>
-                        <li>AI Prompt Packs</li>
-                        <li>ChatGPT Guides</li>
-                        <li>Notion Productivity Systems</li>
-                    </ul>
-                    <div class="best-for">
-                        Best for: Automating tasks, generating content, maximizing digital efficiency.
-                    </div>
-                    <a href="templates-ai.html" class="cta-button">Shop Now</a>
-                </div>
-
             </div>
+            
             <p style="text-align: center; margin-top: 40px;">
-                <a href="templates.html" class="cta-button" style="background: var(--primary-color); color: var(--light-text)">Browse All Templates & Tools</a>
+                <a href="https://theorganisedtypes.com/collections/all" class="cta-button">Browse All Templates in Our Shop</a>
             </p>
         </section>
 
-    </div> <footer>
+    </div> <footer> 
         <div class="container">
+            <p>Email: <a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a></p> 
             <div class="social-links">
-                <a href="https://www.instagram.com/theorganisedtypes/" target="_blank">Instagram</a> |
-                <a href="https://www.tiktok.com/@theorganisedtypes" target="_blank">TikTok</a> |
-                <a href="https://www.pinterest.co.uk/theorganisedtypes/" target="_blank">Pinterest</a>
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+                <a href="#">Facebook</a>
+                <a href="#">TikTok</a>
             </div>
-            &copy; 2025 The Organised Types. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+            <p>&copy; 2025 The Organised Types. All rights reserved.</p>
         </div>
     </footer>
     
     <script>
-        // JS for mobile menu and dropdown interactivity
+        // JavaScript for mobile menu toggle
         function toggleMenu() {
             const nav = document.getElementById('main-nav');
             nav.classList.toggle('show-menu');
         }
 
+        // JavaScript for mobile dropdown toggle
         function toggleDropdown(event) {
-            // This function handles the mobile dropdown click behavior
             if (window.innerWidth <= 768) {
-                const dropdownContent = event.currentTarget.querySelector('.dropdown-content');
-                // Toggle visibility based on current state
-                if (dropdownContent.style.display === 'block') {
-                    dropdownContent.style.display = 'none';
-                } else {
-                    dropdownContent.style.display = 'block';
-                }
+                // For mobile, the CSS handles the display when #main-nav.show-menu is applied.
+                // We keep this function for semantic purposes if needed later.
             }
-            // Prevent navigation to the 'services.html' link itself on desktop click
-            event.preventDefault(); 
         }
     </script>
 </body>
