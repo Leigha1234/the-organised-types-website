@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | The Organised Types</title>
+    <title>Services - The Organised Types</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     <style>
-        /* CSS Variables (Must match previous files) */
+        /* CSS Variables (Synchronized) */
         :root {
             --primary-color: #4f4a46; /* Dark Taupe */
             --accent-color: #A9B897; /* Dull Sage Green */
@@ -17,7 +16,7 @@
             --card-bg: #F5F2EF; 
             --text-color: #4f4a46; 
             --font-main: 'Poppins', sans-serif;
-            --light-text: #ffffff; /* For contrast on dark/image backgrounds if needed */
+            --light-text: #ffffff;
         }
         body { 
             font-family: var(--font-main); 
@@ -32,11 +31,10 @@
         }
         .container { 
             width: 90%; 
-            max-width: 1100px; 
+            max-width: 1200px; 
             margin: auto; 
             padding: 30px 0; 
             box-sizing: border-box; 
-            margin-top: 110px; 
         }
 
         /* --- HEADER & NAVIGATION (Common Styles) --- */
@@ -59,7 +57,12 @@
             padding: 0 15px; 
             box-sizing: border-box;
         }
-        .logo-area img { height: 100px; margin-right: 10px; } 
+        .logo-area img { 
+            height: 100px; 
+            margin-right: 10px; 
+        } 
+        
+        /* DESKTOP NAVIGATION */
         #main-nav { display: flex; align-items: center; }
         #main-nav a { 
             color: var(--primary-color); 
@@ -71,21 +74,151 @@
         }
         #main-nav a:hover, 
         #main-nav a.active { color: var(--accent-color); }
-        .dropdown { position: relative; display: inline-block; margin-left: 25px; white-space: nowrap; }
-        .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; padding: 10px 0; cursor: default; display: block; }
-        .dropdown-toggle:hover { color: var(--accent-color); }
+        
+        /* DROPDOWN CONTAINER */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 25px;
+            white-space: nowrap;
+        }
+        .dropdown-toggle {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0; 
+            cursor: pointer; 
+            display: block;
+        }
+        .dropdown-toggle:hover {
+            color: var(--accent-color);
+        }
         .dropdown-content {
-            display: none; position: absolute; background-color: var(--logo-bg); min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 2; padding: 10px 0; border-radius: 4px; top: 100%; left: 50%; transform: translateX(-50%);
+            display: none;
+            position: absolute;
+            background-color: var(--logo-bg);
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 2;
+            padding: 10px 0;
+            border-radius: 4px;
+            top: 100%; 
+            left: 50%;
+            transform: translateX(-50%);
         }
-        .dropdown-content a { color: var(--primary-color); padding: 10px 20px; text-decoration: none; display: block; text-align: left; margin: 0; font-weight: 400; transition: background-color 0.3s; }
-        .dropdown-content a:hover { background-color: rgba(0, 0, 0, 0.05); color: var(--primary-color); }
-        @media (min-width: 769px) {
-            .dropdown:hover .dropdown-content { display: block; }
-            .dropdown-toggle { cursor: pointer; }
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin: 0; 
+            font-weight: 400;
+            transition: background-color 0.3s;
         }
-        .menu-icon { display: none; cursor: pointer; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; }
-        .menu-icon span { display: block; width: 100%; height: 3px; margin: 4px 0; background: var(--primary-color); transition: 0.4s; border-radius: 3px; }
+        .dropdown-content a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color); 
+        }
 
+        /* SHOW DROPDOWN ON DESKTOP HOVER */
+        @media (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+        /* HAMBURGER ICON */
+        .menu-icon { 
+            display: none; 
+            cursor: pointer; 
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px; 
+        }
+        .menu-icon span { 
+            display: block; 
+            width: 100%; 
+            height: 3px; 
+            margin: 4px 0; 
+            background: var(--primary-color); 
+            transition: 0.4s; 
+            border-radius: 3px;
+        }
+
+        /* NEW WRAPPER for Nav/Search/Menu */
+        .nav-right-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /* New Search Bar Styles - Nicer Look */
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: 20px; 
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            overflow: hidden; /* Contains the border beautifully */
+            background-color: var(--cream-bg);
+        }
+        .search-input {
+            padding: 8px 12px;
+            border: none; /* Removed individual border, now handled by container */
+            font-family: var(--font-main);
+            font-size: 0.9em;
+            width: 150px;
+            box-sizing: border-box;
+            background-color: transparent;
+        }
+        .search-input:focus {
+            outline: none;
+        }
+        .search-button {
+            background-color: var(--primary-color);
+            color: var(--cream-bg);
+            border: none; /* Removed individual border, now handled by container */
+            padding: 8px 10px;
+            cursor: pointer;
+            font-size: 0.9em;
+            line-height: 1;
+            transition: background-color 0.3s ease;
+        }
+        .search-button:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* NEW: Highlight Style for Search Results */
+        .highlight {
+            background-color: #ffeb3b; /* Bright, visible yellow */
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 1px 0;
+            border-radius: 2px;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        /* --- BUTTON & LINK STYLES (Common) --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color); 
+            padding: 12px 25px; 
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em; 
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .cta-button:hover { background-color: #92a487; }
+        
         /* --- FOOTER (Common Style) --- */
         footer { 
             background-color: var(--logo-bg); 
@@ -96,410 +229,454 @@
             margin-top: auto; 
         }
         footer a { color: var(--accent-color); text-decoration: none; }
-
-        /* --- PAGE-SPECIFIC STYLES: Services Content --- */
         
-        /* Main Heading */
-        .page-header {
-            text-align: center;
-            padding: 20px 0;
-            margin-bottom: 30px;
+        /* Footer Socials Style */
+        .social-links {
+            margin-bottom: 15px;
         }
-        .page-header h1 {
-            font-size: 3em;
+        .social-links a {
+            color: var(--primary-color); 
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- PAGE-SPECIFIC STYLES: SERVICES CONTENT --- */
+        
+        /* Hero Section */
+        .services-hero { 
+            text-align: center; 
+            padding: 40px 20px 20px; 
+            background: var(--cream-bg); 
+            margin-bottom: 0px; 
+            margin-top: 110px; /* OFFSET FOR FIXED HEADER CLEARANCE */
+        }
+        .services-hero h1 { 
+            font-size: 3em; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+            margin-bottom: 10px; 
+        }
+        .services-hero p { 
+            font-size: 1.2em; 
+            margin-bottom: 20px; 
+        }
+
+        /* Quick Links / Context Box */
+        #quick-links {
+            background-color: var(--logo-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border: 1px solid #e0e0e0;
+        }
+        #quick-links h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.4em;
             color: var(--primary-color);
+            font-weight: 600;
+        }
+        #quick-links nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 15px;
+        }
+        /* MODIFICATION: Jump to Section - Change green border/hover to taupe */
+        #quick-links nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border: 1px solid var(--primary-color); 
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 0.95em;
+        }
+        #quick-links nav a:hover {
+            background-color: var(--primary-color); 
+            color: var(--cream-bg);
+        }
+
+        /* General Section Styling */
+        .service-section {
+            padding: 40px;
+            border-top: 2px solid var(--accent-color);
+            margin-top: 40px;
+            background: var(--card-bg); 
+            border-radius: 8px;
+        }
+        .service-section:first-of-type {
+            margin-top: 0;
+        }
+
+        .service-section h2 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .service-section h3 {
+            font-size: 1.6em;
+            color: var(--accent-color);
+            margin-top: 25px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .service-section p {
+            margin-bottom: 15px;
+        }
+
+        /* Package Cards */
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .package-card {
+            background-color: var(--cream-bg);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px; /* MODIFICATION: Slight border radius for corners */
+            padding: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            min-height: 380px; 
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .package-card[data-details-url]:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        .package-card.featured {
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .package-card h4 {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-top: 0;
             margin-bottom: 5px;
             font-weight: 700;
         }
-        .intro-text {
-            font-size: 1.1em;
-            color: var(--text-color);
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        /* --- Search Bar (Updated) --- */
-        .search-area {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-        .search-bar {
+        
+        /* Image Placeholder Style (Standardized for all images) */
+        .package-image-placeholder {
             width: 100%;
-            max-width: 600px;
+            height: 180px; 
+            border-radius: 6px; /* MODIFICATION: Added border radius */
+            margin-bottom: 15px;
+            border: none; /* MODIFICATION: Removed border for image consistency */
+            box-sizing: border-box;
+            overflow: hidden; 
+            
+            /* Styles for the default TEXT placeholder (used when no image is present) */
+            background-color: var(--logo-bg); 
             display: flex;
-            background-color: var(--card-bg);
-            border: 2px solid var(--accent-color);
-            border-radius: 30px; 
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        .search-bar input[type="text"] {
-            flex-grow: 1;
-            padding: 12px 20px;
-            border: none;
-            outline: none;
-            font-size: 1em;
-            background-color: transparent;
-            color: var(--text-color);
-        }
-        .search-bar button {
-            background-color: var(--accent-color);
-            color: var(--light-text);
-            border: none;
-            padding: 10px 18px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            font-size: 0.9em;
+            color: #AAAAAA;
+            font-weight: 600;
+            text-align: center;
+            padding: 10px;
+            font-style: italic;
         }
-        .search-bar button:hover {
-            background-color: #8fa07e; /* Slightly darker accent */
+        /* MODIFICATION: Sage green background for selected placeholders */
+        .package-card .package-image-placeholder.bg-accent {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            font-weight: 700;
         }
-        .search-bar button .material-icons {
-            font-size: 24px;
+        /* Style for the actual image inside the placeholder container */
+        .package-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            border-radius: 6px; /* MODIFICATION: Added border radius to images */
+        }
+        
+        .package-card .price {
+            font-size: 1.2em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .package-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .package-card ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        .package-card ul li::before {
+            content: '✓';
+            color: var(--accent-color);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+        .package-card .best-for {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #cccccc;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        .package-card .best-for span {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .package-card .cta-button {
+            margin-top: auto; /* Pushes the button to the bottom */
+            padding: 10px 20px;
+            font-size: 1em;
+            width: 100%;
+            max-width: 200px; 
+            align-self: center; 
+            z-index: 10; /* Ensure button click takes precedence */
         }
 
-        /* --- Service Sections --- */
-        .service-section {
-            margin-bottom: 50px;
-            padding-top: 50px;
-        }
-        .service-section h2 {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            text-align: center;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .service-section p.sub-heading {
-            text-align: center;
-            font-size: 1.1em;
-            color: var(--accent-color);
-            margin-bottom: 40px;
-            font-weight: 600;
-        }
-        
-        /* --- General CTA Button Style --- */
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--light-text);
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s, transform 0.2s;
-            margin-top: 20px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-        .cta-button:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        
-        /* --- Pricing & Card Layout (Website/Coaching) --- */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        .pricing-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s;
-        }
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-        .pricing-card h3 {
-            color: var(--accent-color);
-            font-size: 1.6em;
-            margin-top: 0;
-            font-weight: 700;
-        }
-        .price {
-            font-size: 2.5em;
-            font-weight: 900;
-            color: var(--primary-color);
-            margin: 10px 0 20px 0;
-            line-height: 1;
-        }
-        .price small {
-            font-size: 0.5em;
-            font-weight: 400;
-            display: block;
-            color: var(--text-color);
-            margin-top: 5px;
-        }
-        .price-details {
+        /* Process & Add-Ons */
+        .process-list {
             list-style: none;
-            padding: 0;
-            text-align: left;
-            margin-bottom: 30px;
-            flex-grow: 1;
+            counter-reset: process-step; /* Added reset for counter */
+            padding-left: 0;
         }
-        .price-details li {
-            padding: 8px 0;
-            border-bottom: 1px dashed #e0e0e0;
-            font-size: 0.95em;
-            display: flex;
-            align-items: center;
-        }
-        .price-details li:last-child {
-            border-bottom: none;
-        }
-        .price-details .material-icons {
-            color: var(--accent-color);
-            font-size: 1.1em;
-            margin-right: 10px;
-        }
-        
-        /* --- How It Works Section --- */
-        .how-it-works {
-            max-width: 900px;
-            margin: 50px auto 70px auto;
-        }
-        .how-it-works h2 {
-            font-size: 2em;
-            text-align: center;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-        .steps-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            text-align: center;
-        }
-        .step {
-            flex: 1;
-            padding: 20px;
-            background-color: var(--logo-bg);
-            border-radius: 8px;
+        .process-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
             position: relative;
         }
-        .step span.material-icons {
-            font-size: 3em;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            display: block;
-        }
-        .step h4 {
-            font-size: 1.1em;
-            color: var(--primary-color);
-            margin-top: 0;
-            font-weight: 600;
+        /* Adjusted process list styling to match previous pages */
+        .process-list li::before {
+            content: counter(process-step);
+            counter-increment: process-step;
+            position: absolute;
+            left: 0;
+            top: 0; 
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            color: var(--cream-bg);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-weight: 700;
+            font-size: 0.8em;
         }
 
-        /* --- Branding & Digital Products Layout --- */
-        .service-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        .who-for-list {
+            list-style: disc; /* Use standard disc for who-for */
+            padding-left: 20px;
         }
-        .service-card {
-            background-color: var(--logo-bg);
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
+        .who-for-list li {
+            margin-bottom: 5px;
         }
         
-        /* New Style: Branding Cards with Sage Green Background */
-        .branding-card {
-            background-color: var(--accent-color); /* Sage Green Background */
-            color: var(--light-text); /* White Text */
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-        }
-        .branding-card h3 {
-            color: var(--primary-color); /* Dark Taupe Heading */
-            font-size: 1.4em;
-            margin-top: 0;
-            border-bottom: 2px solid var(--primary-color); /* Dark Taupe Separator */
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        .branding-card .card-price {
-            color: var(--primary-color); /* Dark Taupe Price */
-        }
-        .branding-card .features-list .material-icons {
-            color: var(--primary-color); /* Dark Taupe Icons */
-        }
-        
-        .service-card h3 {
-            color: var(--primary-color);
-            font-size: 1.4em;
-            margin-top: 0;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-        }
-        .service-card .features-list {
-            list-style: none;
-            padding: 0;
-            flex-grow: 1;
-            margin-bottom: 20px;
-        }
-        .service-card .features-list li {
-            margin-bottom: 10px;
-            font-size: 0.95em;
-            display: flex;
-            align-items: flex-start;
-        }
-        .service-card .features-list .material-icons {
-            color: var(--accent-color);
-            font-size: 1.1em;
-            margin-right: 8px;
-            margin-top: 2px;
-        }
-        .card-price {
-            font-weight: 700;
+        .add-ons-list h4 {
             color: var(--primary-color);
             font-size: 1.2em;
-            margin-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 5px;
         }
-        
-        /* Templates/Digital Section Specific */
-        #templates .service-card {
-            background-color: var(--card-bg);
+        .add-ons-list ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
         }
-        #templates .sub-heading {
-            margin-bottom: 20px;
+        /* MODIFICATION: Flex layout for add-ons to accommodate button */
+        .add-ons-list ul li {
+            background-color: var(--cream-bg); /* Match package card inner background */
+            padding: 15px;
+            border-left: 3px solid var(--accent-color);
+            border-radius: 4px;
+            font-size: 0.95em;
+            
+            /* New flex styles for alignment */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .templates-cta-row {
+        /* New style for the content span */
+        .add-ons-list ul li > span {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        /* New style for smaller CTA button in add-ons */
+        .add-ons-list .cta-button.small {
+            padding: 8px 15px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            flex-shrink: 0;
+            max-width: 100px;
+            /* Ensure the small CTA is clickable and doesn't trigger parent card click */
+            pointer-events: all;
+        }
+
+        /* Coaching Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #dddddd;
+            padding: 10px;
             text-align: center;
-            margin-top: -20px; 
-            margin-bottom: 50px;
         }
-        
-        /* --- Mobile Adjustments --- */
+        .comparison-table th {
+            background-color: var(--logo-bg);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .comparison-table td {
+            background-color: var(--cream-bg);
+        }
+        .comparison-table tr:nth-child(even) td {
+            background-color: #F8F4F0;
+        }
+
+        /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
             
-            /* --- TEXT SIZE REDUCTION (MATCHING INDEX PAGE MOBILE FONT SCALE) --- */
+            /* --- FONT SIZE SCALING (Matching Index Page) --- */
             body { 
                 font-size: 0.85em; 
             }
             .container { 
-                margin-top: 90px;
-                padding: 15px 0 20px 0; 
+                padding: 20px 10px; 
+                max-width: 100%;
             }
-            .page-header h1 { 
-                font-size: 2.2em; 
+
+            /* --- NAVIGATION FIXES --- */
+            .menu-icon { display: flex; } 
+            
+            /* Adjust wrapper for mobile: logo left, menu right */
+            .nav-right-container {
+                order: 2;
             }
-            .intro-text {
-                font-size: 0.9em; 
-                margin-bottom: 20px;
-            }
-            .service-section h2 {
-                font-size: 1.8em; 
-                padding-top: 0;
-            }
-            .service-section p.sub-heading {
-                font-size: 1em;
-                margin-bottom: 25px;
-            }
-            .pricing-card {
-                padding: 20px;
-            }
-            .price {
-                font-size: 2em;
-            }
-            .how-it-works {
-                margin: 30px auto 40px auto;
-            }
-            .how-it-works h2 {
-                font-size: 1.6em;
-            }
-            .steps-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .step {
-                padding: 15px;
-            }
-            .search-bar {
-                border-radius: 25px;
-            }
-            .search-bar input[type="text"] {
-                padding: 10px 15px;
-                font-size: 0.9em;
-            }
-            .search-bar button {
-                padding: 8px 15px;
+            .menu-icon { 
+                display: flex; /* Always show menu icon on mobile */
+                order: 2; /* Push to far right */
+                margin-left: auto;
+            } 
+            .search-container {
+                /* Hide search bar on mobile to keep the header clean */
+                display: none; 
             }
             
-            /* --- MOBILE NAVIGATION --- */
-            .menu-icon { 
-                display: flex; 
-            }
             #main-nav {
                 display: none; 
-                position: absolute;
-                top: 100px; 
-                right: 0;
-                background-color: var(--logo-bg); 
-                width: 100%;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-                padding: 10px 0;
                 flex-direction: column;
+                width: 100%;
+                position: absolute; 
+                top: 110px; 
+                left: 0;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                padding: 10px 0;
+                background-color: var(--logo-bg);
             }
-            #main-nav.show-menu {
-                display: flex; 
-            }
+            #main-nav.show-menu { display: flex; }
             #main-nav a { 
                 margin: 8px 0; 
                 padding: 5px 0;
                 display: block;
                 border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
+                text-align: center;
+                margin-left: 0;
             }
-            .navbar {
-                 padding: 0 5%; 
-            }
-            .dropdown {
+            
+            /* Mobile: Show all dropdown content links when menu is visible */
+            .dropdown { 
                 margin: 0; 
-                width: 100%;
+                width: 100%; 
+                display: contents; 
             }
-            .dropdown-content {
-                position: static; 
-                width: 100%;
-                min-width: unset;
-                box-shadow: none;
-                padding: 0;
-                transform: none; 
-                background-color: transparent; 
-                border-top: 1px solid rgba(79, 74, 70, 0.1);
-            }
-            .dropdown-content a {
-                padding: 5px 0;
-                font-size: 0.9em;
-                background-color: rgba(79, 74, 70, 0.03); 
-            }
-            .dropdown-content {
-                display: none;
-            }
-            .dropdown.active .dropdown-content {
+            .dropdown-toggle { 
+                text-align: center;
+                content: none !important; 
+            } 
+            .dropdown-toggle:after { content: none; }
+
+            .dropdown-content { 
                 display: block; 
+                position: static; 
+                width: 100%; 
+                transform: none; 
+                box-shadow: none; 
+                background-color: transparent; 
+                border-top: 1px solid rgba(79, 74, 70, 0.1); 
+                padding: 0; 
+            }
+            .dropdown-content a { 
+                padding: 5px 0; 
+                font-size: 0.85em; 
+                background-color: rgba(79, 74, 70, 0.03); 
+                text-align: center; 
+                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
+            }
+            .dropdown-content a:last-child {
+                border-bottom: none; 
+            }
+
+            /* --- SERVICES SPECIFIC MOBILE FIXES --- */
+            .services-hero { margin-top: 110px; }
+            .services-hero h1 { font-size: 2.2em; }
+            .package-grid {
+                grid-template-columns: 1fr; 
+            }
+            .add-ons-list ul {
+                grid-template-columns: 1fr;
+            }
+            .service-section {
+                padding: 20px;
+                margin-top: 20px;
+            }
+            .package-card {
+                min-height: auto; 
+            }
+            .package-card .cta-button {
+                max-width: 100%; 
+            }
+            #quick-links {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            #quick-links nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            /* Mobile Table HIDE Rule */
+            .hide-on-mobile {
+                display: none !important;
+            }
+        }
+        @media (min-width: 769px) {
+            /* Desktop layout overrides for the new wrapper */
+            .nav-right-container {
+                display: flex;
+            }
+            .menu-icon {
+                display: none; /* Hide menu icon on desktop */
             }
         }
     </style>
@@ -511,320 +688,613 @@
             <a href="index.html" class="logo-area">
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
             </a>
-            <div class="menu-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            
+            <div class="nav-right-container"> 
+                <form class="search-container" id="search-form" onsubmit="searchPage(event)">
+                    <input type="text" placeholder="Search this page..." class="search-input" id="search-input">
+                    <button type="submit" class="search-button" title="Search">🔍</button>
+                </form>
+
+                <nav id="main-nav">
+                    <a href="index.html" id="nav-index">Home</a> 
+                    <a href="about.html" id="nav-about">About</a> 
+                    
+                    <div class="dropdown" onclick="toggleDropdown(event)">
+                        <a href="services.html" class="dropdown-toggle active" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
+                        <div class="dropdown-content">
+                            <a href="services.html#website">Website Design & Development</a>
+                            <a href="services.html#branding">Brand Identity & Digital Design</a>
+                            <a href="services.html#coaching">Business Coaching & Strategy</a>
+                            <a href="services.html#templates">Templates, Tools & Courses</a>
+                        </div>
+                    </div>
+                    <a href="faq.html" id="nav-faq">FAQ's</a>
+                    <a href="contact.html" id="nav-contact">Contact</a>
+                </nav>
+                
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-        <nav id="main-nav">
-    <a href="index.html" id="nav-index">Home</a> 
-    
-    <a href="about.html" id="nav-about">About</a> 
-    
-    <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle active" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-            <a href="services.html#templates">Templates, Tools & Courses</a>
-        </div>
-    </div>
-    <a href="faq.html" id="nav-faq">FAQ's</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-</nav>
         </div>
     </header>
     
-    <div class="container">
-        
-        <div class="page-header">
-            <h1>Our Services & Packages</h1>
+    <div class="services-hero">
+        <div class="container">
+            <h1>Our Custom Solutions and Packages</h1>
+            <p>From strategic consulting to hands-on implementation of digital tools, we provide organised systems that scale with your needs.</p>
         </div>
-        
-        <p class="intro-text">We specialise in creating beautiful, organised, and strategic digital foundations for small businesses and creative entrepreneurs.</p>
-        
-        <div class="search-area">
-            <div class="search-bar">
-                <input type="text" placeholder="Search for website package, branding kit, or coaching...">
-                <button type="submit">
-                    <span class="material-icons">search</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="service-section" id="website">
-            <h2>Website Design & Development</h2>
-            <p class="sub-heading">Professional, high-converting websites built on Wix, Shopify, Squarespace, or WordPress.</p>
-            
-            <div class="pricing-grid">
-                
-                <div class="pricing-card">
-                    <h3>Micro Website</h3>
-                    <p class="price">£499<small>One-page site</small></p>
-                    <ul class="price-details">
-                        <li><span class="material-icons">check</span> 1-Page Website</li>
-                        <li><span class="material-icons">check</span> Mobile & Desktop Optimisation</li>
-                        <li><span class="material-icons">check</span> Hosting setup guidance</li>
-                        <li><span class="material-icons">check</span> Basic SEO Setup</li>
-                        <li><span class="material-icons">check</span> 7 Day Turnaround (content dependent)</li>
-                        <li><span class="material-icons">close</span> No E-commerce Setup</li>
-                    </ul>
-                    <a href="#cart-link-micro" class="cta-button">Select Package</a>
-                </div>
-
-                <div class="pricing-card">
-                    <h3>Starter Website (Most Popular)</h3>
-                    <p class="price">£999<small>Perfect for service businesses</small></p>
-                    <ul class="price-details">
-                        <li><span class="material-icons">check</span> Up to 5 Pages</li>
-                        <li><span class="material-icons">check</span> Custom Design Implementation</li>
-                        <li><span class="material-icons">check</span> Basic Branding Integration</li>
-                        <li><span class="material-icons">check</span> Advanced SEO Optimisation</li>
-                        <li><span class="material-icons">check</span> Custom Forms & Email Integration</li>
-                        <li><span class="material-icons">check</span> 1-2 Week Turnaround</li>
-                    </ul>
-                    <a href="#cart-link-starter" class="cta-button">Select Package</a>
-                </div>
-
-                <div class="pricing-card">
-                    <h3>Professional Website</h3>
-                    <p class="price">£1,499<small>E-commerce or complex features</small></p>
-                    <ul class="price-details">
-                        <li><span class="material-icons">check</span> Up to 10 Pages</li>
-                        <li><span class="material-icons">check</span> E-commerce setup (up to 10 products)</li>
-                        <li><span class="material-icons">check</span> Advanced Booking/Membership Integration</li>
-                        <li><span class="material-icons">check</span> Content Upload & Formatting</li>
-                        <li><span class="material-icons">check</span> 30-Day Post-Launch Support</li>
-                        <li><span class="material-icons">check</span> 3-4 Week Turnaround</li>
-                    </ul>
-                    <a href="#cart-link-pro" class="cta-button">Select Package</a>
-                </div>
-
-            </div>
-            
-            <div class="how-it-works">
-                <h2>The Website Process: How It Works</h2>
-                <div class="steps-container">
-                    <div class="step">
-                        <span class="material-icons">article</span>
-                        <h4>1. Onboard & Plan</h4>
-                        <p>You choose a package and submit your content checklist. We confirm goals and platform choice.</p>
-                    </div>
-                    <div class="step">
-                        <span class="material-icons">design_services</span>
-                        <h4>2. Design & Build</h4>
-                        <p>We design your pages and build the site, keeping you updated with progress every few days.</p>
-                    </div>
-                    <div class="step">
-                        <span class="material-icons">rate_review</span>
-                        <h4>3. Review & Refine</h4>
-                        <p>You review the site, provide feedback, and we complete the final revisions.</p>
-                    </div>
-                    <div class="step">
-                        <span class="material-icons">rocket_launch</span>
-                        <h4>4. Launch & Train</h4>
-                        <p>We connect your domain, launch the site, and handover full ownership and access.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#addons-section-link" class="cta-button">Add to Cart</a>
-            </div>
-            
-        </div>
-
-        <div class="service-section" id="branding">
-            <h2>Brand Identity & Digital Design</h2>
-            <p class="sub-heading">Creating a cohesive and professional visual identity for your business.</p>
-
-            <div class="service-cards-grid">
-                
-                <div class="branding-card">
-                    <h3>Mini Brand Kit</h3>
-                    <div class="card-price">£249</div>
-                    <ul class="features-list">
-                        <li><span class="material-icons">brush</span> Primary Logo Design</li>
-                        <li><span class="material-icons">palette</span> Colour Palette</li>
-                        <li><span class="material-icons">text_format</span> Typography Selection</li>
-                        <li><span class="material-icons">style</span> Final files (PNG, JPG)</li>
-                        <li><span class="material-icons">description</span> Simple Brand Guide PDF</li>
-                    </ul>
-                    <a href="#cart-link-mini-brand" class="cta-button" style="background-color: var(--primary-color);">Select Package</a>
-                </div>
-
-                <div class="branding-card">
-                    <h3>Full Brand Identity Kit</h3>
-                    <div class="card-price">£499</div>
-                    <ul class="features-list">
-                        <li><span class="material-icons">check</span> Includes everything in Mini Kit</li>
-                        <li><span class="material-icons">brush</span> Sub-logo & Icon Design</li>
-                        <li><span class="material-icons">layers</span> Brand Patterns/Textures</li>
-                        <li><span class="material-icons">format_paint</span> Expanded Color Palette</li>
-                        <li><span class="material-icons">auto_stories</span> Full Brand Direction Sheet</li>
-                        <li><span class="material-icons">style</span> All files including SVG/Vector</li>
-                    </ul>
-                    <a href="#cart-link-full-brand" class="cta-button" style="background-color: var(--primary-color);">Select Package</a>
-                </div>
-
-                <div class="branding-card">
-                    <h3>Digital Design Package</h3>
-                    <div class="card-price">£POA (Starting from £199)</div>
-                    <ul class="features-list">
-                        <li><span class="material-icons">mail</span> Custom Email Templates</li>
-                        <li><span class="material-icons">photo_library</span> Social Media Templates (Canva)</li>
-                        <li><span class="material-icons">brochure</span> Custom PDF/Lead Magnet Design</li>
-                        <li><span class="material-icons">book</span> Business Card/Stationery Design</li>
-                        <li><span class="material-icons">edit</span> 1 Revision Round included</li>
-                    </ul>
-                    <a href="#cart-link-digital-design" class="cta-button" style="background-color: var(--primary-color);">Add to Cart</a>
-                </div>
-
-            </div>
-        </div>
-        
-        <div class="service-section" id="coaching">
-            <h2>Business Coaching & Strategy</h2>
-            <p class="sub-heading">1:1 guidance and actionable strategy to organise and scale your small business.</p>
-
-            <div class="pricing-grid">
-                
-                <div class="pricing-card">
-                    <h3>1-Hour Power Session</h3>
-                    <p class="price">£99<small>Quick strategy & troubleshooting</small></p>
-                    <ul class="price-details">
-                        <li><span class="material-icons">schedule</span> 60-Minute Focused 1:1 Call</li>
-                        <li><span class="material-icons">star</span> Clarity on 1-2 specific goals</li>
-                        <li><span class="material-icons">checklist_rtl</span> Post-call Action Plan Summary</li>
-                        <li><span class="material-icons">email</span> 7 Days of Email Follow-up Support</li>
-                        <li><span class="material-icons">close</span> No Ongoing Project Support</li>
-                    </ul>
-                    <a href="#calendar-booking" class="cta-button">Book Now - Schedule Your Call</a>
-                </div>
-
-                <div class="pricing-card">
-                    <h3>3-Month Deep Dive</h3>
-                    <p class="price">£299/Month<small>Sustained growth & accountability</small></p>
-                    <ul class="price-details">
-                        <li><span class="material-icons">calendar_month</span> Two 60-Min Calls Per Month</li>
-                        <li><span class="material-icons">insights</span> Customised Strategy Roadmap</li>
-                        <li><span class="material-icons">support</span> Ongoing Voxer/Email Support</li>
-                        <li><span class="material-icons">group</span> Access to Private Resources Hub</li>
-                        <li><span class="material-icons">person</span> Accountability & Progress Tracking</li>
-                        <li><span class="material-icons">autorenew</span> Minimum 3-Month Commitment</li>
-                    </ul>
-                    <a href="#cart-link-3month-deepdive" class="cta-button">Add to Cart</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-section" id="templates">
-            <h2>Templates, Tools & Courses (Digital Products)</h2>
-            <p class="sub-heading">Instant-access digital resources to help you organise and systemise your business fast.</p>
-
-            <div class="service-cards-grid">
-                
-                <div class="service-card">
-                    <h3>Business Plan Templates</h3>
-                    <div class="card-price">From £6.99</div>
-                    <ul class="features-list">
-                        <li><span class="material-icons">edit_note</span> Comprehensive Business Plans</li>
-                        <li><span class="material-icons">lightbulb</span> Strategic Planning Documents</li>
-                        <li><span class="material-icons">canva</span> Editable Canva & Word Formats</li>
-                        <li><span class="material-icons">download</span> Instant Digital Download</li>
-                    </ul>
-                    <a href="#shopify-link-business-plan" class="cta-button">View in Shop</a>
-                </div>
-
-                <div class="service-card">
-                    <h3>Notion & Project Systems</h3>
-                    <div class="card-price">From £19.99</div>
-                    <ul class="features-list">
-                        <li><span class="material-icons">auto_stories</span> Client Management Dashboards</li>
-                        <li><span class="material-icons">date_range</span> Content Planning Templates</li>
-                        <li><span class="material-icons">groups</span> Team & Delegation Trackers</li>
-                        <li><span class="material-icons">download</span> Fully Customisable Notion Systems</li>
-                    </ul>
-                    <a href="#shopify-link-notion" class="cta-button">View in Shop</a>
-                </div>
-
-                <div class="service-card">
-                    <h3>Online Courses & Workshops</h3>
-                    <div class="card-price">Coming Soon!</div>
-                    <ul class="features-list">
-                        <li><span class="material-icons">school</span> Launching Your Etsy Shop</li>
-                        <li><span class="material-icons">edit_calendar</span> Mastering Canva Design</li>
-                        <li><span class="material-icons">monitor</span> Website DIY Crash Course</li>
-                        <li><span class="material-icons">access_time</span> Lifetime Access Included</li>
-                    </ul>
-                    <a href="#mailing-list-signup" class="cta-button">Join Waitlist</a>
-                </div>
-
-            </div>
-            
-            <div class="templates-cta-row">
-                <a href="#shopify-shop-link" class="cta-button" style="background-color: var(--primary-color);">Browse All Templates</a>
-            </div>
-
-        </div>
-
     </div>
 
-    <footer>
+    <div class="container">
+        <div id="quick-links">
+            <h3>Jump to Section</h3>
+            <nav>
+                <a href="#website">Website Packages</a>
+                <a href="#website-addons">Website Add-Ons</a>
+                <a href="#branding">Branding Packages</a>
+                <a href="#coaching">Coaching Packages</a>
+                <a href="#coaching-table">Coaching Comparison</a>
+                <a href="#templates">Digital Products</a>
+            </nav>
+        </div>
+
+        <section id="website" class="service-section">
+            <h2>Website Design & Development</h2>
+            <p>Your website is your digital storefront — and first impressions matter. We build high-performing, visually stunning websites designed to elevate your credibility, attract your ideal clients, and turn visitors into customers. Every site is strategically planned, professionally designed, and built with user experience at the center. Every site is strategically planned, professionally designed, and built with user experience at the center.</p>
+            <p>Whether you're launching a brand-new business or refreshing an outdated site, we create a seamless online presence that feels modern, polished, and powerful.</p>
+
+            <h3>Professional Website Packages</h3>
+            <div class="package-grid">
+                
+                <div class="package-card" data-details-url="website-micro.html">
+                    <h4>Micro Website</h4>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg.png" alt="Professional website design mockup on a laptop">
+                    </div>
+                    <span class="price">£195</span>
+                    <p>Perfect for: Start-ups, simple landing pages, single-service businesses</p>
+                    <p>A clean, simple, strategic one-page website designed to introduce your brand, capture leads, and give your business a professional online home — without the complexity of a multi-page build.</p>
+                    <ul>
+                        <li>1-2 page website</li>
+                        <li>Custom layout + branded styling</li>
+                        <li>Contact form</li>
+                        <li>Basic SEO setup</li>
+                        <li>Mobile-optimised design</li>
+                        <li>1 round of revisions</li>
+                        <li>Fast turnaround</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ New businesses, ✔ Landing pages for campaigns, ✔ “Coming soon” websites, ✔ Simple brochure-style sites
+                    </div>
+                    <a href="website-micro.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
+
+                <div class="package-card" data-details-url="website-starter.html">
+                    <h4>Starter Website</h4>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg2.png" alt="Professional website design mockup on a laptop">
+                    </div>
+                    <span class="price">£495</span>
+                    <p>Perfect for: Small businesses needing a clean, simple and functional online presence</p>
+                    <p>A beautifully designed, user-friendly website with the key pages every business needs. Ideal for service-based businesses wanting a professional presence without overwhelming features.</p>
+                    <ul>
+                        <li>2-3 page website</li>
+                        <li>Homepage + Contact + 1 additional page</li>
+                        <li>Custom branded design</li>
+                        <li>Basic SEO optimisation</li>
+                        <li>Mobile-responsive layout</li>
+                        <li>1 round of revisions</li>
+                        <li>Built for clarity, simplicity & professionalism</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ New entrepreneurs, ✔ Freelancers & creators, ✔ Local service businesses, ✔ Coaches & consultants
+                    </div>
+                    <a href="website-starter.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
+
+                <div class="package-card featured" data-details-url="website-small-business.html">
+                    <h4>Small Business Website</h4>
+                    <div class="package-image-placeholder bg-accent">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <span class="price">£795</span>
+                    <p>Perfect for: Growing businesses ready for a more complete, high-quality website</p>
+                    <p>A polished and strategically designed website that showcases your brand, builds trust, and helps convert visitors into customers. Includes all essential core pages plus improved structure and SEO.</p>
+                    <ul>
+                        <li>3-5 page website</li>
+                        <li>Homepage, About, Services, Contact + 1 extra page</li>
+                        <li>Custom branded layouts</li>
+                        <li>2 rounds of revisions</li>
+                        <li>Mobile optimisation</li>
+                        <li>Basic SEO setup (keywords, metadata, alt text)</li>
+                        <li>Professional structure & user experience</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Businesses ready to level up, ✔ Wellness, beauty, fitness, creative, or retail services, ✔ Consultants & small agencies
+                    </div>
+                    <a href="website-small-business.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
+
+                <div class="package-card" data-details-url="website-pro.html">
+                    <h4>Professional Website</h4>
+                    <div class="package-image-placeholder bg-accent">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <span class="price">£1,195</span>
+                    <p>Perfect for: Established businesses needing a fully custom, conversion-focused site</p>
+                    <p>A bespoke, high-converting website crafted around your brand story, services, and long-term goals. Includes deeper SEO setup, blog or portfolio functionality, and enhanced design elements.</p>
+                    <ul>
+                        <li>6-8 page fully custom website</li>
+                        <li>Blog or portfolio setup</li>
+                        <li>Custom-designed page layouts</li>
+                        <li>2 rounds of revisions</li>
+                        <li>Enhanced SEO setup</li>
+                        <li>Mobile-first design</li>
+                        <li>Launch support + testing, Professional UX and strategic layout</li>
+                        
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Coaches, consultants, and educators, ✔ Creatives needing portfolios, ✔ Growing service-based businesses, ✔ Brands preparing for bigger visibility
+                    </div>
+                    <a href="website-pro.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
+                
+                <div class="package-card" style="grid-column: span 1 / auto;" data-details-url="website-ecommerce.html">
+                    <h4>Premium Website (Advanced Features)</h4>
+                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <span class="price">£1,800</span>
+                    <p>Perfect for: Businesses needing ecommerce, booking systems, memberships or advanced integrations</p>
+                    <p>A comprehensive, strategy-led website with everything your brand needs to scale. Designed for businesses requiring automation, online sales, memberships, or more complex customer journeys.</p>
+                    <ul>
+                        <li>8-12+ pages</li>
+                        <li>Ecommerce OR booking system integration</li>
+                        <li>Custom functionality (forms, portals, memberships, calendars)</li>
+                        <li>Full SEO setup (keywords, metadata, structure, optimisation)</li>
+                        <li>3 rounds of revisions</li>
+                        <li>Advanced custom layouts, Third-party integrations</li>
+                        <li>30-day post-launch support</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Ecommerce brands, ✔ Gyms, fitness coaches, wellness professionals, ✔ Businesses needing automation
+                    </div>
+                    <a href="website-ecommerce.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="website-addons" class="service-section">
+            <h2>Website Add-Ons & Extras</h2>
+            <p>Further enhance your website package with these optional additions. Pricing is based on complexity and time needed for implementation.</p>
+            <div class="add-ons-list">
+                
+                <h4>Pre-Launch Essentials</h4>
+                <ul>
+                    <li>
+                        <span>Logo Design (Simple Text-Based)</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                    <li>
+                        <span>Basic Brand Style Guide (Colors & Fonts)</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                    <li>
+                        <span>Professional Photography Integration (Your provided photos)</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                </ul>
+
+                <h4>Functionality & Content</h4>
+                <ul>
+                    <li>
+                        <span>Extra Page Design & Implementation (per page)</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                    <li>
+                        <span>Advanced SEO & Content Optimisation</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                    <li>
+                        <span>CRM or Email Marketing Integration (e.g., MailChimp, Flodesk)</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                    <li>
+                        <span>Membership or Client Portal Setup</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                    <li>
+                        <span>Dedicated Blog Setup & 2 initial posts</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                </ul>
+
+                <h4>Maintenance & Support</h4>
+                <ul>
+                    <li>
+                        <span>Monthly Website Maintenance Package (Contact for tailored pricing)</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                    <li>
+                        <span>One-off Maintenance & Troubleshooting (Hourly Rate)</span>
+                        <a href="contact.html" class="cta-button small">Enquire</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="branding" class="service-section">
+            <h2>Brand Identity & Digital Design</h2>
+            <p>Beyond the website, a cohesive brand identity is vital. We offer strategic design services to ensure your entire digital presence speaks with one powerful, professional voice.</p>
+
+            <h3>Core Branding Packages</h3>
+            <div class="package-grid">
+                
+                <div class="package-card" data-details-url="branding-starter.html">
+                    <h4>Brand Starter Kit</h4>
+                    <div class="package-image-placeholder bg-accent">Branding Placeholder</div>
+                    <span class="price">£295</span>
+                    <p>The essential foundations for a professional look. Ideal for new businesses that need a simple, consistent visual identity.</p>
+                    <ul>
+                        <li>Primary Logo Design</li>
+                        <li>Basic Colour Palette</li>
+                        <li>Recommended Typography Pairings</li>
+                        <li>Basic Brand Guidelines PDF</li>
+                        <li>Digital file formats included</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Freelancers, ✔ New side hustles, ✔ Businesses integrating branding into a Micro or Starter Website package
+                    </div>
+                    <a href="branding-starter.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
+
+                <div class="package-card featured" data-details-url="branding-full.html">
+                    <h4>Complete Brand Identity</h4>
+                    <div class="package-image-placeholder">Branding Placeholder</div>
+                    <span class="price">£595</span>
+                    <p>A full, in-depth brand package that prepares your business for high-level visibility across all platforms.</p>
+                    <ul>
+                        <li>Primary & Secondary Logos</li>
+                        <li>Full Logo Variations (Wordmark, Favicon)</li>
+                        <li>Extended Colour Palette</li>
+                        <li>Comprehensive Typography Suite</li>
+                        <li>Detailed Brand Guidelines Document</li>
+                        <li>Social Media Profile Kit</li>
+                        <li>1 Round of Concept Revisions</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Growing businesses, ✔ Professionals needing a high-trust presence, ✔ Website clients needing seamless integration
+                    </div>
+                    <a href="branding-full.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
+
+                <div class="package-card" data-details-url="branding-marketing.html">
+                    <h4>Digital Marketing Kit</h4>
+                    <div class="package-image-placeholder bg-accent">Digital Marketing Placeholder</div>
+                    <span class="price">£250 + VAT</span>
+                    <p>Designed to help you launch campaigns or consistently show up on social media using your new brand identity.</p>
+                    <ul>
+                        <li>10 Custom Social Media Templates (Canva)</li>
+                        <li>2 Email Signature Designs</li>
+                        <li>Business Card Design (Print-ready file)</li>
+                        <li>Branded PDF/Workbook Cover Design</li>
+                        <li>1 Round of Revisions</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Coaches, ✔ Consultants, ✔ Any business with a heavy social media presence
+                    </div>
+                    <a href="branding-marketing.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="coaching" class="service-section">
+            <h2>Business Coaching & Strategy</h2>
+            <p>Sometimes, what you really need is an organised mind and a strategic plan. Our coaching services focus on clarity, efficiency, and creating sustainable systems for long-term growth.</p>
+            
+            <h3>How It Works: Our Process</h3>
+            <ul class="process-list">
+                <li>**Assessment:** We start with an in-depth review of your current business structure, challenges, and goals.</li>
+                <li>**Strategy Session:** A dedicated 90-minute session to define your core problems and outline a 90-day action plan.</li>
+                <li>**Implementation Plan:** Receive a comprehensive, step-by-step plan for the first 30 days, focused on immediate efficiency gains.</li>
+                <li>**Follow-up & Support:** Ongoing check-ins, accountability, and resource recommendations based on your chosen package.</li>
+            </ul>
+
+            <h3>Coaching Packages</h3>
+            <div class="package-grid">
+                
+                <div class="package-card" data-details-url="coaching-mini.html">
+                    <h4>The Clarity Call</h4>
+                    <div class="package-image-placeholder">Placeholder Image</div>
+                    <span class="price">£99</span>
+                    <p>A powerful, one-off session to tackle a single, critical business challenge and leave with immediate next steps.</p>
+                    <ul>
+                        <li>60-Minute Focused Strategy Call</li>
+                        <li>Pre-call questionnaire and preparation</li>
+                        <li>1 Core Problem Solved</li>
+                        <li>Immediate Action Plan PDF</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Decision-making, ✔ Overcoming a creative block, ✔ Quick guidance on a specific tool (e.g., Notion setup)
+                    </div>
+                    <a href="coaching-mini.html" class="cta-button" onclick="event.stopPropagation()">Book Now</a>
+                </div>
+
+                <div class="package-card featured" data-details-url="coaching-90day.html">
+                    <h4>90-Day Organiser Package</h4>
+                    <div class="package-image-placeholder bg-accent">Placeholder Image</div>
+                    <span class="price">£450/month (3-month commitment)</span>
+                    <p>Our most popular option. Dedicated coaching and support to build sustainable systems, scale your operations, and refine your business model over three months.</p>
+                    <ul>
+                        <li>6 x 60-Minute Strategy Sessions</li>
+                        <li>Weekly Accountability Check-ins</li>
+                        <li>Custom System Implementation Roadmap</li>
+                        <li>Unlimited Email Support (9am-5pm Mon-Fri)</li>
+                        <li>Business Audit & Goal Setting</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Launching a new offer, ✔ Scaling operations, ✔ Automating client onboarding, ✔ Full business model overhaul
+                    </div>
+                    <a href="coaching-90day.html" class="cta-button" onclick="event.stopPropagation()">Apply Now</a>
+                </div>
+
+                <div class="package-card" data-details-url="coaching-executive.html">
+                    <h4>Executive Strategy (6 Months)</h4>
+                    <div class="package-image-placeholder">Placeholder Image</div>
+                    <span class="price">£750/month (6-month commitment)</span>
+                    <p>Long-term partnership focused on strategic planning, leadership development, and preparing your business for major expansion.</p>
+                    <ul>
+                        <li>Bi-Weekly 90-Minute Strategy Sessions</li>
+                        <li>Full Quarterly Goal Planning</li>
+                        <li>Custom Executive Dashboard Setup</li>
+                        <li>Priority Access to Tools & Templates</li>
+                        <li>Emergency Support via WhatsApp/Slack</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Established businesses, ✔ Leaders transitioning roles, ✔ Teams planning major product or market expansion
+                    </div>
+                    <a href="coaching-executive.html" class="cta-button" onclick="event.stopPropagation()">Apply Now</a>
+                </div>
+
+            </div>
+
+            <h3 id="coaching-table">Coaching Package Comparison</h3>
+            <div style="overflow-x: auto;">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Clarity Call (£99)</th>
+                            <th>90-Day Organiser</th>
+                            <th>Executive Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Duration</td>
+                            <td>1 Hour (One-Off)</td>
+                            <td>3 Months</td>
+                            <td>6 Months</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Sessions</td>
+                            <td>1</td>
+                            <td>6 x 60 mins</td>
+                            <td>12 x 90 mins</td>
+                        </tr>
+                        <tr>
+                            <td>Accountability/Check-ins</td>
+                            <td>No</td>
+                            <td>Weekly Email</td>
+                            <td>Bi-weekly (Full Review)</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Roadmap/System Building</td>
+                            <td>Basic Action Plan</td>
+                            <td>Full Roadmap</td>
+                            <td>Full Roadmap + Quarterly Planning</td>
+                        </tr>
+                        <tr>
+                            <td>Email Support</td>
+                            <td>7 days post-call</td>
+                            <td>Unlimited (Mon-Fri)</td>
+                            <td>Priority Unlimited + WhatsApp/Slack</td>
+                        </tr>
+                        <tr>
+                            <td>Ideal for</td>
+                            <td>Quick fixes</td>
+                            <td>Scaling & automation</td>
+                            <td>Major expansion & long-term growth</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="templates" class="service-section">
+            <h2>Templates, Tools & Courses (Digital Products)</h2>
+            <p>Access our curated collection of digital products designed for immediate impact, efficiency, and a touch of organisation. These are DIY resources to help you implement systems fast.</p>
+            
+            <h3>Who are these products for?</h3>
+            <ul class="who-for-list">
+                <li>The DIY business owner who knows what they need but lacks the time to build it from scratch.</li>
+                <li>Small businesses looking for affordable, professional tools without a custom development cost.</li>
+                <li>Entrepreneurs who want instant access to high-quality templates (e.g., Notion, Canva, Spreadsheets).</li>
+            </ul>
+
+            <h3>Shop Highlights</h3>
+            <div class="package-grid">
+                
+                <div class="package-card" data-details-url="product-business-plan.html">
+                    <h4>Business Plan Template Kit</h4>
+                    <div class="package-image-placeholder bg-accent">Business Template</div>
+                    <span class="price">£6.99</span>
+                    <p>A fully organised, editable template to quickly structure your business plan, mission, and financial projections. Available in Word/Google Docs format.</p>
+               </div>
+
+                <div class="package-card" data-details-url="product-notion-system.html">
+                    <h4>Ultimate Notion Business System</h4>
+                    <div class="package-image-placeholder">Digital Tool</div>
+                    <span class="price">£49.00</span>
+                    <p>Our complete Notion workspace template, including project management, content calendar, client CRM, and financial trackers—all interlinked for maximum efficiency.</p>
+               </div>
+
+                <div class="package-card" data-details-url="product-instagram-course.html">
+                    <h4>Organised Instagram Course</h4>
+                    <div class="package-image-placeholder bg-accent">Digital Course</div>
+                    <span class="price">£129.00</span>
+                    <p>A self-paced online course focused on creating a consistent content strategy, automating your posting, and building a high-converting Instagram bio and feed.</p>
+                </div>
+            </div>
+        </section>
+
+    </div> <footer>
         <div class="container">
-            <p>Ready to start your project? <a href="shop.html">Visit our Shop</a> to explore templates, digital tools, systems, and productivity packs.</p>
-            <p>Email: **theorganisedtypes@gmail.com** | &copy; 2025 The Organised Types.</p>
+            <div class="social-links">
+                <a href="#">Instagram</a> |
+                <a href="#">LinkedIn</a> |
+                <a href="#">Pinterest</a>
+            </div>
+            <p>&copy; 2024 The Organised Types. All rights reserved. | <a href="privacy.html">Privacy Policy</a></p>
         </div>
     </footer>
 
     <script>
-        // TOGGLES THE MOBILE NAVIGATION MENU
+        // --- Existing Navigation Functions ---
         function toggleMenu() {
-            var nav = document.getElementById("main-nav"); 
-            nav.classList.toggle("show-menu");
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('show-menu');
         }
 
-        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK
         function toggleDropdown(event) {
-            if (window.innerWidth < 769) {
-                event.preventDefault(); 
-                const dropdown = event.currentTarget;
-                dropdown.classList.toggle('active');
+            const dropdown = event.currentTarget;
+            // Only show/hide on click if on mobile (max-width: 768px). 
+            if (window.innerWidth <= 768) {
+                const content = dropdown.querySelector('.dropdown-content');
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            }
+            // Prevent the default link action on the Services link when clicking the dropdown container
+            event.preventDefault(); 
+        }
+
+        // --- New Search Functionality ---
+
+        // Helper function to safely remove previous highlights
+        function removeHighlights(container) {
+            container.querySelectorAll('.highlight').forEach(mark => {
+                // Replace the <mark> element with its own text content
+                mark.replaceWith(...mark.childNodes);
+            });
+            // Normalize merges adjacent text nodes created by the replacement logic
+            container.normalize(); 
+        }
+
+        // Main search function to find and highlight terms
+        function searchPage(event) {
+            event.preventDefault(); // Stop form submission/page reload
+            const input = document.getElementById('search-input');
+            const searchTerm = input.value.trim();
+            // Target the main content container (the second .container)
+            const contentArea = document.querySelector('.container:nth-of-type(2)'); 
+
+            // 1. Clear previous highlights first
+            removeHighlights(contentArea);
+
+            if (searchTerm.length < 2) { 
+                // Only search if the term is at least 2 characters long
+                if (searchTerm.length > 0) {
+                    alert("Please enter at least 2 characters to search.");
+                }
+                return; 
+            }
+
+            // 2. Prepare regex for safe, global, case-insensitive replacement
+            // Escape special regex characters
+            const escapedSearchTerm = searchTerm.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+            // Regex for case-insensitive test
+            const regexTest = new RegExp(escapedSearchTerm, 'i');
+            // Regex for global replacement, with capture group for the highlight text
+            const regexGlobal = new RegExp(`(${escapedSearchTerm})`, 'gi'); 
+
+            let firstMatchElement = null;
+            let matchCount = 0;
+
+            // 3. Tree Walker to safely traverse only text nodes
+            const walker = document.createTreeWalker(
+                contentArea,
+                NodeFilter.SHOW_TEXT,
+                // Filter: Skip nodes inside elements where we don't want highlighting (e.g., button/link content)
+                { acceptNode: function(node) {
+                    if (node.parentElement.matches('script, style, .search-container, .logo-area, .dropdown-toggle, #quick-links a, .cta-button, .search-button')) {
+                        return NodeFilter.FILTER_SKIP;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }},
+                false
+            );
+
+            let node;
+            while (node = walker.nextNode()) {
+                const text = node.nodeValue;
+                
+                if (regexTest.test(text)) {
+                    // Found a match in this text node
+
+                    // 4. Create a document fragment to hold the new content
+                    const fragment = document.createDocumentFragment();
+                    let lastIndex = 0;
+                    let match;
+
+                    // Use regexGlobal for multiple matches in the same text node
+                    while ((match = regexGlobal.exec(text)) !== null) {
+                        matchCount++;
+
+                        // Append text before the match
+                        fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+
+                        // Create the highlight element
+                        const mark = document.createElement('mark');
+                        mark.className = 'highlight';
+                        mark.textContent = match[0]; // The matched word
+                        fragment.appendChild(mark);
+                        
+                        // Set first match for scrolling
+                        if (!firstMatchElement) {
+                            firstMatchElement = mark;
+                        }
+
+                        lastIndex = match.index + match[0].length;
+                    }
+
+                    // Append remaining text after the last match
+                    fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+
+                    // 5. Replace the original text node with the fragment
+                    node.parentNode.replaceChild(fragment, node);
+
+                    // Must adjust the walker to continue after the replaced node's content
+                    // The simplest adjustment is to continue the loop as the walker advances naturally
+                    // to the next text node after the fragment's children.
+                }
+            }
+            
+            // 6. Scroll to the first match
+            if (firstMatchElement) {
+                // Scroll slightly above the element for better context (accounting for fixed header)
+                const headerHeight = 120; 
+                const elementPosition = firstMatchElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition > 0 ? offsetPosition : 0,
+                    behavior: 'smooth'
+                });
+                
+                // Keep the term in the input field
+                input.value = searchTerm;
+            } else if (searchTerm.length >= 2) {
+                alert(`No matches found for "${searchTerm}" on this page.`);
             }
         }
-        
-        // Function to set the active link dynamically
-        document.addEventListener('DOMContentLoaded', () => {
-            (function setActiveLink() {
-                const path = window.location.pathname.split('/').pop();
-                const activePage = path.split('.')[0] || 'index'; 
-                
-                document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
-                    el.classList.remove('active');
-                });
 
-                // Check for the Services page specifically
-                if (path === 'services.html') {
-                    const dropdownToggle = document.getElementById('nav-services');
-                    if (dropdownToggle) {
-                        dropdownToggle.classList.add('active');
-                    }
-                    return;
-                }
-
-                const activeLink = document.getElementById(`nav-${activePage}`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                    
-                    // If the active link is inside a dropdown, highlight the dropdown toggle too
-                    if (activeLink.closest('.dropdown')) {
-                        activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
-                    }
-                }
-            })();
-        });
     </script>
-
 </body>
 </html>
