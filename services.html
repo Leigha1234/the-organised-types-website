@@ -554,6 +554,55 @@
             background-color: #F8F4F0;
         }
 
+/* Search Bar Styles */
+    .search-container {
+        display: flex;
+        align-items: center;
+        margin-right: 20px; 
+        border: 1px solid var(--primary-color);
+        border-radius: 4px;
+        overflow: hidden; 
+        background-color: var(--cream-bg);
+    }
+    .search-input {
+        padding: 8px 12px;
+        border: none; 
+        font-family: var(--font-main);
+        font-size: 0.9em;
+        width: 150px;
+        box-sizing: border-box;
+        background-color: transparent;
+    }
+    .search-input:focus {
+        outline: none;
+    }
+    .search-button {
+        background-color: var(--primary-color);
+        color: var(--cream-bg);
+        border: none; 
+        padding: 8px 10px;
+        cursor: pointer;
+        font-size: 0.9em;
+        line-height: 1;
+        transition: background-color 0.3s ease;
+    }
+    .search-button:hover {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+        color: var(--primary-color);
+    }
+
+    /* Highlight Style for Search Results */
+    .highlight {
+        background-color: #ffeb3b; /* Bright, visible yellow */
+        color: var(--primary-color);
+        font-weight: 700;
+        padding: 1px 0;
+        border-radius: 2px;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
         /* --- MOBILE SPECIFIC STYLES --- */
         @media (max-width: 768px) {
             
@@ -741,6 +790,11 @@
             </nav>
         </div>
 
+        <form class="search-container" id="search-form" onsubmit="searchPage(event)">
+    <input type="text" placeholder="Search this page..." class="search-input" id="search-input">
+    <button type="submit" class="search-button" title="Search">🔍</button>
+</form>
+
         <section id="website" class="service-section">
             <h2>Website Design & Development</h2>
             <p>Your website is your digital storefront — and first impressions matter. We build high-performing, visually stunning websites designed to elevate your credibility, attract your ideal clients, and turn visitors into customers. Every site is strategically planned, professionally designed, and built with user experience at the center. Every site is strategically planned, professionally designed, and built with user experience at the center.</p>
@@ -870,15 +924,15 @@
                 <ul>
                     <li>
                         <span>Logo Design (Simple Text-Based)</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
                         <span>Basic Brand Style Guide (Colors & Fonts)</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
                         <span>Professional Photography Integration (Your provided photos)</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                 </ul>
 
@@ -886,23 +940,23 @@
                 <ul>
                     <li>
                         <span>Extra Page Design & Implementation (per page)</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
                         <span>Advanced SEO & Content Optimisation</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
                         <span>CRM or Email Marketing Integration (e.g., MailChimp, Flodesk)</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
                         <span>Membership or Client Portal Setup</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
                         <span>Dedicated Blog Setup & 2 initial posts</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                 </ul>
 
@@ -910,11 +964,11 @@
                 <ul>
                     <li>
                         <span>Monthly Website Maintenance Package (Contact for tailored pricing)</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
                         <span>One-off Maintenance & Troubleshooting (Hourly Rate)</span>
-                        <a href="contact.html" class="cta-button small">Enquire</a>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                 </ul>
             </div>
@@ -1033,7 +1087,7 @@
                     <div class="best-for">
                         Best for: ✔ Launching a new offer, ✔ Scaling operations, ✔ Automating client onboarding, ✔ Full business model overhaul
                     </div>
-                    <a href="coaching-90day.html" class="cta-button" onclick="event.stopPropagation()">Apply Now</a>
+                    <a href="coaching-90day.html" class="cta-button" onclick="event.stopPropagation()">Book Now</a>
                 </div>
 
                 <div class="package-card" data-details-url="coaching-executive.html">
@@ -1051,7 +1105,7 @@
                     <div class="best-for">
                         Best for: ✔ Established businesses, ✔ Leaders transitioning roles, ✔ Teams planning major product or market expansion
                     </div>
-                    <a href="coaching-executive.html" class="cta-button" onclick="event.stopPropagation()">Apply Now</a>
+                    <a href="coaching-executive.html" class="cta-button" onclick="event.stopPropagation()">Book Now</a>
                 </div>
 
             </div>
@@ -1295,6 +1349,77 @@
             }
         }
 
+        // Search Functionality
+    function searchPage(event) {
+        event.preventDefault(); // Stop form submission/page reload
+        const searchTerm = document.getElementById('search-input').value.trim();
+
+        // 1. Clear previous highlights
+        const highlightedElements = document.querySelectorAll('.highlight');
+        highlightedElements.forEach(el => {
+            // Restore text content by replacing the span with its content
+            el.replaceWith(document.createTextNode(el.textContent));
+        });
+
+        if (!searchTerm) {
+            return; // Do nothing if search term is empty
+        }
+
+        // 2. Prepare for new highlighting (case-insensitive, global)
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        // Search the entire body content
+        const container = document.body;
+        
+        if (container) {
+            
+            // Function to recursively traverse nodes and replace matching text
+            function highlightTextNodes(node) {
+                if (node.nodeType === 3) { // Node is a text node
+                    const parent = node.parentNode;
+                    // Avoid highlighting within the search bar, script, or style tags
+                    if (!parent || parent.closest('#search-form') || parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                        return;
+                    }
+
+                    // Check if text contains the search term
+                    if (regex.test(node.nodeValue)) {
+                        // Split text node by the search term and wrap matches in a span
+                        const fragments = node.nodeValue.split(regex);
+                        
+                        const fragment = document.createDocumentFragment();
+
+                        fragments.forEach((fragmentText, index) => {
+                            if (index % 2 === 1) { // This is a match
+                                const span = document.createElement('span');
+                                span.className = 'highlight';
+                                span.textContent = fragmentText;
+                                fragment.appendChild(span);
+                            } else if (fragmentText.length > 0) { // Text before/between/after matches
+                                fragment.appendChild(document.createTextNode(fragmentText));
+                            }
+                        });
+
+                        // Replace the original text node with the fragment
+                        parent.replaceChild(fragment, node);
+                    }
+                } else if (node.nodeType === 1) { // Node is an element
+                    // Recurse into children
+                    if (node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+                        // Convert ChildNode list to Array before iteration to avoid issues when replacing nodes
+                        Array.from(node.childNodes).forEach(highlightTextNodes);
+                    }
+                }
+            }
+
+            highlightTextNodes(container);
+            
+            // 3. Scroll to the first highlighted element
+            const firstHighlight = document.querySelector('.highlight');
+            if (firstHighlight) {
+                firstHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }
     </script>
 </body>
 </html>
