@@ -470,21 +470,30 @@
                 order: 2; 
             }
             
-            /* Button & Grid Fitting - *** ADJUSTED HERE *** */
+            /* Button & Grid Fitting - *** ADJUSTED FOR EQUAL SIDE SPACING *** */
             .link-button { 
-                width: 100%; /* Make buttons full width */
+                display: block; /* Important for margin: auto to work */
+                width: 80%; /* Reduced width for side space (10% on each side) */
+                margin: 5px auto; /* Center the button, providing equal space on left and right */
                 font-size: 0.85em; /* Slightly smaller font for tighter fit */
                 padding: 8px 12px; /* Reduced padding to shrink button size */
             }
+            
+            /* Override colors for buttons in footer CTA for better contrast */
             .footer-cta .link-button {
-                margin: 5px 0; /* Ensures vertical stacking with no side margin */
-                background: var(--accent-color); /* Resetting colors for mobile contrast */
+                background: var(--accent-color); 
                 color: var(--primary-color);
             }
             .footer-cta .link-button:hover {
                 background-color: #92a487;
                 color: var(--primary-color);
             }
+            /* Override for alt-options buttons to maintain the new margin: auto */
+            .alt-options .link-button {
+                margin: 5px auto; /* Ensure centering is applied here too */
+            }
+
+
             .faq-snippet > .contact-grid { 
                 grid-template-columns: 1fr; /* Stack quick help answers */
             }
