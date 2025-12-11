@@ -174,6 +174,22 @@
             margin-top: auto; 
         }
         footer a { color: var(--accent-color); text-decoration: none; }
+        
+        /* New: Footer Socials Style */
+        .social-links {
+            margin-bottom: 15px;
+        }
+        .social-links a {
+            color: var(--primary-color); 
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
 
         /* --- PAGE-SPECIFIC STYLES: SERVICES CONTENT --- */
         
@@ -275,7 +291,6 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
             display: flex;
             flex-direction: column;
-            /* Adjusted from 480px to make room for image placeholder */
             min-height: 380px; 
         }
         .package-card.featured {
@@ -290,14 +305,18 @@
             font-weight: 700;
         }
         
-        /* NEW: Image Placeholder Style */
+        /* UPDATED: Image Placeholder Style (Works for both text and actual image) */
         .package-image-placeholder {
             width: 100%;
             height: 180px; /* Fixed height for the image area */
-            background-color: var(--logo-bg); /* Use a soft background color */
             border-radius: 6px;
             margin-bottom: 15px;
             border: 1px solid #E0E0E0;
+            box-sizing: border-box;
+            overflow: hidden; /* Ensures the image doesn't bleed */
+            
+            /* Styles for the default TEXT placeholder (used in Branding, Coaching, Templates) */
+            background-color: var(--logo-bg); 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -306,10 +325,18 @@
             font-weight: 600;
             text-align: center;
             padding: 10px;
-            box-sizing: border-box;
             font-style: italic;
         }
-        /* END NEW STYLE */
+        /* Style for the actual image inside the placeholder container */
+        .package-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the 180px height area */
+            display: block;
+            border-radius: 0;
+            /* Override the parent's flex behavior when an image is present */
+        }
+        /* END UPDATED STYLE */
         
         .package-card .price {
             font-size: 1.2em;
@@ -604,7 +631,9 @@
                 
                 <div class="package-card">
                     <h4>Micro Website</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg.png" alt="Professional website design mockup on a laptop" style="object-position: center top;">
+                    </div>
                     <span class="price">From £195</span>
                     <p>Perfect for: **Start-ups, simple landing pages, single-service businesses**</p>
                     <p>A clean, simple, strategic one-page website designed to introduce your brand, capture leads, and give your business a professional online home — without the complexity of a multi-page build.</p>
@@ -625,7 +654,9 @@
 
                 <div class="package-card">
                     <h4>Starter Website</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg.png" alt="Professional website design mockup on a laptop" style="object-position: center top;">
+                    </div>
                     <span class="price">From £495</span>
                     <p>Perfect for: **Small businesses needing a clean, simple and functional online presence**</p>
                     <p>A beautifully designed, user-friendly website with the key pages every business needs. Ideal for service-based businesses wanting a professional presence without overwhelming features.</p>
@@ -646,7 +677,9 @@
 
                 <div class="package-card featured">
                     <h4>Small Business Website</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg.png" alt="Professional website design mockup on a laptop" style="object-position: center top;">
+                    </div>
                     <span class="price">From £795</span>
                     <p>Perfect for: **Growing businesses ready for a more complete, high-quality website**</p>
                     <p>A polished and strategically designed website that showcases your brand, builds trust, and helps convert visitors into customers. Includes all essential core pages plus improved structure and SEO.</p>
@@ -667,7 +700,9 @@
 
                 <div class="package-card">
                     <h4>Professional Website</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg.png" alt="Professional website design mockup on a laptop" style="object-position: center top;">
+                    </div>
                     <span class="price">From £1,195</span>
                     <p>Perfect for: **Established businesses needing a fully custom, conversion-focused site**</p>
                     <p>A bespoke, high-converting website crafted around your brand story, services, and long-term goals. Includes deeper SEO setup, blog or portfolio functionality, and enhanced design elements.</p>
@@ -689,7 +724,9 @@
                 
                 <div class="package-card" style="grid-column: span 1 / auto;">
                     <h4>Premium Website (Advanced Features)</h4>
-                    <div class="package-image-placeholder">Placeholder Image (2:1 Aspect Ratio)</div>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg.png" alt="Professional website design mockup on a laptop" style="object-position: center top;">
+                    </div>
                     <span class="price">From £1,800 - £2,500</span>
                     <p>Perfect for: **Businesses needing ecommerce, booking systems, memberships or advanced integrations**</p>
                     <p>A comprehensive, strategy-led website with everything your brand needs to scale. Designed for businesses requiring automation, online sales, memberships, or more complex customer journeys.</p>
@@ -1047,6 +1084,11 @@
 
     </div> <footer>
         <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/theorganisedtypes/" target="_blank">Instagram</a> |
+                <a href="https://www.tiktok.com/@theorganisedtypes" target="_blank">TikTok</a> |
+                <a href="https://www.pinterest.co.uk/theorganisedtypes/" target="_blank">Pinterest</a>
+            </div>
             &copy; 2025 The Organised Types. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
         </div>
     </footer>
