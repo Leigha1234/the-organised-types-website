@@ -622,7 +622,7 @@
     /* Ensure the wrapper of the table cannot restrict height */
     height: auto !important;
     max-height: none !important;
-    overflow: visible !important;
+    overflow: auto !important;
 }
 
 /* Original table styles */
@@ -632,11 +632,13 @@
     margin-top: 20px;
     font-size: 0.95em;
     height: auto; /* Ensure the table itself doesn't have height issues */
+    table-layout: fixed;
 }
         .comparison-table th, .comparison-table td {
             border: 1px solid #dddddd;
             padding: 10px;
             text-align: center;
+            word-wrap: break-word;
         }
         .comparison-table th {
             background-color: var(--logo-bg);
@@ -819,6 +821,12 @@
             /* Mobile Table HIDE Rule */
             .hide-on-mobile {
                 display: none !important;
+            }
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 5px;
             }
         }
         @media (min-width: 769px) {
@@ -1291,14 +1299,9 @@
     </div>
 </a>
 
-
-
-<h3 id="coaching-table">Coaching Package Comparison</h3>
-<div class="comparison-table-wrapper" style="overflow-x: auto;">
-    <table class="comparison-table">
-        </table>
-
-            
+            <h3 id="coaching-table">Coaching Package Comparison</h3>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
                     <thead>
                         <tr>
                             <th>Feature</th>
@@ -1346,7 +1349,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
             </div>
         </section>
 
