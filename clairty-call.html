@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay-As-You-Go Coaching - The Organised Types</title>
+    <title>THE CLARITY CALL - The Organised Types</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -163,7 +163,7 @@
         }
         .cta-button:hover { background-color: #92a487; }
         
-       /* --- FOOTER STYLES (UPDATED) --- */
+         /* --- FOOTER STYLES (UPDATED) --- */
         footer { 
             background-color: var(--logo-bg); 
             color: var(--primary-color); 
@@ -230,7 +230,6 @@
         .footer-copyright p {
             margin: 0;
         }
-
 
         /* --- PAGE-SPECIFIC STYLES: DETAIL CONTENT --- */
         .detail-header {
@@ -301,7 +300,6 @@
             margin-bottom: 10px;
             background: var(--cream-bg);
             border-radius: 4px;
-            line-height: 1.5; /* Added for mobile readability */
         }
         .process-list li::before {
             content: counter(detail-step);
@@ -330,51 +328,37 @@
         /* --- MOBILE SPECIFIC STYLES (768px and below) --- */
         @media (max-width: 768px) {
             
-            /* --- FONT SIZE SCALING --- */
+            /* --- FONT SIZE SCALING (Matching Index Page) --- */
             body { 
-                font-size: 0.9em; 
+                font-size: 0.85em; /* General text scale down (paragraph text) */
             }
             .container { 
-                margin-top: 90px; /* Reduced margin to 90px */
-                padding: 15px; /* Reduced padding */
+                margin-top: 110px; 
+                padding: 20px 10px; 
             }
-            
-            /* HEADER ELEMENTS REDUCTION */
             .detail-header h1 { 
-                font-size: 2em; /* Reduced from 3em */
+                font-size: 2.2em; /* Page Title */
             }
             .detail-header .price { 
-                font-size: 1.2em; /* Reduced from 1.6em */
+                font-size: 1.4em; /* Price text */
             }
             .tagline {
-                font-size: 1em; 
+                font-size: 1em; /* Tagline text */
             }
             .content-section h2 { 
-                font-size: 1.5em; /* Reduced from 1.8em */
+                font-size: 1.6em; /* Section Headings */
             }
-            .content-section p, 
-            .content-section ul li {
-                font-size: 0.9em; 
-            }
-            .feature-item {
-                font-size: 0.85em; 
-            }
-            .process-list li {
-                font-size: 0.9em;
+            .feature-item, .feature-item strong {
+                font-size: 0.9em; /* Feature text */
             }
             .cta-button {
-                padding: 12px 25px; 
-                font-size: 1em; 
+                padding: 10px 20px;
+                font-size: 1em;
             }
-            footer {
-                font-size: 0.8em;
+            .features-grid { 
+                grid-template-columns: 1fr; 
             }
 
-            /* --- LAYOUT FIXES --- */
-            .features-grid { 
-                grid-template-columns: 1fr; /* Stack features vertically */
-            }
-            
             /* --- NAVIGATION FIXES --- */
             .menu-icon { display: flex; }
             #main-nav {
@@ -395,15 +379,20 @@
                 display: block;
                 border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
                 text-align: center;
-                margin-left: 0;
             }
             
-            /* Mobile: Handling Dropdown */
+            /* Mobile: Show all dropdown content links when menu is visible */
             .dropdown { 
                 margin: 0; 
                 width: 100%; 
                 display: contents; 
             }
+            .dropdown-toggle { 
+                text-align: center;
+                content: none !important; 
+            } 
+            .dropdown-toggle:after { content: none; }
+
             .dropdown-content { 
                 display: block; 
                 position: static; 
@@ -416,7 +405,7 @@
             }
             .dropdown-content a { 
                 padding: 5px 0; 
-                font-size: 0.8em; 
+                font-size: 0.85em; /* Slightly smaller for sub-links */
                 background-color: rgba(79, 74, 70, 0.03); 
                 text-align: center; 
                 border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
@@ -439,13 +428,13 @@
                 <span></span>
                 <span></span>
             </div>
-          <nav id="main-nav">
+            <nav id="main-nav">
     <a href="index.html" id="nav-index">Home</a> 
     
     <a href="about.html" id="nav-about">About</a> 
     
     <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
+        <a href="services.html" class="dropdown-toggle active" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
         <div class="dropdown-content">
             <a href="services.html#website">Website Design & Development</a>
             <a href="services.html#branding">Brand Identity & Digital Design</a>
@@ -462,66 +451,69 @@
     <div class="container">
         
         <div class="detail-header">
-            <h1>Pay-As-You-Go Coaching Session</h1>
-            <p class="tagline">Immediate clarity and an actionable plan for your most pressing business challenge.</p>
-            <p class="price">£(Your Price) per session</p>
+            <h1>THE CLARITY CALL</h1>
+            <p class="tagline">A focused, 60-minute session to troubleshoot, strategize, and solve your single biggest business bottleneck.</p>
+            <p class="price">£199</p>
         </div>
 
         <div class="content-section">
-            <h2>Instant Focus, Immediate Results</h2>
-            <p>Our Pay-As-You-Go coaching is perfect for addressing specific roadblocks, gaining quick strategy advice, or seeking immediate clarity without committing to a long-term package. We maximize the 60 minutes to deliver high-value, actionable direction.</p>
-            <p>Common session topics include: Pricing strategy, optimizing one specific offer, resolving a system bottleneck, gaining clarity on a new product launch, or creating a 90-day focus plan.</p>
+            <h2>Instant Solutions, Zero Fluff</h2>
+            <p>The Clarity Call is designed for **quick, powerful solutions**. If you are stuck on a specific problem—whether it's choosing the right software, defining your next offer, optimizing your client flow, or simply needing a confident second opinion—this hour is dedicated entirely to you.</p>
+            <p>Walk away with a clear action plan, expert guidance, and renewed confidence to move forward without months of commitment.</p>
         </div>
 
         <div class="content-section">
-            <h2>What's Included in Your Session</h2>
+            <h2>What You Get</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <strong>1 x 60-Minute Session</strong>
-                    A dedicated 1:1 call (via Zoom or phone) focused entirely on your stated challenge.
+                    <strong>1-Hour Live Video Session</strong>
+                    A dedicated 60-minute, one-on-one call via Zoom focused purely on your most urgent problem.
                 </div>
                 <div class="feature-item">
-                    <strong>Pre-Session Questionnaire</strong>
-                    A form to submit your challenge and goals in advance, ensuring we hit the ground running.
+                    <strong>Pre-Call Intake Form</strong>
+                    Submit your questions and details beforehand so we can dive straight into solutions, maximizing your time.
                 </div>
                 <div class="feature-item">
-                    <strong>Personalized Action Plan</strong>
-                    A concise, written summary of key takeaways and the next 3-5 steps you need to take.
+                    <strong>Tailored Action Plan (PDF)</strong>
+                    A concise, step-by-step document delivered within 48 hours summarizing our discussion and outlining the immediate steps you need to take.
                 </div>
                 <div class="feature-item">
-                    <strong>48-Hour Follow-Up Support</strong>
-                    Quick email or message support to clarify any points from the action plan immediately following the session.
+                    <strong>Targeted Resource Recommendations</strong>
+                    Specific tools, templates, or software links relevant to your immediate needs and goals.
                 </div>
             </div>
         </div>
 
         <div class="content-section">
-            <h2>How to Book Your Power Session</h2>
-            <p>Get your session booked and your questions answered in three simple steps:</p>
+            <h2>The Clarity Call Process</h2>
             <ol class="process-list">
                 <li>
                     <strong>Book & Pay</strong>
-                    Select a time slot on our booking calendar and complete your payment.
+                    Secure your preferred date and time on our calendar and complete the payment.
                 </li>
                 <li>
-                    <strong>Complete the Questionnaire</strong>
-                    Submit your details and the topic you want to cover at least 24 hours prior to the call.
+                    <strong>Complete Intake Form</strong>
+                    Fill out the brief form detailing your challenge and what you hope to achieve in the call.
                 </li>
                 <li>
-                    <strong>Call & Action Plan</strong>
-                    We meet for 60 minutes, and you receive your action plan within 24 hours.
+                    <strong>The 60-Minute Clarity Call</strong>
+                    We meet on Zoom to discuss your problem, explore solutions, and agree on a clear path forward.
+                </li>
+                <li>
+                    <strong>Receive Your Action Plan</strong>
+                    Get your personalized PDF summary and action steps delivered to your inbox within 2 days.
                 </li>
             </ol>
         </div>
         
         <div class="call-to-action">
-            <h3>Ready for immediate clarity and direction?</h3>
-            <a href="contact.html" class="cta-button">Book Your Session Now</a>
+            <h3>Ready to cut through the confusion and get clear on your next move?</h3>
+            <a href="contact.html" class="cta-button">Book Your Clarity Call Now</a>
         </div>
 
     </div>
 
-    <footer>
+   <footer>
         <div class="container footer-content-grid">
             
             <div class="footer-section footer-logo">
@@ -582,25 +574,12 @@
                 el.classList.remove('active');
             });
             
-            // List of potential detail pages that should activate the Services link
-            const detailPages = [
-                'branding-suite', 'website-design', 'coaching-session', 
-                'essential-brand-identity-kit', 'branding-kickstart-package', 
-                'mini-brand-starter-kit', 'premium-brand-social-kit', 
-                'signature-brand-kit', 'complete-brand-identity-suite',
-                'growth-bundle-coaching', 'immersive-strategy-coaching',
-                'pay-as-you-go-coaching', 'transformation-package' 
-            ];
-            
+            // Manually handle the case where a detail page should activate the parent 'Services' link
             const servicesLink = document.getElementById('nav-services');
-            
-            if (detailPages.some(page => activePage.includes(page))) {
+            // NOTE: Added 'clarity-call' to the active page check
+            if (activePage.includes('clarity-call') || activePage.includes('branding-suite') || activePage.includes('website-design') || activePage.includes('coaching-session') || activePage.includes('essential-brand-identity-kit') || activePage.includes('branding-kickstart-package') || activePage.includes('mini-brand-starter-kit') || activePage.includes('premium-brand-social-kit') || activePage.includes('signature-brand-kit') || activePage.includes('complete-brand-identity-suite')) {
                 if (servicesLink) {
                     servicesLink.classList.add('active');
-                    // Ensure dropdown toggle is also active 
-                    if (servicesLink.closest('.dropdown')) {
-                        servicesLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
-                    }
                 }
             } else {
                 const activeLink = document.getElementById(`nav-${activePage}`);
