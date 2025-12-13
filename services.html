@@ -37,6 +37,52 @@
             box-sizing: border-box; 
         }
 
+/* ADD THIS NEW CSS RULE SET */
+.package-card-link {
+    text-decoration: none; /* Remove underline from the entire card */
+    color: inherit;       /* Ensure text colour remains the same as the card text */
+    display: block;       /* Make the link take up the full column space */
+    /* Add the transition to the link wrapper itself for a better effect */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Apply the hover effect on the link wrapper, targetting the card inside */
+.package-card-link:hover .package-card {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* NEW: Disable pointer events on the inner CTA element so clicks fall through to the parent <a> */
+.package-card-link .cta-button {
+    /* If you change the inner CTA to a span/div, the pointer-events rule is crucial: */
+    pointer-events: none;
+    /* OVERRIDE: Remove the max-width: 200px rule and put it back on a wrapper */
+    max-width: none;
+    width: 100%;
+}
+
+/* NEW: Container to re-center the button at the bottom of the card */
+.cta-button-container {
+    margin-top: auto; /* Pushes the button to the bottom */
+    padding-top: 15px;
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+    /* Ensure the actual card wrapper doesn't have conflicting rules */
+    /* You can REMOVE the original .package-card .cta-button style now: */
+    /*
+    .package-card .cta-button {
+        margin-top: auto; 
+        padding: 10px 20px;
+        font-size: 1em;
+        width: 100%;
+        max-width: 200px; 
+        align-self: center; 
+        z-index: 10;
+    }
+    */
+}
+
         /* --- HEADER & NAVIGATION (Common Styles) --- */
         header { 
             background-color: var(--logo-bg); 
