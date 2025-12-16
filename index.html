@@ -757,6 +757,48 @@
             .carousel-track {
                 padding: 0 5%;
             }
+
+            footer {
+    padding: 25px 0 15px;           /* Reduce vertical height */
+    font-size: 0.8em;               /* Slightly smaller text */
+}
+
+/* Stack footer columns cleanly */
+.footer-content-grid {
+    grid-template-columns: 1fr;     /* Single column */
+    gap: 20px;                      /* Controlled spacing */
+    padding: 20px 0;                /* Reduce overall height */
+    text-align: center;
+}
+
+/* Footer sections spacing */
+.footer-section {
+    padding: 0;                     /* Remove side padding */
+}
+
+/* Footer logo sizing */
+.footer-logo img {
+    height: 60px;                   /* Smaller logo for mobile */
+    margin: 0 auto;
+}
+
+/* Footer links tighter spacing */
+.footer-section ul li {
+    margin-bottom: 4px;
+}
+
+/* Social + legal alignment */
+.footer-socials,
+.footer-legal,
+.footer-legal ul {
+    text-align: center;
+}
+
+/* Copyright bar tighter */
+.footer-copyright {
+    padding: 8px 0;
+    font-size: 0.75em;
+}
         }
     </style>
 </head>
