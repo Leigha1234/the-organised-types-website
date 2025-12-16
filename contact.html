@@ -721,19 +721,6 @@
 
             </div>
             
-            <div class="why-contact">
-                <h2>Why Contact Us?</h2>
-                <p>At The Organised Types we're all about clarity, creativity and business growth. Whether you're:</p>
-                <ul>
-                    <li>starting a business</li>
-                    <li>building your brand</li>
-                    <li>launching a website</li>
-                    <li>looking to be more organised</li>
-                    <li>investing in training or tools</li>
-                </ul>
-                <p>we'll help you take the next step with confidence.</p>
-            </div>
-            
             <div class="faq-snippet">
                 <h2>Quick Help & Support</h2>
                 <div class="contact-grid">
@@ -756,7 +743,7 @@
                         <p>Yes — contact us with your brief and we'll get back to you with options.</p>
                         
                         <h4>How long will it take to hear from you?</h4>
-                        <p>We aim to respond within 24–48 hours on weekdays.</p>
+                        <p>We aim to respond within 24-48 hours on weekdays.</p>
                         
                         <h4>Can I chat over video?</h4>
                         <p>Absolutely — book a coaching call or project consultation and we can connect on Zoom.</p>
@@ -834,11 +821,26 @@
 const form = document.getElementById('newsletter-form');
     const thanks = document.getElementById('thanks-msg');
 
-    form.onsubmit = function(e) {
-        // This makes the form disappear and the thank you message appear instantly
-        form.style.display = 'none'; 
-        thanks.style.display = 'block';
-    };
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // This stops the page from redirecting
+
+        const formData = new FormData(form);
+        
+        // This sends the data to MailerLite in the background
+        fetch('https://assets.mailerlite.com/jsonp/1976098/forms/173944037984699428/subscribe', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Allows the request to fire without browser security blocks
+        }).then(() => {
+            // Hide form and show success message
+            form.style.display = 'none';
+            thanks.style.display = 'block';
+        }).catch(err => {
+            // Fallback: still show success message even if CORS shows an "error"
+            form.style.display = 'none';
+            thanks.style.display = 'block';
+        });
+    });
 
         // TOGGLES THE MOBILE NAVIGATION MENU
         function toggleMenu() {
