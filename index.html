@@ -6,742 +6,285 @@
     <title>Home - The Organised Types</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* CSS Variables */
-        :root {
-            --primary-color: #4f4a46; /* Dark Taupe from Logo */
-            --accent-color: #A9B897; /* Dull Sage Green */
-            --cream-bg: #FAF8F5; 
-            --logo-bg: #EFE6E1; 
-            --card-bg: #FFFFFF; 
-            --text-color: #4f4a46; 
-            --font-main: 'Poppins', sans-serif;
-            --secondary-cta: #4f4a46; 
-            --secondary-cta-text: #ffffff; 
-        }
-        body { 
-            font-family: var(--font-main); 
-            margin: 0; 
-            padding: 0; 
-            background-color: var(--cream-bg); 
-            color: var(--text-color); 
-            line-height: 1.7; 
-            font-weight: 400; 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-        }
-        .container { 
-            width: 90%; 
-            max-width: 1200px; 
-            margin: auto; 
-            padding: 30px 0; 
-            box-sizing: border-box; 
-        }
+/* CSS Variables */
+:root {
+    --primary-color: #4f4a46;
+    --accent-color: #A9B897;
+    --cream-bg: #FAF8F5; 
+    --logo-bg: #EFE6E1; 
+    --card-bg: #FFFFFF; 
+    --text-color: #4f4a46; 
+    --font-main: 'Poppins', sans-serif;
+    --secondary-cta: #4f4a46; 
+    --secondary-cta-text: #ffffff; 
+}
 
-        /* --- HEADER & NAVIGATION --- */
-        header { 
-            background-color: var(--logo-bg); 
-            border-bottom: 1px solid #e0e0e0; 
-            padding: 5px 0; 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            z-index: 20; 
-        }
-        .navbar { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            width: 90%; 
-            max-width: 1200px; 
-            margin: 0 auto;
-            padding: 0 15px; 
-            box-sizing: border-box;
-        }
-        .logo-area img { 
-            height: 140px; 
-            margin-right: 10px; 
-        } 
-        
-        /* DESKTOP NAVIGATION */
-        #main-nav {
-            display: flex;
-            align-items: center;
-        }
-        #main-nav a { 
-            color: var(--primary-color); 
-            text-decoration: none; 
-            margin-left: 25px; 
-            font-weight: 500; 
-            transition: color 0.3s ease; 
-            white-space: nowrap;
-        }
-        #main-nav a:hover, 
-        #main-nav a.active { 
-            color: var(--accent-color); 
-        }
-        
-        /* DROPDOWN CONTAINER */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-left: 25px;
-            white-space: nowrap;
-        }
-        .dropdown-toggle {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 10px 0; /* Add padding for click area */
-            cursor: pointer; /* Changed to pointer to indicate clickability on desktop/mobile */
-            display: block;
-        }
-        .dropdown-toggle:hover {
-            color: var(--accent-color);
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--accent-color);
-            min-width: 250px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 2;
-            padding: 10px 0;
-            border-radius: 4px;
-            top: 100%; /* Position below the toggle */
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .dropdown-content a {
-            color: var(--primary-color);
-            padding: 10px 20px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            margin: 0; /* Override main-nav margin */
-            font-weight: 400;
-            transition: background-color 0.3s;
-        }
-        .dropdown-content a:hover {
-           background-color: var(--primary-color);
-            color: var(--light-text);
-        }
+body { 
+    font-family: var(--font-main); 
+    margin: 0; 
+    padding: 0; 
+    background-color: var(--cream-bg); 
+    color: var(--text-color); 
+    line-height: 1.7; 
+    font-weight: 400; 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+}
 
-        /* SHOW DROPDOWN ON DESKTOP HOVER */
-        /* Only apply hover/static display logic above mobile breakpoint */
-        @media (min-width: 769px) {
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
-        }
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: auto; 
+    padding: 30px 0; 
+    box-sizing: border-box; 
+}
 
-        /* HAMBURGER ICON (Desktop Hidden) */
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
-        }
-        .menu-icon span {
-            display: block;
-            width: 100%;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 3px;
-        }
+/* --- HEADER & NAVIGATION --- */
+header { 
+    background-color: var(--logo-bg); 
+    border-bottom: 1px solid #e0e0e0; 
+    padding: 5px 0; 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 20; 
+}
 
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 15px; 
+    box-sizing: border-box;
+}
 
-        /* --- BUTTONS & HEADINGS (Rest of the styles remain the same) --- */
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--primary-color); 
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            border: none;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-        .cta-button:hover { 
-            background-color: #92a487; 
-        }
-        .cta-button.secondary {
-            background: var(--secondary-cta);
-            color: var(--secondary-cta-text);
-            margin-left: 15px;
-        }
-        .cta-button.secondary:hover {
-            background-color: #6a635e; 
-        }
-        
-        .section-heading { 
-            text-align: center; 
-            margin-bottom: 20px; 
-            font-size: 2.4em; 
-            font-weight: 700; 
-            color: var(--primary-color); 
-        }
-        .card-link-button {
-            display: inline-block;
-            background: var(--primary-color);
-            color: #ffffff; 
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
-        }
-        .card-link-button:hover {
-            background-color: #6a635e; 
-        }
+.logo-area img { 
+    height: 140px; 
+    margin-right: 10px; 
+} 
 
+#main-nav {
+    display: flex;
+    align-items: center;
+}
 
-        /* --- 1. HERO BANNER --- */
-        .hero-banner {
-            margin-top: 110px; 
-            position: relative;
-            height: 70vh; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background-color: var(--logo-bg); 
-        }
-        .hero-banner-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('bg1.jpg'); 
-            background-size: cover;
-            background-position: center;
-            opacity: 40%; 
-            z-index: 1;
-        }
-        .hero-banner-content {
-            position: relative;
-            z-index: 5;
-            color: var(--primary-color); 
-            max-width: 900px;
-            padding: 20px;
-        }
-        .hero-banner-content h1 {
-            font-size: 3.5em; 
-            font-weight: 900; 
-            line-height: 1.1;
-            margin-bottom: 15px;
-            color: var(--primary-color); 
-        }
-        .hero-banner-content p {
-            font-size: 1.3em; 
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: var(--primary-color); 
-        }
-        .hero-banner .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+#main-nav a { 
+    color: var(--primary-color); 
+    text-decoration: none; 
+    margin-left: 25px; 
+    font-weight: 500; 
+    transition: color 0.3s ease; 
+    white-space: nowrap;
+}
 
-        /* --- 2. MOCKUP SECTION (Two-Column Layout) --- */
-        .mockup-section {
-            /* DECREASED BOTTOM PADDING TO REDUCE GAP TO NEXT SECTION */
-            padding: 60px 0 30px; 
-            background-color: var(--cream-bg); 
-        }
-        .mockup-content {
-            display: flex;
-            align-items: center; 
-            gap: 50px;
-            text-align: left;
-        }
-        .mockup-visual {
-            flex: 1;
-            max-width: 450px; 
-        }
-        .mockup-visual img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px; 
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); 
-        }
-        .mockup-text {
-            flex: 2;
-        }
-        .mockup-text h3 {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .mockup-text p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
+#main-nav a:hover, 
+#main-nav a.active { 
+    color: var(--accent-color); 
+}
 
-        /* --- 3. SERVICES PREVIEW CARDS (Flip Animation) --- */
-        
-        /* New Wrapper for cards + banner */
-        .service-wrapper {
-            display: grid;
-            grid-template-columns: 3fr 1fr; /* 3 parts for cards, 1 part for image */
-            gap: 30px;
-            padding: 40px 0;
-            align-items: stretch; /* Ensure children stretch to match height */
-        }
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 25px;
+    white-space: nowrap;
+}
 
-        /* Container for the 6 cards */
-        .services-preview-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 30px;
-            padding: 0; /* Resetting padding from the old style */
-        }
-        
-        /* New Banner Image Style */
-        .service-banner-image {
-            /* UPDATED: Image file changed to legs2.png */
-            background-image: url('legs2.png');
-            background-size: cover;
-            background-position: right center; 
-            border-radius: 8px;
-            min-height: 100%; /* Important for stretching */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
-            height: 100%; 
-        }
-        
-        /* Card Styles */
-        .card-wrapper {
-            perspective: 1000px; 
-            /* UPDATED: Increased height to 480px */
-            height: 480px; 
-        }
-        .service-card {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.5, 1); 
-            transform-style: preserve-3d; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
-            border-radius: 8px;
-        }
-        /* DESKTOP FLIP ON HOVER */
-        .card-wrapper:hover .service-card {
-            transform: rotateY(180deg);
-        }
-        
-        .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden; 
-            border-radius: 8px;
-            padding: 30px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; 
-            box-sizing: border-box;
-        }
-        .card-face-front {
-            background: var(--card-bg); 
-            border-top: 5px solid var(--accent-color);
-        }
-        .card-face-back {
-            background: var(--logo-bg); 
-            color: var(--primary-color);
-            transform: rotateY(180deg);
-        }
-        .card-face h4 {
-            font-size: 1.4em;
-            font-weight: 700; 
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-        .card-face-front > div {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.dropdown-toggle {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 0;
+    cursor: pointer;
+    display: block;
+}
 
-        /* --- 4. TESTIMONIALS CAROUSEL (Centred View & Arrows) --- */
-        .testimonial-section {
-            background-color: var(--logo-bg); 
-            padding: 40px 0 80px; 
-            margin: 40px 0;
-            position: relative;
-            overflow: hidden; 
-        }
-        .testimonial-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('testbg.jpg'); 
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2; 
-            z-index: 1;
-        }
-        .testimonial-container {
-            position: relative;
-            z-index: 5;
-            padding: 0 15px;
-        }
-        .carousel-track {
-            display: flex;
-            overflow-x: scroll; 
-            scroll-snap-type: x mandatory; 
-            -webkit-overflow-scrolling: touch; 
-            margin-top: 40px;
-            justify-content: flex-start; 
-            padding: 0 10%; 
-        }
-        .carousel-track::-webkit-scrollbar {
-            display: none;
-        }
-        .carousel-track {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--accent-color);
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 2;
+    padding: 10px 0;
+    border-radius: 4px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-        .testimonial-card {
-            flex: 0 0 50%; 
-            max-width: 600px;
-            margin: 0 15px; 
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            scroll-snap-align: center; 
-            text-align: center;
-        }
-        .testimonial-card blockquote {
-            font-style: italic;
-            font-size: 1.2em;
-            margin: 0 0 20px;
-            line-height: 1.6;
-        }
-        .testimonial-card p {
-            font-weight: 600;
-            color: var(--accent-color);
-            margin: 0;
-        }
+.dropdown-content a {
+    color: var(--primary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    font-weight: 400;
+}
 
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            pointer-events: none; 
-            padding: 0;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-        .nav-arrow {
-            pointer-events: auto; 
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid var(--accent-color);
-            color: var(--primary-color);
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 1.5em;
-            border-radius: 50%;
-            transition: background 0.3s;
-            margin: 0 20px;
-            line-height: 1;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .nav-arrow:hover {
-            background: var(--accent-color);
-            color: #ffffff;
-        }
-        
-       /* --- FOOTER STYLES (UPDATED) --- */
-        footer { 
-            background-color: var(--logo-bg); 
-            color: var(--primary-color); 
-            text-align: center; 
-            font-size: 0.9em; 
-            margin-top: auto; 
-        }
-        footer a { color: var(--accent-color); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        
-        /* Main 3-Column Footer Grid */
-        .footer-content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            text-align: left;
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
-        }
-        .footer-logo img {
-            height: 80px; /* Smaller logo in footer */
-            display: block;
-        }
-        .footer-section {
-            padding: 0 20px;
-        }
-        .footer-section h4 {
-            font-size: 1.1em;
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .footer-section p {
-            margin: 5px 0;
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 5px;
-        }
-        .footer-socials {
-            text-align: center;
-            line-height: 2;
-        }
-        .footer-socials p {
-             margin: 0;
-        }
-        .footer-legal {
-            text-align: right;
-        }
-        .footer-legal ul {
-            text-align: right;
-        }
-        
-        /* Copyright Bar */
-        .footer-copyright {
-            padding: 10px 0;
-            font-size: 0.8em;
-            color: var(--primary-color);
-        }
-        .footer-copyright p {
-            margin: 0;
-        }
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+}
 
+/* HAMBURGER */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    width: 30px;
+    height: 25px;
+}
 
-        /* --- MOBILE SPECIFIC STYLES (Max 768px) --- */
-        @media (max-width: 768px) {
-            
-            /* GLOBAL SPACING AND FONT REDUCTIONS */
-            .container {
-                /* DECREASED TOP PADDING TO HELP WITH GAP REDUCTION ON MOBILE */
-                padding: 15px 0 20px 0; 
-            }
-            body {
-                /* Overall text reduction */
-                font-size: 0.85em; 
-            }
-            .hero-banner {
-                margin-top: 100px; 
-                height: 55vh; 
-            }
-            .mockup-section {
-                /* DECREASED BOTTOM PADDING TO REDUCE GAP TO NEXT SECTION */
-                padding: 30px 0 15px; 
-            }
-            
-            /* ADJUSTED: Headings and Paragraphs */
-            .hero-banner-content h1 {
-                font-size: 1.6em; /* FURTHER REDUCED h1 */
-            }
-            .hero-banner-content p {
-                font-size: 0.85em; /* FURTHER REDUCED paragraph text */
-                margin-bottom: 15px;
-            }
-            .section-heading {
-                font-size: 1.4em; /* FURTHER REDUCED section heading */
-                margin-bottom: 15px;
-            }
-            .mockup-text h3 {
-                font-size: 1.4em; /* FURTHER REDUCED h3 */
-            }
-            .mockup-text p {
-                 font-size: 0.9em; /* FURTHER REDUCED paragraph text */
-            }
-            
-            /* ADJUSTED: CTA Buttons */
-            .cta-button {
-                padding: 8px 16px; /* Slightly smaller padding */
-                font-size: 0.85em; /* Slightly smaller font size */
-            }
-            .hero-banner .cta-group {
-                flex-direction: column;
-                gap: 10px; 
-            }
-            .cta-button.secondary {
-                margin-left: 0;
-            }
-            .card-link-button {
-                 padding: 7px 14px; /* Slightly smaller padding */
-                 font-size: 0.8em; /* Slightly smaller font size */
-            }
-            
-            /* MOBILE NAVIGATION STYLES */
-            .menu-icon {
-                display: flex; 
-            }
-            #main-nav {
-                display: none; 
-                position: absolute;
-                top: 100px; 
-                right: 0;
-                background-color: var(--logo-bg); 
-                width: 100%;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-                padding: 10px 0;
-                flex-direction: column;
-            }
-            #main-nav.show-menu {
-                display: flex; 
-            }
-            #main-nav a { 
-                margin: 8px 0; 
-                padding: 5px 0;
-                display: block;
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); /* Separator */
-            }
-            #main-nav a:last-child {
-                border-bottom: none;
-            }
-            .navbar {
-                 padding: 0 5%; 
-            }
-            
-            /* MOBILE DROPDOWN (STACKED) */
-            .dropdown {
-                margin: 0; /* Remove horizontal margin */
-                width: 100%;
-            }
-            .dropdown-toggle {
-                cursor: pointer; /* Enable clicking to show/hide on mobile */
-                margin: 8px 0;
-                padding: 5px 0;
-            }
-            .dropdown-content {
-                position: static; /* Stack vertically */
-                width: 100%;
-                min-width: unset;
-                box-shadow: none;
-                padding: 0;
-                transform: none; 
-                background-color: transparent; /* Use transparent background */
-                border-top: 1px solid rgba(79, 74, 70, 0.1);
-            }
-            .dropdown-content a {
-                padding: 5px 0;
-                font-size: 0.9em;
-                background-color: rgba(79, 74, 70, 0.03); /* Light background for sub-links */
-            }
-            /* Hide dropdown content by default on mobile */
-            .dropdown-content {
-                display: none;
-            }
-            /* Use a class to show/hide on mobile click */
-            .dropdown.active .dropdown-content {
-                display: block; 
-            }
+.menu-icon span {
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+}
 
+/* BUTTONS */
+.cta-button {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--primary-color); 
+    padding: 15px 35px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
 
-            /* Mobile Mockup Section (Stacking and Smaller Image) */
-            .mockup-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            .mockup-visual {
-                max-width: 70%; /* REDUCED: Smaller image container for jillsexample.png */
-            }
-            .mockup-visual img {
-                max-width: 100%; 
-            }
+.cta-button.secondary {
+    background: var(--secondary-cta);
+    color: var(--secondary-cta-text);
+}
 
-            /* Mobile Services Grid (Stacking + Banner below) */
-            .service-wrapper {
-                grid-template-columns: 1fr; /* Stack elements */
-                gap: 15px; 
-                padding: 0;
-            }
-            .services-preview-grid {
-                grid-template-columns: 1fr; 
-                gap: 15px; 
-            }
-            .service-banner-image {
-                display: none; /* HIDE legs2.png image on mobile */
-            }
-            
-            /* Mobile Card Display */
-            .card-wrapper {
-                perspective: none; 
-                height: auto; /* Reset height for content flow */
-            }
-            .service-card {
-                transform: none; 
-                transform-style: flat;
-                height: auto;
-                position: static; 
-            }
-            .card-wrapper:hover .service-card {
-                transform: none; 
-            }
-            .card-face {
-                position: static; 
-                backface-visibility: visible;
-                height: auto;
-                padding: 20px; 
-            }
-            .card-face-front {
-                display: none; /* Hide the short-text front face on mobile */
-            }
-            .card-face-back {
-                transform: none; 
-                background: var(--logo-bg); 
-                padding-top: 20px; 
-                border-top: 5px solid var(--accent-color); 
-                display: block; 
-            }
-            .card-face h4 {
-                font-size: 1em; /* FURTHER REDUCED card heading */
-            }
+/* HERO */
+.hero-banner {
+    margin-top: 110px; 
+    height: 70vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--logo-bg); 
+}
 
-            /* Mobile Carousel: Full width scrolling, hide arrows */
-            .testimonial-card {
-                flex: 0 0 90%; 
-                padding: 25px; 
-            }
-            .testimonial-card blockquote {
-                font-size: 0.9em; /* FURTHER REDUCED blockquote font size */
-            }
-            .carousel-nav {
-                display: none;
-            }
-            .carousel-track {
-                padding: 0 5%;
-            }
-        }
-    </style>
+.hero-banner-content h1 {
+    font-size: 3.5em; 
+    font-weight: 900; 
+}
+
+.hero-banner-content p {
+    font-size: 1.3em; 
+}
+
+/* MOCKUP */
+.mockup-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* SERVICES */
+.service-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 30px;
+}
+
+/* FOOTER */
+.footer-content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 40px 0;
+}
+
+/* ===============================
+   MOBILE RESPONSIVENESS (ADD-ONLY)
+   =============================== */
+
+/* Tablet & Mobile */
+@media (max-width: 768px) {
+
+    body { font-size: 0.85em; }
+
+    .menu-icon { display: flex; }
+
+    #main-nav {
+        display: none;
+        flex-direction: column;
+        background: var(--logo-bg);
+        width: 100%;
+        position: absolute;
+        top: 100px;
+        right: 0;
+    }
+
+    #main-nav.show-menu { display: flex; }
+
+    .hero-banner {
+        height: 55vh;
+    }
+
+    .hero-banner-content h1 {
+        font-size: 1.6em;
+    }
+
+    .hero-banner-content p {
+        font-size: 0.85em;
+    }
+
+    .mockup-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .cta-button {
+        white-space: normal;
+        text-align: center;
+    }
+
+    .footer-content-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+}
+
+/* Extra Small Phones */
+@media (max-width: 360px) {
+
+    .hero-banner-content h1 {
+        font-size: 1.4em;
+        line-height: 1.2;
+    }
+
+    .hero-banner-content p {
+        font-size: 0.8em;
+    }
+}
+</style>
 </head>
 <body>
 
