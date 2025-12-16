@@ -8,6 +8,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght%40300%3B400%3B600%3B700%3B900&display=swap" rel="stylesheet">
     
     <style>
+        /* --- MOBILE FOOTER STACKING FIX --- */
+@media (max-width: 768px) {
+
+    footer {
+        padding: 15px 0 10px;
+        margin-top: 0;
+    }
+
+    .footer-content-grid {
+        display: grid;
+        grid-template-columns: 1fr;   /* STACK columns */
+        gap: 20px;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer-section {
+        padding: 0;
+    }
+
+    .footer-logo img {
+        height: 60px;
+        margin: 0 auto;
+    }
+
+    .footer-socials,
+    .footer-legal,
+    .footer-legal ul {
+        text-align: center;
+    }
+
+    .footer-copyright {
+        padding: 8px 0;
+        font-size: 0.75em;
+    }
+}
         /* CSS Variables (Must match previous files) */
         :root {
             --primary-color: #4f4a46; /* Dark Taupe */
