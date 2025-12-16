@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 90 Day Organiser Package - The Organised Types</title>
+    <title>The 90-Day Business Accelerator - The Organised Types</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Variables (Synchronized) */
         :root {
-            --primary-color: #4f4a46; /* Dark Taupe */
-            --accent-color: #A9B897; /* Dull Sage Green */
+            --primary-color: #4f4a46; 
+            --accent-color: #A9B897; 
             --cream-bg: #FAF8F5; 
             --logo-bg: #EFE6E1; 
             --card-bg: #F5F2EF; 
@@ -20,410 +20,109 @@
         }
         body { 
             font-family: var(--font-main); 
-            margin: 0; 
-            padding: 0; 
+            margin: 0; padding: 0; 
             background-color: var(--cream-bg); 
             color: var(--text-color); 
             line-height: 1.7; 
             min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
+            display: flex; flex-direction: column; 
         }
         .container { 
-            width: 90%; 
-            max-width: 900px; 
-            margin: auto; 
-            padding: 30px 0; 
-            box-sizing: border-box; 
-            margin-top: 110px; 
+            width: 90%; max-width: 900px; 
+            margin: auto; padding: 30px 0; 
+            box-sizing: border-box; margin-top: 110px; 
         }
 
-        /* --- HEADER & NAVIGATION (Common Styles) --- */
+        /* --- HEADER & NAVIGATION --- */
         header { 
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
-            padding: 5px 0; 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            z-index: 20; 
+            padding: 5px 0; position: fixed; 
+            top: 0; width: 100%; z-index: 20; 
         }
         .navbar { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            width: 90%; 
-            max-width: 1200px; 
-            margin: 0 auto;
-            padding: 0 15px; 
-            box-sizing: border-box;
+            display: flex; justify-content: space-between; 
+            align-items: center; width: 90%; 
+            max-width: 1200px; margin: 0 auto;
+            padding: 0 15px; box-sizing: border-box;
         }
-        .logo-area img { 
-            height: 140px; 
-            margin-right: 10px; 
-        } 
+        .logo-area img { height: 100px; } 
         
-        /* DESKTOP NAVIGATION */
         #main-nav { display: flex; align-items: center; }
         #main-nav a { 
-            color: var(--primary-color); 
-            text-decoration: none; 
-            margin-left: 25px; 
-            font-weight: 500; 
-            transition: color 0.3s ease; 
-            white-space: nowrap;
+            color: var(--primary-color); text-decoration: none; 
+            margin-left: 25px; font-weight: 500; transition: color 0.3s ease; 
         }
-        #main-nav a:hover, 
-        #main-nav a.active { color: var(--accent-color); }
+        #main-nav a:hover, #main-nav a.active { color: var(--accent-color); }
         
-        /* DROPDOWN CONTAINER */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-left: 25px;
-            white-space: nowrap;
-        }
-        .dropdown-toggle {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 10px 0; 
-            cursor: pointer; 
-            display: block;
-        }
-        .dropdown-toggle:hover {
-            color: var(--accent-color);
-        }
+        .dropdown { position: relative; display: inline-block; margin-left: 25px; }
+        .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; cursor: pointer; }
         .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--accent-color);
-            min-width: 250px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 2;
-            padding: 10px 0;
-            border-radius: 4px;
-            top: 100%; 
-            left: 50%;
-            transform: translateX(-50%);
+            display: none; position: absolute; background-color: var(--accent-color);
+            min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 2; padding: 10px 0; border-radius: 4px;
+            top: 100%; left: 50%; transform: translateX(-50%);
         }
-        .dropdown-content a {
-            color: var(--primary-color);
-            padding: 10px 20px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            margin: 0; 
-            font-weight: 400;
-            transition: background-color 0.3s;
-        }
-        .dropdown-content a:hover {
-           background-color: var(--primary-color);
-            color: var(--light-text);
-        }
-        @media (min-width: 769px) {
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
-        }
+        .dropdown-content a { color: var(--primary-color) !important; padding: 10px 20px; margin: 0 !important; }
+        @media (min-width: 769px) { .dropdown:hover .dropdown-content { display: block; } }
 
-        /* HAMBURGER ICON */
-        .menu-icon { 
-            display: none; 
-            cursor: pointer; 
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px; 
-        }
-        .menu-icon span { 
-            display: block; 
-            width: 100%; 
-            height: 3px; 
-            margin: 4px 0; 
-            background: var(--primary-color); 
-            transition: 0.4s; 
-            border-radius: 3px;
-        }
+        .menu-icon { display: none; cursor: pointer; flex-direction: column; width: 30px; height: 25px; }
+        .menu-icon span { display: block; width: 100%; height: 3px; background: var(--primary-color); border-radius: 3px; }
 
-        /* --- BUTTON & LINK STYLES (Common) --- */
+        /* --- BUTTONS --- */
         .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--primary-color); 
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
+            display: inline-block; background: var(--accent-color);
+            color: var(--primary-color); padding: 15px 35px;
+            text-decoration: none; border-radius: 5px;
+            font-size: 1.1em; font-weight: 600; transition: 0.3s;
         }
         .cta-button:hover { background-color: #92a487; }
         
-      /* --- FOOTER STYLES (UPDATED) --- */
-        footer { 
-            background-color: var(--logo-bg); 
-            color: var(--primary-color); 
-            text-align: center; 
-            font-size: 0.9em; 
-            margin-top: auto; 
-        }
-        footer a { color: var(--accent-color); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        
-        /* Main 3-Column Footer Grid */
-        .footer-content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            text-align: left;
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
-        }
-        .footer-logo img {
-            height: 80px; /* Smaller logo in footer */
-            display: block;
-        }
-        .footer-section {
-            padding: 0 20px;
-        }
-        .footer-section h4 {
-            font-size: 1.1em;
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .footer-section p {
-            margin: 5px 0;
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 5px;
-        }
-        .footer-socials {
-            text-align: center;
-            line-height: 2;
-        }
-        .footer-socials p {
-             margin: 0;
-        }
-        .footer-legal {
-            text-align: right;
-        }
-        .footer-legal ul {
-            text-align: right;
-        }
-        
-        /* Copyright Bar */
-        .footer-copyright {
-            padding: 10px 0;
-            font-size: 0.8em;
-            color: var(--primary-color);
-        }
-        .footer-copyright p {
-            margin: 0;
-        }
-
-
-        /* --- PAGE-SPECIFIC STYLES: DETAIL CONTENT --- */
-        .detail-header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 3px solid var(--accent-color);
-            margin-bottom: 30px;
-        }
-        .detail-header h1 {
-            font-size: 3em;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        .detail-header .price {
-            font-size: 1.6em;
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        .tagline {
-            font-style: italic;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
+        /* --- PAGE CONTENT --- */
+        .detail-header { text-align: center; padding: 30px 0; border-bottom: 3px solid var(--accent-color); margin-bottom: 30px; }
+        .detail-header h1 { font-size: 2.8em; color: var(--primary-color); margin-bottom: 5px; font-weight: 900; }
+        .detail-header .price { font-size: 1.6em; color: var(--accent-color); font-weight: 600; margin-bottom: 15px; }
         
         .content-section {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            background-color: var(--card-bg); padding: 35px;
+            border-radius: 8px; margin-bottom: 30px;
             border-left: 4px solid var(--accent-color);
         }
-        .content-section h2 {
-            color: var(--primary-color);
-            font-size: 1.8em;
-            border-bottom: 1px dashed #cccccc;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .feature-item {
-            background-color: var(--cream-bg);
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid #e0e0e0;
-            font-size: 0.95em;
-        }
-        .feature-item strong {
-            display: block;
-            color: var(--accent-color);
-            margin-bottom: 5px;
-        }
+        .content-section h2 { color: var(--primary-color); font-size: 1.8em; border-bottom: 1px dashed #cccccc; padding-bottom: 10px; }
         
-        .process-list {
-            list-style: none;
-            counter-reset: detail-step;
-            padding-left: 0;
-        }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px; }
+        .feature-item { background-color: var(--cream-bg); padding: 20px; border-radius: 4px; border: 1px solid #e0e0e0; }
+        .feature-item strong { display: block; color: var(--accent-color); margin-bottom: 8px; font-size: 1.1em; }
+        
+        .process-list { list-style: none; counter-reset: detail-step; padding-left: 0; }
         .process-list li {
-            position: relative;
-            padding: 10px 0 10px 40px;
-            margin-bottom: 10px;
-            background: var(--cream-bg);
-            border-radius: 4px;
-            line-height: 1.5; /* Added for mobile readability */
+            position: relative; padding: 15px 15px 15px 50px;
+            margin-bottom: 15px; background: var(--cream-bg); border-radius: 4px;
         }
         .process-list li::before {
-            content: counter(detail-step);
-            counter-increment: detail-step;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background: var(--accent-color);
-            color: var(--cream-bg);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            font-weight: 700;
-            font-size: 1.1em;
-        }
-        
-        .call-to-action {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid #ddd;
+            content: counter(detail-step); counter-increment: detail-step;
+            position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+            width: 30px; height: 30px; background: var(--accent-color);
+            color: var(--cream-bg); border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700;
         }
 
-        /* --- MOBILE SPECIFIC STYLES (768px and below) --- */
+        /* --- FOOTER --- */
+        footer { background-color: var(--logo-bg); padding: 40px 0 20px; margin-top: auto; }
+        .footer-content-grid { display: grid; grid-template-columns: repeat(3, 1fr); width: 90%; margin: auto; gap: 20px; }
+
         @media (max-width: 768px) {
-            
-            /* --- FONT SIZE SCALING --- */
-            body { 
-                font-size: 0.9em; 
-            }
-            .container { 
-                margin-top: 90px; /* Reduced margin to 90px */
-                padding: 15px; /* Reduced padding */
-            }
-            
-            /* HEADER ELEMENTS REDUCTION */
-            .detail-header h1 { 
-                font-size: 2em; /* Reduced from 3em */
-            }
-            .detail-header .price { 
-                font-size: 1.2em; /* Reduced from 1.6em */
-            }
-            .tagline {
-                font-size: 1em; 
-            }
-            .content-section h2 { 
-                font-size: 1.5em; /* Reduced from 1.8em */
-            }
-            .content-section p, 
-            .content-section ul li {
-                font-size: 0.9em; 
-            }
-            .feature-item {
-                font-size: 0.85em; 
-            }
-            .process-list li {
-                font-size: 0.9em;
-            }
-            .cta-button {
-                padding: 12px 25px; 
-                font-size: 1em; 
-            }
-            footer {
-                font-size: 0.8em;
-            }
-
-            /* --- LAYOUT FIXES --- */
-            .features-grid { 
-                grid-template-columns: 1fr; /* Stack features vertically */
-            }
-            
-            /* --- NAVIGATION FIXES --- */
+            .container { margin-top: 90px; }
+            .detail-header h1 { font-size: 1.8em; }
+            .navbar { padding: 10px 15px; }
+            .logo-area img { height: 60px; }
             .menu-icon { display: flex; }
-            #main-nav {
-                display: none; 
-                flex-direction: column;
-                width: 100%;
-                position: absolute; 
-                top: 110px; 
-                left: 0;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                padding: 10px 0;
-                background-color: var(--logo-bg);
+            #main-nav { 
+                display: none; position: absolute; top: 80px; left: 0; width: 100%; 
+                background: var(--logo-bg); flex-direction: column; padding: 20px 0; 
             }
             #main-nav.show-menu { display: flex; }
-            #main-nav a { 
-                margin: 8px 0; 
-                padding: 5px 0;
-                display: block;
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
-                text-align: center;
-                margin-left: 0;
-            }
-            
-            /* Mobile: Handling Dropdown */
-            .dropdown { 
-                margin: 0; 
-                width: 100%; 
-                display: contents; 
-            }
-            .dropdown-content { 
-                display: block; 
-                position: static; 
-                width: 100%; 
-                transform: none; 
-                box-shadow: none; 
-                background-color: transparent; 
-                border-top: 1px solid rgba(79, 74, 70, 0.1); 
-                padding: 0; 
-            }
-            .dropdown-content a { 
-                padding: 5px 0; 
-                font-size: 0.8em; 
-                background-color: rgba(79, 74, 70, 0.03); 
-                text-align: center; 
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
-            }
-            .dropdown-content a:last-child {
-                border-bottom: none; 
-            }
+            #main-nav a { margin: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05); width: 100%; text-align: center; padding-bottom: 10px; margin-left: 0; }
+            .footer-content-grid { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
@@ -435,197 +134,112 @@
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
             </a>
             <div class="menu-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
-           <nav id="main-nav">
-    <a href="index.html" id="nav-index">Home</a> 
-    
-    <a href="about.html" id="nav-about">About</a> 
-    
-    <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-            <a href="services.html#templates">Templates, Tools & Courses</a>
-        </div>
-    </div>
-    <a href="faq.html" id="nav-faq">FAQ's</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-</nav>
+            <nav id="main-nav">
+                <a href="index.html">Home</a> 
+                <a href="about.html">About</a> 
+                <div class="dropdown">
+                    <span class="dropdown-toggle" onclick="toggleDropdown(event)">Services &#9662;</span>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Design</a>
+                        <a href="services.html#branding">Brand Identity</a>
+                        <a href="services.html#coaching">Business Coaching</a>
+                    </div>
+                </div>
+                <a href="faq.html">FAQ's</a>
+                <a href="contact.html">Contact</a>
+            </nav>
         </div>
     </header>
     
     <div class="container">
-        
         <div class="detail-header">
-            <h1>The 90-Day Organiser Package</h1>
-            <p class="tagline">Your ultimate bundle for quarterly planning, productivity, and personal self-improvement.</p>
-            <p class="price">£29.99 (Save 40% when bundled)</p>
+            <h1>The 90-Day Business Accelerator</h1>
+            <p class="tagline">3 Months of focused strategy, clarity, and system-building for your business.</p>
+            <p class="price">£850.00 / Installment plans available</p>
         </div>
 
         <div class="content-section">
-            <h2>Transform Your Next 3 Months</h2>
-            <p>The **90-Day Organiser Package** is a curated collection of our best-selling digital planners and trackers, specifically chosen to help you crush your quarterly goals, build lasting habits, and maintain mental clarity.</p>
-            <p>Stop buying individual tools and get everything you need for the next three months of focused planning in one instant download. This package combines systems for business, personal development, and mental wellness.</p>
+            <h2>Transform Your Business Infrastructure</h2>
+            <p>Ready to move from overwhelmed to organised? Over the next 90 days, we’ll work 1:1 to streamline your back-end systems, refine your business strategy, and build a brand that works as hard as you do.</p>
+            <p>This isn’t just coaching; it’s a partnership. We focus on the "doing"—setting up the trackers, building the workflows, and ensuring you have total clarity on your growth path.</p>
         </div>
 
         <div class="content-section">
-            <h2>What’s Inside the Bundle (Digital Downloads)</h2>
+            <h2>What’s Included in the Intensive</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <strong>90-Day Self-Improvement Planner</strong>
-                    Three months of structured goal setting, action planning, and weekly review sheets.
+                    <strong>6x Bi-Weekly Strategy Calls</strong>
+                    Hour-long, 1:1 intensive calls to deep-dive into your obstacles, plan your roadmap, and review progress.
                 </div>
                 <div class="feature-item">
-                    <strong>Cashflow Template (Annual)</strong>
-                    A comprehensive spreadsheet tool to manage your small business or personal finances for the entire year.
+                    <strong>Custom Systems Build</strong>
+                    I’ll help you build or refine your Notion or spreadsheet-based tracking systems (Cashflow, Client Onboarding, etc.).
                 </div>
                 <div class="feature-item">
-                    <strong>Habit Tracker & Mood Tracker Set</strong>
-                    Daily and weekly tracking sheets to build consistency and monitor your mental well-being.
+                    <strong>Voxer Support (Mon–Fri)</strong>
+                    Direct access to me for quick questions, feedback on designs, or mindset resets between our scheduled calls.
                 </div>
                 <div class="feature-item">
-                    <strong>Social Media Content Planner (Annual)</strong>
-                    A planner designed for 90 days of content planning, campaign tracking, and performance review.
-                </div>
-                <div class="feature-item">
-                    <strong>Burnout Recovery Workbook</strong>
-                    A reflective journal guide to help identify stressors and build better work/life boundaries.
-                </div>
-                <div class="feature-item">
-                    <strong>Productivity & Habit System (Notion/Spreadsheet)</strong>
-                    A powerful template to manage daily tasks, priority matrix, and delegation lists.
+                    <strong>Content & Marketing Review</strong>
+                    Audit of your current social media and website strategy to ensure your messaging aligns with your new goals.
                 </div>
             </div>
         </div>
 
         <div class="content-section">
-            <h2>How to Begin Your 90-Day Transformation</h2>
+            <h2>The 90-Day Roadmap</h2>
             <ol class="process-list">
                 <li>
-                    <strong>Purchase & Download Instantly</strong>
-                    Complete your purchase and receive all 6 digital files immediately via email download link.
+                    <strong>Month 1: The Foundations Audit</strong>
+                    We strip back your current processes, identify the burnout points, and set your core 90-day targets.
                 </li>
                 <li>
-                    <strong>Review the Quick-Start Guide</strong>
-                    A brief document included to show you the best way to integrate these tools into your weekly routine.
+                    <strong>Month 2: Systems & Workflow Build</strong>
+                    The "Implementation Phase." We build the digital tools and templates you need to automate the boring stuff.
                 </li>
                 <li>
-                    <strong>Define Your 90-Day Focus</strong>
-                    Use the 90-Day Planner to set your core goal (Business, Wellness, or Personal) for the quarter.
-                </li>
-                <li>
-                    <strong>Implement & Track</strong>
-                    Use the associated trackers and templates daily to maintain momentum and stay organised.
+                    <strong>Month 3: Scaling & Sustainable Growth</strong>
+                    Finalising your marketing strategy and ensuring you have a repeatable system to manage new clients with ease.
                 </li>
             </ol>
         </div>
         
-        <div class="call-to-action">
-            <h3>Ready for focused, organised growth this quarter?</h3>
-            <a href="link-to-shop-product-page.html" class="cta-button">Buy the 90-Day Organiser Package</a>
+        <div class="call-to-action" style="text-align: center; padding-top: 20px;">
+            <h3>Ready for focused, professional growth?</h3>
+            <p>Spaces are limited to 3 clients per quarter to ensure high-level support.</p>
+            <a href="contact.html" class="cta-button">Apply for the Accelerator</a>
         </div>
-
     </div>
 
-   <footer>
-        <div class="container footer-content-grid">
-            
-            <div class="footer-section footer-logo">
-                 <a href="index.html">
-                    <img src="logo.jpg.webp" alt="The Organised Types Logo">
-                </a>
+    <footer>
+        <div class="footer-content-grid">
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>theorganisedtypes@gmail.com</p>
             </div>
-
-            <div class="footer-section footer-socials">
-                <h4>Connect With Us</h4>
-                <p>Email: <a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a></p>
-                <ul>
-                    <li><a href="#" target="_blank">Pinterest @theorganisedtypes</a></li>
-                    <li><a href="#" target="_blank">Instagram @theorganisedtypes</a></li>
-                    <li><a href="#" target="_blank">TikTok @theorganisedtypes</a></li>
-                </ul>
+            <div class="footer-section" style="text-align:center;">
+                <h4>Follow</h4>
+                <p>Instagram | Pinterest | TikTok</p>
             </div>
-
-            <div class="footer-section footer-legal">
-                <h4>Legal Hub</h4>
-                <ul>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Shopify</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-copyright">
-             <div class="container">
-                <p>&copy; 2025 The Organised Types. All Rights Reserved.</p>
+            <div class="footer-section" style="text-align:right;">
+                <h4>Legal</h4>
+                <p>Terms & Conditions</p>
             </div>
         </div>
+        <p style="text-align:center; padding-top:20px; font-size:0.8em;">&copy; 2025 The Organised Types.</p>
     </footer>
 
     <script>
-        // TOGGLES THE MOBILE NAVIGATION MENU
         function toggleMenu() {
-            var nav = document.getElementById("main-nav"); 
-            nav.classList.toggle("show-menu");
+            document.getElementById('main-nav').classList.toggle('show-menu');
         }
-
-        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK - MODIFIED for mobile fix
-        function toggleDropdown(event) {
-            if (window.innerWidth >= 769) {
-                return;
+        function toggleDropdown(e) {
+            if (window.innerWidth <= 768) {
+                e.target.parentElement.classList.toggle('active');
             }
         }
-        
-        // Function to set the active link dynamically
-        (function setActiveLink() {
-            const path = window.location.pathname.split('/').pop();
-            const activePage = path.split('.')[0] || 'index'; 
-            
-            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // List of potential detail pages that should activate the Services link
-            const detailPages = [
-                'branding-suite', 'website-design', 'coaching-session', 
-                'essential-brand-identity-kit', 'branding-kickstart-package', 
-                'mini-brand-starter-kit', 'premium-brand-social-kit', 
-                'signature-brand-kit', 'complete-brand-identity-suite',
-                'growth-bundle-coaching', 'immersive-strategy-coaching', 
-                'pay-as-you-go-coaching', 'transformation-package', 
-                'clarity-call', 'organiser-package', '90-day-organiser-package'
-            ];
-            
-            const servicesLink = document.getElementById('nav-services');
-            
-            if (detailPages.some(page => activePage.includes(page))) {
-                if (servicesLink) {
-                    servicesLink.classList.add('active');
-                    // Ensure dropdown toggle is also active 
-                    if (servicesLink.closest('.dropdown')) {
-                        servicesLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
-                    }
-                }
-            } else {
-                const activeLink = document.getElementById(`nav-${activePage}`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                    
-                    if (activeLink.closest('.dropdown')) {
-                        activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
-                    }
-                }
-            }
-        })();
     </script>
-
 </body>
 </html>
