@@ -444,7 +444,12 @@
 
         /* --- MOBILE SPECIFIC STYLES (Refined) --- */
         @media (max-width: 768px) {
-            
+
+
+            /* Reduce top spacing above first image/section */
+.about-content-grid {
+    padding-top: 25px;   /* was too tall on mobile */
+}
 
     footer {
         font-size: 0.8em;
@@ -587,9 +592,14 @@
                 order: initial; /* Reset order, let blocks stack top-to-bottom */
             }
             
-            .mission-section {
-                padding: 20px;
-            }
+            /* Make What We Believe full width on mobile */
+.mission-section {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
             .who-we-work-with ul {
                 columns: 1; /* Single column for list on mobile */
             }
@@ -604,12 +614,35 @@
                 margin: 10px auto; 
             }
 
-            /* Mobile Footer Stacking */
-            .footer-content-grid {
-                grid-template-columns: 1fr; /* Single column stack */
-                text-align: center;
-                padding: 30px 0;
-            }
+
+            /* Tighten footer spacing on mobile */
+footer {
+    padding: 20px 0 10px;
+    font-size: 0.8em;
+}
+
+/* Reduce footer grid height */
+.footer-content-grid {
+    padding: 20px 0;
+    gap: 20px;
+}
+
+/* Reduce space between footer sections */
+.footer-section {
+    padding: 10px 0;
+}
+
+/* Smaller logo to avoid stretching footer */
+.footer-logo img {
+    height: 60px;
+}
+
+/* Tighten copyright bar */
+.footer-copyright {
+    padding: 8px 0;
+    font-size: 0.75em;
+}
+           
             .footer-section {
                 padding: 20px 0;
             }
