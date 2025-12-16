@@ -417,133 +417,173 @@ footer .container {
         }
 
 
-        /* Mobile specific adjustments */
-        @media (max-width: 768px) {
-            
-            /* --- TEXT SIZE REDUCTION (MATCHING INDEX PAGE MOBILE FONT SCALE) --- */
-            body { 
-                font-size: 0.85em; /* General text scale down */
-            }
-            .container { 
-                margin-top: 90px;
-                padding: 15px 0 20px 0; /* Reduced vertical padding */
-            }
-            .page-header h1 { 
-                font-size: 2.2em; /* Reduced Page Title */
-            }
-            .intro-text {
-                font-size: 0.9em; /* Reduced Intro Text */
-                margin-bottom: 20px;
-            }
-            .faq-section h2 {
-                font-size: 1.6em; /* Reduced Section Heading */
-                padding-bottom: 5px;
-                margin-bottom: 15px;
-            }
-            .faq-question {
-                font-size: 1em; /* Reduced Question Text */
-                padding: 12px 15px;
-            }
-            .faq-answer {
-                font-size: 0.9em; /* Reduced Answer Text */
-                padding: 0 15px;
-            }
-            .faq-answer-content {
-                padding-bottom: 10px;
-            }
-            .jump-to-section h3 {
-                font-size: 1.2em;
-            }
-            .support-box h3 {
-                font-size: 1.4em;
-            }
-            
-            /* --- MOBILE NAVIGATION --- */
-            .menu-icon { 
-                display: flex; 
-            }
-            #main-nav {
-                display: none; 
-                position: absolute;
-                top: 100px; 
-                right: 0;
-                background-color: var(--logo-bg); 
-                width: 100%;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-                padding: 10px 0;
-                flex-direction: column;
-            }
-            #main-nav.show-menu {
-                display: flex; 
-            }
-            #main-nav a { 
-                margin: 8px 0; 
-                padding: 5px 0;
-                display: block;
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
-            }
-            #main-nav a:last-child {
-                border-bottom: none;
-            }
-            .navbar {
-                 padding: 0 5%; 
-            }
-            .dropdown {
-                margin: 0; 
-                width: 100%;
-            }
-            .dropdown-toggle {
-                cursor: pointer; 
-                margin: 8px 0;
-                padding: 5px 0;
-            }
-            .dropdown-content {
-                position: static; 
-                width: 100%;
-                min-width: unset;
-                box-shadow: none;
-                padding: 0;
-                transform: none; 
-                background-color: transparent; 
-                border-top: 1px solid rgba(79, 74, 70, 0.1);
-            }
-            .dropdown-content a {
-                padding: 5px 0;
-                font-size: 0.9em;
-                background-color: rgba(79, 74, 70, 0.03); 
-            }
-            .dropdown-content {
-                display: none;
-            }
-            .dropdown.active .dropdown-content {
-                display: block; 
-            }
-            
-            /* --- BACKGROUND ADJUSTMENTS FOR MOBILE --- */
-            .jump-to-section, .support-box {
-                background-image: none;
-                background-color: var(--logo-bg); 
-                color: var(--text-color); 
-            }
-            /* Revert mobile link color for better contrast on logo-bg */
-            .support-box a {
-                color: var(--accent-color); 
-            }
-            
-            .jump-to-list {
-                flex-direction: column; /* Stack jump links */
-                gap: 5px;
-            }
-            .jump-to-list li {
-                margin: 0;
-            }
-            .jump-to-list a { 
-                font-size: 0.85em; 
-                padding: 8px 15px; 
-                border-radius: 4px; /* Less rounded for stacked links */
-            }
-        }
+       /* Mobile specific adjustments */
+@media (max-width: 768px) {
+
+    /* --- TEXT SIZE REDUCTION --- */
+    body { 
+        font-size: 0.85em;
+    }
+
+    .container { 
+        margin-top: 90px;
+        padding: 15px 0 20px;
+    }
+
+    .page-header h1 { 
+        font-size: 2.2em;
+    }
+
+    .intro-text {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
+    .faq-section h2 {
+        font-size: 1.6em;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+
+    .faq-question {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+
+    .faq-answer {
+        font-size: 0.9em;
+        padding: 0 15px;
+    }
+
+    .faq-answer-content {
+        padding-bottom: 10px;
+    }
+
+    .jump-to-section h3 {
+        font-size: 1.2em;
+    }
+
+    .support-box h3 {
+        font-size: 1.4em;
+    }
+
+    /* ==========================
+       MOBILE NAVIGATION (FIXED)
+    ========================== */
+
+    /* SHOW HAMBURGER */
+    .menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .menu-icon span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+    }
+
+    /* NAV PANEL */
+    #main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--logo-bg);
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    #main-nav.show-menu {
+        display: flex;
+    }
+
+    #main-nav a {
+        margin: 10px 0;
+        padding: 10px 0;
+        display: block;
+        border-bottom: 1px solid rgba(79, 74, 70, 0.1);
+    }
+
+    #main-nav a:last-child {
+        border-bottom: none;
+    }
+
+    .navbar {
+        padding: 0 5%;
+        position: relative;
+    }
+
+    /* DROPDOWN (MOBILE) */
+    .dropdown {
+        margin: 0;
+        width: 100%;
+    }
+
+    .dropdown-toggle {
+        cursor: pointer;
+        margin: 10px 0;
+        padding: 10px 0;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: static;
+        width: 100%;
+        background-color: transparent;
+        box-shadow: none;
+        border-top: 1px solid rgba(79, 74, 70, 0.1);
+        padding: 0;
+        transform: none;
+    }
+
+    .dropdown-content a {
+        padding: 8px 0;
+        font-size: 0.9em;
+        background-color: rgba(79, 74, 70, 0.03);
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    /* --- BACKGROUND ADJUSTMENTS --- */
+    .jump-to-section,
+    .support-box {
+        background-image: none;
+        background-color: var(--logo-bg);
+        color: var(--text-color);
+    }
+
+    .support-box a {
+        color: var(--accent-color);
+    }
+
+    .jump-to-list {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .jump-to-list li {
+        margin: 0;
+    }
+
+    .jump-to-list a {
+        font-size: 0.85em;
+        padding: 8px 15px;
+        border-radius: 4px;
+    }
+}
     </style>
 </head>
 <body>
