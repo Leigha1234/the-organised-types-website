@@ -541,206 +541,55 @@
         }
 
 
-        /* --- MOBILE SPECIFIC STYLES (Max 768px) --- */
-        @media (max-width: 768px) {
-            
-            /* GLOBAL SPACING AND FONT REDUCTIONS */
-            .container {
-                /* DECREASED TOP PADDING TO HELP WITH GAP REDUCTION ON MOBILE */
-                padding: 15px 0 20px 0; 
+      /* --- FOOTER MOBILE FIX --- */
+            footer {
+                padding: 40px 0 20px 0;
+                overflow-x: hidden; /* Prevent horizontal scroll */
             }
-            body {
-                /* Overall text reduction */
-                font-size: 0.85em; 
+
+            .footer-content-grid {
+                /* Force the grid into 1 column */
+                grid-template-columns: 1fr !important; 
+                width: 90%;
+                margin: 0 auto;
+                gap: 30px;
+                text-align: center; /* Center all text for easier reading */
             }
-            .hero-banner {
-                margin-top: 100px; 
-                height: 55vh; 
-            }
-            .mockup-section {
-                /* DECREASED BOTTOM PADDING TO REDUCE GAP TO NEXT SECTION */
-                padding: 30px 0 15px; 
-            }
-            
-            /* ADJUSTED: Headings and Paragraphs */
-            .hero-banner-content h1 {
-                font-size: 1.6em; /* FURTHER REDUCED h1 */
-            }
-            .hero-banner-content p {
-                font-size: 0.85em; /* FURTHER REDUCED paragraph text */
-                margin-bottom: 15px;
-            }
-            .section-heading {
-                font-size: 1.4em; /* FURTHER REDUCED section heading */
-                margin-bottom: 15px;
-            }
-            .mockup-text h3 {
-                font-size: 1.4em; /* FURTHER REDUCED h3 */
-            }
-            .mockup-text p {
-                 font-size: 0.9em; /* FURTHER REDUCED paragraph text */
-            }
-            
-            /* ADJUSTED: CTA Buttons */
-            .cta-button {
-                padding: 8px 16px; /* Slightly smaller padding */
-                font-size: 0.85em; /* Slightly smaller font size */
-            }
-            .hero-banner .cta-group {
-                flex-direction: column;
-                gap: 10px; 
-            }
-            .cta-button.secondary {
-                margin-left: 0;
-            }
-            .card-link-button {
-                 padding: 7px 14px; /* Slightly smaller padding */
-                 font-size: 0.8em; /* Slightly smaller font size */
-            }
-            
-            /* MOBILE NAVIGATION STYLES */
-            .menu-icon {
-                display: flex; 
-            }
-            #main-nav {
-                display: none; 
-                position: absolute;
-                top: 100px; 
-                right: 0;
-                background-color: var(--logo-bg); 
+
+            .footer-section {
+                padding: 0; /* Remove side padding that pushes content out */
                 width: 100%;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-                padding: 10px 0;
-                flex-direction: column;
             }
-            #main-nav.show-menu {
-                display: flex; 
+
+            .footer-logo img {
+                margin: 0 auto 15px; /* Center logo */
+                height: 60px; /* Scale down logo for mobile */
             }
-            #main-nav a { 
-                margin: 8px 0; 
-                padding: 5px 0;
+
+            .footer-socials, .footer-legal {
+                /* Force alignment to center on mobile */
+                text-align: center !important; 
+            }
+
+            .footer-socials ul, .footer-legal ul {
+                text-align: center !important;
                 display: block;
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); /* Separator */
-            }
-            #main-nav a:last-child {
-                border-bottom: none;
-            }
-            .navbar {
-                 padding: 0 5%; 
-            }
-            
-            /* MOBILE DROPDOWN (STACKED) */
-            .dropdown {
-                margin: 0; /* Remove horizontal margin */
-                width: 100%;
-            }
-            .dropdown-toggle {
-                cursor: pointer; /* Enable clicking to show/hide on mobile */
-                margin: 8px 0;
-                padding: 5px 0;
-            }
-            .dropdown-content {
-                position: static; /* Stack vertically */
-                width: 100%;
-                min-width: unset;
-                box-shadow: none;
-                padding: 0;
-                transform: none; 
-                background-color: transparent; /* Use transparent background */
-                border-top: 1px solid rgba(79, 74, 70, 0.1);
-            }
-            .dropdown-content a {
-                padding: 5px 0;
-                font-size: 0.9em;
-                background-color: rgba(79, 74, 70, 0.03); /* Light background for sub-links */
-            }
-            /* Hide dropdown content by default on mobile */
-            .dropdown-content {
-                display: none;
-            }
-            /* Use a class to show/hide on mobile click */
-            .dropdown.active .dropdown-content {
-                display: block; 
-            }
-
-
-            /* Mobile Mockup Section (Stacking and Smaller Image) */
-            .mockup-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            .mockup-visual {
-                max-width: 70%; /* REDUCED: Smaller image container for jillsexample.png */
-            }
-            .mockup-visual img {
-                max-width: 100%; 
-            }
-
-            /* Mobile Services Grid (Stacking + Banner below) */
-            .service-wrapper {
-                grid-template-columns: 1fr; /* Stack elements */
-                gap: 15px; 
                 padding: 0;
             }
-            .services-preview-grid {
-                grid-template-columns: 1fr; 
-                gap: 15px; 
-            }
-            .service-banner-image {
-                display: none; /* HIDE legs2.png image on mobile */
-            }
-            
-            /* Mobile Card Display */
-            .card-wrapper {
-                perspective: none; 
-                height: auto; /* Reset height for content flow */
-            }
-            .service-card {
-                transform: none; 
-                transform-style: flat;
-                height: auto;
-                position: static; 
-            }
-            .card-wrapper:hover .service-card {
-                transform: none; 
-            }
-            .card-face {
-                position: static; 
-                backface-visibility: visible;
-                height: auto;
-                padding: 20px; 
-            }
-            .card-face-front {
-                display: none; /* Hide the short-text front face on mobile */
-            }
-            .card-face-back {
-                transform: none; 
-                background: var(--logo-bg); 
-                padding-top: 20px; 
-                border-top: 5px solid var(--accent-color); 
-                display: block; 
-            }
-            .card-face h4 {
-                font-size: 1em; /* FURTHER REDUCED card heading */
+
+            .footer-copyright {
+                width: 100%;
+                margin-top: 20px;
+                padding: 15px 5%;
+                box-sizing: border-box;
             }
 
-            /* Mobile Carousel: Full width scrolling, hide arrows */
-            .testimonial-card {
-                flex: 0 0 90%; 
-                padding: 25px; 
+            /* Fix for any nested .container classes inside footer */
+            footer .container {
+                margin-top: 0 !important; /* Remove the 110px top margin */
+                width: 100% !important;
+                padding: 0;
             }
-            .testimonial-card blockquote {
-                font-size: 0.9em; /* FURTHER REDUCED blockquote font size */
-            }
-            .carousel-nav {
-                display: none;
-            }
-            .carousel-track {
-                padding: 0 5%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -800,7 +649,6 @@
                     <p>We ensure your digital platforms are not only visually beautiful but also engineered to perform, delivering a seamless user experience for your clients and a robust system for your team.
 Our solutions are meticulously organised and fully customised, providing the clarity and efficiency your UK business needs to thrive.
 </p>
-                    <a href="portfolio.html" class="cta-button">View Our Portfolio</a>
                 </div>
             </div>
         </div>
@@ -898,7 +746,7 @@ Our solutions are meticulously organised and fully customised, providing the cla
                                 <h4>Custom Templates & Systems</h4>
                                 <p>We build bespoke systems for client onboarding, product management, or marketing tracking, giving you back precious time.</p>
                             </div>
-                            <a href="services.html#custom-systems" class="card-link-button">Request a Custom Build</a>
+                            <a href="contact.html" class="card-link-button">Request a Custom Build</a>
                         </div>
                     </div>
                 </div>
