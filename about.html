@@ -257,7 +257,7 @@
             gap: 40px;
             padding: 40px 30px;
             /* Added padding-top to compensate for fixed header */
-            padding-top: 150px; 
+            padding-top: 50px; 
             background: var(--card-bg);
             border-radius: 8px;
         }
@@ -444,7 +444,9 @@
 
         /* --- MOBILE SPECIFIC STYLES (Refined) --- */
         @media (max-width: 768px) {
-
+            .text-block {
+                width: 100%;
+            }
 
             /* Reduce top spacing above first image/section */
 .about-content-grid {
@@ -621,11 +623,7 @@ footer {
     font-size: 0.8em;
 }
 
-/* Reduce footer grid height */
-.footer-content-grid {
-    padding: 20px 0;
-    gap: 20px;
-}
+
 
 /* Reduce space between footer sections */
 .footer-section {
@@ -642,7 +640,12 @@ footer {
     padding: 8px 0;
     font-size: 0.75em;
 }
-           
+            /* Mobile Footer Stacking */
+            .footer-content-grid {
+                grid-template-columns: 1fr; /* Single column stack */
+                text-align: center;
+                padding: 20px 0;
+            }
             .footer-section {
                 padding: 20px 0;
             }
