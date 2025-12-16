@@ -29,16 +29,16 @@
             display: flex; 
             flex-direction: column; 
         }
-        .container { 
+        /* MAIN CONTAINER FOR PAGE CONTENT */
+        .page-content { 
             width: 90%; 
             max-width: 900px; 
-            margin: auto; 
-            padding: 30px 0; 
+            margin: 110px auto 40px auto; 
             box-sizing: border-box; 
-            margin-top: 110px; 
+            flex: 1;
         }
 
-        /* --- HEADER & NAVIGATION (Common Styles) --- */
+        /* --- HEADER & NAVIGATION --- */
         header { 
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
@@ -63,7 +63,6 @@
             margin-right: 10px; 
         } 
         
-        /* DESKTOP NAVIGATION */
         #main-nav { display: flex; align-items: center; }
         #main-nav a { 
             color: var(--primary-color); 
@@ -71,359 +70,67 @@
             margin-left: 25px; 
             font-weight: 500; 
             transition: color 0.3s ease; 
-            white-space: nowrap;
         }
-        #main-nav a:hover, 
-        #main-nav a.active { color: var(--accent-color); }
+        #main-nav a:hover, #main-nav a.active { color: var(--accent-color); }
         
-        /* DROPDOWN CONTAINER */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            margin-left: 25px;
-            white-space: nowrap;
-        }
-        .dropdown-toggle {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 10px 0; 
-            cursor: pointer; 
-            display: block;
-        }
-        .dropdown-toggle:hover {
-            color: var(--accent-color);
-        }
+        .dropdown { position: relative; display: inline-block; margin-left: 25px; }
+        .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; padding: 10px 0; cursor: pointer; display: block; }
         .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--accent-color);
-            min-width: 250px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 2;
-            padding: 10px 0;
-            border-radius: 4px;
-            top: 100%; 
-            left: 50%;
-            transform: translateX(-50%);
+            display: none; position: absolute; background-color: var(--accent-color);
+            min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); z-index: 2;
+            padding: 10px 0; border-radius: 4px; top: 100%; left: 50%; transform: translateX(-50%);
         }
-        .dropdown-content a {
-            color: var(--primary-color);
-            padding: 10px 20px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            margin: 0; 
-            font-weight: 400;
-            transition: background-color 0.3s;
-        }
-        .dropdown-content a:hover {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-        }
-        @media (min-width: 769px) {
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
-        }
+        .dropdown-content a { color: var(--primary-color); padding: 10px 20px; text-decoration: none; display: block; text-align: left; font-weight: 400; transition: 0.3s; margin-left: 0 !important; }
+        .dropdown-content a:hover { background-color: var(--primary-color); color: var(--light-text); }
+        @media (min-width: 769px) { .dropdown:hover .dropdown-content { display: block; } }
 
-        /* HAMBURGER ICON */
-        .menu-icon { 
-            display: none; 
-            cursor: pointer; 
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px; 
-        }
-        .menu-icon span { 
-            display: block; 
-            width: 100%; 
-            height: 3px; 
-            margin: 4px 0; 
-            background: var(--primary-color); 
-            transition: 0.4s; 
-            border-radius: 3px;
-        }
+        .menu-icon { display: none; cursor: pointer; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; }
+        .menu-icon span { display: block; width: 100%; height: 3px; margin: 4px 0; background: var(--primary-color); transition: 0.4s; border-radius: 3px; }
         
-        /* --- BUTTON & LINK STYLES (Common) --- */
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--primary-color); 
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-        .cta-button:hover { background-color: #92a487; }
+        /* --- PAGE STYLES --- */
+        .detail-header { text-align: center; padding-bottom: 30px; border-bottom: 3px solid var(--accent-color); margin-bottom: 30px; }
+        .detail-header h1 { font-size: 3em; color: var(--primary-color); margin-bottom: 5px; font-weight: 700; }
+        .detail-header .price { font-size: 1.6em; color: var(--accent-color); font-weight: 600; }
         
-          /* --- FOOTER STYLES (UPDATED) --- */
-        footer { 
-            background-color: var(--logo-bg); 
-            color: var(--primary-color); 
-            text-align: center; 
-            font-size: 0.9em; 
-            margin-top: auto; 
-        }
-        footer a { color: var(--accent-color); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+        .content-section { background-color: var(--card-bg); padding: 30px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid var(--accent-color); }
+        .content-section h2 { color: var(--primary-color); font-size: 1.8em; border-bottom: 1px dashed #cccccc; padding-bottom: 10px; margin-top: 0; }
         
-        /* Main 3-Column Footer Grid */
-        .footer-content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            text-align: left;
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
-        }
-        .footer-logo img {
-            height: 80px; /* Smaller logo in footer */
-            display: block;
-        }
-        .footer-section {
-            padding: 0 20px;
-        }
-        .footer-section h4 {
-            font-size: 1.1em;
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .footer-section p {
-            margin: 5px 0;
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 5px;
-        }
-        .footer-socials {
-            text-align: center;
-            line-height: 2;
-        }
-        .footer-socials p {
-             margin: 0;
-        }
-        .footer-legal {
-            text-align: right;
-        }
-        .footer-legal ul {
-            text-align: right;
-        }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+        .feature-item { background-color: var(--cream-bg); padding: 15px; border-radius: 4px; border: 1px solid #e0e0e0; }
+        .feature-item strong { display: block; color: var(--accent-color); margin-bottom: 5px; }
         
-        /* Copyright Bar */
-        .footer-copyright {
-            padding: 10px 0;
-            font-size: 0.8em;
-            color: var(--primary-color);
-        }
-        .footer-copyright p {
-            margin: 0;
-        }
-
-
-        /* --- PAGE-SPECIFIC STYLES: DETAIL CONTENT --- */
-        .detail-header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 3px solid var(--accent-color);
-            margin-bottom: 30px;
-        }
-        .detail-header h1 {
-            font-size: 3em;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        .detail-header .price {
-            font-size: 1.6em;
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        .tagline {
-            font-style: italic;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-        
-        .content-section {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--accent-color);
-        }
-        .content-section h2 {
-            color: var(--primary-color);
-            font-size: 1.8em;
-            border-bottom: 1px dashed #cccccc;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .feature-item {
-            background-color: var(--cream-bg);
-            padding: 15px;
-            border-radius: 4px;
-            border: 1px solid #e0e0e0;
-            font-size: 0.95em;
-        }
-        .feature-item strong {
-            display: block;
-            color: var(--accent-color);
-            margin-bottom: 5px;
-        }
-        
-        .process-list {
-            list-style: none;
-            counter-reset: detail-step;
-            padding-left: 0;
-        }
-        .process-list li {
-            position: relative;
-            padding: 10px 0 10px 40px;
-            margin-bottom: 10px;
-            background: var(--cream-bg);
-            border-radius: 4px;
-            line-height: 1.5; /* Added for better readability on mobile */
-        }
+        .process-list { list-style: none; counter-reset: detail-step; padding-left: 0; }
+        .process-list li { position: relative; padding: 10px 0 10px 40px; margin-bottom: 10px; background: var(--cream-bg); border-radius: 4px; }
         .process-list li::before {
-            content: counter(detail-step);
-            counter-increment: detail-step;
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background: var(--accent-color);
-            color: var(--cream-bg);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            font-weight: 700;
-            font-size: 1.1em;
+            content: counter(detail-step); counter-increment: detail-step;
+            position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+            width: 25px; height: 25px; background: var(--accent-color); color: white;
+            border-radius: 50%; text-align: center; line-height: 25px; font-weight: 700;
         }
         
-        .call-to-action {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid #ddd;
-        }
-        
-        /* --- MOBILE SPECIFIC STYLES (768px and below) --- */
+        .call-to-action { text-align: center; padding: 40px 0; border-top: 1px solid #ddd; }
+        .cta-button { display: inline-block; background: var(--accent-color); color: var(--primary-color); padding: 15px 35px; text-decoration: none; border-radius: 5px; font-size: 1.1em; font-weight: 600; transition: 0.3s; }
+        .cta-button:hover { background-color: #92a487; }
+
+        /* --- FOOTER STYLES FIXED --- */
+        footer { background-color: var(--logo-bg); color: var(--primary-color); padding: 40px 0 20px 0; width: 100%; margin-top: auto; }
+        .footer-container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .footer-content-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; text-align: left; padding-bottom: 30px; border-bottom: 1px solid rgba(79, 74, 70, 0.1); }
+        .footer-logo img { height: 80px; display: block; margin-bottom: 15px; }
+        .footer-section h4 { font-size: 1.1em; margin-bottom: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-section ul { list-style: none; padding: 0; margin: 0; }
+        .footer-section ul li { margin-bottom: 8px; }
+        .footer-section a { color: var(--primary-color); text-decoration: none; transition: color 0.3s; }
+        .footer-section a:hover { color: var(--accent-color); text-decoration: underline; }
+        .footer-copyright { padding-top: 20px; text-align: center; font-size: 0.85em; opacity: 0.8; }
+
         @media (max-width: 768px) {
-            
-            /* --- FONT SIZE SCALING --- */
-            body { 
-                font-size: 0.9em; 
-            }
-            .container { 
-                margin-top: 90px; /* Adjusted margin */
-                padding: 15px; /* Adjusted padding */
-            }
-            
-            /* HEADER ELEMENTS REDUCTION */
-            .detail-header h1 { 
-                font-size: 2em; /* Reduced from 3em */
-            }
-            .detail-header .price { 
-                font-size: 1.2em; /* Reduced from 1.6em */
-            }
-            .tagline {
-                font-size: 1em; 
-            }
-            .content-section h2 { 
-                font-size: 1.5em; /* Reduced from 1.8em */
-            }
-            .content-section p, 
-            .content-section ul li {
-                font-size: 0.9em; 
-            }
-            .feature-item {
-                font-size: 0.85em; 
-            }
-            .process-list li {
-                font-size: 0.9em;
-            }
-            .cta-button {
-                padding: 12px 25px; 
-                font-size: 1em; 
-            }
-            footer {
-                font-size: 0.8em;
-            }
-
-            /* --- LAYOUT FIXES --- */
-            .features-grid { 
-                grid-template-columns: 1fr; /* Stack features vertically */
-            }
-
-            /* --- NAVIGATION FIXES --- */
-            .menu-icon { display: flex; }
-            #main-nav {
-                display: none; 
-                flex-direction: column;
-                width: 100%;
-                position: absolute; 
-                top: 110px; 
-                left: 0;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                padding: 10px 0;
-                background-color: var(--logo-bg);
-            }
+            .footer-content-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo img { margin: 0 auto 20px auto; }
+            #main-nav { display: none; flex-direction: column; width: 100%; position: absolute; top: 110px; left: 0; background: var(--logo-bg); }
             #main-nav.show-menu { display: flex; }
-            #main-nav a { 
-                margin: 8px 0; 
-                padding: 5px 0;
-                display: block;
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
-                text-align: center;
-                margin-left: 0; /* Important reset */
-            }
-            
-            /* Mobile: Handling Dropdown */
-            .dropdown { 
-                margin: 0; 
-                width: 100%; 
-                display: contents; 
-            }
-            .dropdown-content { 
-                display: block; 
-                position: static; 
-                width: 100%; 
-                transform: none; 
-                box-shadow: none; 
-                background-color: transparent; 
-                border-top: 1px solid rgba(79, 74, 70, 0.1); 
-                padding: 0; 
-            }
-            .dropdown-content a { 
-                padding: 5px 0; 
-                font-size: 0.8em; 
-                background-color: rgba(79, 74, 70, 0.03); 
-                text-align: center; 
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
-            }
-            .dropdown-content a:last-child {
-                border-bottom: none; 
-            }
+            #main-nav a { margin-left: 0; padding: 15px; border-bottom: 1px solid #ddd; text-align: center; }
+            .menu-icon { display: flex; }
         }
     </style>
 </head>
@@ -435,32 +142,27 @@
                 <img src="logo.jpg.webp" alt="The Organised Types Logo">
             </a>
             <div class="menu-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
-          <nav id="main-nav">
-    <a href="index.html" id="nav-index">Home</a> 
-    
-    <a href="about.html" id="nav-about">About</a> 
-    
-    <div class="dropdown" onclick="toggleDropdown(event)">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">Services <span class="desktop-only">&#9662;</span></a>
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-            <a href="services.html#templates">Templates, Tools & Courses</a>
-        </div>
-    </div>
-    <a href="faq.html" id="nav-faq">FAQ's</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-</nav>
+            <nav id="main-nav">
+                <a href="index.html" id="nav-index">Home</a> 
+                <a href="about.html" id="nav-about">About</a> 
+                <div class="dropdown">
+                    <a href="services.html" class="dropdown-toggle" id="nav-services">Services &#9662;</a>
+                    <div class="dropdown-content">
+                        <a href="services.html#website">Website Design</a>
+                        <a href="services.html#branding">Brand Identity</a>
+                        <a href="services.html#coaching">Business Coaching</a>
+                        <a href="services.html#templates">Templates & Tools</a>
+                    </div>
+                </div>
+                <a href="faq.html" id="nav-faq">FAQ's</a>
+                <a href="contact.html" id="nav-contact">Contact</a>
+            </nav>
         </div>
     </header>
     
-    <div class="container">
-        
+    <div class="page-content">
         <div class="detail-header">
             <h1>Branding Complete Suite</h1>
             <p class="tagline">A full visual identity package designed to elevate your business and maximise recognition.</p>
@@ -469,180 +171,64 @@
 
         <div class="content-section">
             <h2>Why This Kit is Essential for Growth</h2>
-            <p>The Complete Brand Identity Suite moves beyond basic visuals to give you the strategic depth and asset variation required to look professional across all marketing channels. This is perfect for **established businesses, coaches, wellness brands, and creatives** who rely heavily on a strong, cohesive aesthetic to attract premium clients.</p>
-            <p>It prevents the costly issue of using inconsistent fonts, colours, or logo variations, giving you peace of mind that your brand always looks impeccable.</p>
+            <p>The Complete Brand Identity Suite moves beyond basic visuals to give you the strategic depth and asset variation required to look professional across all marketing channels.</p>
         </div>
 
         <div class="content-section">
-            <h2>What You Receive in the Full Suite</h2>
+            <h2>What You Receive</h2>
             <div class="features-grid">
-                <div class="feature-item">
-                    <strong>Full Logo Suite</strong>
-                    Primary, secondary, submark, and watermark files (4 variations total).
-                </div>
-                <div class="feature-item">
-                    <strong>Extended Colour Palette</strong>
-                    Primary colours, secondary colours, and tonal variations for diverse design needs.
-                </div>
-                <div class="feature-item">
-                    <strong>Typography Hierarchy</strong>
-                    Defined usage for headings, subheadings, and body text across digital and print.
-                </div>
-                <div class="feature-item">
-                    <strong>Icon Set or Brand Elements</strong>
-                    Custom designed graphic elements, patterns, or icons to add visual depth to your materials.
-                </div>
-                <div class="feature-item">
-                    <strong>Brand Direction & Guidelines</strong>
-                    A comprehensive PDF document detailing correct usage, visual story, and aesthetic notes.
-                </div>
-                <div class="feature-item">
-                    <strong>High-Quality Files</strong>
-                    All assets delivered in multiple file types (PNG, JPEG, PDF, and source files).
-                </div>
-                <div class="feature-item">
-                    <strong>3 Rounds of Revisions</strong>
-                    Extensive time dedicated to feedback and refinement across the entire design process.
-                </div>
-                <div class="feature-item">
-                    <strong>Faster Website Integration</strong>
-                    Assets perfectly prepared for seamless use on your website and social media.
-                </div>
+                <div class="feature-item"><strong>Full Logo Suite</strong>4 variations for all platforms.</div>
+                <div class="feature-item"><strong>Extended Palette</strong>Comprehensive colour system.</div>
+                <div class="feature-item"><strong>Typography</strong>Defined font hierarchy.</div>
+                <div class="feature-item"><strong>Guidelines</strong>PDF usage manual.</div>
             </div>
         </div>
 
-        <div class="content-section">
-            <h2>The Branding Journey</h2>
-            <p>We take a collaborative approach to build a brand identity that truly resonates with your mission.</p>
-            <ol class="process-list">
-                <li>
-                    <strong>Phase 1: Deep Discovery</strong>
-                    In-depth questionnaire and strategy review of your business values, message, and market positioning.
-                </li>
-                <li>
-                    <strong>Phase 2: Moodboard & Concept</strong>
-                    We create a definitive visual direction for your approval before starting design.
-                </li>
-                <li>
-                    <strong>Phase 3: Design & Presentation</strong>
-                    First presentation of the full logo suite, colour palette, and initial elements.
-                </li>
-                <li>
-                    <strong>Phase 4: Refinement (3 Rounds)</strong>
-                    Applying detailed feedback to perfect every element of the suite.
-                </li>
-                <li>
-                    <strong>Phase 5: Final Delivery</strong>
-                    Handover of all files and the Brand Direction Guide.
-                </li>
-            </ol>
+        <div class="call-to-action">
+            <h3>Ready to transform your brand?</h3>
+            <a href="contact.html#form" class="cta-button">Order the Branding Complete Suite</a>
         </div>
-        
-          <div class="call-to-action">
-           <h3>Ready to transform your business with a complete, professional brand identity?</h3>
-            <a href="" class="cta-button">Order the branding complete suite</a>
-            // needs to go to form ///
-        </div>
-
     </div>
 
     <footer>
-        <div class="container footer-content-grid">
-            
-            <div class="footer-section footer-logo">
-                 <a href="index.html">
-                    <img src="logo.jpg.webp" alt="The Organised Types Logo">
-                </a>
+        <div class="footer-container">
+            <div class="footer-content-grid">
+                <div class="footer-section">
+                    <a href="index.html" class="footer-logo">
+                        <img src="logo.jpg.webp" alt="The Organised Types Logo">
+                    </a>
+                    <p>Elevating small businesses through strategic design and organisation.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:theorganisedtypes@gmail.com">Email Us</a></li>
+                        <li><a href="https://www.instagram.com/theorganisedtypes/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.pinterest.co.uk/theorganisedtypes/" target="_blank">Pinterest</a></li>
+                        <li><a href="https://www.tiktok.com/@theorganisedtypes" target="_blank">TikTok</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="shipping.html">Shipping & Returns</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="footer-section footer-socials">
-                <h4>Connect With Us</h4>
-                <p>Email: <a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a></p>
-                <ul>
-                    <li><a href="#" target="_blank">Pinterest @theorganisedtypes</a></li>
-                    <li><a href="#" target="_blank">Instagram @theorganisedtypes</a></li>
-                    <li><a href="#" target="_blank">TikTok @theorganisedtypes</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section footer-legal">
-                <h4>Legal Hub</h4>
-                <ul>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Shopify</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-copyright">
-             <div class="container">
+            <div class="footer-copyright">
                 <p>&copy; 2025 The Organised Types. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // TOGGLES THE MOBILE NAVIGATION MENU
         function toggleMenu() {
-            var nav = document.getElementById("main-nav"); 
-            nav.classList.toggle("show-menu");
+            document.getElementById("main-nav").classList.toggle("show-menu");
         }
-
-        // TOGGLES THE DROPDOWN MENU ON MOBILE CLICK - MODIFIED for mobile fix
-        function toggleDropdown(event) {
-            // Only execute the dropdown toggle logic (e.g., stopping link action) on desktop (769px and up)
-            if (window.innerWidth >= 769) {
-                return;
-            }
-            // On mobile, the CSS forces the dropdown content to show and the parent link is made clickable.
-        }
-        
-        // Function to set the active link dynamically
-        (function setActiveLink() {
-            const path = window.location.pathname.split('/').pop();
-            const activePage = path.split('.')[0] || 'index'; 
-            
-            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // List of potential detail pages that should activate the Services link
-            const detailPages = [
-                'branding-suite', 'website-design', 'coaching-session', 
-                'essential-brand-identity-kit', 'branding-kickstart-package', 
-                'mini-brand-starter-kit', 'premium-brand-social-kit', 
-                'signature-brand-kit', 'complete-brand-identity-suite',
-                'growth-bundle-coaching', 
-                'immersive-strategy-coaching', 
-                'pay-as-you-go-coaching', 
-                'transformation-package'
-            ];
-            
-            const servicesLink = document.getElementById('nav-services');
-            
-            if (detailPages.some(page => activePage.includes(page))) {
-                if (servicesLink) {
-                    servicesLink.classList.add('active');
-                    // Ensure dropdown toggle is also active 
-                    if (servicesLink.closest('.dropdown')) {
-                        servicesLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
-                    }
-                }
-            } else {
-                const activeLink = document.getElementById(`nav-${activePage}`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                    
-                    if (activeLink.closest('.dropdown')) {
-                        activeLink.closest('.dropdown').querySelector('.dropdown-toggle').classList.add('active');
-                    }
-                }
-            }
-        })();
     </script>
-
 </body>
 </html>

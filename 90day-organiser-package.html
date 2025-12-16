@@ -27,10 +27,13 @@
             min-height: 100vh; 
             display: flex; flex-direction: column; 
         }
-        .container { 
+        
+        /* Main Content Wrapper */
+        .main-wrapper { 
             width: 90%; max-width: 900px; 
-            margin: auto; padding: 30px 0; 
-            box-sizing: border-box; margin-top: 110px; 
+            margin: 110px auto 60px auto; 
+            box-sizing: border-box; 
+            flex: 1; 
         }
 
         /* --- HEADER & NAVIGATION --- */
@@ -63,11 +66,12 @@
             z-index: 2; padding: 10px 0; border-radius: 4px;
             top: 100%; left: 50%; transform: translateX(-50%);
         }
-        .dropdown-content a { color: var(--primary-color) !important; padding: 10px 20px; margin: 0 !important; }
+        .dropdown-content a { color: var(--primary-color) !important; padding: 10px 20px; margin: 0 !important; display: block; }
+        .dropdown-content a:hover { background-color: var(--primary-color); color: var(--light-text) !important; }
         @media (min-width: 769px) { .dropdown:hover .dropdown-content { display: block; } }
 
         .menu-icon { display: none; cursor: pointer; flex-direction: column; width: 30px; height: 25px; }
-        .menu-icon span { display: block; width: 100%; height: 3px; background: var(--primary-color); border-radius: 3px; }
+        .menu-icon span { display: block; width: 100%; height: 3px; background: var(--primary-color); border-radius: 3px; margin: 4px 0; }
 
         /* --- BUTTONS --- */
         .cta-button {
@@ -88,7 +92,7 @@
             border-radius: 8px; margin-bottom: 30px;
             border-left: 4px solid var(--accent-color);
         }
-        .content-section h2 { color: var(--primary-color); font-size: 1.8em; border-bottom: 1px dashed #cccccc; padding-bottom: 10px; }
+        .content-section h2 { color: var(--primary-color); font-size: 1.8em; border-bottom: 1px dashed #cccccc; padding-bottom: 10px; margin-top: 0; }
         
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px; }
         .feature-item { background-color: var(--cream-bg); padding: 20px; border-radius: 4px; border: 1px solid #e0e0e0; }
@@ -106,12 +110,42 @@
             color: var(--cream-bg); border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700;
         }
 
-        /* --- FOOTER --- */
-        footer { background-color: var(--logo-bg); padding: 40px 0 20px; margin-top: auto; }
-        .footer-content-grid { display: grid; grid-template-columns: repeat(3, 1fr); width: 90%; margin: auto; gap: 20px; }
+        /* --- FOOTER FIXED --- */
+        footer { 
+            background-color: var(--logo-bg); 
+            color: var(--primary-color); 
+            padding: 50px 0 20px 0;
+            margin-top: auto; 
+        }
+        .footer-inner {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .footer-content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
+        }
+        .footer-logo img { height: 80px; margin-bottom: 15px; display: block; }
+        .footer-section h4 { font-size: 1.1em; font-weight: 700; margin-bottom: 15px; margin-top: 0; }
+        .footer-section ul { list-style: none; padding: 0; margin: 0; }
+        .footer-section ul li { margin-bottom: 8px; }
+        .footer-section a { color: var(--primary-color); text-decoration: none; transition: 0.3s; }
+        .footer-section a:hover { color: var(--accent-color); text-decoration: underline; }
+        
+        .footer-copyright {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 0.85em;
+            opacity: 0.8;
+        }
 
         @media (max-width: 768px) {
-            .container { margin-top: 90px; }
+            .main-wrapper { margin-top: 90px; }
             .detail-header h1 { font-size: 1.8em; }
             .navbar { padding: 10px 15px; }
             .logo-area img { height: 60px; }
@@ -119,10 +153,12 @@
             #main-nav { 
                 display: none; position: absolute; top: 80px; left: 0; width: 100%; 
                 background: var(--logo-bg); flex-direction: column; padding: 20px 0; 
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             }
             #main-nav.show-menu { display: flex; }
             #main-nav a { margin: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05); width: 100%; text-align: center; padding-bottom: 10px; margin-left: 0; }
-            .footer-content-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-content-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .footer-logo img { margin: 0 auto 15px auto; }
         }
     </style>
 </head>
@@ -140,7 +176,7 @@
                 <a href="index.html">Home</a> 
                 <a href="about.html">About</a> 
                 <div class="dropdown">
-                    <span class="dropdown-toggle" onclick="toggleDropdown(event)">Services &#9662;</span>
+                    <span class="dropdown-toggle">Services &#9662;</span>
                     <div class="dropdown-content">
                         <a href="services.html#website">Website Design</a>
                         <a href="services.html#branding">Brand Identity</a>
@@ -153,7 +189,7 @@
         </div>
     </header>
     
-    <div class="container">
+    <div class="main-wrapper">
         <div class="detail-header">
             <h1>The 90-Day Business Accelerator</h1>
             <p class="tagline">3 Months of focused strategy, clarity, and system-building for your business.</p>
@@ -163,7 +199,6 @@
         <div class="content-section">
             <h2>Transform Your Business Infrastructure</h2>
             <p>Ready to move from overwhelmed to organised? Over the next 90 days, we'll work 1:1 to streamline your back-end systems, refine your business strategy, and build a brand that works as hard as you do.</p>
-            <p>This isn't just coaching; it's a partnership. We focus on the "doing"—setting up the trackers, building the workflows, and ensuring you have total clarity on your growth path.</p>
         </div>
 
         <div class="content-section">
@@ -171,41 +206,23 @@
             <div class="features-grid">
                 <div class="feature-item">
                     <strong>6x Bi-Weekly Strategy Calls</strong>
-                    Hour-long, 1:1 intensive calls to deep-dive into your obstacles, plan your roadmap, and review progress.
+                    Hour-long, 1:1 intensive calls to deep-dive into your obstacles and plan your roadmap.
                 </div>
                 <div class="feature-item">
                     <strong>Custom Systems Build</strong>
-                    We'll help you build or refine your spreadsheet-based tracking systems (Cashflow, Client Onboarding, etc.).
+                    We'll build your spreadsheet-based tracking systems (Cashflow, Client Onboarding, etc.).
                 </div>
                 <div class="feature-item">
-                    <strong>Support (Mon-Fri)</strong>
-                    Direct access to us for quick questions, feedback on designs, or mindset resets between our scheduled calls.
+                    <strong>Direct Support</strong>
+                    Access to us for quick questions and feedback between scheduled calls.
                 </div>
                 <div class="feature-item">
-                    <strong>Content & Marketing Review</strong>
-                    Audit of your current social media and website strategy to ensure your messaging aligns with your new goals.
+                    <strong>Marketing Review</strong>
+                    Audit of your current social media and website strategy to ensure alignment.
                 </div>
             </div>
         </div>
 
-        <div class="content-section">
-            <h2>The 90-Day Roadmap</h2>
-            <ol class="process-list">
-                <li>
-                    <strong>Month 1: The Foundations Audit</strong>
-                    We strip back your current processes, identify the burnout points, and set your core 90-day targets.
-                </li>
-                <li>
-                    <strong>Month 2: Systems & Workflow Build</strong>
-                    The "Implementation Phase." We build the digital tools and templates you need to automate the boring stuff.
-                </li>
-                <li>
-                    <strong>Month 3: Scaling & Sustainable Growth</strong>
-                    Finalising your marketing strategy and ensuring you have a repeatable system to manage new clients with ease.
-                </li>
-            </ol>
-        </div>
-        
         <div class="call-to-action" style="text-align: center; padding-top: 20px;">
             <h3>Ready for focused, professional growth?</h3>
             <p>Spaces are limited to ensure high-level support.</p>
@@ -214,31 +231,46 @@
     </div>
 
     <footer>
-        <div class="footer-content-grid">
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>theorganisedtypes@gmail.com</p>
+        <div class="footer-inner">
+            <div class="footer-content-grid">
+                
+                <div class="footer-section">
+                     <a href="index.html" class="footer-logo">
+                        <img src="logo.jpg.webp" alt="The Organised Types Logo">
+                    </a>
+                    <p>Strategic design and high-level organisation for modern entrepreneurs.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:theorganisedtypes@gmail.com">Email Us</a></li>
+                        <li><a href="https://www.instagram.com/theorganisedtypes/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.pinterest.co.uk/theorganisedtypes/" target="_blank">Pinterest</a></li>
+                        <li><a href="https://www.tiktok.com/@theorganisedtypes" target="_blank">TikTok</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+
             </div>
-            <div class="footer-section" style="text-align:center;">
-                <h4>Follow</h4>
-                <p>Instagram | Pinterest | TikTok</p>
-            </div>
-            <div class="footer-section" style="text-align:right;">
-                <h4>Legal</h4>
-                <p>Terms & Conditions</p>
+
+            <div class="footer-copyright">
+                <p>&copy; 2025 The Organised Types. All Rights Reserved.</p>
             </div>
         </div>
-        <p style="text-align:center; padding-top:20px; font-size:0.8em;">&copy; 2025 The Organised Types.</p>
     </footer>
 
     <script>
         function toggleMenu() {
             document.getElementById('main-nav').classList.toggle('show-menu');
-        }
-        function toggleDropdown(e) {
-            if (window.innerWidth <= 768) {
-                e.target.parentElement.classList.toggle('active');
-            }
         }
     </script>
 </body>
