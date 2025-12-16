@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables (Synchronized) */
+        /* CSS Variables */
         :root {
             --primary-color: #4f4a46; 
             --accent-color: #A9B897; 
@@ -27,16 +27,8 @@
             min-height: 100vh; 
             display: flex; flex-direction: column; 
         }
-        
-        /* Main Content Wrapper */
-        .main-wrapper { 
-            width: 90%; max-width: 900px; 
-            margin: 110px auto 60px auto; 
-            box-sizing: border-box; 
-            flex: 1; 
-        }
 
-        /* --- HEADER & NAVIGATION --- */
+        /* --- NAVIGATION --- */
         header { 
             background-color: var(--logo-bg); 
             border-bottom: 1px solid #e0e0e0; 
@@ -50,115 +42,101 @@
             padding: 0 15px; box-sizing: border-box;
         }
         .logo-area img { height: 100px; } 
-        
         #main-nav { display: flex; align-items: center; }
         #main-nav a { 
             color: var(--primary-color); text-decoration: none; 
             margin-left: 25px; font-weight: 500; transition: color 0.3s ease; 
         }
-        #main-nav a:hover, #main-nav a.active { color: var(--accent-color); }
-        
+        #main-nav a:hover { color: var(--accent-color); }
         .dropdown { position: relative; display: inline-block; margin-left: 25px; }
         .dropdown-toggle { color: var(--primary-color); text-decoration: none; font-weight: 500; cursor: pointer; }
         .dropdown-content {
             display: none; position: absolute; background-color: var(--accent-color);
-            min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             z-index: 2; padding: 10px 0; border-radius: 4px;
             top: 100%; left: 50%; transform: translateX(-50%);
         }
         .dropdown-content a { color: var(--primary-color) !important; padding: 10px 20px; margin: 0 !important; display: block; }
-        .dropdown-content a:hover { background-color: var(--primary-color); color: var(--light-text) !important; }
         @media (min-width: 769px) { .dropdown:hover .dropdown-content { display: block; } }
+        .menu-icon { display: none; cursor: pointer; flex-direction: column; width: 30px; }
+        .menu-icon span { display: block; width: 100%; height: 3px; background: var(--primary-color); margin: 3px 0; border-radius: 3px; }
 
-        .menu-icon { display: none; cursor: pointer; flex-direction: column; width: 30px; height: 25px; }
-        .menu-icon span { display: block; width: 100%; height: 3px; background: var(--primary-color); border-radius: 3px; margin: 4px 0; }
-
-        /* --- BUTTONS --- */
-        .cta-button {
-            display: inline-block; background: var(--accent-color);
-            color: var(--primary-color); padding: 15px 35px;
-            text-decoration: none; border-radius: 5px;
-            font-size: 1.1em; font-weight: 600; transition: 0.3s;
+        /* --- CONTENT --- */
+        .container { 
+            width: 90%; max-width: 900px; 
+            margin: 110px auto 60px auto; 
+            padding: 30px 0; flex: 1;
         }
-        .cta-button:hover { background-color: #92a487; }
-        
-        /* --- PAGE CONTENT --- */
         .detail-header { text-align: center; padding: 30px 0; border-bottom: 3px solid var(--accent-color); margin-bottom: 30px; }
         .detail-header h1 { font-size: 2.8em; color: var(--primary-color); margin-bottom: 5px; font-weight: 900; }
         .detail-header .price { font-size: 1.6em; color: var(--accent-color); font-weight: 600; margin-bottom: 15px; }
-        
-        .content-section {
-            background-color: var(--card-bg); padding: 35px;
-            border-radius: 8px; margin-bottom: 30px;
-            border-left: 4px solid var(--accent-color);
-        }
-        .content-section h2 { color: var(--primary-color); font-size: 1.8em; border-bottom: 1px dashed #cccccc; padding-bottom: 10px; margin-top: 0; }
-        
+        .content-section { background-color: var(--card-bg); padding: 35px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid var(--accent-color); }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px; }
         .feature-item { background-color: var(--cream-bg); padding: 20px; border-radius: 4px; border: 1px solid #e0e0e0; }
         .feature-item strong { display: block; color: var(--accent-color); margin-bottom: 8px; font-size: 1.1em; }
-        
         .process-list { list-style: none; counter-reset: detail-step; padding-left: 0; }
-        .process-list li {
-            position: relative; padding: 15px 15px 15px 50px;
-            margin-bottom: 15px; background: var(--cream-bg); border-radius: 4px;
-        }
-        .process-list li::before {
-            content: counter(detail-step); counter-increment: detail-step;
-            position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
-            width: 30px; height: 30px; background: var(--accent-color);
-            color: var(--cream-bg); border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700;
-        }
+        .process-list li { position: relative; padding: 15px 15px 15px 50px; margin-bottom: 15px; background: var(--cream-bg); border-radius: 4px; }
+        .process-list li::before { content: counter(detail-step); counter-increment: detail-step; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; background: var(--accent-color); color: var(--cream-bg); border-radius: 50%; text-align: center; line-height: 30px; font-weight: 700; }
+        .cta-button { display: inline-block; background: var(--accent-color); color: var(--primary-color); padding: 15px 35px; text-decoration: none; border-radius: 5px; font-size: 1.1em; font-weight: 600; transition: 0.3s; }
+        .cta-button:hover { background-color: #92a487; }
 
-        /* --- FOOTER FIXED --- */
+        /* --- FOOTER (FIXED) --- */
         footer { 
             background-color: var(--logo-bg); 
             color: var(--primary-color); 
-            padding: 50px 0 20px 0;
+            padding: 50px 0 20px; 
             margin-top: auto; 
+            border-top: 1px solid #e0e0e0;
         }
-        .footer-inner {
+        .footer-container {
             width: 90%;
             max-width: 1100px;
             margin: 0 auto;
         }
-        .footer-content-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr 1fr;
+        .footer-content-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
             gap: 40px;
             text-align: left;
             padding-bottom: 40px;
             border-bottom: 1px solid rgba(79, 74, 70, 0.1);
         }
-        .footer-logo img { height: 80px; margin-bottom: 15px; display: block; }
+        .footer-logo img { height: 80px; display: block; margin-bottom: 15px; }
         .footer-section h4 { font-size: 1.1em; font-weight: 700; margin-bottom: 15px; margin-top: 0; }
+        .footer-section p { margin: 5px 0; font-size: 0.95em; }
         .footer-section ul { list-style: none; padding: 0; margin: 0; }
         .footer-section ul li { margin-bottom: 8px; }
         .footer-section a { color: var(--primary-color); text-decoration: none; transition: 0.3s; }
         .footer-section a:hover { color: var(--accent-color); text-decoration: underline; }
         
-        .footer-copyright {
-            text-align: center;
-            padding-top: 20px;
-            font-size: 0.85em;
-            opacity: 0.8;
-        }
+        /* Middle section alignment */
+        .footer-socials { text-align: center; }
+        .footer-socials ul { display: inline-block; text-align: left; }
+        
+        /* Right section alignment */
+        .footer-legal { text-align: right; }
+        .footer-legal ul { display: inline-block; text-align: right; }
 
+        .footer-copyright { padding-top: 20px; text-align: center; font-size: 0.85em; opacity: 0.8; }
+
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            .main-wrapper { margin-top: 90px; }
+            .container { margin-top: 90px; }
             .detail-header h1 { font-size: 1.8em; }
-            .navbar { padding: 10px 15px; }
             .logo-area img { height: 60px; }
             .menu-icon { display: flex; }
             #main-nav { 
                 display: none; position: absolute; top: 80px; left: 0; width: 100%; 
                 background: var(--logo-bg); flex-direction: column; padding: 20px 0; 
-                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             }
             #main-nav.show-menu { display: flex; }
-            #main-nav a { margin: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05); width: 100%; text-align: center; padding-bottom: 10px; margin-left: 0; }
+            #main-nav a { margin: 10px 0; width: 100%; text-align: center; margin-left: 0; }
+            
             .footer-content-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
-            .footer-logo img { margin: 0 auto 15px auto; }
+            .footer-logo img { margin: 0 auto; }
+            .footer-socials, .footer-legal { text-align: center; }
+            .footer-socials ul, .footer-legal ul { text-align: center; }
         }
     </style>
 </head>
@@ -176,7 +154,7 @@
                 <a href="index.html">Home</a> 
                 <a href="about.html">About</a> 
                 <div class="dropdown">
-                    <span class="dropdown-toggle">Services &#9662;</span>
+                    <span class="dropdown-toggle" onclick="toggleDropdown(event)">Services &#9662;</span>
                     <div class="dropdown-content">
                         <a href="services.html#website">Website Design</a>
                         <a href="services.html#branding">Brand Identity</a>
@@ -189,7 +167,7 @@
         </div>
     </header>
     
-    <div class="main-wrapper">
+    <div class="container">
         <div class="detail-header">
             <h1>The 90-Day Business Accelerator</h1>
             <p class="tagline">3 Months of focused strategy, clarity, and system-building for your business.</p>
@@ -206,19 +184,19 @@
             <div class="features-grid">
                 <div class="feature-item">
                     <strong>6x Bi-Weekly Strategy Calls</strong>
-                    Hour-long, 1:1 intensive calls to deep-dive into your obstacles and plan your roadmap.
+                    Hour-long, 1:1 intensive calls to deep-dive into your obstacles, plan your roadmap, and review progress.
                 </div>
                 <div class="feature-item">
                     <strong>Custom Systems Build</strong>
-                    We'll build your spreadsheet-based tracking systems (Cashflow, Client Onboarding, etc.).
+                    We'll help you build or refine your spreadsheet-based tracking systems (Cashflow, Client Onboarding, etc.).
                 </div>
                 <div class="feature-item">
-                    <strong>Direct Support</strong>
-                    Access to us for quick questions and feedback between scheduled calls.
+                    <strong>Support (Mon-Fri)</strong>
+                    Direct access to us for quick questions, feedback on designs, or mindset resets between our scheduled calls.
                 </div>
                 <div class="feature-item">
-                    <strong>Marketing Review</strong>
-                    Audit of your current social media and website strategy to ensure alignment.
+                    <strong>Content & Marketing Review</strong>
+                    Audit of your current social media and website strategy to ensure your messaging aligns with your new goals.
                 </div>
             </div>
         </div>
@@ -231,32 +209,33 @@
     </div>
 
     <footer>
-        <div class="footer-inner">
+        <div class="footer-container">
             <div class="footer-content-grid">
                 
                 <div class="footer-section">
-                     <a href="index.html" class="footer-logo">
+                    <a href="index.html" class="footer-logo">
                         <img src="logo.jpg.webp" alt="The Organised Types Logo">
                     </a>
                     <p>Strategic design and high-level organisation for modern entrepreneurs.</p>
                 </div>
 
-                <div class="footer-section">
-                    <h4>Connect</h4>
+                <div class="footer-section footer-socials">
+                    <h4>Connect With Us</h4>
+                    <p>Email: <a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a></p>
                     <ul>
-                        <li><a href="mailto:theorganisedtypes@gmail.com">Email Us</a></li>
-                        <li><a href="https://www.instagram.com/theorganisedtypes/" target="_blank">Instagram</a></li>
-                        <li><a href="https://www.pinterest.co.uk/theorganisedtypes/" target="_blank">Pinterest</a></li>
-                        <li><a href="https://www.tiktok.com/@theorganisedtypes" target="_blank">TikTok</a></li>
+                        <li><a href="#" target="_blank">Pinterest @theorganisedtypes</a></li>
+                        <li><a href="#" target="_blank">Instagram @theorganisedtypes</a></li>
+                        <li><a href="#" target="_blank">TikTok @theorganisedtypes</a></li>
                     </ul>
                 </div>
 
-                <div class="footer-section">
-                    <h4>Legal</h4>
+                <div class="footer-section footer-legal">
+                    <h4>Legal Hub</h4>
                     <ul>
                         <li><a href="#">Terms & Conditions</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Shopify</a></li>
                     </ul>
                 </div>
 
@@ -271,6 +250,11 @@
     <script>
         function toggleMenu() {
             document.getElementById('main-nav').classList.toggle('show-menu');
+        }
+        function toggleDropdown(e) {
+            if (window.innerWidth <= 768) {
+                e.target.parentElement.classList.toggle('active');
+            }
         }
     </script>
 </body>
