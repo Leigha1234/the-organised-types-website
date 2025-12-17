@@ -168,75 +168,7 @@
         }
         .cta-button:hover { background-color: #92a487; }
         
-        /* --- FOOTER STYLES (UPDATED) --- */
-        footer { 
-            background-color: var(--logo-bg); 
-            color: var(--primary-color); 
-            text-align: center; 
-            font-size: 0.9em; 
-            margin-top: auto; 
-        }
-        footer a { color: var(--accent-color); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        
-        /* Main 3-Column Footer Grid */
-        .footer-content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            text-align: left;
-            padding: 40px 0;
-            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
-        }
-        .footer-logo img {
-            height: 80px; /* Smaller logo in footer */
-            display: block;
-        }
-        .footer-section {
-            padding: 0 20px;
-        }
-        .footer-section h4 {
-            font-size: 1.1em;
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .footer-section p {
-            margin: 5px 0;
-        }
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0;
-        }
-        .footer-section ul li {
-            margin-bottom: 5px;
-        }
-        .footer-socials {
-            text-align: center;
-            line-height: 2;
-        }
-        .footer-socials p {
-             margin: 0;
-        }
-        .footer-legal {
-            text-align: right;
-        }
-        .footer-legal ul {
-            text-align: right;
-        }
-        
-        /* Copyright Bar */
-        .footer-copyright {
-            padding: 10px 0;
-            font-size: 0.8em;
-            color: var(--primary-color);
-        }
-        .footer-copyright p {
-            margin: 0;
-        }
-
-
+     
         /* --- PAGE-SPECIFIC STYLES: DETAIL CONTENT --- */
         .detail-header {
             text-align: center;
@@ -533,43 +465,26 @@
 
     </div>
 
-   <footer>
-        <div class="container footer-content-grid">
-            
-            <div class="footer-section footer-logo">
-                 <a href="index.html">
-                    <img src="logo.jpg.webp" alt="The Organised Types Logo">
-                </a>
-            </div>
+   <div id="site-footer"></div>
 
-            <div class="footer-section footer-socials">
-                <h4>Connect With Us</h4>
-                <p>Email: <a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a></p>
-                <ul>
-                    <li><a href="#" target="_blank">Pinterest @theorganisedtypes</a></li>
-                    <li><a href="#" target="_blank">Instagram @theorganisedtypes</a></li>
-                    <li><a href="#" target="_blank">TikTok @theorganisedtypes</a></li>
-                </ul>
-            </div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('site-footer').innerHTML = data;
 
-            <div class="footer-section footer-legal">
-                <h4>Legal Hub</h4>
-                <ul>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                    <li><a href="#">Shopify</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="footer-copyright">
-             <div class="container">
-                <p>&copy; 2025 The Organised Types. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+      // Cookie banner script
+      const banner = document.getElementById('cookie-banner');
+      if (!localStorage.getItem('cookiesAccepted')) {
+        banner.style.display = 'block';
+      }
+      document.getElementById('accept-cookies').addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        banner.style.display = 'none';
+      });
+    })
+    .catch(err => console.error('Footer load error:', err));
+</script>
 
     <script>
         // TOGGLES THE MOBILE NAVIGATION MENU
