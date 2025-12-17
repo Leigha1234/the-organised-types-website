@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="display: flex; flex-direction: column; min-height: 100vh;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Small Business Services | Websites, Branding & Business Clarity</title>
-<meta name="description" content="From simple websites to full branding and strategy packages, we help small businesses get organised, confident and ready to grow.">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b"/>
+    <title>Services - The Organised Types</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
@@ -619,7 +616,38 @@
             pointer-events: all;
         }
 
-     
+      /* Coaching Comparison Table - ADD THIS FIX */
+.comparison-table-wrapper {
+    /* Ensure the wrapper of the table cannot restrict height */
+    height: auto !important;
+    max-height: none !important;
+    overflow: auto !important;
+}
+
+/* Original table styles */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.8em;
+    height: auto; /* Ensure the table itself doesn't have height issues */
+}
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #dddddd;
+            padding: 5px;
+            text-align: center;
+        }
+        .comparison-table th {
+            background-color: var(--logo-bg);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .comparison-table td {
+            background-color: var(--cream-bg);
+        }
+        .comparison-table tr:nth-child(even) td {
+            background-color: #F8F4F0;
+        }
 
 /* Updated Search Bar Styles - Minimalist & Integrated Look */
 .search-container {
@@ -791,7 +819,12 @@
             .hide-on-mobile {
                 display: none !important;
             }
-       
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            .comparison-table th, .comparison-table td {
+                padding: 5px;
+            }
         }
         @media (min-width: 769px) {
             /* Desktop layout overrides for the new wrapper */
@@ -876,753 +909,119 @@
             <div class="package-grid">
                 
                 <div class="package-card" data-details-url="website-micro.html">
-                   <div id='product-component-1765974717437'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10318167277909',
-        node: document.getElementById('product-component-1765974717437'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
- </div>
+                    <h4>Micro Website</h4>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg.png" alt="Professional website design mockup on a laptop">
+                    </div>
+                    <span class="price">£195</span>
+                    <p>Perfect for: Start-ups, simple landing pages, single-service businesses</p>
+                    <p>A clean, simple, strategic one-page website designed to introduce your brand, capture leads, and give your business a professional online home — without the complexity of a multi-page build.</p>
+                    <ul>
+                        <li>1-2 page website</li>
+                        <li>Custom layout + branded styling</li>
+                        <li>Contact form</li>
+                        <li>Basic SEO setup</li>
+                        <li>Mobile-optimised design</li>
+                        <li>1 round of revisions</li>
+                        <li>Fast turnaround</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ New businesses, ✔ Landing pages for campaigns, ✔ “Coming soon” websites, ✔ Simple brochure-style sites
+                    </div>
+                    <a href="website-micro.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
 
                 <div class="package-card" data-details-url="website-starter.html">
-                   <div id='product-component-1765974746352'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10318167343445',
-        node: document.getElementById('product-component-1765974746352'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-</div>
+                    <h4>Starter Website</h4>
+                    <div class="package-image-placeholder">
+                        <img src="laptopeg2.png" alt="Professional website design mockup on a laptop">
+                    </div>
+                    <span class="price">£495</span>
+                    <p>Perfect for: Small businesses needing a clean, simple and functional online presence</p>
+                    <p>A beautifully designed, user-friendly website with the key pages every business needs. Ideal for service-based businesses wanting a professional presence without overwhelming features.</p>
+                    <ul>
+                        <li>2-3 page website</li>
+                        <li>Homepage + Contact + 1 additional page</li>
+                        <li>Custom branded design</li>
+                        <li>Basic SEO optimisation</li>
+                        <li>Mobile-responsive layout</li>
+                        <li>1 round of revisions</li>
+                        <li>Built for clarity, simplicity & professionalism</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ New entrepreneurs, ✔ Freelancers & creators, ✔ Local service businesses, ✔ Coaches & consultants
+                    </div>
+                    <a href="website-starter.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
 
                 <div class="package-card featured" data-details-url="website-small-business.html">
-                   <div id='product-component-1765974769198'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10318167408981',
-        node: document.getElementById('product-component-1765974769198'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-</div>
+                    <h4>Small Business Website</h4>
+                    <div class="package-image-placeholder">
+                         <img src="Small business website.png" alt="Professional website design mockup on a laptop">
+                   </div>
+                    <span class="price">£795</span>
+                    <p>Perfect for: Growing businesses ready for a more complete, high-quality website</p>
+                    <p>A polished and strategically designed website that showcases your brand, builds trust, and helps convert visitors into customers. Includes all essential core pages plus improved structure and SEO.</p>
+                    <ul>
+                        <li>3-5 page website</li>
+                        <li>Homepage, About, Services, Contact + 1 extra page</li>
+                        <li>Custom branded layouts</li>
+                        <li>2 rounds of revisions</li>
+                        <li>Mobile optimisation</li>
+                        <li>Basic SEO setup (keywords, metadata, alt text)</li>
+                        <li>Professional structure & user experience</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Businesses ready to level up, ✔ Wellness, beauty, fitness, creative, or retail services, ✔ Consultants & small agencies
+                    </div>
+                    <a href="website-small-business.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
 
                 <div class="package-card" data-details-url="website-pro.html">
-                   <div id='product-component-1765974821697'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10318167507285',
-        node: document.getElementById('product-component-1765974821697'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-      </div>
+                    <h4>Professional Website</h4>
+                    <div class="package-image-placeholder bg-accent">
+                    <img src="professional website.png" alt="Professional website design mockup on a laptop">
+                   </div>
+                    <span class="price">£1,195</span>
+                    <p>Perfect for: Established businesses needing a fully custom, conversion-focused site</p>
+                    <p>A bespoke, high-converting website crafted around your brand story, services, and long-term goals. Includes deeper SEO setup, blog or portfolio functionality, and enhanced design elements.</p>
+                    <ul>
+                        <li>6-8 page fully custom website</li>
+                        <li>Blog or portfolio setup</li>
+                        <li>Custom-designed page layouts</li>
+                        <li>2 rounds of revisions</li>
+                        <li>Enhanced SEO setup</li>
+                        <li>Mobile-first design</li>
+                        <li>Launch support + testing, Professional UX and strategic layout</li>
+                        
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Coaches, consultants, and educators, ✔ Creatives needing portfolios, ✔ Growing service-based businesses, ✔ Brands preparing for bigger visibility
+                    </div>
+                    <a href="website-pro.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
                 
                 <div class="package-card" style="grid-column: span 1 / auto;" data-details-url="website-premium-advanced.html">
-                  <div id='product-component-1765982447022'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10330883031381',
-        node: document.getElementById('product-component-1765982447022'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                    <h4>Premium Website (Advanced Features)</h4>
+                    <div class="package-image-placeholder" style="background-color: #A9B897;">
+                    <img src="Premium websites.png" alt="Professional website design mockup on a laptop"></div>
+                    <span class="price">£1,800</span>
+                    <p>Perfect for: Businesses needing ecommerce, booking systems, memberships or advanced integrations</p>
+                    <p>A comprehensive, strategy-led website with everything your brand needs to scale. Designed for businesses requiring automation, online sales, memberships, or more complex customer journeys.</p>
+                    <ul>
+                        <li>8-12+ pages</li>
+                        <li>Ecommerce OR booking system integration</li>
+                        <li>Custom functionality (forms, portals, memberships, calendars)</li>
+                        <li>Full SEO setup (keywords, metadata, structure, optimisation)</li>
+                        <li>3 rounds of revisions</li>
+                        <li>Advanced custom layouts, Third-party integrations</li>
+                        <li>30-day post-launch support</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Ecommerce brands, ✔ Gyms, fitness coaches, wellness professionals, ✔ Businesses needing automation
+                    </div>
+                    <a href="website-premium-advanced.html" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
             </div>
         </section>
 
@@ -1632,1564 +1031,54 @@
             <div class="add-ons-list">
                 
                 <h4>Pre-Launch Essentials</h4>
-              <ul>
-    <li>
-        <span>Logo Design (Simple Text-Based) - £150</span>
-       <div id='product-component-1765974892347'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10318162854229',
-        node: document.getElementById('product-component-1765974892347'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-    </li>
-    <li>
-        <span>Basic Brand Style Guide (Colors & Fonts) - £125</span>
-        <div id='product-component-1765975064589'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10318167736661',
-        node: document.getElementById('product-component-1765975064589'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-    </li>
-    <li>
-        <span>Professional Photography Integration (Your provided photos) - £75</span>
-       <div id='product-component-1765975087901'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328602640725',
-        node: document.getElementById('product-component-1765975087901'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-    </li>
-</ul>
+                <ul>
+                    <li>
+                        <span>Logo Design (Simple Text-Based)</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span>Basic Brand Style Guide (Colors & Fonts)</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
+                    </li>
+                    <li>
+                        <span>Professional Photography Integration (Your provided photos)</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
+                    </li>
+                </ul>
 
                 <h4>Functionality & Content</h4>
                 <ul>
                     <li>
-                        <span>Extra Page Design & Implementation - £85 (per page)</span>
-                     <div id='product-component-1765975110115'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328802754901',
-        node: document.getElementById('product-component-1765975110115'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                        <span>Extra Page Design & Implementation (per page)</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
-                        <span>Advanced SEO & Content Optimisation - £195</span>
-                        <div id='product-component-1765975131427'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328839913813',
-        node: document.getElementById('product-component-1765975131427'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                        <span>Advanced SEO & Content Optimisation</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
-                        <span>CRM or Email Marketing Integration - £175</span>
-                        <div id='product-component-1765975149496'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328862818645',
-        node: document.getElementById('product-component-1765975149496'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                        <span>CRM or Email Marketing Integration (e.g., MailChimp, Flodesk)</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
-                        <span>Membership or Client Portal Setup - £350</span>
-                        <div id='product-component-1765975166654'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328877400405',
-        node: document.getElementById('product-component-1765975166654'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                        <span>Membership or Client Portal Setup</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
-                        <span>Dedicated Blog Setup & 2 initial posts - £225</span>
-                       <div id='product-component-1765975189535'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328896176469',
-        node: document.getElementById('product-component-1765975189535'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                        <span>Dedicated Blog Setup & 2 initial posts</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                 </ul>
 
                 <h4>Maintenance & Support</h4>
                 <ul>
                     <li>
-                        <span>Monthly Website Maintenance Package - £75 (per month)</span>
-                        <div id='product-component-1765975214318'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328911610197',
-        node: document.getElementById('product-component-1765975214318'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                        <span>Monthly Website Maintenance Package (Contact for tailored pricing)</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                     <li>
-                        <span>One-off Maintenance & Troubleshooting - £65 (per hour)</span>
-                       <div id='product-component-1765975245090'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328921801045',
-        node: document.getElementById('product-component-1765975245090'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "contents": {
-      "img": false,
-      "title": false,
-      "price": false
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                        <span>One-off Maintenance & Troubleshooting (Hourly Rate)</span>
+                        <a href="contact.html" class="cta-button small">Add to Cart</a>
                     </li>
                 </ul>
             </div>
@@ -3203,1386 +1092,262 @@
             <div class="package-grid">
                 
                 <div class="package-card" data-details-url="branding-mini-starter.html">
-                   
-                   <div id='product-component-1765973680177'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328924586325',
-        node: document.getElementById('product-component-1765973680177'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                    <h4>Brand Starter Kit</h4>
+                    <div class="package-image-placeholder --card-bg">
+                    <img src="Brand starter kit.png" alt="Brand Starter Kit"></div>
+                    
+                    <span class="price">£295</span>
+                    <p>The essential foundations for a professional look. Ideal for new businesses that need a simple, consistent visual identity.</p>
+                    <ul>
+                        <li>Primary Logo Design</li>
+                        <li>Basic Colour Palette</li>
+                        <li>Recommended Typography Pairings</li>
+                        <li>Basic Brand Guidelines PDF</li>
+                        <li>Digital file formats included</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Freelancers, ✔ New side hustles, ✔ Businesses integrating branding into a Micro or Starter Website package
+                    </div>
+                    <a href="" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
                 </div>
 
                 <div class="package-card featured" data-details-url="branding-kickstart.html">
-                   
-               <div id='product-component-1765974140375'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328926847317',
-        node: document.getElementById('product-component-1765974140375'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
- </div>
+                    <h4>Brand Kickstart</h4>
+                    <div class="package-image-placeholder">
+                    <img src="brand kickstart.png" alt="Brand Kickstart"></div>
+                    <span class="price">£595</span>
+                    <p>A full, in-depth brand package that prepares your business for high-level visibility across all platforms.</p>
+                    <ul>
+                        <li>Primary & Secondary Logos</li>
+                        <li>Full Logo Variations (Wordmark, Favicon)</li>
+                        <li>Extended Colour Palette</li>
+                        <li>Comprehensive Typography Suite</li>
+                        <li>Detailed Brand Guidelines Document</li>
+                        <li>Social Media Profile Kit</li>
+                        <li>1 Round of Concept Revisions</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Growing businesses, ✔ Professionals needing a high-trust presence, ✔ Website clients needing seamless integration
+                    </div>
+                    <a href="" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
 
                 <div class="package-card" data-details-url="branding-essential-kit.html">
-                   <div id='product-component-1765974286299'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328932188501',
-        node: document.getElementById('product-component-1765974286299'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
- </div>
+                    <h4>Branding Essential Kit</h4>
+                    <div class="package-image-placeholder --card-bg">
+                    <img src="brand essential kit.png" alt="Branding Essential Kit"></div>
+                    <span class="price">£250</span>
+                    <p>Designed to help you launch campaigns or consistently show up on social media using your new brand identity.</p>
+                    <ul>
+                        <li>10 Custom Social Media Templates (Canva)</li>
+                        <li>2 Email Signature Designs</li>
+                        <li>Business Card Design (Print-ready file)</li>
+                        <li>Branded PDF/Workbook Cover Design</li>
+                        <li>1 Round of Revisions</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Coaches, ✔ Consultants, ✔ Any business with a heavy social media presence
+                    </div>
+                    <a href="" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
 
 
                   <div class="package-card" data-details-url="branding-complete-suite.html">
-                   <div id='product-component-1765974334197'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328939725141',
-        node: document.getElementById('product-component-1765974334197'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>   
-</div>
-
+                    <h4>Branding Complete Suite</h4>
+                    <div class="package-image-placeholder bg-accent">
+                    <img src="branding complete guide.png" alt="Branding Complete Suite"></div>
+                    <span class="price">£250</span>
+                    <p>Designed to help you launch campaigns or consistently show up on social media using your new brand identity.</p>
+                    <ul>
+                        <li>10 Custom Social Media Templates (Canva)</li>
+                        <li>2 Email Signature Designs</li>
+                        <li>Business Card Design (Print-ready file)</li>
+                        <li>Branded PDF/Workbook Cover Design</li>
+                        <li>1 Round of Revisions</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Coaches, ✔ Consultants, ✔ Any business with a heavy social media presence
+                    </div>
+                    <a href="" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
 
 
                   <div class="package-card" data-details-url="branding-signature-kit.html">
-                   <div id='product-component-1765974473248'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328948572501',
-        node: document.getElementById('product-component-1765974473248'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-    </div>
+                    <h4>Branding Signature Kit</h4>
+                    <div class="package-image-placeholder bg-accent">
+                    <img src="branding signature kit.png" alt="Branding Signature Kit"></div>
+                    <span class="price">£250 + VAT</span>
+                    <p>Designed to help you launch campaigns or consistently show up on social media using your new brand identity.</p>
+                    <ul>
+                        <li>10 Custom Social Media Templates (Canva)</li>
+                        <li>2 Email Signature Designs</li>
+                        <li>Business Card Design (Print-ready file)</li>
+                        <li>Branded PDF/Workbook Cover Design</li>
+                        <li>1 Round of Revisions</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Coaches, ✔ Consultants, ✔ Any business with a heavy social media presence
+                    </div>
+                    <a href="" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
 
 
                  <div class="package-card" data-details-url="branding-premium-social-kit.html">
-                   <div id='product-component-1765974556988'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328964530517',
-        node: document.getElementById('product-component-1765974556988'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+                    <h4>Branding Premium Social Kit</h4>
+                    <div class="package-image-placeholder bg-accent">
+                    <img src="premium brand & social kit.png" alt="Branding Premium Social Kit"></div>
+                    <span class="price">£250</span>
+                    <p>Designed to help you launch campaigns or consistently show up on social media using your new brand identity.</p>
+                    <ul>
+                        <li>10 Custom Social Media Templates (Canva)</li>
+                        <li>2 Email Signature Designs</li>
+                        <li>Business Card Design (Print-ready file)</li>
+                        <li>Branded PDF/Workbook Cover Design</li>
+                        <li>1 Round of Revisions</li>
+                    </ul>
+                    <div class="best-for">
+                        Best for: ✔ Coaches, ✔ Consultants, ✔ Any business with a heavy social media presence
+                    </div>
+                    <a href="" class="cta-button" onclick="event.stopPropagation()">Add to Cart</a>
+                </div>
             </div>
         </section>
 
-       <section id="coaching" class="service-section">
-  <h2>Business Coaching & Strategy</h2>
-  <p>Sometimes, what you really need is an organised mind and a strategic plan. Our coaching services focus on clarity, efficiency, and creating sustainable systems for long-term growth.</p>
-  
-  <h3>How It Works: Our Process</h3>
-  <ul class="process-list">
-    <li>Assessment: We start with an in-depth review of your current business structure, challenges, and goals.</li>
-    <li>Strategy Session: A dedicated 90-minute session to define your core problems and outline a 90-day action plan.</li>
-    <li>Implementation Plan: Receive a comprehensive, step-by-step plan for the first 30 days, focused on immediate efficiency gains.</li>
-    <li>Follow-up & Support: Ongoing check-ins, accountability, and resource recommendations based on your chosen package.</li>
-  </ul>
+        <section id="coaching" class="service-section">
+            <h2>Business Coaching & Strategy</h2>
+            <p>Sometimes, what you really need is an organised mind and a strategic plan. Our coaching services focus on clarity, efficiency, and creating sustainable systems for long-term growth.</p>
+            
+            <h3>How It Works: Our Process</h3>
+            <ul class="process-list">
+                <li>Assessment: We start with an in-depth review of your current business structure, challenges, and goals.</li>
+                <li>Strategy Session: A dedicated 90-minute session to define your core problems and outline a 90-day action plan.</li>
+                <li>Implementation Plan: Receive a comprehensive, step-by-step plan for the first 30 days, focused on immediate efficiency gains.</li>
+                <li>Follow-up & Support: Ongoing check-ins, accountability, and resource recommendations based on your chosen package.</li>
+            </ul>
 
-  <h3>Coaching Packages</h3>
-  <div class="package-grid">
-    
-    <div class="package-card">
-      <div id="product-component-1765978306243"></div>
-      <!-- Shopify Buy Button Script for Product 1 -->
-     <div id='product-component-1765983504224'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10318168195413',
-        node: document.getElementById('product-component-1765983504224'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
-      
+            <h3>Coaching Packages</h3>
+            <div class="package-grid">
+                
+                <a href="clarity-call.html" class="package-card-link">
+    <div class="package-card" >
+        <h4>The Clarity Call</h4>
+        <div class="package-image-placeholder">
+        <img src="clarity call.png" alt="Clarity Call"></div>
+        <span class="price">£99</span>
+        <p>A powerful, one-off session to tackle a single, critical business challenge and leave with immediate next steps.</p>
+        <ul>
+            <li>60-Minute Focused Strategy Call</li>
+            <li>Pre-call questionnaire and preparation</li>
+            <li>1 Core Problem Solved</li>
+            <li>Immediate Action Plan PDF</li>
+        </ul>
+        <div class="best-for">
+            Best for: ✔ Decision-making, ✔ Overcoming a creative block, ✔ Quick guidance on a specific tool (e.g., Notion setup)
+        </div>
+        <div class="cta-button-container">
+            <span class="cta-button">Book Now</span>
+        </div>
     </div>
+</a>
 
+                <a href="90day organiser plan.png" class="package-card-link">
+    <div class="package-card featured">
+        <h4>90-Day Organiser Package</h4>
+        <div class="package-image-placeholder bg-accent">
+        <img src="90day organiser plan.png" alt="90 Day Organiser Package"></div>
+        <span class="price">£450/month (3-month commitment)</span>
+        <p>Our most popular option. Dedicated coaching and support to build sustainable systems, scale your operations, and refine your business model over three months.</p>
+        <ul>
+            <li>6 x 60-Minute Strategy Sessions</li>
+            <li>Weekly Accountability Check-ins</li>
+            <li>Custom System Implementation Roadmap</li>
+            <li>Unlimited Email Support (9am-5pm Mon-Fri)</li>
+            <li>Business Audit & Goal Setting</li>
+        </ul>
+        <div class="best-for">
+            Best for: ✔ Launching a new offer, ✔ Scaling operations, ✔ Automating client onboarding, ✔ Full business model overhaul
+        </div>
+        <div class="cta-button-container">
+            <span class="cta-button">Book Now</span>
+        </div>
+    </div>
+</a>
+
+                <a href="executive-strategy.html" class="package-card-link">
     <div class="package-card">
-      <div id="product-component-1765975625574"></div>
-   <div id='product-component-1765982637048'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328972591445',
-        node: document.getElementById('product-component-1765982637048'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script> 
-</div>
+        <h4>Executive Strategy (6 Months)</h4>
+        <div class="package-image-placeholder bg-accent">
+        <img src="executive strategy.png" alt="Executive Strategy 6 Months"></div>
+        <span class="price">£750/month (6-month commitment)</span>
+        <p>Long-term partnership focused on strategic planning, leadership development, and preparing your business for major expansion.</p>
+        <ul>
+            <li>Bi-Weekly 90-Minute Strategy Sessions</li>
+            <li>Full Quarterly Goal Planning</li>
+            <li>Custom Executive Dashboard Setup</li>
+            <li>Priority Access to Tools & Templates</li>
+            <li>Emergency Support via WhatsApp/Slack</li>
+        </ul>
+        <div class="best-for">
+            Best for: ✔ Established businesses, ✔ Leaders transitioning roles, ✔ Teams planning major product or market expansion
+        </div>
+        <div class="cta-button-container">
+            <span class="cta-button">Book Now</span>
+        </div>
+    </div>
+</a>
 
-    <div class="package-card">
-      <div id="product-component-1765975655778"></div>
-   <div id='product-component-1765983472560'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xiaiqp-g3.myshopify.com',
-      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '10328977539413',
-        node: document.getElementById('product-component-1765983472560'),
-        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(25% - 20px)",
-          "margin-left": "20px",
-          "margin-bottom": "50px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Roboto, sans-serif",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        "background-color": "#a9b897",
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Roboto, sans-serif",
-        "background-color": "#a9b897",
-        ":hover": {
-          "background-color": "#98a688"
-        },
-        ":focus": {
-          "background-color": "#98a688"
-        }
-      }
-    },
-    "googleFonts": [
-      "Roboto"
-    ]
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
- </div>
-
-  </div>
-</section>
-
+            <h3 id="coaching-table">Coaching Package Comparison</h3>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Clarity Call (£99)</th>
+                            <th>90-Day Organiser</th>
+                            <th>Executive Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Duration</td>
+                            <td>1 Hour (One-Off)</td>
+                            <td>3 Months</td>
+                            <td>6 Months</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Sessions</td>
+                            <td>1</td>
+                            <td>6 x 60 mins</td>
+                            <td>12 x 90 mins</td>
+                        </tr>
+                        <tr>
+                            <td>Accountability/Check-ins</td>
+                            <td>No</td>
+                            <td>Weekly Email</td>
+                            <td>Bi-weekly (Full Review)</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Roadmap/System Building</td>
+                            <td>Basic Action Plan</td>
+                            <td>Full Roadmap</td>
+                            <td>Full Roadmap + Quarterly Planning</td>
+                        </tr>
+                        <tr>
+                            <td>Email Support</td>
+                            <td>7 days post-call</td>
+                            <td>Unlimited (Mon-Fri)</td>
+                            <td>Priority Unlimited + WhatsApp/Slack</td>
+                        </tr>
+                        <tr>
+                            <td>Ideal for</td>
+                            <td>Quick fixes</td>
+                            <td>Scaling & automation</td>
+                            <td>Major expansion & long-term growth</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </section>
 
         <section id="templates" class="service-section">
             <h2>Templates, Tools & Courses (Digital Products)</h2>
@@ -4592,7 +1357,7 @@
             <ul class="who-for-list">
                 <li>The DIY business owner who knows what they need but lacks the time to build it from scratch.</li>
                 <li>Small businesses looking for affordable, professional tools without a custom development cost.</li>
-                <li>Entrepreneurs who want instant access to high-quality templates (e.g., Canva, Spreadsheets).</li>
+                <li>Entrepreneurs who want instant access to high-quality templates (e.g., Notion, Canva, Spreadsheets).</li>
             </ul>
 
             <h3>Shop Highlights</h3>
@@ -4601,34 +1366,30 @@
                 <div class="package-card">
                     <h4>Business Plan Template Kit</h4>
                     <div class="package-image-placeholder">
-                        <img src="business plan templates.png" alt="Business Plan Template Kit"></div>
+                        <img src="business plan template.png" alt="Business Plan Template Kit"></div>
                     <span class="price">£6.99</span>
                     <p>A fully organised, editable template to quickly structure your business plan, mission, and financial projections. Available in Word/Google Docs format.</p>
                </div>
 
-               <div class="package-card">
-    <h4>Social Media Content Planner & Strategy Tools</h4>
-    <div class="package-image-placeholder">
-        <img src="social media content planner.png" alt="Social Media Content Planner">
-    </div>
+                <div class="package-card">
+                    <h4>Ultimate Notion Business System</h4>
+                    <div class="package-image-placeholder">
+                        <img src="notion templates.png" alt="Ultimate Notion Business System"></div>
                    
-    <span class="price">Starting from £4.99</span>
-    <p>Designed to help you plan once, post consistently, and stay organised without burnout.
-Clean, minimal planners built for small business owners, creators, and service-based brands.
-</p>
-    
+                    <span class="price">£49.00</span>
+                    <p>Our complete Notion workspace template, including project management, content calendar, client CRM, and financial trackers—all interlinked for maximum efficiency.</p>
+               </div>
 
-</div>
                 <div class="package-card">
                     <h4>Organised Courses</h4>
                        <div class="package-image-placeholder">
                         <img src="courses.png" alt="Ultimate organised courses"></div>
-                   <span class="price">Starting from £49</span>
+                   <span class="price">£129.00</span>
                     <p>Self-paced online courses focused on creating a consistent content strategy, automating your posting, and building a high-converting bio and feed.</p>
                 </div>
             </div>
 
-            <a href="https://xiaiqp-g3.myshopify.com" class="cta-button" target="_blank" style="display: block; text-align: center; margin-top: 20px;">
+            <a href="YOUR_SHOPIFY_TEMPLATES_URL" class="cta-button" target="_blank" style="display: block; text-align: center; margin-top: 20px;">
     Browse All Templates
 </a>
         </section>
@@ -4908,14 +1669,5 @@ Clean, minimal planners built for small business owners, creators, and service-b
     });
 });
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5P2GHYXC2R');
-</script>
-<script src="https://assets.calendly.com/assets/external/widget.js"></script>
 </body>
 </html>
