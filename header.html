@@ -19,7 +19,7 @@
 
             <div class="dropdown">
                 <a href="services.html" class="dropdown-toggle" id="nav-services">
-                    Services <span class="desktop-only">&#9662;</span>
+                   Services <span class="services-arrow">&#9662;</span>
                 </a>
                 <div class="dropdown-content">
                     <a href="services.html#website">Website Design & Development</a>
@@ -124,6 +124,18 @@ header {
 @media (min-width: 769px) {
     .dropdown:hover .dropdown-content {
         display: block;
+    }
+}
+
+/* Arrow only shows on desktop */
+.services-arrow {
+    margin-left: 4px;
+    font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+    .services-arrow {
+        display: none !important;
     }
 }
 
