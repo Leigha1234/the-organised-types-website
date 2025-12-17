@@ -423,29 +423,16 @@
 </head>
 <body>
 
-   <script>
-function toggleMenu() {
-    const nav = document.getElementById('main-nav');
-    nav.classList.toggle('show-menu');
-}
+  <div id="site-header"></div>
 
-function toggleDropdown(e) {
-    if(window.innerWidth <= 768) { // Mobile only
-        e.stopPropagation();
-        const dropdownContent = e.currentTarget.querySelector('.dropdown-content');
-        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-    }
-}
-
-// Optional: close dropdowns when clicking outside
-document.addEventListener('click', function(e) {
-    const dropdowns = document.querySelectorAll('.dropdown-content');
-    dropdowns.forEach(dc => {
-        if(!dc.parentElement.contains(e.target)) dc.style.display = 'none';
-    });
-});
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('site-header').innerHTML = data;
+    })
+    .catch(err => console.error('Header load error:', err));
 </script>
-    
 
     <div class="container">
 
