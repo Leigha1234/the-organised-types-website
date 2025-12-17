@@ -1,0 +1,169 @@
+<!-- --- FOOTER.HTML --- -->
+<footer>
+    <div class="container footer-content-grid">
+        
+        <!-- Logo Section -->
+        <div class="footer-section footer-logo">
+             <a href="index.html">
+                <img src="logo.jpg.webp" alt="The Organised Types Logo">
+            </a>
+        </div>
+
+        <!-- Socials Section -->
+        <div class="footer-section footer-socials">
+            <h4>Connect With Us</h4>
+            <p>Email: <a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a></p>
+            <ul>
+                <li><a href="#" target="_blank">Pinterest @theorganisedtypes</a></li>
+                <li><a href="#" target="_blank">Instagram @theorganisedtypes</a></li>
+                <li><a href="#" target="_blank">TikTok @theorganisedtypes</a></li>
+            </ul>
+        </div>
+
+        <!-- Legal Section -->
+        <div class="footer-section footer-legal">
+            <h4>Legal Hub</h4>
+            <ul>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="cookiepolicy.html">Cookies Policy</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Shopify</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright">
+         <div class="container">
+            <p>&copy; 2025 The Organised Types. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- --- COOKIE BANNER --- -->
+<div id="cookie-banner" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f5f5f5;
+    padding: 15px 10px;
+    text-align: center;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.2);
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+    display: none;
+">
+    <span style="font-size: 0.9em;">
+        We use cookies to improve your experience. 
+        <a href="cookiepolicy.html" target="_blank" style="color:#a9b897; text-decoration: underline;">Read our Cookies Policy</a>
+    </span>
+    <button id="accept-cookies" style="
+        margin-left: 12px;
+        padding: 6px 12px;
+        background-color:#a9b897;
+        border:none;
+        color:white;
+        cursor:pointer;
+        border-radius:4px;
+        font-weight: bold;
+    ">Accept</button>
+</div>
+
+<script>
+    // Show banner only if user hasn't accepted cookies yet
+    window.addEventListener('DOMContentLoaded', () => {
+        const banner = document.getElementById('cookie-banner');
+        if (!localStorage.getItem('cookiesAccepted')) {
+            banner.style.display = 'block';
+        }
+
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            banner.style.display = 'none';
+        });
+    });
+</script>
+
+<!-- --- FOOTER STYLES --- -->
+<style>
+/* Main Footer */
+footer { 
+    background-color: var(--logo-bg); 
+    color: var(--primary-color); 
+    text-align: center; 
+    font-size: 0.9em; 
+    margin-top: auto; 
+    padding: 25px 0 15px;
+}
+
+footer a { 
+    color: var(--accent-color); 
+    text-decoration: none; 
+}
+footer a:hover { 
+    text-decoration: underline; 
+}
+
+/* Footer Grid */
+.footer-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    text-align: left;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(79, 74, 70, 0.1);
+}
+
+.footer-logo img {
+    height: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-section {
+    padding: 0 20px;
+}
+
+.footer-section h4 {
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-socials,
+.footer-legal,
+.footer-legal ul {
+    text-align: center;
+}
+
+/* Copyright Bar */
+.footer-copyright {
+    padding: 8px 0;
+    font-size: 0.75em;
+}
+
+/* --- Responsive Footer --- */
+@media (max-width: 768px) {
+    .footer-content-grid {
+        grid-template-columns: 1fr;
+        padding: 20px 0;
+    }
+    .footer-logo img {
+        height: 60px;
+    }
+}
+</style>
