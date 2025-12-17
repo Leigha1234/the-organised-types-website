@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="display: flex; flex-direction: column; min-height: 100vh;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,8 +29,6 @@
             color: var(--primary-color); 
             line-height: 1.7; 
             min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
         }
         .container { 
             width: 90%; 
@@ -587,6 +585,9 @@
                 grid-template-columns: 1fr; /* Single column stack */
                 gap: 20px;
                 margin-bottom: 30px;
+                width: 100%;
+                box-sizing: border-box;
+                overflow: hidden;
             }
             .content-image-row .text-block, 
             .content-image-row .image-block,
