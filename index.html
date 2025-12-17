@@ -914,21 +914,32 @@ Our solutions are meticulously organised and fully customised, providing the cla
         </div>
     </div>
 
-<script>
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-footer').innerHTML = data;
+<!-- Footer + Cookie Banner -->
+<footer>
+    <div class="container footer-content-grid">
+        <!-- Logo, socials, legal sections -->
+        ...
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <p>&copy; 2025 The Organised Types. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
 
-      // Cookie banner script
-      const banner = document.getElementById('cookie-banner');
-      if (!localStorage.getItem('cookiesAccepted')) {
+<div id="cookie-banner" style="...">
+    <span>We use cookies to improve your experience. <a href="cookiepolicy.html" style="color:#a9b897;">Read our Cookies Policy</a></span>
+    <button id="accept-cookies">Accept</button>
+</div>
+
+<script>
+    const banner = document.getElementById('cookie-banner');
+    if (!localStorage.getItem('cookiesAccepted')) {
         banner.style.display = 'block';
-      }
-      document.getElementById('accept-cookies').addEventListener('click', () => {
+    }
+    document.getElementById('accept-cookies').addEventListener('click', () => {
         localStorage.setItem('cookiesAccepted', 'true');
         banner.style.display = 'none';
-      });
     });
 </script>
 
