@@ -694,6 +694,65 @@
             }
         }
 
+
+        /* --- Refined Newsletter Styling --- */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.newsletter-form input[type="email"] {
+    flex: 1;
+    padding: 14px 20px;
+    border: 1px solid #d1cec0; /* Subtle border */
+    border-radius: 8px; /* Softer corners */
+    font-family: var(--font-main);
+    font-size: 1rem;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+/* Focus state for when the user clicks inside the box */
+.newsletter-form input[type="email"]:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(169, 184, 151, 0.2);
+}
+
+.newsletter-form button {
+    padding: 14px 28px;
+    background-color: var(--accent-color); /* Your Branded Sage Green */
+    color: var(--primary-color); /* Your Branded Charcoal */
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Button Hover Effect */
+.newsletter-form button:hover {
+    background-color: #92a487; /* A slightly darker sage */
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsive layout (stacks the box and button) */
+@media (max-width: 600px) {
+    .newsletter-form {
+        flex-direction: column;
+    }
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+
         /* Popup Modal Styles */
 .modal-overlay {
     display: none; /* Hidden by default */
