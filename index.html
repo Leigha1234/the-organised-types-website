@@ -693,6 +693,49 @@
                 padding: 0 5%;
             }
         }
+
+        /* Popup Modal Styles */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(79, 74, 70, 0.7); /* Primary color with transparency */
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--cream-bg);
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.4s ease-out;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--primary-color);
+    cursor: pointer;
+    line-height: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
     </style>
 </head>
 <body>
@@ -707,6 +750,23 @@
     })
     .catch(err => console.error('Header load error:', err));
 </script>
+
+<div id="newsletter-modal" class="modal-overlay">
+    <div class="modal-content">
+        <button id="close-popup" class="close-button">&times;</button>
+        <div class="newsletter-section" style="margin-top: 0;">
+            <h2>Join The Organised List</h2>
+            <p>Sign up for branding insights and early access to our workshops.</p>
+            <form class="newsletter-form" id="popup-newsletter-form">
+                <input type="email" name="fields[email]" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <div id="popup-thanks-msg" style="display:none; margin-top: 20px;">
+                <p style="color: var(--accent-color); font-weight: 700;">✓ You're on the list! Check your inbox soon.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
     <div class="hero-banner">
         <div class="hero-banner-image" style="background-image: url('bg1.jpg');"></div>
@@ -898,6 +958,60 @@ Our solutions are meticulously organised and fully customised, providing the cla
 <div id="site-footer"></div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const modal = document.getElementById('newsletter-modal');
+    const closeBtn = document.getElementById('close-popup');
+    const popupForm = document.getElementById('popup-newsletter-form');
+    const popupThanks = document.getElementById('popup-thanks-msg');
+
+    // 1. Check if user has seen this before in this session
+    if (!sessionStorage.getItem('popupShown')) {
+        setTimeout(() => {
+            modal.style.display = 'flex';
+        }, 2000); // Shows 2 seconds after load
+    }
+
+    // 2. Close modal logic
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+        sessionStorage.setItem('popupShown', 'true');
+    }
+
+    // Close if user clicks outside the box
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            sessionStorage.setItem('popupShown', 'true');
+        }
+    }
+
+    // 3. Form Submission (Reuse your MailerLite logic)
+    popupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(popupForm);
+        
+        fetch('https://assets.mailerlite.com/jsonp/1976098/forms/173944037984699428/subscribe', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        }).then(() => {
+            popupForm.style.display = 'none';
+            popupThanks.style.display = 'block';
+            sessionStorage.setItem('popupShown', 'true'); // Don't show again if they subscribed
+            
+            // Optional: Close modal automatically after 3 seconds
+            setTimeout(() => { modal.style.display = 'none'; }, 3000);
+        }).catch(err => {
+            popupForm.style.display = 'none';
+            popupThanks.style.display = 'block';
+        });
+    });
+});
+
+
+
+
+
   fetch('footer.html')
     .then(response => response.text())
     .then(data => {
