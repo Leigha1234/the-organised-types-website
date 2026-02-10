@@ -6,10 +6,11 @@
     <title>The Journal | The Organised Types</title>
     <meta name="description" content="Gentle thoughts on organisation, systems, and building a business that feels calm — not chaotic.">
     <link rel="icon" type="image/png" href="favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables - Synchronized with your Service Pages */
+        /* CSS Variables - Synchronized with your site brand */
         :root {
             --primary-color: #4f4a46; 
             --accent-color: #A9B897; 
@@ -20,6 +21,7 @@
             --font-main: 'Poppins', sans-serif;
         }
 
+        /* Base Styles */
         body { 
             font-family: var(--font-main); 
             margin: 0; padding: 0; 
@@ -30,11 +32,19 @@
             display: flex; flex-direction: column; 
         }
 
+        /* --- HEADER FIX --- 
+           This ensures content starts below your fixed navigation 
+        */
+        .page-wrapper {
+            margin-top: 120px; /* Adjust this value if your header is taller/shorter */
+            flex: 1;
+        }
+
         .container { 
-            width: 90%; max-width: 900px; 
-            margin: auto; padding: 30px 0; 
-            box-sizing: border-box; 
-            margin-top: 110px; /* Space for the fixed header */
+            width: 90%; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding-bottom: 60px;
         }
 
         /* --- BLOG HERO --- */
@@ -42,36 +52,37 @@
             text-align: center; 
             padding: 40px 0; 
             border-bottom: 3px solid var(--accent-color); 
-            margin-bottom: 50px; 
+            margin-bottom: 60px; 
         }
         .blog-hero h1 { 
             font-size: 3em; 
             color: var(--primary-color); 
             margin-bottom: 10px; 
             font-weight: 900; 
+            letter-spacing: -1px;
         }
         .blog-hero p { 
-            font-size: 1.2em; 
+            font-size: 1.1em; 
             color: var(--text-color); 
             max-width: 600px; 
             margin: 0 auto;
             font-style: italic;
+            opacity: 0.9;
         }
 
         /* --- BLOG CARDS --- */
-        .blog-list { flex: 1; }
-        
         .blog-card {
             background-color: var(--card-bg);
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             border-radius: 8px;
             overflow: hidden;
             border-left: 4px solid var(--accent-color);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .blog-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .blog-link-wrapper {
@@ -82,38 +93,38 @@
 
         .blog-featured-img {
             width: 100%;
-            height: 400px;
+            height: 450px;
             object-fit: cover;
             display: block;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background-color: #eee;
         }
 
         .blog-card-content {
-            padding: 40px;
+            padding: 45px;
         }
 
         .blog-meta {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: var(--accent-color);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 15px;
         }
 
         .blog-card h2 {
-            font-size: 2.2em;
+            font-size: 2.4em;
             color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 20px;
+            margin: 0 0 20px 0;
             font-weight: 700;
             line-height: 1.2;
         }
 
         .blog-excerpt {
-            font-size: 1.1em;
-            margin-bottom: 25px;
+            font-size: 1.15em;
+            margin-bottom: 30px;
             color: var(--text-color);
+            opacity: 0.85;
         }
 
         .read-more-btn {
@@ -122,38 +133,31 @@
             font-weight: 700;
             text-decoration: none;
             border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 2px;
+            padding-bottom: 3px;
             transition: 0.3s;
         }
 
         .read-more-btn:hover {
             color: var(--accent-color);
+            border-bottom-color: var(--primary-color);
         }
 
-        /* --- RESPONSIVE --- */
+        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            .container { margin-top: 90px; }
-            .blog-hero h1 { font-size: 2.2em; }
-            .blog-featured-img { height: 250px; }
-            .blog-card-content { padding: 25px; }
-            .blog-card h2 { font-size: 1.7em; }
+            .page-wrapper { margin-top: 100px; }
+            .blog-hero h1 { font-size: 2.4em; }
+            .blog-featured-img { height: 280px; }
+            .blog-card-content { padding: 30px 20px; }
+            .blog-card h2 { font-size: 1.8em; }
         }
     </style>
 </head>
 <body>
 
     <div id="site-header"></div>
-    <script>
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('site-header').innerHTML = data;
-        })
-        .catch(err => console.error('Header load error:', err));
-    </script>
 
-    <main class="blog-list">
-        <div class="container">
+    <div class="page-wrapper">
+        <main class="container">
             
             <header class="blog-hero">
                 <h1>The Journal</h1>
@@ -169,7 +173,7 @@
                         <p class="blog-meta">January 2026 · Philosophy</p>
                         <h2>Organised work isn’t loud</h2>
                         <p class="blog-excerpt">
-                            Organisation isn’t about doing more, faster. It’s about knowing what needs done — and doing it without overwhelm. Somewhere along the way, productivity became noisy...
+                            Organisation isn’t about doing more, faster. It’s about knowing what needs done — and doing it without the noise. Somewhere along the way, productivity became frantic.
                         </p>
                         <span class="read-more-btn">Read the story</span>
                     </div>
@@ -185,24 +189,33 @@
                         <p class="blog-meta">December 2025 · Systems</p>
                         <h2>Systems that breathe</h2>
                         <p class="blog-excerpt">
-                            Why the most effective workflows are the ones that leave room for your humanity, not just your tasks. Building structure that supports life.
+                            Why the most effective workflows are the ones that leave room for your humanity, not just your tasks. Building structure that actually supports your life.
                         </p>
                         <span class="read-more-btn">Read the story</span>
                     </div>
                 </a>
             </article>
 
-        </div>
-    </main>
+        </main>
+    </div>
 
     <div id="site-footer"></div>
+
     <script>
+      // Load Header
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('site-header').innerHTML = data;
+        })
+        .catch(err => console.error('Header load error:', err));
+
+      // Load Footer & Cookie Logic
       fetch('footer.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('site-footer').innerHTML = data;
 
-          // Cookie banner logic
           const banner = document.getElementById('cookie-banner');
           if (banner && !localStorage.getItem('cookiesAccepted')) {
             banner.style.display = 'block';
@@ -226,10 +239,5 @@
       gtag('config', 'G-5P2GHYXC2R');
     </script>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById('main-nav').classList.toggle('show-menu');
-        }
-    </script>
 </body>
 </html>
