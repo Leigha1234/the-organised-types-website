@@ -1,169 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Journal | The Organised Types</title>
-  <meta name="description" content="Thoughts, tools and gentle guidance on building a more organised way of working.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* Journal Specific Styles */
-    .blog-hero {
-        padding: 100px 0 60px;
-        text-align: center;
-        background-color: #f9f9f7;
-    }
-    .blog-hero h1 { font-size: 3rem; margin-bottom: 20px; color: #333; }
-    .blog-hero p { max-width: 600px; margin: 0 auto; color: #666; font-style: italic; }
-
-    .blog-list { padding: 80px 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journal | The Organised Types</title>
+    <meta name="description" content="Gentle thoughts on organisation, systems, and building a business that feels calm — not chaotic.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
-    .blog-card {
-        max-width: 800px;
-        margin: 0 auto 100px;
-        position: relative;
-    }
-
-    /* Making the Image and Title Clickable Areas */
-    .blog-link-wrapper {
-        text-decoration: none;
-        color: inherit;
-        display: block;
-    }
-    
-    .blog-featured-img {
-        width: 100%;
-        height: 450px;
-        object-fit: cover;
-        border-radius: 4px;
-        transition: opacity 0.3s ease;
-        background-color: #eee;
-    }
-
-    .blog-link-wrapper:hover .blog-featured-img {
-        opacity: 0.9;
-    }
-
-    .blog-card-content { padding: 30px 0; }
-
-    .blog-meta {
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #a9b897;
-        margin-bottom: 15px;
-    }
-
-    .blog-card h2 {
-        font-size: 2.2rem;
-        margin-bottom: 20px;
-        line-height: 1.2;
-    }
-
-    .blog-link-wrapper:hover h2 {
-        text-decoration: underline;
-        text-decoration-color: #a9b897;
-    }
-
-    .blog-excerpt {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #555;
-        margin-bottom: 25px;
-    }
-
-    .read-more-btn {
-        display: inline-block;
-        font-weight: 600;
-        color: #333;
-        text-decoration: none;
-        border-bottom: 2px solid #a9b897;
-        padding-bottom: 2px;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="site-header"></div>
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('site-header').innerHTML = data; })
-      .catch(err => console.error('Header load error:', err));
-  </script>
-
-  <section class="blog-hero">
-    <div class="container">
-      <h1>The Journal</h1>
-      <p>
-        Gentle thoughts on organisation, systems, and building a business
-        that feels calm — not chaotic.
-      </p>
-    </div>
-  </section>
-
-  <main class="blog-list">
-    <div class="container">
-
-      <article class="blog-card">
-        <a href="post-organised-work.html" class="blog-link-wrapper">
-            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=80" 
-                 alt="Organised workspace" class="blog-featured-img">
-            
-            <div class="blog-card-content">
-                <p class="blog-meta">January 2026 · Philosophy</p>
-                <h2>Organised work isn’t loud</h2>
-                <p class="blog-excerpt">
-                    Organisation isn’t about doing more, faster. It’s about knowing what needs done — and doing it without overwhelm. Somewhere along the way, productivity became noisy...
-                </p>
-                <span class="read-more-btn">Read the story</span>
-            </div>
-        </a>
-      </article>
-
-      <article class="blog-card">
-        <a href="post-systems-that-breathe.html" class="blog-link-wrapper">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" 
-                 alt="Quiet landscape" class="blog-featured-img">
-            
-            <div class="blog-card-content">
-                <p class="blog-meta">December 2025 · Systems</p>
-                <h2>Systems that breathe</h2>
-                <p class="blog-excerpt">
-                    Why the most effective workflows are the ones that leave room for your humanity, not just your tasks.
-                </p>
-                <span class="read-more-btn">Read the story</span>
-            </div>
-        </a>
-      </article>
-
-    </div>
-  </main>
-
-  <div id="site-footer"></div>
-  <script>
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('site-footer').innerHTML = data;
-
-        // Cookie banner logic
-        const banner = document.getElementById('cookie-banner');
-        if (banner && !localStorage.getItem('cookiesAccepted')) {
-          banner.style.display = 'block';
+    <style>
+        /* CSS Variables - Synchronized with your Service Pages */
+        :root {
+            --primary-color: #4f4a46; 
+            --accent-color: #A9B897; 
+            --cream-bg: #FAF8F5; 
+            --logo-bg: #EFE6E1; 
+            --card-bg: #F5F2EF; 
+            --text-color: #4f4a46; 
+            --font-main: 'Poppins', sans-serif;
         }
-        const acceptBtn = document.getElementById('accept-cookies');
-        if(acceptBtn) {
-            acceptBtn.addEventListener('click', () => {
+
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; padding: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.7; 
+            min-height: 100vh; 
+            display: flex; flex-direction: column; 
+        }
+
+        .container { 
+            width: 90%; max-width: 900px; 
+            margin: auto; padding: 30px 0; 
+            box-sizing: border-box; 
+            margin-top: 110px; /* Space for the fixed header */
+        }
+
+        /* --- BLOG HERO --- */
+        .blog-hero { 
+            text-align: center; 
+            padding: 40px 0; 
+            border-bottom: 3px solid var(--accent-color); 
+            margin-bottom: 50px; 
+        }
+        .blog-hero h1 { 
+            font-size: 3em; 
+            color: var(--primary-color); 
+            margin-bottom: 10px; 
+            font-weight: 900; 
+        }
+        .blog-hero p { 
+            font-size: 1.2em; 
+            color: var(--text-color); 
+            max-width: 600px; 
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* --- BLOG CARDS --- */
+        .blog-list { flex: 1; }
+        
+        .blog-card {
+            background-color: var(--card-bg);
+            margin-bottom: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-link-wrapper {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-featured-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .blog-card-content {
+            padding: 40px;
+        }
+
+        .blog-meta {
+            font-size: 0.9em;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .blog-card h2 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .blog-excerpt {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 2px;
+            transition: 0.3s;
+        }
+
+        .read-more-btn:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .container { margin-top: 90px; }
+            .blog-hero h1 { font-size: 2.2em; }
+            .blog-featured-img { height: 250px; }
+            .blog-card-content { padding: 25px; }
+            .blog-card h2 { font-size: 1.7em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="site-header"></div>
+    <script>
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('site-header').innerHTML = data;
+        })
+        .catch(err => console.error('Header load error:', err));
+    </script>
+
+    <main class="blog-list">
+        <div class="container">
+            
+            <header class="blog-hero">
+                <h1>The Journal</h1>
+                <p>Gentle thoughts on organisation, systems, and building a business that feels calm — not chaotic.</p>
+            </header>
+
+            <article class="blog-card">
+                <a href="post-organised-work.html" class="blog-link-wrapper">
+                    <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Organised workspace" class="blog-featured-img">
+                    
+                    <div class="blog-card-content">
+                        <p class="blog-meta">January 2026 · Philosophy</p>
+                        <h2>Organised work isn’t loud</h2>
+                        <p class="blog-excerpt">
+                            Organisation isn’t about doing more, faster. It’s about knowing what needs done — and doing it without overwhelm. Somewhere along the way, productivity became noisy...
+                        </p>
+                        <span class="read-more-btn">Read the story</span>
+                    </div>
+                </a>
+            </article>
+
+            <article class="blog-card">
+                <a href="post-systems-that-breathe.html" class="blog-link-wrapper">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" 
+                         alt="Quiet landscape" class="blog-featured-img">
+                    
+                    <div class="blog-card-content">
+                        <p class="blog-meta">December 2025 · Systems</p>
+                        <h2>Systems that breathe</h2>
+                        <p class="blog-excerpt">
+                            Why the most effective workflows are the ones that leave room for your humanity, not just your tasks. Building structure that supports life.
+                        </p>
+                        <span class="read-more-btn">Read the story</span>
+                    </div>
+                </a>
+            </article>
+
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script>
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('site-footer').innerHTML = data;
+
+          // Cookie banner logic
+          const banner = document.getElementById('cookie-banner');
+          if (banner && !localStorage.getItem('cookiesAccepted')) {
+            banner.style.display = 'block';
+          }
+          const acceptBtn = document.getElementById('accept-cookies');
+          if(acceptBtn) {
+              acceptBtn.addEventListener('click', () => {
                 localStorage.setItem('cookiesAccepted', 'true');
                 banner.style.display = 'none';
-            });
-        }
-      })
-      .catch(err => console.error('Footer load error:', err));
-  </script>
+              });
+          }
+        })
+        .catch(err => console.error('Footer load error:', err));
+    </script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5P2GHYXC2R');
+    </script>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('main-nav').classList.toggle('show-menu');
+        }
+    </script>
 </body>
 </html>
