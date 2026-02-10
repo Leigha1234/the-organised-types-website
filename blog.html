@@ -154,7 +154,16 @@
 </head>
 <body>
 
-    <div id="site-header"></div>
+     <div id="site-header"></div>
+
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('site-header').innerHTML = data;
+    })
+    .catch(err => console.error('Header load error:', err));
+</script>
 
     <div class="page-wrapper">
         <main class="container">
