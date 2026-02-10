@@ -6,36 +6,86 @@
     <title>You Don't Need Fixing — You Need Support | The Journal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-color: #4f4a46; --accent-color: #A9B897; --cream-bg: #FAF8F5; --text-color: #4f4a46; --font-main: 'Poppins', sans-serif; }
-        body { font-family: var(--font-main); margin: 0; background-color: var(--cream-bg); color: var(--text-color); line-height: 1.8; }
-        #site-header { position: fixed; top: 0; width: 100%; z-index: 1000; }
-        .article-wrapper { margin-top: 160px; padding-bottom: 100px; }
-        .container { width: 90%; max-width: 750px; margin: 0 auto; }
-        .back-link { display: inline-block; margin-bottom: 40px; text-decoration: none; color: var(--accent-color); font-weight: 700; }
-        h1 { font-size: 3.2em; font-weight: 900; line-height: 1.1; margin-bottom: 40px; color: var(--primary-color); }
-        .quote-box { font-size: 1.6em; font-style: italic; color: var(--accent-color); margin: 40px 0; border-left: 5px solid var(--accent-color); padding-left: 30px; font-weight: 300; }
-        h2 { font-size: 2em; margin-top: 50px; color: var(--primary-color); }
-        h3 { font-size: 1.3em; margin-top: 30px; color: var(--primary-color); font-weight: 700; }
-        p { margin-bottom: 25px; font-size: 1.1em; }
-        .steps-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); margin: 40px 0; }
-        .steps-box h3 { margin-top: 0; }
-        .steps-box ol li { margin-bottom: 15px; }
-        .cta-final { text-align: center; margin-top: 60px; padding: 40px; background: var(--accent-color); color: white; border-radius: 12px; }
-        .cta-final h2 { color: white; margin-top: 0; }
-        .btn-white { background: white; color: var(--accent-color); padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; font-weight: 600; }
-      /* --- HEADER FIX --- 
-           This ensures content starts below your fixed navigation 
-        */
-        .page-wrapper {
-            margin-top: 120px; /* Adjust this value if your header is taller/shorter */
+        :root { 
+            --primary-color: #4f4a46; 
+            --accent-color: #A9B897; 
+            --cream-bg: #FAF8F5; 
+            --text-color: #4f4a46; 
+            --font-main: 'Poppins', sans-serif; 
+        }
+        
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.8; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER STABILITY --- */
+        #site-header { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000; 
+        }
+
+        /* Clears the fixed header so content doesn't tuck under it */
+        .article-wrapper { 
+            margin-top: 140px; 
+            padding-bottom: 100px; 
             flex: 1;
         }
 
         .container { 
             width: 90%; 
-            max-width: 900px; 
+            max-width: 750px; 
             margin: 0 auto; 
-            padding-bottom: 60px;
+        }
+
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 40px; 
+            text-decoration: none; 
+            color: var(--accent-color); 
+            font-weight: 700; 
+            transition: 0.3s;
+        }
+        
+        .back-link:hover { opacity: 0.7; }
+
+        h1 { font-size: 3.2em; font-weight: 900; line-height: 1.1; margin-bottom: 40px; color: var(--primary-color); }
+        .quote-box { font-size: 1.6em; font-style: italic; color: var(--accent-color); margin: 40px 0; border-left: 5px solid var(--accent-color); padding-left: 30px; font-weight: 300; }
+        h2 { font-size: 2em; margin-top: 50px; color: var(--primary-color); }
+        h3 { font-size: 1.3em; margin-top: 30px; color: var(--primary-color); font-weight: 700; }
+        p { margin-bottom: 25px; font-size: 1.1em; }
+        
+        .steps-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); margin: 40px 0; }
+        .steps-box h3 { margin-top: 0; }
+        .steps-box ol li { margin-bottom: 15px; }
+        
+        .cta-final { text-align: center; margin-top: 60px; padding: 40px; background: var(--accent-color); color: white; border-radius: 12px; }
+        .cta-final h2 { color: white; margin-top: 0; }
+        
+        .btn-white { 
+            background: white; 
+            color: var(--accent-color); 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            display: inline-block; 
+            margin-top: 20px; 
+            font-weight: 600; 
+            transition: 0.3s;
+        }
+        .btn-white:hover { background: var(--primary-color); color: white; }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 2.2em; } 
+            .article-wrapper { margin-top: 100px; } 
         }
     </style>
 </head>
@@ -43,18 +93,9 @@
 
     <div id="site-header"></div>
 
-<script>
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-header').innerHTML = data;
-    })
-    .catch(err => console.error('Header load error:', err));
-</script>
-
     <div class="article-wrapper">
         <article class="container">
-            <a href="blog.html" class="back-link">← Back to Journal</a>
+            <a href="../journal.html" class="back-link">← Back to Journal</a>
             <h1>You Don’t Need Fixing — You Need Support</h1>
             
             <p>I used to think that feeling stuck meant I was failing. That I just wasn’t good enough, organised enough, or capable enough. That if I just tried harder, I could solve everything on my own.</p>
@@ -93,19 +134,20 @@
             </div>
         </article>
     </div>
-   <div id="site-footer"></div>
+
+    <div id="site-footer"></div>
 
     <script>
-      // Load Header
-      fetch('header.html')
+      // Load Header from parent directory
+      fetch('../header.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('site-header').innerHTML = data;
         })
         .catch(err => console.error('Header load error:', err));
 
-      // Load Footer & Cookie Logic
-      fetch('footer.html')
+      // Load Footer from parent directory & Cookie Logic
+      fetch('../footer.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('site-footer').innerHTML = data;

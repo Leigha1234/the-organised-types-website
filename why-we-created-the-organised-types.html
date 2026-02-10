@@ -6,13 +6,57 @@
     <title>Why We Created The Organised Types | The Journal</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-color: #4f4a46; --accent-color: #A9B897; --cream-bg: #FAF8F5; --text-color: #4f4a46; --font-main: 'Poppins', sans-serif; }
-        body { font-family: var(--font-main); margin: 0; background-color: var(--cream-bg); color: var(--text-color); line-height: 1.8; }
-        #site-header { position: fixed; top: 0; width: 100%; z-index: 1000; }
-        .article-wrapper { margin-top: 160px; padding-bottom: 100px; }
-        .container { width: 90%; max-width: 750px; margin: 0 auto; }
-        .back-link { display: inline-block; margin-bottom: 40px; text-decoration: none; color: var(--accent-color); font-weight: 700; transition: 0.3s; }
+        :root { 
+            --primary-color: #4f4a46; 
+            --accent-color: #A9B897; 
+            --cream-bg: #FAF8F5; 
+            --text-color: #4f4a46; 
+            --font-main: 'Poppins', sans-serif; 
+        }
+
+        body { 
+            font-family: var(--font-main); 
+            margin: 0; 
+            background-color: var(--cream-bg); 
+            color: var(--text-color); 
+            line-height: 1.8; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER STABILITY --- */
+        #site-header { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000; 
+        }
+
+        /* Clears the fixed header */
+        .article-wrapper { 
+            margin-top: 140px; 
+            padding-bottom: 100px; 
+            flex: 1;
+        }
+
+        .container { 
+            width: 90%; 
+            max-width: 750px; 
+            margin: 0 auto; 
+        }
+
+        .back-link { 
+            display: inline-block; 
+            margin-bottom: 40px; 
+            text-decoration: none; 
+            color: var(--accent-color); 
+            font-weight: 700; 
+            transition: 0.3s; 
+        }
+        
         .back-link:hover { opacity: 0.7; }
+
         h1 { font-size: 3.2em; font-weight: 900; line-height: 1.1; margin-bottom: 20px; color: var(--primary-color); }
         .intro-lead { font-size: 1.3em; font-style: italic; opacity: 0.8; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 30px; }
         h2 { font-size: 2em; margin-top: 50px; color: var(--primary-color); }
@@ -20,43 +64,46 @@
         p { margin-bottom: 25px; font-size: 1.1em; }
         ul { margin-bottom: 30px; padding-left: 20px; }
         li { margin-bottom: 12px; font-size: 1.1em; }
+
         .values-list { list-style: none; padding: 0; }
+        .values-list li { margin-bottom: 25px; }
         .values-list li strong { color: var(--accent-color); display: block; font-size: 1.1em; margin-bottom: 5px; }
-        .newsletter-box { background: #F5F2EF; padding: 50px; border-radius: 15px; border: 1px solid var(--accent-color); margin-top: 60px; text-align: center; }
-        .btn { background: var(--primary-color); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; font-weight: 600; }
-        @media (max-width: 768px) { h1 { font-size: 2.2em; } .article-wrapper { margin-top: 120px; } }
-      /* --- HEADER FIX --- 
-           This ensures content starts below your fixed navigation 
-        */
-        .page-wrapper {
-            margin-top: 120px; /* Adjust this value if your header is taller/shorter */
-            flex: 1;
+
+        .newsletter-box { 
+            background: #F5F2EF; 
+            padding: 50px; 
+            border-radius: 15px; 
+            border: 1px solid var(--accent-color); 
+            margin-top: 60px; 
+            text-align: center; 
         }
 
-        .container { 
-            width: 90%; 
-            max-width: 900px; 
-            margin: 0 auto; 
-            padding-bottom: 60px;
+        .btn { 
+            background: var(--primary-color); 
+            color: white; 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            display: inline-block; 
+            margin-top: 20px; 
+            font-weight: 600; 
+            transition: 0.3s;
+        }
+        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        @media (max-width: 768px) { 
+            h1 { font-size: 2.2em; } 
+            .article-wrapper { margin-top: 100px; } 
         }
     </style>
 </head>
 <body>
     
-        <div id="site-header"></div>
-
-<script>
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-header').innerHTML = data;
-    })
-    .catch(err => console.error('Header load error:', err));
-</script>
+    <div id="site-header"></div>
 
     <div class="article-wrapper">
         <article class="container">
-            <a href="blog.html" class="back-link">← Back to Journal</a>
+            <a href="../journal.html" class="back-link">← Back to Journal</a>
             <h1>Why We Created The Organised Types (And What We Stand For)</h1>
             <p class="intro-lead">The Organised Types exists because we were tired of seeing capable people — women and men alike — blame themselves for systems that simply don’t support them.</p>
 
@@ -101,19 +148,20 @@
             </div>
         </article>
     </div>
-  <div id="site-footer"></div>
+
+    <div id="site-footer"></div>
 
     <script>
-      // Load Header
-      fetch('header.html')
+      // Load Header from parent directory
+      fetch('../header.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('site-header').innerHTML = data;
         })
         .catch(err => console.error('Header load error:', err));
 
-      // Load Footer & Cookie Logic
-      fetch('footer.html')
+      // Load Footer from parent directory & Cookie Logic
+      fetch('../footer.html')
         .then(response => response.text())
         .then(data => {
           document.getElementById('site-footer').innerHTML = data;
