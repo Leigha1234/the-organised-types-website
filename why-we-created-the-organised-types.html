@@ -25,6 +25,20 @@
         .newsletter-box { background: #F5F2EF; padding: 50px; border-radius: 15px; border: 1px solid var(--accent-color); margin-top: 60px; text-align: center; }
         .btn { background: var(--primary-color); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; font-weight: 600; }
         @media (max-width: 768px) { h1 { font-size: 2.2em; } .article-wrapper { margin-top: 120px; } }
+      /* --- HEADER FIX --- 
+           This ensures content starts below your fixed navigation 
+        */
+        .page-wrapper {
+            margin-top: 120px; /* Adjust this value if your header is taller/shorter */
+            flex: 1;
+        }
+
+        .container { 
+            width: 90%; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding-bottom: 60px;
+        }
     </style>
 </head>
 <body>
