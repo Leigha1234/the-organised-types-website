@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Don't Need Fixing | The Journal</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f4a46; --accent-color: #A9B897; --cream-bg: #FAF8F5; 
+            --text-color: #4f4a46; --font-main: 'Poppins', sans-serif;
+        }
+        body { font-family: var(--font-main); margin: 0; background-color: var(--cream-bg); color: var(--text-color); line-height: 1.8; }
+        #site-header { position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .article-wrapper { margin-top: 160px; padding-bottom: 100px; }
+        .container { width: 90%; max-width: 800px; margin: 0 auto; }
+        .article-meta { color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; }
+        h1 { font-size: 3.5em; font-weight: 900; line-height: 1.1; margin-bottom: 40px; color: var(--primary-color); }
+        .featured-image { width: 100%; height: 500px; object-fit: cover; border-radius: 12px; margin-bottom: 60px; }
+        .content p { font-size: 1.15em; margin-bottom: 30px; opacity: 0.9; }
+        .quote-block { font-size: 1.8em; font-style: italic; color: var(--accent-color); border-left: 4px solid var(--accent-color); padding-left: 30px; margin: 60px 0; font-weight: 300; }
+        .back-link { display: inline-block; margin-bottom: 40px; text-decoration: none; color: var(--accent-color); font-weight: 700; }
+        @media (max-width: 768px) { h1 { font-size: 2.2em; } .featured-image { height: 300px; } }
+    </style>
+</head>
+<body>
+    <div id="site-header"></div>
+    <div class="article-wrapper">
+        <article class="container">
+            <a href="../journal.html" class="back-link">← Back to Journal</a>
+            <span class="article-meta">Support & Mindset</span>
+            <h1>You don’t need fixing — you need support</h1>
+            <img src="https://images.unsplash.com/photo-1516534775068-ba3e84529519?auto=format&fit=crop&w=1200" alt="Calm workspace" class="featured-image">
+            <div class="content">
+                <p>If you're feeling overwhelmed, the first thing I want you to know is that you haven't failed. You aren't "bad at business," and you aren't "naturally messy."</p>
+                <div class="quote-block">Your struggle isn't a personality flaw; it's a resource gap.</div>
+                <p>Most business owners try to fix their chaos by working harder. But you can't outwork a broken system. You don't need a new brain—you just need a framework that holds the weight so you don't have to. That's why we create support tools; to let you be the visionary while the system handles the rest.</p>
+            </div>
+        </article>
+    </div>
+    <div id="site-footer"></div>
+    <script>
+        fetch('../header.html').then(res => res.text()).then(html => document.getElementById('site-header').innerHTML = html);
+        fetch('../footer.html').then(res => res.text()).then(html => document.getElementById('site-footer').innerHTML = html);
+    </script>
+</body>
+</html>
