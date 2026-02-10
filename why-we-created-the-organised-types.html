@@ -28,7 +28,18 @@
     </style>
 </head>
 <body>
-    <div id="site-header"></div>
+    
+        <div id="site-header"></div>
+
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('site-header').innerHTML = data;
+    })
+    .catch(err => console.error('Header load error:', err));
+</script>
+
     <div class="article-wrapper">
         <article class="container">
             <a href="../journal.html" class="back-link">← Back to Journal</a>
@@ -76,10 +87,45 @@
             </div>
         </article>
     </div>
-    <div id="site-footer"></div>
+  <div id="site-footer"></div>
+
     <script>
-        fetch('../header.html').then(res => res.text()).then(html => document.getElementById('site-header').innerHTML = html);
-        fetch('../footer.html').then(res => res.text()).then(html => document.getElementById('site-footer').innerHTML = html);
+      // Load Header
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('site-header').innerHTML = data;
+        })
+        .catch(err => console.error('Header load error:', err));
+
+      // Load Footer & Cookie Logic
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('site-footer').innerHTML = data;
+
+          const banner = document.getElementById('cookie-banner');
+          if (banner && !localStorage.getItem('cookiesAccepted')) {
+            banner.style.display = 'block';
+          }
+          const acceptBtn = document.getElementById('accept-cookies');
+          if(acceptBtn) {
+              acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                banner.style.display = 'none';
+              });
+          }
+        })
+        .catch(err => console.error('Footer load error:', err));
     </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5P2GHYXC2R');
+    </script>
+
 </body>
 </html>
