@@ -52,6 +52,13 @@
             margin-bottom: 5px;
             font-weight: 700;
         }
+        /* PRICE STYLING */
+        .detail-header .price {
+            font-size: 1.6em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
         .tagline {
             font-style: italic;
             font-size: 1.1em;
@@ -102,6 +109,7 @@
         @media (max-width: 768px) {
             .container { margin-top: 90px; }
             .detail-header h1 { font-size: 2.2em; }
+            .detail-header .price { font-size: 1.4em; }
             .features-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -115,6 +123,7 @@
         <div class="detail-header">
             <h1>Business Sales Roadmap</h1>
             <p class="tagline">From confusion to consistent sales — without pressure or hustle.</p>
+            <p class="price">£29</p>
         </div>
 
         <div class="content-section">
@@ -310,7 +319,7 @@
 
     </div>
 
-    <div id="site-header"></div>
+    <div id="site-footer"></div>
 
     <script>
       fetch('header.html').then(res => res.text()).then(data => { document.getElementById('site-header').innerHTML = data; });
