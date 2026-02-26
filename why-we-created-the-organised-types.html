@@ -4,175 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why We Created The Organised Types | The Journal</title>
-    <meta name="description" content="The story behind our mission, our values, and why we believe organisation is a skill to be supported — not a personality trait.">
+    <meta name="description" content="The story behind our mission, our values, and why we believe organisation is a skill to be supported.">
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        :root { 
+        /* CSS Variables - Synchronized with your branding */
+        :root {
             --primary-color: #4f4a46; 
             --accent-color: #A9B897; 
             --cream-bg: #FAF8F5; 
-            --card-bg: #F5F2EF;
+            --card-bg: #F5F2EF; 
             --text-color: #4f4a46; 
-            --font-main: 'Poppins', sans-serif; 
+            --font-main: 'Poppins', sans-serif;
         }
 
         body { 
             font-family: var(--font-main); 
             margin: 0; 
+            padding: 0; 
             background-color: var(--cream-bg); 
             color: var(--text-color); 
-            line-height: 1.8; 
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        #site-header { position: fixed; top: 0; width: 100%; z-index: 1000; }
-
-        .article-wrapper { 
-            margin-top: 140px; 
-            padding-bottom: 100px; 
-            flex: 1;
+            line-height: 1.7; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
         }
 
         .container { 
             width: 90%; 
-            max-width: 750px; 
-            margin: 0 auto; 
+            max-width: 900px; 
+            margin: auto; 
+            padding: 30px 0; 
+            box-sizing: border-box; 
+            margin-top: 110px; 
+        }
+
+        /* --- DETAIL HEADER --- */
+        .detail-header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 3px solid var(--accent-color);
+            margin-bottom: 30px;
         }
 
         .back-link { 
             display: inline-block; 
-            margin-bottom: 40px; 
+            margin-bottom: 10px; 
             text-decoration: none; 
             color: var(--accent-color); 
-            font-weight: 700; 
-            transition: 0.3s; 
+            font-weight: 600; 
             font-size: 0.9em;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
+        .detail-header h1 {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
         
-        .back-link:hover { opacity: 0.7; transform: translateX(-5px); }
-
-        h1 { 
-            font-size: 3.2em; 
-            font-weight: 900; 
-            line-height: 1.1; 
-            margin-bottom: 25px; 
-            color: var(--primary-color); 
-            letter-spacing: -1px;
+        /* --- CONTENT SECTIONS --- */
+        .content-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-color);
         }
 
-        .intro-lead { 
-            font-size: 1.3em; 
-            font-style: italic; 
-            opacity: 0.85; 
-            margin-bottom: 40px; 
-            border-bottom: 1px solid #ddd; 
-            padding-bottom: 30px; 
-            line-height: 1.6;
+        .content-section h2 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            border-bottom: 1px dashed #cccccc;
+            padding-bottom: 10px;
+            margin-top: 0;
         }
 
-        h2 { font-size: 2em; margin-top: 50px; color: var(--primary-color); font-weight: 700; }
-        p { margin-bottom: 25px; font-size: 1.1em; }
-        ul { margin-bottom: 30px; padding-left: 25px; }
-        li { margin-bottom: 12px; font-size: 1.1em; }
-
-        .values-list { list-style: none; padding: 0; margin-top: 30px; }
-        .values-list li { 
-            margin-bottom: 30px; 
-            padding-left: 20px; 
-            border-left: 3px solid var(--accent-color);
-        }
-        .values-list li strong { 
-            color: var(--accent-color); 
-            display: block; 
-            font-size: 1.15em; 
-            margin-bottom: 5px; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        /* Values Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .newsletter-box { 
-            background: var(--card-bg); 
-            padding: 50px; 
-            border-radius: 8px; 
-            border-top: 4px solid var(--accent-color); 
-            margin-top: 80px; 
-            text-align: center; 
+        .feature-item {
+            background-color: var(--cream-bg);
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.95em;
+        }
+
+        .feature-item strong {
+            display: block;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .call-to-action {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #ddd;
         }
 
         .btn { 
             background: var(--primary-color); 
             color: white; 
-            padding: 18px 35px; 
+            padding: 15px 30px; 
             text-decoration: none; 
-            border-radius: 4px; 
+            border-radius: 5px; 
             display: inline-block; 
             margin-top: 20px; 
             font-weight: 600; 
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
         .btn:hover { background-color: var(--accent-color); transform: translateY(-2px); }
 
-        @media (max-width: 768px) { 
-            h1 { font-size: 2.4em; } 
-            .article-wrapper { margin-top: 110px; } 
+        @media (max-width: 768px) {
+            .container { margin-top: 90px; }
+            .detail-header h1 { font-size: 2.2em; }
+            .features-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    
+
     <div id="site-header"></div>
 
-    <div class="article-wrapper">
-        <article class="container">
+    <div class="container">
+        
+        <div class="detail-header">
             <a href="journal.html" class="back-link">← Back to Journal</a>
-            
-            <h1>Why We Created The Organised Types (And What We Stand For)</h1>
-            
-            <p class="intro-lead">The Organised Types exists because we were tired of seeing capable people — women and men alike — blame themselves for systems that simply don’t support them.</p>
+            <h1>Our Mission</h1>
+            <p class="tagline">Organisation is a skill to be supported — not a personality trait.</p>
+        </div>
 
-            <p>We’ve watched people with talent, drive, and ambition struggle, not because they weren’t trying, but because the structures around them were confusing, unsympathetic, or downright exhausting.</p>
-            
-            <p>We knew there had to be a better way.</p>
+        <div class="content-section">
+            <h2>Why We Exist</h2>
+            <p>The Organised Types exists because we were tired of seeing capable people blame themselves for systems that simply don’t support them. We’ve watched talent and ambition struggle simply because the structures around them were exhausting or confusing.</p>
+            <p>We believe in <strong>Intentionality over Overwhelm</strong>. We don’t believe the answer is to "try harder"—that only leads to burnout. Instead, we believe in building systems that work for real life.</p>
+        </div>
 
-            <h2>Our approach is different</h2>
-            <p>We don’t believe the answer to overwhelm is “try harder.” Trying harder only burns you out faster. It reinforces the sense that if you can’t cope, you’re failing — when in reality, the system is what’s failing you.</p>
-            
-            <ul>
-                <li><strong>Clarity</strong> – Understanding what matters most.</li>
-                <li><strong>Structure</strong> – Systems that actually work for real life.</li>
-                <li><strong>Space to think</strong> – A pause to reflect without the weight of chaos.</li>
-            </ul>
-
-            <h2>Our values in practice</h2>
-            <ul class="values-list">
-                <li><strong>People before profit</strong> Success is about supporting real lives.</li>
-                <li><strong>Honesty over hype</strong> No buzzwords, just guidance you can trust.</li>
-                <li><strong>Support without judgement</strong> Everyone’s journey looks different.</li>
-                <li><strong>Action without pressure</strong> Progress comes from small, manageable steps.</li>
-            </ul>
-
-            <div class="newsletter-box">
-                <h3>If this resonates with you</h3>
-                <p>Join our mailing list to receive monthly insights designed to support you.</p>
-                <a href="#" class="btn">Join the Newsletter</a>
+        <div class="content-section">
+            <h2>The Three Pillars</h2>
+            <div class="features-grid">
+                <div class="feature-item"><strong>Clarity</strong> Understanding what matters most so you can focus on progress.</div>
+                <div class="feature-item"><strong>Structure</strong> Building systems that actually work for real life, not just theory.</div>
+                <div class="feature-item"><strong>Space</strong> Creating a pause to reflect and act without the weight of chaos.</div>
             </div>
-        </article>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Values in Practice</h2>
+            <div class="features-grid">
+                <div class="feature-item"><strong>People First</strong> Success is about supporting real lives, not just spreadsheets.</div>
+                <div class="feature-item"><strong>Honesty</strong> No buzzwords or false promises—just guidance you can trust.</div>
+                <div class="feature-item"><strong>Zero Judgement</strong> Everyone’s journey looks different, and that is okay.</div>
+                <div class="feature-item"><strong>Healthy Boundaries</strong> Your work and your life should coexist, not compete.</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Who is this for?</h2>
+            <p><strong>Perfect if:</strong> You are a service-based business owner who wants to feel less overwhelmed, understand your priorities, and protect your wellbeing while you grow.</p>
+        </div>
+        
+        <div class="call-to-action">
+            <h3>Want to stay connected?</h3>
+            <p>Join our mailing list to receive monthly insights and updates designed to support you 🤍</p>
+            <a href="#" class="btn">Join the Newsletter</a>
+        </div>
+
     </div>
 
     <div id="site-footer"></div>
 
     <script>
       fetch('header.html').then(res => res.text()).then(data => { document.getElementById('site-header').innerHTML = data; });
-      fetch('footer.html').then(res => res.text()).then(data => {
-          document.getElementById('site-footer').innerHTML = data;
+      fetch('footer.html').then(res => res.text()).then(data => { 
+          document.getElementById('site-footer').innerHTML = data; 
           const banner = document.getElementById('cookie-banner');
           if (banner && !localStorage.getItem('cookiesAccepted')) { banner.style.display = 'block'; }
       });
     </script>
+
 </body>
 </html>
