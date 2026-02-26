@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Audit | The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homscss.css">
+    <style>
+        .audit-intro {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .audit-item {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #a9b897;
+        }
+        .audit-item h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .best-for-box {
+            background: #a9b897;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 60px;
+            text-align: center;
+        }
+        .best-for-box h3 { color: white; }
+        
+        /* Reusing your hero styles for consistency */
+        .hero-banner.audit {
+            min-height: 60vh;
+        }
+    </style>
+</head>
+<body>
+
+      <div id="site-header"></div>
+
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('site-header').innerHTML = data;
+    })
+    .catch(err => console.error('Header load error:', err));
+</script>
+
+    <div class="hero-banner audit">
+        <div class="hero-banner-image" style="background-image: url('bg1.jpg'); opacity: 0.4;"></div>
+        <div class="hero-banner-content">
+            <span style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; font-size: 0.9rem;">Business Audit</span>
+            <h1>2-Day Business Audit</h1>
+            <p>Clear insight. Honest reflection. Practical direction.</p>
+            <div class="cta-group">
+                <a href="#book" class="cta-button">Book Your Audit</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container audit-intro">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h3>Stop the guessing. Start the growing.</h3>
+            <p>If your business feels busy, messy, or harder than it needs to be, our 2-Day Business Audit gives you the clarity to understand what’s really going on — and what to focus on next.</p>
+            <p>This is a deep, thoughtful review of your business as a whole. We look beyond surface-level issues to understand the systems, structure, and decisions shaping your day-to-day experience.</p>
+        </div>
+
+        <div class="audit-grid">
+            <div class="audit-item">
+                <h4>Foundations</h4>
+                <p>Current state overview, SWOT analysis, and external factor review.</p>
+            </div>
+            <div class="audit-item">
+                <h4>Identity & Presence</h4>
+                <p>Brand messaging, visual identity, and website structure/conversion.</p>
+            </div>
+            <div class="audit-item">
+                <h4>Growth & Strategy</h4>
+                <p>Audience clarity, lead journeys, marketing, and social media analysis.</p>
+            </div>
+            <div class="audit-item">
+                <h4>Action Plan</h4>
+                <p>KPIs, gaps, opportunities, and clear, non-generic recommendations.</p>
+            </div>
+        </div>
+
+        <div class="best-for-box">
+            <h3>Best For:</h3>
+            <p>Business owners who want clarity, structure, and an outside perspective before making big changes or investments.</p>
+        </div>
+    </div>
+
+    <section id="book" style="padding: 80px 0; background: #f4f4f4; text-align: center;">
+        <div class="container">
+            <h2>Ready for clarity?</h2>
+            <p>Secure your 2-Day Audit below.</p>
+            <div id='product-component-1772119838921' style="margin: 0 auto;"></div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <script>
+        fetch('header.html').then(res => res.text()).then(data => document.getElementById('site-header').innerHTML = data);
+        fetch('footer.html').then(res => res.text()).then(data => document.getElementById('site-footer').innerHTML = data);
+    </script>
+
+    
+    <div id='product-component-1772120624282'></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'xiaiqp-g3.myshopify.com',
+      storefrontAccessToken: '872df47c0a298e668c811520b4a5d2f1',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+        id: '10449741939029',
+        node: document.getElementById('product-component-1772120624282'),
+        moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
+        options: {
+  "product": {
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "calc(25% - 20px)",
+          "margin-left": "20px",
+          "margin-bottom": "50px"
+        }
+      },
+      "button": {
+        "font-family": "Roboto, sans-serif",
+        ":hover": {
+          "background-color": "#98a688"
+        },
+        "background-color": "#a9b897",
+        ":focus": {
+          "background-color": "#98a688"
+        }
+      }
+    },
+    "contents": {
+      "img": false,
+      "title": false,
+      "price": false
+    },
+    "text": {
+      "button": "Add to cart"
+    },
+    "googleFonts": [
+      "Roboto"
+    ]
+  },
+  "productSet": {
+    "styles": {
+      "products": {
+        "@media (min-width: 601px)": {
+          "margin-left": "-20px"
+        }
+      }
+    }
+  },
+  "modalProduct": {
+    "contents": {
+      "img": false,
+      "imgWithCarousel": true,
+      "button": false,
+      "buttonWithQuantity": true
+    },
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "100%",
+          "margin-left": "0px",
+          "margin-bottom": "0px"
+        }
+      },
+      "button": {
+        "font-family": "Roboto, sans-serif",
+        ":hover": {
+          "background-color": "#98a688"
+        },
+        "background-color": "#a9b897",
+        ":focus": {
+          "background-color": "#98a688"
+        }
+      }
+    },
+    "googleFonts": [
+      "Roboto"
+    ],
+    "text": {
+      "button": "Add to cart"
+    }
+  },
+  "option": {},
+  "cart": {
+    "styles": {
+      "button": {
+        "font-family": "Roboto, sans-serif",
+        ":hover": {
+          "background-color": "#98a688"
+        },
+        "background-color": "#a9b897",
+        ":focus": {
+          "background-color": "#98a688"
+        }
+      }
+    },
+    "text": {
+      "total": "Subtotal",
+      "button": "Checkout"
+    },
+    "googleFonts": [
+      "Roboto"
+    ]
+  },
+  "toggle": {
+    "styles": {
+      "toggle": {
+        "font-family": "Roboto, sans-serif",
+        "background-color": "#a9b897",
+        ":hover": {
+          "background-color": "#98a688"
+        },
+        ":focus": {
+          "background-color": "#98a688"
+        }
+      }
+    },
+    "googleFonts": [
+      "Roboto"
+    ]
+  }
+},
+      });
+    });
+  }
+})();
+/*]]>*/
+</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5P2GHYXC2R');
+</script>
+</body>
+</html>
