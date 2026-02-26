@@ -94,54 +94,11 @@
             margin-bottom: 5px;
         }
         
-        /* Process List */
-        .process-list {
-            list-style: none;
-            counter-reset: detail-step;
-            padding-left: 0;
-        }
-        .process-list li {
-            position: relative;
-            padding: 10px 10px 10px 50px;
-            margin-bottom: 10px;
-            background: var(--cream-bg);
-            border-radius: 4px;
-            line-height: 1.5;
-        }
-        .process-list li::before {
-            content: counter(detail-step);
-            counter-increment: detail-step;
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background: var(--accent-color);
-            color: var(--cream-bg);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            font-weight: 700;
-        }
-        
         .call-to-action {
             text-align: center;
             padding: 40px 0;
             border-top: 1px solid #ddd;
         }
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--primary-color); 
-            padding: 15px 35px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .cta-button:hover { background-color: #92a487; }
 
         @media (max-width: 768px) {
             .container { margin-top: 90px; }
@@ -158,38 +115,37 @@
         
         <div class="detail-header">
             <h1>2-Day Business Audit</h1>
-            <p class="tagline">Clear insight. Honest reflection. Practical direction.</p>
+            <p class="tagline">Clarity. Direction. A clear plan forward.</p>
         </div>
 
         <div class="content-section">
-            <h2>Why a Business Audit?</h2>
-            <p>If your business feels busy, messy, or harder than it needs to be, our 2-Day Business Audit gives you the clarity to understand what's really going on — and what to focus on next.</p>
-            <p>This is a deep, thoughtful review of your business as a whole. We look beyond surface-level issues to understand the systems, structure, and decisions shaping your day-to-day experience.</p>
+            <h2>Understanding the whole picture</h2>
+            <p>If your business feels messy, unclear, or harder than it needs to be, this 2‑Day Business Audit is designed to give you clarity, direction, and a clear plan forward.</p>
+            <p>Over two focused days, we take a deep look at how your business is currently working — what’s supporting you, what’s causing friction, and where things feel stuck or inefficient. This is about understanding the whole picture, not surface‑level fixes.</p>
         </div>
 
         <div class="content-section">
-            <h2>What the audit covers</h2>
+            <h2>This audit helps you:</h2>
             <div class="features-grid">
-                <div class="feature-item"><strong>Foundation</strong> Current state overview & SWOT analysis.</div>
-                <div class="feature-item"><strong>Brand Identity</strong> Review of messaging & visual consistency.</div>
-                <div class="feature-item"><strong>Digital Presence</strong> Website structure & conversion analysis.</div>
-                <div class="feature-item"><strong>Lead Journey</strong> Audience clarity & lead flow tracking.</div>
-                <div class="feature-item"><strong>Marketing</strong> Content & social media strategic review.</div>
-                <div class="feature-item"><strong>Operations</strong> Identifying KPIs, gaps, & opportunities.</div>
-                <div class="feature-item"><strong>Action Plan</strong> Clear recommendations and next steps.</div>
-                <div class="feature-item"><strong>Expert Support</strong> Practical insights, not generic advice.</div>
+                <div class="feature-item"><strong>Friction Analysis</strong> Identify what’s working and what’s creating overwhelm.</div>
+                <div class="feature-item"><strong>Strategic Clarity</strong> Clarify your offers, messaging, and structure.</div>
+                <div class="feature-item"><strong>Efficiency Review</strong> Spot gaps, inefficiencies, or areas causing confusion.</div>
+                <div class="feature-item"><strong>Practical Roadmap</strong> Create clear, practical recommendations you can act on.</div>
+                <div class="feature-item"><strong>Focused Momentum</strong> Feel more confident about what to focus on next.</div>
+                <div class="feature-item"><strong>Structured Support</strong> Structured guidance, not vague advice.</div>
             </div>
+            <p style="margin-top: 20px; font-style: italic;">Perfect if you feel busy but not aligned, or know something needs to change but aren’t sure what.</p>
         </div>
 
         <div class="content-section">
             <h2>Who is this for?</h2>
-            <p><strong>Best for:</strong> Business owners who want clarity, structure, and an outside perspective before making changes or decisions.</p>
-            <p>You'll receive practical insights and clear guidance so you can move forward feeling confident, supported, and focused.</p>
+            <p><strong>Best for:</strong> Business owners who want clarity, structure, and an outside perspective before making their next move.</p>
         </div>
         
         <div class="call-to-action">
             <h3>Ready for an honest reflection of your business?</h3>
-            <p>Get the direction you need to move forward with confidence.</p>
+            <p>Walk away with clear insights and structured guidance.</p>
+            
            <div id='product-component-1772120624282' style="margin: 0 auto; display: inline-block; width: 100%;"></div>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -342,7 +298,6 @@
 })();
 /*]]>*/
 </script>
-</div>
         </div>
 
     </div>
@@ -350,12 +305,10 @@
     <div id="site-footer"></div>
 
     <script>
-      // Load Header
       fetch('header.html')
         .then(res => res.text())
         .then(data => { document.getElementById('site-header').innerHTML = data; });
 
-      // Load Footer
       fetch('footer.html')
         .then(res => res.text())
         .then(data => { document.getElementById('site-footer').innerHTML = data; });
