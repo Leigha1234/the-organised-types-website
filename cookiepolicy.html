@@ -13,78 +13,63 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <link rel=themeData href="cookiepolicy.fld/themedata.thmx">
 <link rel=colorSchemeMapping href="cookiepolicy.fld/colorschememapping.xml">
 <style>
-    /* 1. Brand Variables */
+    /* Brand Theme */
     :root {
-        --primary-color: #4f4a46;
-        --accent-color: #A9B897;
+        --primary-brown: #4f4a46;
+        --feature-green: #A9B897;
         --cream-bg: #FAF8F5;
-        --text-color: #4f4a46;
         --font-main: 'Poppins', sans-serif;
     }
 
-    /* 2. Page Setup */
     body {
         background-color: var(--cream-bg) !important;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centers the container horizontally */
-    }
-
-    /* 3. The Main Container */
-    .legal-container {
-        max-width: 800px; /* Optimal width for readability */
-        width: 90%;
-        margin: 140px auto 80px auto; /* 140px top margin for your fixed header */
-        padding: 60px;
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        box-sizing: border-box;
-    }
-
-    /* 4. Force Brand Styling on Word Content */
-    /* Microsoft Word export uses spans and inline styles; these overrides clean them up */
-    .legal-container p, 
-    .legal-container span, 
-    .legal-container li {
+        color: var(--primary-brown) !important;
         font-family: var(--font-main) !important;
-        font-size: 1.05rem !important;
-        color: var(--text-color) !important;
-        line-height: 1.8 !important;
-        background-color: transparent !important; /* Removes any white highlights from Word */
+        margin: 20px;
+        padding: 20px;
     }
 
-    /* 5. Headings */
-    .legal-container h1 {
-        font-family: var(--font-main);
-        font-weight: 700;
-        font-size: 2.2rem;
-        color: var(--primary-color);
+    /* Logo & Centering Layout */
+    .legal-content-area {
+        max-width: 850px;
+        margin: 140px auto 100px auto; /* 140px for header clearance */
+        padding: 0 20px;
+        text-align: left; /* Legal text is usually left-aligned for readability */
+    }
+
+    .brand-logo-centered {
+        display: block;
+        max-width: 200px;
+        height: auto;
+        margin: 0 auto 20px auto;
+    }
+
+    /* Brand Green Feature Elements */
+    h1, h2, h3 {
+        color: var(--feature-green) !important;
+        font-family: var(--font-main) !important;
+    }
+
+    h1 {
         text-align: center;
-        margin-bottom: 40px;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
     }
 
-    .legal-container h2 {
-        font-family: var(--font-main);
-        font-weight: 600;
-        font-size: 1.4rem;
-        color: var(--accent-color);
-        margin-top: 35px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 8px;
+    /* Force Brown for all Word-exported spans and paragraphs */
+    p, span, li {
+        color: var(--primary-brown) !important;
+        font-family: var(--font-main) !important;
+        line-height: 1.8 !important;
+        font-size: 1.05rem !important;
     }
 
-    /* 6. Mobile Responsiveness */
+    /* Feature green for links and list markers */
+    a { color: var(--feature-green); text-decoration: underline; }
+    li::marker { color: var(--feature-green); font-weight: bold; }
+
     @media (max-width: 768px) {
-        .legal-container {
-            margin-top: 100px;
-            padding: 30px;
-        }
-        .legal-container h1 {
-            font-size: 1.8rem;
-        }
+        .legal-content-area { margin-top: 100px; }
     }
 </style>
 <!--[if gte mso 9]><xml>
@@ -1764,7 +1749,10 @@ table.TableNormal
 
 <body lang=EN-GB link=blue vlink=purple style='tab-interval:36.0pt;word-wrap:
 break-word'>
+<div class="legal-content-area">
+    <img src="logo.jpg.webp" alt="The Organised Types Logo" class="brand-logo-centered">
 
+    </div>
 <div class=WordSection1>
 
 <h1 style='margin-top:24.0pt;mso-pagination:widow-orphan;page-break-after:auto'><a
