@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables - Synchronized with your site brand */
+        /* CSS Variables */
         :root {
             --primary-color: #4f4a46; 
             --accent-color: #A9B897; 
@@ -21,7 +21,6 @@
             --font-main: 'Poppins', sans-serif;
         }
 
-        /* Base Styles */
         body { 
             font-family: var(--font-main); 
             margin: 0; padding: 0; 
@@ -32,63 +31,40 @@
             display: flex; flex-direction: column; 
         }
 
-        .page-wrapper {
-            margin-top: 120px; 
-            flex: 1;
-        }
-
-        .container { 
-            width: 90%; 
-            max-width: 1100px; /* Widened slightly to accommodate two columns */
-            margin: 0 auto; 
-            padding-bottom: 60px;
-        }
+        .page-wrapper { margin-top: 120px; flex: 1; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding-bottom: 60px; }
 
         /* --- BLOG GRID --- */
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columns side by side */
-            gap: 40px; /* Space between cards */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
             margin-top: 50px;
         }
 
-        /* --- BLOG CARDS --- */
         .blog-card {
             background-color: var(--card-bg);
             border-radius: 8px;
             overflow: hidden;
             border-left: 4px solid var(--accent-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
+            cursor: pointer; /* Indicates it's clickable */
         }
         
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .blog-link-wrapper {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+        .blog-card:hover { transform: translateY(-5px); }
 
         .blog-featured-img {
             width: 100%;
-            height: 280px; /* Reduced height for grid layout balance */
+            height: 280px;
             object-fit: cover;
             display: block;
-            background-color: #eee;
         }
 
         .blog-card-content {
             padding: 30px;
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
         }
 
         .blog-meta {
@@ -101,50 +77,73 @@
         }
 
         .blog-card h2 {
-            font-size: 1.6em; /* Adjusted for smaller column width */
+            font-size: 1.6em;
             color: var(--primary-color);
             margin: 0 0 15px 0;
             font-weight: 700;
-            line-height: 1.3;
         }
 
-        .blog-excerpt {
-            font-size: 1em;
-            margin-bottom: 25px;
-            color: var(--text-color);
-            opacity: 0.85;
-            flex-grow: 1;
-        }
+        .blog-excerpt { font-size: 1em; margin-bottom: 25px; opacity: 0.85; }
 
-        .read-more-btn {
+        .read-more-trigger {
             display: inline-block;
             color: var(--primary-color);
             font-weight: 700;
-            text-decoration: none;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 3px;
+        }
+
+        /* --- MODAL STYLES --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(79, 74, 70, 0.85);
+            z-index: 2000;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            background: var(--cream-bg);
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 50px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            line-height: 1;
             transition: 0.3s;
-            align-self: flex-start;
         }
+        .close-modal:hover { color: var(--accent-color); }
 
-        .read-more-btn:hover {
-            color: var(--accent-color);
-            border-bottom-color: var(--primary-color);
-        }
+        body.modal-open { overflow: hidden; }
 
-        /* --- MOBILE RESPONSIVENESS --- */
-        @media (max-width: 900px) {
-            .blog-grid {
-                grid-template-columns: 1fr; /* Stack to 1 column on tablets/mobile */
-                gap: 50px;
-            }
-            .container { max-width: 700px; }
-        }
+        /* Styles inside the modal */
+        .modal-body h1 { color: var(--primary-color); font-size: 2.5em; line-height: 1.2; margin-bottom: 10px; }
+        .modal-body h2 { color: var(--primary-color); margin-top: 30px; }
+        .modal-body .accent-box { background: var(--card-bg); padding: 25px; border-left: 4px solid var(--accent-color); border-radius: 8px; margin: 25px 0; }
+        .modal-body ul { line-height: 1.8; }
 
-        @media (max-width: 768px) {
-            .page-wrapper { margin-top: 100px; }
-            .blog-featured-img { height: 240px; }
-            .blog-card h2 { font-size: 1.5em; }
+        /* Responsive */
+        @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .modal-content { padding: 30px 20px; margin: 10px auto; }
+            .modal-body h1 { font-size: 1.8em; }
         }
     </style>
 </head>
@@ -156,64 +155,104 @@
         <main class="container">
             
             <div class="blog-grid">
-                <article class="blog-card">
-                    <a href="why-we-created-the-organised-types.html" class="blog-link-wrapper">
-                        <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Organised workspace" class="blog-featured-img">
-                        
-                        <div class="blog-card-content">
-                            <p class="blog-meta">January 2026 · Philosophy</p>
-                            <h2>Why we created The Organised Types</h2>
-                            <p class="blog-excerpt">
-                                The story behind our mission, our values, and why we believe organisation is a skill to be supported.
-                            </p>
-                            <span class="read-more-btn">Read the story</span>
-                        </div>
-                    </a>
+                <article class="blog-card" onclick="openPost('mission')">
+                    <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=80" alt="Organised workspace" class="blog-featured-img">
+                    <div class="blog-card-content">
+                        <p class="blog-meta">January 2026 · Philosophy</p>
+                        <h2>Why we created The Organised Types</h2>
+                        <p class="blog-excerpt">The story behind our mission, our values, and why we believe organisation is a skill to be supported.</p>
+                        <span class="read-more-trigger">Read the story</span>
+                    </div>
                 </article>
 
-                <article class="blog-card">
-                    <a href="you-dont-need-fixing.html" class="blog-link-wrapper">
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" 
-                             alt="Quiet landscape" class="blog-featured-img">
-                        
-                        <div class="blog-card-content">
-                            <p class="blog-meta">December 2025 · Systems</p>
-                            <h2>You don’t need fixing — you need support</h2>
-                            <p class="blog-excerpt">
-                                Your struggle isn't a personality flaw; it's a resource gap. Here's how to shift from chaos to calm.
-                            </p>
-                            <span class="read-more-btn">Read the story</span>
-                        </div>
-                    </a>
+                <article class="blog-card" onclick="openPost('fixing')">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Quiet landscape" class="blog-featured-img">
+                    <div class="blog-card-content">
+                        <p class="blog-meta">December 2025 · Systems</p>
+                        <h2>You don’t need fixing — you need support</h2>
+                        <p class="blog-excerpt">Your struggle isn't a personality flaw; it's a resource gap. Here's how to shift from chaos to calm.</p>
+                        <span class="read-more-trigger">Read the story</span>
+                    </div>
                 </article>
             </div>
 
         </main>
     </div>
 
+    <div id="postModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePost()">&times;</span>
+            <div id="modalBody" class="modal-body">
+                </div>
+        </div>
+    </div>
+
     <div id="site-footer"></div>
 
     <script>
-      // Load Header & Footer Logic
-      const loadComponent = (id, file) => {
-        fetch(file)
-          .then(res => res.text())
-          .then(data => { document.getElementById(id).innerHTML = data; })
-          .catch(err => console.error(`${file} load error:`, err));
-      };
+        // Content Data
+        const postData = {
+            'mission': `
+                <h1>Why We Created The Organised Types</h1>
+                <p style="font-style:italic; color:#A9B897; margin-bottom:30px;">(And What We Stand For)</p>
+                <p>The Organised Types exists because we were tired of seeing capable people — women and men alike — blame themselves for systems that simply don’t support them.</p>
+                <p>We’ve watched people with talent, drive, and ambition struggle, not because they weren’t trying, but because the structures around them were confusing, unsympathetic, or downright exhausting.</p>
+                <div class="accent-box">
+                    <h2>Our Approach</h2>
+                    <p>We don’t believe the answer to overwhelm is “try harder.” That mindset only leads to burnout. Instead, we believe in <strong>Clarity, Structure, and Space to think.</strong></p>
+                </div>
+                <h2>Our Values in Practice</h2>
+                <ul>
+                    <li><strong>People before profit</strong> – Supporting real lives, not just numbers.</li>
+                    <li><strong>Honesty over hype</strong> – Guidance you can actually trust.</li>
+                    <li><strong>Support without judgement</strong> – Everyone’s journey looks different.</li>
+                    <li><strong>Action without pressure</strong> – Progress comes from small, manageable steps.</li>
+                </ul>
+                <p>We help people untangle what’s actually going on — whether that’s organising their business or building confidence in decision-making.</p>
+            `,
+            'fixing': `
+                <h1>You Don’t Need Fixing — You Need Support</h1>
+                <p style="font-style:italic; color:#A9B897; margin-bottom:30px;">"I wasn’t broken. I wasn’t failing. I was thinking alone."</p>
+                <p>Running a business while juggling family life and client demands can feel like hitting a wall. I convinced myself I could handle it all — until the slow, quiet accumulation of stress became too much.</p>
+                <div class="accent-box">
+                    <h2>Practical Steps for Today</h2>
+                    <ol>
+                        <li><strong>Write it down</strong> – List everything that is on your mind.</li>
+                        <li><strong>Identify one priority</strong> – What moves the needle today?</li>
+                        <li><strong>Take one small step</strong> – Even a 10-minute action counts.</li>
+                        <li><strong>Share it</strong> – Talk it through with someone you trust.</li>
+                    </ol>
+                </div>
+                <h2>Why Conversation Works</h2>
+                <p>When you’re in the middle of it, it’s hard to see clearly. Even 20 minutes of talking through your overwhelm can clarify priorities and reduce the mental load that makes you feel stuck.</p>
+                <p>You don’t need fixing. You need perspective, guidance, and space to think.</p>
+            `
+        };
 
-      loadComponent('site-header', 'header.html');
-      
-      fetch('footer.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('site-footer').innerHTML = data;
-          // Cookie banner logic
-          const banner = document.getElementById('cookie-banner');
-          if (banner && !localStorage.getItem('cookiesAccepted')) {
-            banner.style.display = 'block';
-          }
+        // Modal Functions
+        function openPost(postId) {
+            document.getElementById('modalBody').innerHTML = postData[postId];
+            document.getElementById('postModal').style.display = 'block';
+            document.body.classList.add('modal-open');
+        }
+
+        function closePost() {
+            document.getElementById('postModal').style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('postModal')) { closePost(); }
+        };
+
+        // Load Components
+        fetch('header.html').then(res => res.text()).then(data => { document.getElementById('site-header').innerHTML = data; });
+        fetch('footer.html').then(res => res.text()).then(data => {
+            document.getElementById('site-footer').innerHTML = data;
+            if (!localStorage.getItem('cookiesAccepted')) {
+                const banner = document.getElementById('cookie-banner');
+                if(banner) banner.style.display = 'block';
+            }
         });
     </script>
 
