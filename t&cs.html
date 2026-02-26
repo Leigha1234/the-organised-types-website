@@ -12,6 +12,77 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <link rel=Edit-Time-Data href="t&amp;cs.fld/editdata.mso">
 <link rel=themeData href="t&amp;cs.fld/themedata.thmx">
 <link rel=colorSchemeMapping href="t&amp;cs.fld/colorschememapping.xml">
+<style>
+    /* 1. Global Styles & Typography */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+        --primary-color: #4f4a46;
+        --accent-color: #A9B897;
+        --cream-bg: #FAF8F5;
+        --font-main: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-color: var(--cream-bg) !important;
+        font-family: var(--font-main) !important;
+        color: var(--primary-color) !important;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+
+    /* 2. Container to center the legal text */
+    .legal-container {
+        max-width: 850px;
+        margin: 60px auto;
+        padding: 40px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    /* 3. Fixing Word Export Styles */
+    p, span, li {
+        font-family: var(--font-main) !important;
+        font-size: 11pt !important; /* Standard legal size */
+        color: var(--primary-color) !important;
+    }
+
+    h1, .MsoTitle {
+        font-size: 2.5em !important;
+        font-weight: 700 !important;
+        color: var(--primary-color) !important;
+        border-bottom: 3px solid var(--accent-color);
+        padding-bottom: 10px;
+        margin-bottom: 30px !important;
+    }
+
+    h2, .MsoHeading1 {
+        font-size: 1.5em !important;
+        font-weight: 600 !important;
+        color: var(--accent-color) !important;
+        margin-top: 40px !important;
+    }
+
+    /* 4. Link Styles */
+    a {
+        color: var(--accent-color);
+        text-decoration: underline;
+    }
+
+    /* 5. Clean up lists */
+    ul, ol {
+        margin-left: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .legal-container {
+            margin: 20px;
+            padding: 20px;
+        }
+    }
+</style>
 <!--[if gte mso 9]><xml>
  <w:WordDocument>
   <w:EmbedTrueTypeFonts/>
