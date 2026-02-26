@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why We Created The Organised Types | The Journal</title>
+    <meta name="description" content="The story behind our mission, our values, and why we believe organisation is a skill to be supported — not a personality trait.">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
             --primary-color: #4f4a46; 
             --accent-color: #A9B897; 
             --cream-bg: #FAF8F5; 
+            --card-bg: #F5F2EF;
             --text-color: #4f4a46; 
             --font-main: 'Poppins', sans-serif; 
         }
@@ -53,76 +56,107 @@
             color: var(--accent-color); 
             font-weight: 700; 
             transition: 0.3s; 
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .back-link:hover { opacity: 0.7; }
+        .back-link:hover { opacity: 0.7; transform: translateX(-5px); }
 
-        h1 { font-size: 3.2em; font-weight: 900; line-height: 1.1; margin-bottom: 20px; color: var(--primary-color); }
-        .intro-lead { font-size: 1.3em; font-style: italic; opacity: 0.8; margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 30px; }
-        h2 { font-size: 2em; margin-top: 50px; color: var(--primary-color); }
-        h3 { font-size: 1.4em; margin-top: 30px; color: var(--primary-color); }
+        h1 { 
+            font-size: 3.2em; 
+            font-weight: 900; 
+            line-height: 1.1; 
+            margin-bottom: 25px; 
+            color: var(--primary-color); 
+            letter-spacing: -1px;
+        }
+
+        .intro-lead { 
+            font-size: 1.3em; 
+            font-style: italic; 
+            opacity: 0.85; 
+            margin-bottom: 40px; 
+            border-bottom: 1px solid #ddd; 
+            padding-bottom: 30px; 
+            line-height: 1.6;
+        }
+
+        h2 { font-size: 2em; margin-top: 50px; color: var(--primary-color); font-weight: 700; }
+        h3 { font-size: 1.4em; margin-top: 30px; color: var(--primary-color); font-weight: 600; }
+        
         p { margin-bottom: 25px; font-size: 1.1em; }
-        ul { margin-bottom: 30px; padding-left: 20px; }
+        
+        ul { margin-bottom: 30px; padding-left: 25px; }
         li { margin-bottom: 12px; font-size: 1.1em; }
+        li strong { color: var(--primary-color); }
 
-        .values-list { list-style: none; padding: 0; }
-        .values-list li { margin-bottom: 25px; }
-        .values-list li strong { color: var(--accent-color); display: block; font-size: 1.1em; margin-bottom: 5px; }
+        /* Values List Styling */
+        .values-list { list-style: none; padding: 0; margin-top: 30px; }
+        .values-list li { 
+            margin-bottom: 30px; 
+            padding-left: 20px; 
+            border-left: 3px solid var(--accent-color);
+        }
+        .values-list li strong { 
+            color: var(--accent-color); 
+            display: block; 
+            font-size: 1.15em; 
+            margin-bottom: 5px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
         .newsletter-box { 
-            background: #F5F2EF; 
+            background: var(--card-bg); 
             padding: 50px; 
-            border-radius: 15px; 
-            border: 1px solid var(--accent-color); 
-            margin-top: 60px; 
+            border-radius: 8px; 
+            border-top: 4px solid var(--accent-color); 
+            margin-top: 80px; 
             text-align: center; 
         }
 
         .btn { 
             background: var(--primary-color); 
             color: white; 
-            padding: 15px 30px; 
+            padding: 18px 35px; 
             text-decoration: none; 
-            border-radius: 5px; 
+            border-radius: 4px; 
             display: inline-block; 
             margin-top: 20px; 
             font-weight: 600; 
-            transition: 0.3s;
+            transition: 0.3s ease;
+            font-size: 1em;
         }
-        .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        .btn:hover { background-color: var(--accent-color); transform: translateY(-2px); }
 
         @media (max-width: 768px) { 
-            h1 { font-size: 2.2em; } 
-            .article-wrapper { margin-top: 100px; } 
+            h1 { font-size: 2.4em; } 
+            .article-wrapper { margin-top: 110px; } 
+            .newsletter-box { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
     
-      <div id="site-header"></div>
-
-<script>
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-header').innerHTML = data;
-    })
-    .catch(err => console.error('Header load error:', err));
-</script>
+    <div id="site-header"></div>
 
     <div class="article-wrapper">
         <article class="container">
-            <a href="../journal.html" class="back-link">← Back to Journal</a>
+            <a href="journal.html" class="back-link">← Back to Journal</a>
+            
             <h1>Why We Created The Organised Types (And What We Stand For)</h1>
+            
             <p class="intro-lead">The Organised Types exists because we were tired of seeing capable people — women and men alike — blame themselves for systems that simply don’t support them.</p>
 
             <p>We’ve watched people with talent, drive, and ambition struggle, not because they weren’t trying, but because the structures around them were confusing, unsympathetic, or downright exhausting. And worse, when they reach out for help, it often comes with judgment, pressure, or impossible expectations.</p>
+            
             <p>We knew there had to be a better way.</p>
 
             <h2>Our approach is different</h2>
             <p>We don’t believe the answer to overwhelm is “try harder.” Trying harder only burns you out faster. It reinforces the sense that if you can’t cope, you’re failing — when in reality, the system is what’s failing you.</p>
             
-            <p>At The Organised Types, we believe in three things instead:</p>
+            <p>At The Organised Types, we believe in three core pillars:</p>
             <ul>
                 <li><strong>Clarity</strong> – Understanding what matters most, so you can focus on what moves you forward.</li>
                 <li><strong>Structure</strong> – Systems that actually work for real life, not just theory.</li>
@@ -136,7 +170,7 @@
                 <li><strong>Honesty over hype</strong> No buzzwords, no false promises, just guidance you can trust.</li>
                 <li><strong>Support without judgement</strong> Everyone’s journey looks different, and that’s okay.</li>
                 <li><strong>Action without pressure</strong> Progress comes from small, manageable steps, not burnout.</li>
-                <li><strong>Boundaries that protect health and sanity</strong> Your work and your life should coexist, not compete.</li>
+                <li><strong>Boundaries that protect health</strong> Your work and your life should coexist, not compete.</li>
             </ul>
 
             <p>We don’t sell shortcuts. We help people untangle what’s actually going on — whether that’s organising their business, prioritising tasks, or building confidence in decision-making.</p>
@@ -158,44 +192,29 @@
         </article>
     </div>
 
-     <div id="site-footer"></div>
+    <div id="site-footer"></div>
 
     <script>
-      // Load Header
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('site-header').innerHTML = data;
-        })
-        .catch(err => console.error('Header load error:', err));
+      // Shared Loader for Header/Footer
+      const loadEl = (id, file) => {
+        fetch(file)
+          .then(res => res.text())
+          .then(data => { document.getElementById(id).innerHTML = data; })
+          .catch(err => console.error(`${file} error:`, err));
+      };
 
-      // Load Footer & Cookie Logic
+      loadEl('site-header', 'header.html');
+      
+      // Load Footer & Handle Cookie Banner
       fetch('footer.html')
-        .then(response => response.text())
+        .then(res => res.text())
         .then(data => {
           document.getElementById('site-footer').innerHTML = data;
-
           const banner = document.getElementById('cookie-banner');
           if (banner && !localStorage.getItem('cookiesAccepted')) {
             banner.style.display = 'block';
           }
-          const acceptBtn = document.getElementById('accept-cookies');
-          if(acceptBtn) {
-              acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookiesAccepted', 'true');
-                banner.style.display = 'none';
-              });
-          }
-        })
-        .catch(err => console.error('Footer load error:', err));
-    </script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5P2GHYXC2R');
+        });
     </script>
 
 </body>
