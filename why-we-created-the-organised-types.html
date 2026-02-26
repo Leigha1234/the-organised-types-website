@@ -213,13 +213,28 @@
     <div id="site-footer"></div>
 
     <script>
-      fetch('header.html').then(res => res.text()).then(data => { document.getElementById('site-header').innerHTML = data; });
-      fetch('footer.html').then(res => res.text()).then(data => { 
-          document.getElementById('site-footer').innerHTML = data; 
+      // Load Header & Footer Logic
+      const loadComponent = (id, file) => {
+        fetch(file)
+          .then(res => res.text())
+          .then(data => { document.getElementById(id).innerHTML = data; })
+          .catch(err => console.error(`${file} load error:`, err));
+      };
+
+      loadComponent('site-header', 'header.html');
+      
+      fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('site-footer').innerHTML = data;
+          // Cookie banner logic
           const banner = document.getElementById('cookie-banner');
-          if (banner && !localStorage.getItem('cookiesAccepted')) { banner.style.display = 'block'; }
-      });
+          if (banner && !localStorage.getItem('cookiesAccepted')) {
+            banner.style.display = 'block';
+          }
+        });
     </script>
+
 
 </body>
 </html>
