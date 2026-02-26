@@ -1,6 +1,4 @@
 <footer>
-
-
     <div class="container footer-content-grid">
         
         <div class="footer-section footer-logo">
@@ -71,19 +69,8 @@
     ">Accept</button>
 </div>
 
-<script>
-    const banner = document.getElementById('cookie-banner');
-    if (!localStorage.getItem('cookiesAccepted')) {
-        banner.style.display = 'block';
-    }
-    document.getElementById('accept-cookies').addEventListener('click', () => {
-        localStorage.setItem('cookiesAccepted', 'true');
-        banner.style.display = 'none';
-    });
-</script>
-
 <style>
-/* --- FOOTER STYLES (UPDATED) --- */
+/* --- FOOTER STYLES --- */
 footer { 
     background-color: var(--logo-bg); 
     color: var(--primary-color); 
@@ -98,7 +85,6 @@ footer a {
 }
 footer a:hover { text-decoration: underline; }
 
-/* Main 3-Column Footer Grid */
 .footer-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -114,56 +100,42 @@ footer a:hover { text-decoration: underline; }
     margin: 0 auto;
 }
 
-.footer-section {
-    padding: 0 20px;
-}
+.footer-section { padding: 0 20px; }
+.footer-section h4 { font-size: 1.1em; color: var(--primary-color); margin-top: 0; margin-bottom: 10px; font-weight: 700; }
+.footer-section p { margin: 5px 0; }
+.footer-section ul { list-style: none; padding: 0; margin: 10px 0; }
+.footer-section ul li { margin-bottom: 5px; }
 
-.footer-section h4 {
-    font-size: 1.1em;
-    color: var(--primary-color);
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
+.footer-socials, .footer-legal, .footer-legal ul { text-align: center; }
+.footer-copyright { padding: 8px 0; font-size: 0.75em; }
 
-.footer-section p {
-    margin: 5px 0;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 5px;
-}
-
-.footer-socials,
-.footer-legal,
-.footer-legal ul {
-    text-align: center;
-}
-
-/* Copyright Bar */
-.footer-copyright {
-    padding: 8px 0;
-    font-size: 0.75em;
-}
-
-/* Responsive Footer */
 @media (max-width: 768px) {
-    .footer-content-grid {
-        grid-template-columns: 1fr;
-        padding: 20px 0;
-    }
-    .footer-logo img {
-        height: 60px;
-    }
-    .footer-section {
-        padding: 0;
-        text-align: center;
-    }
+    .footer-content-grid { grid-template-columns: 1fr; padding: 20px 0; }
+    .footer-logo img { height: 60px; }
+    .footer-section { padding: 0; text-align: center; }
 }
 </style>
+
+<script>
+    // Cookie Banner Logic
+    const banner = document.getElementById('cookie-banner');
+    if (!localStorage.getItem('cookiesAccepted')) {
+        banner.style.display = 'block';
+    }
+    document.getElementById('accept-cookies').addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        banner.style.display = 'none';
+    });
+</script>
+
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69a0747c3940e41c358afe50/1jidce239';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
