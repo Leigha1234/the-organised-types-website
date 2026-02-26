@@ -152,6 +152,7 @@
             line-height: 1;
             margin-top: -30px;
             margin-right: -20px;
+            z-index: 10;
         }
 
         body.modal-open { overflow: hidden; }
@@ -163,6 +164,20 @@
         .modal-body .accent-box { background: var(--card-bg); padding: 30px; border-left: 5px solid var(--accent-color); border-radius: 8px; margin: 30px 0; }
         .modal-body ul, .modal-body ol { margin-bottom: 20px; padding-left: 20px; }
         .modal-body li { margin-bottom: 12px; }
+
+        /* External Link Button */
+        .btn-external {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn-external:hover { background-color: var(--accent-color); }
 
         @media (max-width: 768px) { 
             .modal-content { padding: 40px 25px; margin: 10px auto; }
@@ -187,7 +202,7 @@
                 <article class="blog-card" onclick="openPost('mission')">
                     <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=80" alt="Workspace" class="blog-featured-img">
                     <div class="blog-card-content">
-                        <p class="blog-meta">January 2026 · Philosophy</p>
+                        <p class="blog-meta">Philosophy</p>
                         <h2>Why we created The Organised Types</h2>
                         <p class="blog-excerpt">The story behind our mission, our values, and why we believe organisation is a skill to be supported.</p>
                         <span class="read-more-trigger">Read the story</span>
@@ -197,7 +212,7 @@
                 <article class="blog-card" onclick="openPost('fixing')">
                     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Landscape" class="blog-featured-img">
                     <div class="blog-card-content">
-                        <p class="blog-meta">December 2025 · Systems</p>
+                        <p class="blog-meta">Systems</p>
                         <h2>You don’t need fixing — you need support</h2>
                         <p class="blog-excerpt">Your struggle isn't a personality flaw; it's a resource gap. Shift from chaos to calm.</p>
                         <span class="read-more-trigger">Read the story</span>
@@ -207,7 +222,7 @@
                 <article class="blog-card" onclick="openPost('beginning')">
                     <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80" alt="Notebook" class="blog-featured-img">
                     <div class="blog-card-content">
-                        <p class="blog-meta">February 2026 · Journey</p>
+                        <p class="blog-meta">Journey</p>
                         <h2>This Is Just the Beginning</h2>
                         <p class="blog-excerpt">The Organised Types didn’t appear out of thin air. It was built from experience and hard lessons.</p>
                         <span class="read-more-trigger">Read the story</span>
@@ -222,6 +237,7 @@
 
             <div class="blog-grid">
                 <article class="blog-card" onclick="openPost('counsellingvine')">
+                    <img src="client1.jpeg" alt="The Counselling Vine" class="blog-featured-img">
                     <div class="blog-card-content">
                         <p class="blog-meta">Case Study · Side Hustle</p>
                         <h2>The Counselling Vine</h2>
@@ -231,6 +247,7 @@
                 </article>
 
                 <article class="blog-card" onclick="openPost('luxelectrical')">
+                    <img src="client2.jpeg" alt="Lux Electrical" class="blog-featured-img">
                     <div class="blog-card-content">
                         <p class="blog-meta">Case Study · Trade</p>
                         <h2>Lux Electrical Ltd</h2>
@@ -260,7 +277,7 @@
                 <p>The Organised Types exists because we were tired of seeing capable people — women and men alike — blame themselves for systems that simply don’t support them.</p>
                 <div class="accent-box">
                     <h2>Our Approach</h2>
-                    <p>We don’t believe the answer to overwhelm is “try harder.” That only burns you out faster. We believe in <strong>Clarity, Structure, and Space to Think.</strong></p>
+                    <p>We don’t believe the answer to overwhelm is “try harder.” Instead, we believe in <strong>Clarity, Structure, and Space to Think.</strong></p>
                 </div>
                 <h2>Our Values</h2>
                 <ul>
@@ -271,17 +288,16 @@
             `,
             'fixing': `
                 <h1>You Don’t Need Fixing — You Need Support</h1>
-                <p style="font-style:italic; color:#A9B897; margin-bottom:30px;">"I wasn’t broken. I was thinking alone."</p>
+                <p style="font-style:italic; color:#A9B897; margin-bottom:30px;">"I wasn’t broken. I wasn’t failing. I was thinking alone."</p>
                 <p>Running a business while juggling family life and client demands can feel like hitting a wall. I convinced myself I could handle it all — until the accumulation of stress became too much.</p>
                 <div class="accent-box">
                     <h2>Practical Steps for Today</h2>
                     <ol>
                         <li><strong>Write it down</strong> – List everything on your mind.</li>
                         <li><strong>Identify one priority</strong> – What moves the needle today?</li>
-                        <li><strong>Take one small step</strong> – 10 minutes is enough.</li>
+                        <li><strong>Take one small step</strong> – Even a 10-minute action counts.</li>
                     </ol>
                 </div>
-                <p>You don't need fixing. You need perspective, guidance, and space to think. That is the difference between surviving and moving forward.</p>
             `,
             'beginning': `
                 <h1>This Is Just the Beginning</h1>
@@ -290,43 +306,43 @@
                 <div class="accent-box">
                     <h2>What we’ve learned</h2>
                     <ul>
-                        <li><strong>Mistakes are lessons.</strong> Decisions that seemed right created setbacks. Those failures taught us more than success ever could.</li>
-                        <li><strong>Breakdowns lead to rebuilding.</strong> Balancing family and business pushed us to the edge. It forced us to stop, reflect, and rebuild.</li>
-                        <li><strong>Growth takes time.</strong> Support matters more than hustle, and human connection matters more than metrics.</li>
+                        <li><strong>Mistakes are lessons.</strong> Decisions that failed taught us more than success ever could.</li>
+                        <li><strong>Breakdowns lead to rebuilding.</strong> We’ve been exhausted and overwhelmed, but those moments forced us to stop and reflect.</li>
                     </ul>
                 </div>
-                <p>Beginnings that feel messy or uncertain are still beginnings. And that’s enough.</p>
             `,
             'counsellingvine': `
                 <h1>The Counselling Vine</h1>
                 <p style="font-style:italic; color:#A9B897; margin-bottom:30px;">Building a calm, sustainable counselling practice from the ground up.</p>
-                <p>Jill had the passion for her work but needed support turning it into a clear, structured side‑hustle. We worked to create systems that make running the business feel manageable rather than overwhelming.</p>
+                <p>Jill had the passion but needed support turning it into a clear, structured side-hustle. We worked to create systems that make running the business feel manageable rather than overwhelming.</p>
                 <div class="accent-box">
-                    <h2>The Support We Provided</h2>
+                    <h2>Our Support Included:</h2>
                     <ul>
-                        <li>Setting up the business foundation.</li>
-                        <li>Designing a clear, professional website.</li>
+                        <li>Helping set up the business from the ground up.</li>
+                        <li>Designing and building a professional website.</li>
                         <li>Setting up social media and teaching Jill to use her tools confidently.</li>
                         <li>Creating simple processes she can repeat independently.</li>
                     </ul>
                 </div>
-                <h2>The Result</h2>
-                <p>Jill now has the knowledge and tools to run her practice independently, at a pace that fits her life.</p>
+                <div style="text-align: center;">
+                    <a href="https://thecounsellingvine.co.uk" target="_blank" class="btn-external">Visit Website</a>
+                </div>
             `,
             'luxelectrical': `
                 <h1>Lux Electrical Ltd</h1>
                 <p style="font-style:italic; color:#A9B897; margin-bottom:30px;">Creating a professional online presence for a growing trade business.</p>
-                <p>Josh’s work spoke for itself, but his online presence needed to reflect the quality of his technical expertise. We focused on clarity, professionalism, and simplicity.</p>
+                <p>Josh’s work spoke for itself, but his online presence needed to reflect the technical expertise he delivers. We focused on clarity, professionalism, and simplicity.</p>
                 <div class="accent-box">
-                    <h2>Our Role</h2>
+                    <h2>Our Role:</h2>
                     <ul>
                         <li>Structuring and clarifying business services.</li>
                         <li>Designing a professional website with a clear customer journey.</li>
-                        <li>Building a foundation that grows with the business.</li>
+                        <li>Building a trustworthy online foundation for growth.</li>
                     </ul>
                 </div>
-                <h2>The Result</h2>
-                <p>Josh now has a solid online foundation that works quietly in the background, building trust with potential customers at first glance.</p>
+                <div style="text-align: center;">
+                    <a href="https://lux-electrical-ltd.co.uk" target="_blank" class="btn-external">Visit Website</a>
+                </div>
             `
         };
 
@@ -346,9 +362,7 @@
         };
 
         fetch('header.html').then(res => res.text()).then(data => { document.getElementById('site-header').innerHTML = data; });
-        fetch('footer.html').then(res => res.text()).then(data => {
-            document.getElementById('site-footer').innerHTML = data;
-        });
+        fetch('footer.html').then(res => res.text()).then(data => { document.getElementById('site-footer').innerHTML = data; });
     </script>
 </body>
 </html>
