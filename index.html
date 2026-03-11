@@ -67,6 +67,72 @@
     .service-banner-image {
         display: none; 
     }
+
+    .clarity-call-section {
+    background-color: var(--card-bg); /* Matches your inner card taupe */
+    padding: 80px 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(79, 74, 70, 0.1);
+    border-bottom: 1px solid rgba(79, 74, 70, 0.1);
+}
+
+.clarity-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.clarity-container h2 {
+    color: var(--primary-color);
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+.accent-text {
+    font-size: 1.2em;
+    font-style: italic;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.clarity-container p {
+    color: var(--primary-color);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.cta-wrapper {
+    margin-top: 20px;
+}
+
+/* Reusing your existing button style but ensuring it stands out */
+.clarity-container .cta-button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 18px 40px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    display: inline-block;
+}
+
+.clarity-container .cta-button:hover {
+    background-color: #92a487; /* Slightly darker sage */
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .clarity-call-section {
+        padding: 60px 20px;
+    }
+    .clarity-container h2 {
+        font-size: 1.8em;
+    }
+}
 </style>
 </head>
 <body>
@@ -133,129 +199,84 @@ When things are clearer and better organised, running your business becomes easi
         </div>
     </div>
 
-    <div class="container">
-        <h2 class="section-heading">Everything You Need to Build, Brand & Grow Your Business</h2>
+   <div class="container">
+    <h2 class="section-heading">Everything You Need to Build, Brand & Grow Your Business</h2>
 
-        <div class="service-wrapper">
+    <div class="service-wrapper">
+        <div class="services-preview-grid">
             
-            <div class="services-preview-grid">
-                
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Website Design & Development</h4>
-                                <p>Get a functional, user-friendly website built on platforms like Wix, Shopify, or Squarespace that converts visitors into clients.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Website Design & Development</h4>
-                                <p>Your website should look beautiful and work beautifully. We design modern, user-friendly websites that make your business look polished and professional.</p>
-                            </div>
-                            <a href="services.html#website" class="card-link-button">Explore Website Packages</a>
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>Clear Websites</h4>
+                            <p>Websites that reflect the quality of your work and make it easy for customers to understand what you offer.</p>
                         </div>
                     </div>
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Clear Websites</h4>
+                            <p>Modern, user-friendly designs on platforms like Shopify, Wix, or Squarespace that turn visitors into loyal clients.</p>
+                        </div>
+                        <a href="services.html#website" class="card-link-button">Explore Website Packages</a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Brand Identity & Digital Design</h4>
-                                <p>Logo sets, colour palettes, social templates, and packaging design—we create cohesive branding that elevates your entire business.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Brand Identity & Digital Design</h4>
-                                <p>Logo sets, colour palettes, social templates, stickers — we create cohesive branding that elevates your entire business.</p>
-                            </div>
-                            <a href="services.html#branding" class="card-link-button">View Branding Packages</a>
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>Organised Systems</h4>
+                            <p>Practical digital systems that help manage clients, tasks, and day-to-day work more smoothly.</p>
                         </div>
                     </div>
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Organised Systems</h4>
+                            <p>From custom Notion builds to automated workflows, we create the structure your business needs to thrive.</p>
+                        </div>
+                        <a href="services.html#support" class="card-link-button">View System Services</a>
+                    </div>
                 </div>
+            </div>
 
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Business Coaching & Strategy</h4>
-                                <p>1:1 coaching for clarity, growth, and direction. Perfect for new entrepreneurs, service providers, or anyone needing structure.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Business Coaching & Strategy</h4>
-                                <p>1:1 coaching for clarity, growth and direction. Perfect for new entrepreneurs, service providers, creators, or anyone needing structure.</p>
-                            </div>
-                            <a href="services.html#coaching" class="card-link-button">Book a Strategy Session</a>
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>Better-Run Businesses</h4>
+                            <p>When your website and systems work together, your business feels calmer, clearer, and easier to grow.</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Business Support & Strategy</h4>
-                                <p>Calm, practical support to help you organise your business, gain clarity, and move forward with confidence.</p>
-                            </div>
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Better-Run Businesses</h4>
+                            <p>1:1 coaching and practical business support to help you move forward with confidence and clarity.</p>
                         </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Business Support & Strategy</h4>
-                                <p>Hands-on support and strategic guidance to help you untangle what's messy, clarify priorities, and build structure that actually supports how you work.</p>
-                            </div>
-                            <a href="services.html#templates" class="card-link-button">Browse Support Packages</a>
-                        </div>
+                        <a href="services.html#coaching" class="card-link-button">Book a Strategy Session</a>
                     </div>
                 </div>
-
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Custom Templates & Systems</h4>
-                                <p>Need a custom Notion database, Airtable setup, or automated workflow? We build bespoke organisational systems tailored to your business needs.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Custom Templates & Systems</h4>
-                                <p>We build bespoke systems for client onboarding, product management, or marketing tracking, giving you back precious time.</p>
-                            </div>
-                            <a href="contact.html" class="card-link-button">Request a Custom Build</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-wrapper">
-                    <div class="service-card">
-                        <div class="card-face card-face-front">
-                            <div>
-                                <h4>Marketing & SEO Add-Ons</h4>
-                                <p>Enhance your online presence with professional copywriting, SEO optimisation, and social media strategy bundled with your website or branding.</p>
-                            </div>
-                        </div>
-                        <div class="card-face card-face-back">
-                            <div>
-                                <h4>Marketing & SEO Add-Ons</h4>
-                                <p>Maximise your traffic and visibility with specialised add-on services for Search Engine Optimisation, content, and strategy.</p>
-                            </div>
-                            <a href="services.html#website-addons" class="card-link-button">See Add-On Services</a>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
             
-<div class="service-banner-container">
-    <video autoplay loop muted playsinline class="service-video">
-        <source src="coffee.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+        </div>
+    </div>
 </div>
+ <section class="clarity-call-section">
+    <div class="clarity-container">
+        <div class="content-box">
+            <h2>Not sure where to start?</h2>
+            <p class="accent-text">Many businesses come to us because things feel messy, unclear, or harder than they should be.</p>
+            <p>Our <strong>Clarity Call</strong> helps identify what’s really going on and what the next step should be.</p>
+            
+            <div class="cta-wrapper">
+                <a href="contact.html" class="cta-button">👉 Book a Clarity Call</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
         </div>
         <div style="text-align: center; margin-top: 30px;">
