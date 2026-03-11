@@ -34,6 +34,12 @@
             perspective: 800px;
         }
 
+        /* Reduced Height Adjustment */
+        .service-card {
+            height: 300px; /* Adjust this value to your preferred height */
+            min-height: 300px;
+        }
+
         /* 4. Clarity Call Section Styles */
         .clarity-call-section {
             background-color: var(--card-bg); 
@@ -100,6 +106,10 @@
             }
             .services-preview-grid {
                 grid-template-columns: 1fr;
+            }
+            .service-card {
+                height: 280px; /* Slightly shorter for mobile if needed */
+                min-height: 280px;
             }
         }
     </style>
