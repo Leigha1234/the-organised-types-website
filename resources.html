@@ -236,6 +236,23 @@
         // Load Header and Footer
         fetch('header.html').then(r => r.text()).then(d => { document.getElementById('site-header').innerHTML = d; });
         fetch('footer.html').then(r => r.text()).then(d => { document.getElementById('site-footer').innerHTML = d; });
-    </script>
+     fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('site-footer').innerHTML = data;
+
+      // Cookie banner script
+      const banner = document.getElementById('cookie-banner');
+      if (!localStorage.getItem('cookiesAccepted')) {
+        banner.style.display = 'block';
+      }
+      document.getElementById('accept-cookies').addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        banner.style.display = 'none';
+      });
+    })
+    .catch(err => console.error('Footer load error:', err));
+</script>
+
 </body>
 </html>
