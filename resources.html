@@ -4,65 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources | The Organised Types</title>
-    <link rel="stylesheet" href="style.css"> 
+<meta name="description" content="Access our curated collection of digital products designed for immediate impact, efficiency, and a touch of organisation. These are DIY resources to help you implement systems fast.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Ensuring the content clears your fixed navigation */
+        main {
+            padding-top: 180px; /* Adjust based on your header height */
+            background-color: var(--logo-bg);
+            min-height: 100vh;
+        }
+
+        .resources-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        /* Styling for the introductory text */
+        .resources-header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
+            padding-bottom: 30px;
+        }
+
+        .resources-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .who-for-list {
+            margin: 20px 0 40px 20px;
+            line-height: 1.8;
+            color: var(--primary-color);
+        }
+
+        .who-for-list li {
+            margin-bottom: 10px;
+        }
+
+        /* Package Card Overrides to ensure consistency */
+        .package-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-image-placeholder {
+            background-color: #f9f9f9;
+            margin: 20px 0;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 200px; /* Consistent height for the grid */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .package-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            main { padding-top: 140px; }
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <main style="margin-top: 150px;"> <section id="resources-hero" style="text-align: center; padding: 60px 20px; background-color: var(--logo-bg);">
-            <h1>Resources</h1>
-            <p style="max-width: 800px; margin: 0 auto; color: var(--primary-color);">
-                Everything you need to streamline your business, from Notion templates to curated digital tools.
-            </p>
-        </section>
-
-        <section id="templates" class="service-section" style="width: 90%; max-width: 1200px; margin: 0 auto; padding: 40px 0;">
-            <h2>Templates, Tools & Courses (Digital Products)</h2>
-            <p>Access our curated collection of digital products designed for immediate impact, efficiency, and a touch of organisation. These are DIY resources to help you implement systems fast.</p>
+<div id="site-header"></div>
+    <main>
+        <div class="resources-container">
             
-            <h3>Who are these products for?</h3>
-            <ul class="who-for-list">
-                <li>The DIY business owner who knows what they need but lacks the time to build it from scratch.</li>
-                <li>Small businesses looking for affordable, professional tools without a custom development cost.</li>
-                <li>Entrepreneurs who want instant access to high-quality templates (e.g., Canva, Spreadsheets).</li>
-            </ul>
+            <header class="resources-header">
+                <h1>Resources & Digital Products</h1>
+                <p>Access our curated collection of digital products designed for immediate impact, efficiency, and a touch of organisation. These are DIY resources to help you implement systems fast.</p>
+            </header>
 
-            <h3>Shop Highlights</h3>
-            <div class="package-grid">
-                
-                <div class="package-card">
-                    <h4>Business Plan Template Kit</h4>
-                    <div class="package-image-placeholder">
-                        <img src="business plan templates.png" alt="Business Plan Template Kit">
-                    </div>
-                    <span class="price">£6.99</span>
-                    <p>A fully organised, editable template to quickly structure your business plan, mission, and financial projections. Available in Word/Google Docs format.</p>
-               </div>
+            <section id="templates">
+                <h3>Who are these products for?</h3>
+                <ul class="who-for-list">
+                    <li>The DIY business owner who knows what they need but lacks the time to build it from scratch.</li>
+                    <li>Small businesses looking for affordable, professional tools without a custom development cost.</li>
+                    <li>Entrepreneurs who want instant access to high-quality templates (e.g., Canva, Spreadsheets).</li>
+                </ul>
 
-               <div class="package-card">
-                    <h4>Social Media Content Planner & Strategy Tools</h4>
-                    <div class="package-image-placeholder">
-                        <img src="social media content planner.png" alt="Social Media Content Planner">
+                <h3>Shop Highlights</h3>
+                <div class="package-grid">
+                    
+                    <div class="package-card">
+                        <div>
+                            <h4>Business Plan Template Kit</h4>
+                            <div class="package-image-placeholder">
+                                <img src="business plan templates.png" alt="Business Plan Template Kit">
+                            </div>
+                            <span class="price">£6.99</span>
+                            <p>A fully organised, editable template to quickly structure your business plan, mission, and financial projections. Available in Word/Google Docs format.</p>
+                        </div>
                     </div>
-                    <span class="price">Starting from £4.99</span>
-                    <p>Designed to help you plan once, post consistently, and stay organised without burnout. Clean, minimal planners built for small business owners, creators, and service-based brands.</p>
+
+                    <div class="package-card">
+                        <div>
+                            <h4>Social Media Content Planner & Strategy Tools</h4>
+                            <div class="package-image-placeholder">
+                                <img src="social media content planner.png" alt="Social Media Content Planner">
+                            </div>
+                            <span class="price">Starting from £4.99</span>
+                            <p>Designed to help you plan once, post consistently, and stay organised without burnout. Clean, minimal planners built for small business owners.</p>
+                        </div>
+                    </div>
+
+                    <div class="package-card">
+                        <div>
+                            <h4>Organised Courses</h4>
+                            <div class="package-image-placeholder">
+                                <img src="courses.png" alt="Ultimate organised courses">
+                            </div>
+                            <span class="price">Starting from £49</span>
+                            <p>Self-paced online courses focused on creating a consistent content strategy, automating your posting, and building a high-converting feed.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="package-card">
-                    <h4>Organised Courses</h4>
-                    <div class="package-image-placeholder">
-                        <img src="courses.png" alt="Ultimate organised courses">
-                    </div>
-                    <span class="price">Starting from £49</span>
-                    <p>Self-paced online courses focused on creating a consistent content strategy, automating your posting, and building a high-converting bio and feed.</p>
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="https://xiaiqp-g3.myshopify.com" class="cta-button" target="_blank">
+                        Browse All Templates
+                    </a>
                 </div>
-            </div>
-
-            <a href="https://xiaiqp-g3.myshopify.com" class="cta-button" target="_blank" style="display: block; text-align: center; margin-top: 40px; text-decoration: none;">
-                Browse All Templates
-            </a>
-        </section>
-
+            </section>
+        </div>
     </main>
+ <div id="site-footer"></div>
 
+    <script>
+      fetch('header.html').then(res => res.text()).then(data => { document.getElementById('site-header').innerHTML = data; });
+      fetch('footer.html').then(res => res.text()).then(data => { document.getElementById('site-footer').innerHTML = data; });
+    </script>
     </body>
 </html>
