@@ -4,141 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Organised Types | Business Systems, Websites & Branding for Small Businesses</title>
-<meta name="description" content="Digital tools, websites and branding that bring clarity, structure and growth to small businesses. Simple, strategic and done-for-you.">
+    <meta name="description" content="Digital tools, websites and branding that bring clarity, structure and growth to small businesses. Simple, strategic and done-for-you.">
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="homscss.css">
-  <style>
-    /* 1. Layout Wrapper - Controls the 2-column split */
-    .service-wrapper {
-        display: flex;
-        gap: 30px;
-        align-items: stretch;
-        flex-wrap: wrap; /* Allows stacking on mobile */
-        margin-top: 40px;
-    }
-
-    /* 2. Service Cards Grid - Set to 67% width */
-    .services-preview-grid {
-        flex: 0 0 67%; 
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-
-    /* 3. Video Container - Set to 30% width */
-    .service-banner-container {
-        flex: 0 0 30%;
-        position: relative;
-        min-height: 400px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    /* 4. The Video Element - Ensures it fills the 30% space */
-    .service-video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Acts like background-size: cover */
-        display: block;
-    }
-
-    /* 5. Card Styles (Keeping your existing branding) */
-    .card-wrapper {
-        perspective: 1000px;
-    }
-
-    /* Mobile Responsive Fixes */
-    @media (max-width: 992px) {
-        .services-preview-grid, 
-        .service-banner-container {
-            flex: 0 0 100%; /* Stacks 100% wide on tablets/phones */
+    <link rel="stylesheet" href="homscss.css">
+    <style>
+        /* 1. Layout Wrapper - Controls the 3-card layout */
+        .service-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: stretch;
+            flex-wrap: wrap; 
+            margin-top: 40px;
+            justify-content: center; /* Centers the 3 cards */
         }
-        .service-banner-container {
-            order: -1; /* Moves video to the top on mobile for better flow */
-            min-height: 250px;
+
+        /* 2. Service Cards Grid */
+        .services-preview-grid {
+            flex: 1; 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
         }
-    }
 
-    /* Legacy class cleanup - you can remove the old .service-banner-image if you like */
-    .service-banner-image {
-        display: none; 
-    }
+        /* 3. Card Styles */
+        .card-wrapper {
+            perspective: 1000px;
+        }
 
-    .clarity-call-section {
-    background-color: var(--card-bg); /* Matches your inner card taupe */
-    padding: 80px 0;
-    margin-top: 60px;
-    border-top: 1px solid rgba(79, 74, 70, 0.1);
-    border-bottom: 1px solid rgba(79, 74, 70, 0.1);
-}
+        /* 4. Clarity Call Section Styles */
+        .clarity-call-section {
+            background-color: var(--card-bg); 
+            padding: 80px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(79, 74, 70, 0.1);
+            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
+        }
 
-.clarity-container {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
+        .clarity-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-.clarity-container h2 {
-    color: var(--primary-color);
-    font-size: 2.2em;
-    margin-bottom: 20px;
-}
+        .clarity-container h2 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
 
-.accent-text {
-    font-size: 1.2em;
-    font-style: italic;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    opacity: 0.9;
-}
+        .accent-text {
+            font-size: 1.2em;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
 
-.clarity-container p {
-    color: var(--primary-color);
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
+        .clarity-container p {
+            color: var(--primary-color);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
 
-.cta-wrapper {
-    margin-top: 20px;
-}
+        .cta-wrapper {
+            margin-top: 20px;
+        }
 
-/* Reusing your existing button style but ensuring it stands out */
-.clarity-container .cta-button {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    padding: 18px 40px;
-    font-size: 1.1em;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    display: inline-block;
-}
+        .clarity-container .cta-button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 18px 40px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            display: inline-block;
+        }
 
-.clarity-container .cta-button:hover {
-    background-color: #92a487; /* Slightly darker sage */
-    transform: translateY(-3px);
-}
+        .clarity-container .cta-button:hover {
+            background-color: #92a487;
+            transform: translateY(-3px);
+        }
 
-@media (max-width: 768px) {
-    .clarity-call-section {
-        padding: 60px 20px;
-    }
-    .clarity-container h2 {
-        font-size: 1.8em;
-    }
-}
-</style>
+        @media (max-width: 768px) {
+            .clarity-call-section {
+                padding: 60px 20px;
+            }
+            .clarity-container h2 {
+                font-size: 1.8em;
+            }
+            .services-preview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    
 
-     <div id="site-header"></div>
+<div id="site-header"></div>
 
 <script>
   fetch('header.html')
@@ -166,40 +134,36 @@
     </div>
 </div>
 
-    <div class="hero-banner">
-        <div class="hero-banner-image" style="background-image: url('bg1.jpg');"></div>
-        <div class="hero-banner-content">
-            <h2>Helping small businesses feel clearer, more organised, and ready to grow.</h2>
-            
-            <div class="cta-group">
-                <a href="contact.html" class="cta-button">Start Your Project</a>
-                <a href="https://xiaiqp-g3.myshopify.com" target="_blank" class="cta-button secondary">Shop Templates</a>
+<div class="hero-banner">
+    <div class="hero-banner-image" style="background-image: url('bg1.jpg');"></div>
+    <div class="hero-banner-content">
+        <h2>Helping small businesses feel clearer, more organised, and ready to grow.</h2>
+        <div class="cta-group">
+            <a href="contact.html" class="cta-button">Start Your Project</a>
+            <a href="https://xiaiqp-g3.myshopify.com" target="_blank" class="cta-button secondary">Shop Templates</a>
+        </div>
+    </div>
+</div>
+
+<div class="mockup-section">
+    <div class="container">
+        <div class="mockup-content">
+            <div class="mockup-visual">
+                <img src="jillsexample.png" alt="Digital tools optimized for desktop and mobile devices."> 
+            </div>
+            <div class="mockup-text">
+                <p>Many small businesses reach a point where things feel messy:
+                the website no longer reflects the business, processes are unclear, systems don't support growth.
+                <br><br>
+                That's where we help. We help small businesses bring clarity to how they present themselves online and how their business runs behind the scenes.
+                <br><br>
+                When things are clearer and better organised, running your business becomes easier.</p>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="mockup-section">
-        <div class="container">
-            <div class="mockup-content">
-                <div class="mockup-visual">
-                    <img src="jillsexample.png" alt="Digital tools optimized for desktop and mobile devices."> 
-                </div>
-                <div class="mockup-text">
-                    <p>Many small businesses reach a point where things feel messy:
-the website no longer reflects the business
-processes are unclear
-systems don't support growth
-
-That's where we help.
-We help small businesses bring clarity to how they present themselves online and how their business runs behind the scenes.
-
-When things are clearer and better organised, running your business becomes easier.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   <div class="container">
+<div class="container">
     <h2 class="section-heading">Everything You Need to Build, Brand & Grow Your Business</h2>
 
     <div class="service-wrapper">
@@ -261,14 +225,18 @@ When things are clearer and better organised, running your business becomes easi
             
         </div>
     </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="services.html" class="cta-button">View All Services</a>
+    </div>
 </div>
- <section class="clarity-call-section">
+
+<section class="clarity-call-section">
     <div class="clarity-container">
         <div class="content-box">
             <h2>Not sure where to start?</h2>
             <p class="accent-text">Many businesses come to us because things feel messy, unclear, or harder than they should be.</p>
             <p>Our <strong>Clarity Call</strong> helps identify what’s really going on and what the next step should be.</p>
-            
             <div class="cta-wrapper">
                 <a href="contact.html" class="cta-button">👉 Book a Clarity Call</a>
             </div>
@@ -276,160 +244,122 @@ When things are clearer and better organised, running your business becomes easi
     </div>
 </section>
 
-
-
+<div class="testimonial-section">
+    <div class="testimonial-bg-image"></div>
+    <div class="testimonial-container">
+        <h2 class="section-heading" style="text-align: center;">What Our Clients Say</h2>
+        
+        <div class="carousel-nav">
+            <button class="nav-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
+            <button class="nav-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
         </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="services.html" class="cta-button">View All Services</a>
-        </div>
-    </div>
 
-    <div class="testimonial-section">
-        <div class="testimonial-bg-image"></div>
-        <div class="testimonial-container">
-            <h2 class="section-heading" style="text-align: center;">What Our Clients Say</h2>
-            
-            <div class="carousel-nav">
-                <button class="nav-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
-                <button class="nav-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
+        <div class="carousel-track" id="testimonial-carousel">
+            <div class="testimonial-card">
+                <blockquote>"The Organised Types completely transformed our client onboarding process. The new system is intuitive, saves us hours every week, and instantly looks more professional."</blockquote>
+                <p>— Sarah M., E-commerce Entrepreneur</p>
             </div>
-
-            <div class="carousel-track" id="testimonial-carousel">
-                
-                <div class="testimonial-card">
-                    <blockquote>"The Organised Types completely transformed our client onboarding process. The new system is intuitive, saves us hours every week, and instantly looks more professional."</blockquote>
-                    <p>— Sarah M., E-commerce Entrepreneur</p>
-                </div>
-                
-                <div class="testimonial-card">
-                    <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for workflow management."</blockquote>
-                    <p>— James K., Service Provider</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <blockquote>"The website design was flawless—exactly what we envisioned, but even easier to use. The branding is consistent and truly elevated our image."</blockquote>
-                    <p>— Emma L., Boutique Owner</p>
-                </div>
-                
+            <div class="testimonial-card">
+                <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for workflow management."</blockquote>
+                <p>— James K., Service Provider</p>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>"The website design was flawless—exactly what we envisioned, but even easier to use. The branding is consistent and truly elevated our image."</blockquote>
+                <p>— Emma L., Boutique Owner</p>
             </div>
         </div>
     </div>
-  
+</div>
 
 <div id="site-footer"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-    const modal = document.getElementById('newsletter-modal');
-    const closeBtn = document.getElementById('close-popup');
-    const popupForm = document.getElementById('popup-newsletter-form');
-    const popupThanks = document.getElementById('popup-thanks-msg');
+        const modal = document.getElementById('newsletter-modal');
+        const closeBtn = document.getElementById('close-popup');
+        const popupForm = document.getElementById('popup-newsletter-form');
+        const popupThanks = document.getElementById('popup-thanks-msg');
 
-    // 1. Check if user has seen this before in this session
-    if (!sessionStorage.getItem('popupShown')) {
-        setTimeout(() => {
-            modal.style.display = 'flex';
-        }, 2000); // Shows 2 seconds after load
-    }
+        if (!sessionStorage.getItem('popupShown')) {
+            setTimeout(() => {
+                modal.style.display = 'flex';
+            }, 2000);
+        }
 
-    // 2. Close modal logic
-    closeBtn.onclick = function() {
-        modal.style.display = 'none';
-        sessionStorage.setItem('popupShown', 'true');
-    }
-
-    // Close if user clicks outside the box
-    window.onclick = function(event) {
-        if (event.target == modal) {
+        closeBtn.onclick = function() {
             modal.style.display = 'none';
             sessionStorage.setItem('popupShown', 'true');
         }
-    }
 
-    // 3. Form Submission (Reuse your MailerLite logic)
-    popupForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(popupForm);
-        
-        fetch('https://assets.mailerlite.com/jsonp/1976098/forms/173944037984699428/subscribe', {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-        }).then(() => {
-            popupForm.style.display = 'none';
-            popupThanks.style.display = 'block';
-            sessionStorage.setItem('popupShown', 'true'); // Don't show again if they subscribed
-            
-            // Optional: Close modal automatically after 3 seconds
-            setTimeout(() => { modal.style.display = 'none'; }, 3000);
-        }).catch(err => {
-            popupForm.style.display = 'none';
-            popupThanks.style.display = 'block';
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                sessionStorage.setItem('popupShown', 'true');
+            }
+        }
+
+        popupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(popupForm);
+            fetch('https://assets.mailerlite.com/jsonp/1976098/forms/173944037984699428/subscribe', {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                popupForm.style.display = 'none';
+                popupThanks.style.display = 'block';
+                sessionStorage.setItem('popupShown', 'true');
+                setTimeout(() => { modal.style.display = 'none'; }, 3000);
+            }).catch(err => {
+                popupForm.style.display = 'none';
+                popupThanks.style.display = 'block';
+            });
         });
     });
-});
 
-
-
-
-
-  fetch('footer.html')
+    fetch('footer.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('site-footer').innerHTML = data;
-
-      // Cookie banner script
       const banner = document.getElementById('cookie-banner');
       if (!localStorage.getItem('cookiesAccepted')) {
-        banner.style.display = 'block';
+        if(banner) banner.style.display = 'block';
       }
-      document.getElementById('accept-cookies').addEventListener('click', () => {
-        localStorage.setItem('cookiesAccepted', 'true');
-        banner.style.display = 'none';
-      });
+      const acceptBtn = document.getElementById('accept-cookies');
+      if(acceptBtn){
+          acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            banner.style.display = 'none';
+          });
+      }
     })
     .catch(err => console.error('Footer load error:', err));
 </script>
 
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('main-nav');
+        const menuIcon = document.querySelector('.menu-icon');
+        const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
+        nav.classList.toggle('show-menu');
+        menuIcon.setAttribute('aria-expanded', !isExpanded);
+    }
 
-    <script>
-        function toggleMenu() {
-            const nav = document.getElementById('main-nav');
-            const menuIcon = document.querySelector('.menu-icon');
-            const isExpanded = menuIcon.getAttribute('aria-expanded') === 'true';
-            
-            nav.classList.toggle('show-menu');
-            menuIcon.setAttribute('aria-expanded', !isExpanded);
-        }
-
-        function toggleDropdown(event) {
-            const dropdown = event.currentTarget;
-            
-            // Only toggle on mobile (max-width: 768px check)
-            if (window.innerWidth <= 768) {
-                dropdown.classList.toggle('active');
-                event.preventDefault(); // Prevent default link navigation on first click
-            }
-            // On desktop, the :hover CSS handles the display
-        }
-
-        function scrollCarousel(direction) {
-            const carousel = document.getElementById('testimonial-carousel');
-            const cardWidth = carousel.querySelector('.testimonial-card').offsetWidth;
-            const scrollAmount = cardWidth + 30; // Card width + margin (15px left + 15px right)
-            
-            carousel.scrollBy({
-                left: direction * scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    </script>
+    function scrollCarousel(direction) {
+        const carousel = document.getElementById('testimonial-carousel');
+        const cardWidth = carousel.querySelector('.testimonial-card').offsetWidth;
+        const scrollAmount = cardWidth + 30; 
+        carousel.scrollBy({
+            left: direction * scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-5P2GHYXC2R');
 </script>
 </body>
