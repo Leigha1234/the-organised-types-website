@@ -1,0 +1,326 @@
+<div id="totsPopupOverlay" class="tots-popup-overlay">
+    <div class="tots-popup">
+        <button class="tots-close" onclick="closeTotsPopup()">&times;</button>
+
+        <div class="mini-laptop-wrapper">
+            <div class="mini-screen">
+                <div class="screen-glow"></div>
+                <div class="screen-content">
+                    <div class="boot-line"></div>
+                    <h2>TOTS OS</h2>
+                    <p>Coming Soon</p>
+                    <span>System v1.0</span>
+                </div>
+            </div>
+            <div class="mini-base"></div>
+            <div class="mini-shadow"></div>
+        </div>
+
+        <div class="tots-popup-content">
+            <p class="popup-small-text">Official Protocol</p>
+            <h3>The Future of <br>Organization.</h3>
+            <p class="popup-description">
+                TOTS OS is a high-fidelity business dashboard and CRM designed for elite professionals 
+                who value deep aesthetics and extreme efficiency.
+            </p>
+
+            <div class="popup-buttons">
+                <a href="#waitlist" class="popup-primary-btn" onclick="closeTotsPopup()">Get Early Access</a>
+                <button class="popup-secondary-btn" onclick="closeTotsPopup()">Learn More</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* ================== TOTS POPUP CORE ================== */
+.tots-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: none; /* Controlled by JS */
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    padding: 20px;
+    animation: popupFade 0.8s ease;
+}
+
+@keyframes popupFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.tots-popup {
+    position: relative;
+    width: 100%;
+    max-width: 780px;
+    background: linear-gradient(145deg, rgba(22,22,22,0.98), rgba(6,6,6,0.98));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 34px;
+    overflow: hidden;
+    padding: 60px 50px;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08);
+    animation: popupEnter 1s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes popupEnter {
+    from { transform: translateY(40px) scale(0.96); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.tots-close {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 10;
+}
+
+.tots-close:hover {
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* ================== 3D MINI LAPTOP ================== */
+.mini-laptop-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 60px;
+    perspective: 1800px;
+}
+
+.mini-screen {
+    position: relative;
+    height: 230px;
+    border-radius: 24px 24px 10px 10px;
+    background: linear-gradient(180deg, #1e1e1e, #040404);
+    border: 1px solid rgba(255,255,255,0.08);
+    transform-origin: bottom center;
+    transform: rotateX(-100deg); /* Initial state */
+    animation: laptopOpen 2.2s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay: 0.5s;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(255,255,255,0.08);
+}
+
+@keyframes laptopOpen {
+    0% { transform: rotateX(-100deg); }
+    100% { transform: rotateX(0deg); }
+}
+
+.screen-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 70%);
+}
+
+.screen-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.boot-line {
+    width: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.35);
+    margin-bottom: 28px;
+    animation: bootLine 1.5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes bootLine {
+    to { width: 180px; }
+}
+
+.screen-content h2 {
+    font-size: 3rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    background: linear-gradient(90deg, white, rgba(255,255,255,0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay: 1.8s;
+}
+
+.screen-content p {
+    margin-top: 14px;
+    font-size: 0.78rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay: 2.2s;
+}
+
+.screen-content span {
+    margin-top: 24px;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.22);
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay: 2.6s;
+}
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mini-base {
+    width: 520px;
+    max-width: 120%;
+    height: 22px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 60px 60px;
+    background: linear-gradient(180deg, #6b6b6b, #1d1d1d);
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    z-index: 1;
+}
+
+.mini-base::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.45);
+}
+
+.mini-shadow {
+    width: 260px;
+    height: 60px;
+    margin: -8px auto 0;
+    background: rgba(255,255,255,0.08);
+    filter: blur(45px);
+    border-radius: 50%;
+}
+
+/* ================== TEXT & BUTTONS ================== */
+.tots-popup-content {
+    text-align: center;
+    color: white;
+    font-family: sans-serif; /* Fallback */
+}
+
+.popup-small-text {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 18px;
+}
+
+.tots-popup-content h3 {
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    font-weight: 700;
+}
+
+.popup-description {
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.62);
+}
+
+.popup-buttons {
+    margin-top: 36px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.popup-primary-btn {
+    background: white;
+    color: black;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: 0.35s cubic-bezier(.22,1,.36,1);
+}
+
+.popup-primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+}
+
+.popup-secondary-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7);
+    padding: 16px 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: 0.35s ease;
+}
+
+.popup-secondary-btn:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+@media (max-width: 768px) {
+    .tots-popup { padding: 40px 24px; border-radius: 24px; }
+    .mini-screen { height: 180px; }
+    .screen-content h2 { font-size: 2rem; }
+    .tots-popup-content h3 { font-size: 1.7rem; }
+    .popup-buttons { flex-direction: column; }
+    .popup-primary-btn, .popup-secondary-btn { width: 100%; }
+}
+</style>
+
+<script>
+    // Show popup after 2.5 seconds
+    window.onload = function() {
+        setTimeout(function() {
+            document.getElementById('totsPopupOverlay').style.display = 'flex';
+        }, 2500);
+    };
+
+    // Close popup function
+    function closeTotsPopup() {
+        const overlay = document.getElementById('totsPopupOverlay');
+        overlay.style.opacity = '0';
+        setTimeout(function() {
+            overlay.style.display = 'none';
+        }, 800);
+    }
+
+    // Close on background click
+    window.onclick = function(event) {
+        const overlay = document.getElementById('totsPopupOverlay');
+        if (event.target == overlay) {
+            closeTotsPopup();
+        }
+    };
+</script>
