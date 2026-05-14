@@ -1,3 +1,10 @@
+<!-- ================== TOTS-OS ANNOUNCEMENT BAR ================== -->
+<div class="announcement-bar">
+    <a href="https://tots-os.co.uk" target="_blank">
+        ✦ Introducing TOTS-OS — Coming Summer 2026. Join the waitlist →
+    </a>
+</div>
+
 <!-- ================== HEADER ================== -->
 <header>
     <div class="navbar"> 
@@ -21,6 +28,7 @@
         <a href="services.html" class="dropdown-toggle" id="nav-services">
            Services <span class="services-arrow">&#9662;</span>
         </a>
+
         <div class="dropdown-content">
             <a href="services.html#website">Website Design & Development</a>
             <a href="services.html#branding">Brand Identity & Digital Design</a>
@@ -28,6 +36,7 @@
             <a href="services.html#coaching">Business Coaching & Strategy</a>
         </div>
     </div>
+
     <a href="blog.html" id="nav-blog">Blog</a>
     <a href="resources.html" id="nav-resources">Resources</a> 
     <a href="faq.html" id="nav-faq">FAQ's</a>
@@ -38,14 +47,76 @@
 
 <!-- ================== HEADER STYLES ================== -->
 <style>
+
+/* ================== ANNOUNCEMENT BAR ================== */
+.announcement-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: linear-gradient(
+        90deg,
+        #0f0f0f 0%,
+        #1a1a1a 50%,
+        #0f0f0f 100%
+    );
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+}
+
+.announcement-bar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,0.08) 50%,
+        transparent 80%
+    );
+
+    animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.announcement-bar a {
+    position: relative;
+    z-index: 2;
+    display: block;
+    text-align: center;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+.announcement-bar a:hover {
+    opacity: 0.8;
+}
+
+/* ================== HEADER ================== */
 header { 
     background-color: var(--logo-bg); 
     border-bottom: 1px solid #e0e0e0; 
     padding: 5px 0; 
     position: fixed; 
-    top: 0; 
+    top: 44px;
     width: 100%; 
     z-index: 20; 
+    backdrop-filter: blur(12px);
 }
 
 .navbar { 
@@ -135,6 +206,17 @@ header {
 }
 
 @media (max-width: 768px) {
+
+    .announcement-bar a {
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        padding: 10px 16px;
+    }
+
+    header {
+        top: 40px;
+    }
+
     .services-arrow {
         display: none !important;
     }
@@ -157,6 +239,7 @@ header {
 
 /* ================= Mobile Navigation ================= */
 @media (max-width: 768px) {
+
     .menu-icon { 
         display: flex; 
     }
@@ -184,7 +267,6 @@ header {
         border-bottom: 1px solid rgba(79, 74, 70, 0.1);
     }
 
-    /* Services becomes normal link */
     .dropdown {
         margin: 0;
         width: 100%;
