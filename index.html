@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>TOTS OS | Business Operating System for Clarity & Growth</title>
-
-    <meta name="description" content="TOTS OS connects your website, systems and workflows into one clear operating system for your business.">
-
+    <title>TOTS OS | Business Operating System for Clarity, Structure & Growth</title>
+    <meta name="description" content="TOTS OS is a business operating system that connects your website, systems and workflows into one clear structure. Build a calmer, more organised business.">
     <link rel="icon" type="image/png" href="favicon.png">
+    <meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="homscss.css">
 
@@ -16,251 +14,367 @@
         .service-wrapper {
             display: flex;
             gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap; 
             margin-top: 40px;
+            justify-content: center;
         }
 
         .services-preview-grid {
+            flex: 1; 
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             width: 100%;
         }
 
-        .service-card { min-height: 300px; }
+        .card-wrapper { perspective: 800px; }
+
+        .service-card {
+            height: 300px; 
+            min-height: 300px;
+        }
 
         .clarity-call-section {
-            background: var(--card-bg);
+            background-color: var(--card-bg); 
             padding: 80px 0;
             margin-top: 60px;
-            text-align: center;
+            border-top: 1px solid rgba(79, 74, 70, 0.1);
+            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
         }
 
         .clarity-container {
+            width: 90%;
             max-width: 800px;
-            margin: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .clarity-container h2 {
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .accent-text {
+            font-size: 1.2em;
+            font-style: italic;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .clarity-container p {
+            color: var(--primary-color);
+            line-height: 1.8;
+            margin-bottom: 30px;
         }
 
         .cta-button {
-            background: var(--accent-color);
+            background-color: var(--accent-color);
             color: var(--primary-color);
-            padding: 16px 36px;
-            display: inline-block;
+            padding: 18px 40px;
+            border-radius: 5px;
             text-decoration: none;
-            border-radius: 6px;
             font-weight: 600;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
         }
     </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <div id="site-header"></div>
 
-<!-- TOTS POPUP -->
 <div id="totsPopupOverlay" class="tots-popup-overlay">
     <div class="tots-popup">
         <button class="tots-close" onclick="closeTotsPopup()">&times;</button>
 
-        <div class="tots-popup-content">
-            <h2>TOTS OS</h2>
-            <p>The operating system for your business.</p>
+        <div class="mini-laptop-wrapper">
+            <div class="mini-screen">
+                <div class="screen-overlay"></div>
+                <div class="screen-content">
+                    <div class="screen-text">
+                        <h2>TOTS OS</h2>
+                        <p style="letter-spacing: 0.5em; text-transform: uppercase; font-size: 0.65rem; opacity: 0.7;">
+                            The Business Operating System
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mini-base"></div>
+        </div>
 
-            <p style="opacity:0.7;">
-                One connected system for your website, workflows and operations.
+        <div class="tots-popup-content">
+            <p style="text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.65rem; color: #a9b897;">
+                Early Access
             </p>
 
-            <a href="https://tots-os.co.uk" class="popup-primary-btn">
+            <h3 style="font-size: 1.9rem; margin-bottom: 18px;">
+                One system for your entire business
+            </h3>
+
+            <p style="color: rgba(255,255,255,0.6); margin-bottom: 30px;">
+                TOTS OS connects your website, workflows and organisation into one clear structure so your business feels simpler and easier to run.
+            </p>
+
+            <a href="https://tots-os.co.uk" class="popup-primary-btn" onclick="closeTotsPopup()">
                 Join the Waiting List
             </a>
         </div>
     </div>
 </div>
 
-<!-- NEWSLETTER -->
 <div id="newsletter-modal" class="modal-overlay">
     <div class="modal-content">
         <button id="close-popup" class="close-button">&times;</button>
+        <div class="newsletter-section">
+            <h2>Join The Organised List</h2>
+            <p>Get clarity-led insights and early access to TOTS OS updates.</p>
 
-        <h2>Join The Organised List</h2>
-        <p>Get clarity-led insights and TOTS OS updates.</p>
+            <form class="newsletter-form" id="popup-newsletter-form">
+                <input type="email" name="fields[email]" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
 
-        <form id="popup-newsletter-form">
-            <input type="email" name="email" placeholder="Email address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-
-        <div id="popup-thanks-msg" style="display:none;">
-            Thanks — you're on the list.
+            <div id="popup-thanks-msg" style="display:none;">
+                <p>✓ You're on the list.</p>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- HERO -->
-<section class="hero-banner">
-    <div class="hero-banner-image" style="background-image:url('bg1.jpg')"></div>
+<div class="hero-banner">
+    <div class="hero-banner-image" style="background-image: url('bg1.jpg');"></div>
 
     <div class="hero-banner-content">
-        <h1>Your business, running as one clear system.</h1>
+        <h2>
+            Your business, running as one clear system.
+        </h2>
 
-        <p>
-            TOTS OS connects your website, systems and workflows so everything works together instead of separately.
+        <p style="max-width: 700px; margin: 15px auto 0; opacity: 0.9;">
+            TOTS OS connects your website, systems and operations so everything works together instead of separately.
         </p>
 
         <div class="cta-group">
             <a href="clarity-call.html" class="cta-button">Book a Clarity Call</a>
-            <a href="https://tots-os.co.uk" class="cta-button secondary">Explore TOTS OS</a>
+            <a href="https://tots-os.co.uk" target="_blank" class="cta-button secondary">Explore TOTS OS</a>
         </div>
     </div>
-</section>
+</div>
 
-<!-- EXPLANATION -->
-<section class="mockup-section">
+<div class="mockup-section">
     <div class="container">
         <div class="mockup-content">
-
             <div class="mockup-visual">
-                <img src="jillsexample.png" alt="TOTS OS overview">
+                <img src="jillsexample.png" alt="TOTS OS system overview">
             </div>
 
             <div class="mockup-text">
                 <p>
-                    Most businesses struggle because everything is disconnected.
-                    Websites in one place. Systems in another. Operations somewhere else.
+                Most businesses don’t struggle because of effort — they struggle because everything is disconnected.
+                <br><br>
+                Websites live in one place, systems in another, and day-to-day operations somewhere else entirely.
+                <br><br>
+                <strong>TOTS OS brings it all together into one structured operating system.</strong>
+                <br><br>
+                When everything is connected, decisions become clearer and running your business feels easier.
                 </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <p>
-                    <strong>TOTS OS connects everything into one operating system.</strong>
-                </p>
+<div class="container">
+    <h2 class="section-heading">
+        The TOTS OS Framework
+    </h2>
 
-                <p>
-                    When everything works together, your business becomes clearer and easier to run.
-                </p>
+    <div class="service-wrapper">
+        <div class="services-preview-grid">
+
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>TOTS OS Core</h4>
+                            <p>The foundation that connects your business into one structured system.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Connected Structure</h4>
+                            <p>Your website, workflows and operations aligned into one clear operating system.</p>
+                        </div>
+                        <a href="https://tots-os.co.uk" class="card-link-button">Explore TOTS OS</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>Websites That Work Inside the System</h4>
+                            <p>Websites designed not just to look good, but to support your entire business structure.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Conversion & Clarity</h4>
+                            <p>Websites built to integrate with your systems and guide customers clearly.</p>
+                        </div>
+                        <a href="services.html#website" class="card-link-button">Website Builds</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+                <div class="service-card">
+                    <div class="card-face card-face-front">
+                        <div>
+                            <h4>Systems & Workflow Design</h4>
+                            <p>Behind-the-scenes structure that keeps your business organised and scalable.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-face card-face-back">
+                        <div>
+                            <h4>Operational Clarity</h4>
+                            <p>Automations, workflows and systems that reduce friction in your day-to-day work.</p>
+                        </div>
+                        <a href="services.html#support" class="card-link-button">System Design</a>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
-</section>
 
-<!-- FRAMEWORK -->
-<section>
-    <div class="container">
-        <h2 class="section-heading">The TOTS OS Framework</h2>
-
-        <div class="service-wrapper">
-
-            <div class="services-preview-grid">
-
-                <div class="service-card">
-                    <h4>TOTS OS Core</h4>
-                    <p>The foundation that connects your entire business into one system.</p>
-                </div>
-
-                <div class="service-card">
-                    <h4>Websites inside the system</h4>
-                    <p>Websites designed to support your operations, not sit outside them.</p>
-                </div>
-
-                <div class="service-card">
-                    <h4>Systems & workflows</h4>
-                    <p>Automations and structure that keep everything organised and scalable.</p>
-                </div>
-
-            </div>
-        </div>
-
-        <div style="text-align:center;margin-top:30px;">
-            <a href="services.html" class="cta-button">View Full Ecosystem</a>
-        </div>
+    <div style="text-align: center;">
+        <a href="services.html" class="cta-button">View Full Ecosystem</a>
     </div>
-</section>
+</div>
 
-<!-- CLARITY CALL -->
 <section class="clarity-call-section">
     <div class="clarity-container">
-        <h2>Not sure where to start?</h2>
+        <h2>Where should you start?</h2>
 
-        <p>
+        <p class="accent-text">
             Most businesses don’t need more tools — they need clarity.
         </p>
 
         <p>
-            A Clarity Call identifies what’s holding your business back and how TOTS OS can simplify it.
+            A Clarity Call helps identify what’s actually holding your business back and how TOTS OS can simplify it.
         </p>
 
         <a href="clarity-call.html" class="cta-button">Book a Clarity Call</a>
     </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonial-section">
-    <div class="container">
+<div class="testimonial-section">
+    <div class="testimonial-bg-image"></div>
 
+    <div class="testimonial-container">
         <h2 class="section-heading">What changes with TOTS OS</h2>
 
-        <div class="testimonial-card">
-            “Everything finally feels connected instead of scattered.”
-        </div>
+        <div class="carousel-track" id="testimonial-carousel">
 
-        <div class="testimonial-card">
-            “My business finally has structure. I know how everything fits together now.”
-        </div>
+            <div class="testimonial-card">
+                <blockquote>
+                    "Everything finally feels connected. My website and systems now actually work together."
+                </blockquote>
+                <p>— Client Feedback</p>
+            </div>
 
-        <div class="testimonial-card">
-            “It made running the business feel simple again.”
-        </div>
+            <div class="testimonial-card">
+                <blockquote>
+                    "It stopped everything feeling scattered. I now know exactly how my business runs."
+                </blockquote>
+                <p>— Client Feedback</p>
+            </div>
 
+            <div class="testimonial-card">
+                <blockquote>
+                    "The structure changed everything. My business feels calmer and easier to manage."
+                </blockquote>
+                <p>— Client Feedback</p>
+            </div>
+
+        </div>
     </div>
-</section>
+</div>
 
-<!-- FOOTER -->
 <div id="site-footer"></div>
 
-<!-- SCRIPTS -->
 <script>
-/* HEADER SAFE LOAD */
-fetch('header.html')
-    .then(r => r.text())
-    .then(html => {
-        document.getElementById('site-header').innerHTML = html;
-    })
-    .catch(err => console.log('Header failed:', err));
-
-/* FOOTER */
-fetch('footer.html')
-    .then(r => r.text())
-    .then(html => {
-        document.getElementById('site-footer').innerHTML = html;
-    });
-
-/* POPUP LOGIC */
 function closeTotsPopup() {
-    document.getElementById('totsPopupOverlay').style.display = 'none';
+    const overlay = document.getElementById('totsPopupOverlay');
+    overlay.style.opacity = '0';
+    setTimeout(() => overlay.style.display = 'none', 800);
+    sessionStorage.setItem('totsShown', 'true');
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
 
-    const popup = document.getElementById('totsPopupOverlay');
     const modal = document.getElementById('newsletter-modal');
+    const totsModal = document.getElementById('totsPopupOverlay');
 
     const closeBtn = document.getElementById('close-popup');
+    const popupForm = document.getElementById('popup-newsletter-form');
+    const popupThanks = document.getElementById('popup-thanks-msg');
 
     if (!sessionStorage.getItem('totsShown')) {
-        setTimeout(() => popup.style.display = 'flex', 1500);
+        setTimeout(() => { totsModal.style.display = 'flex'; }, 1500);
+    } else if (!sessionStorage.getItem('popupShown')) {
+        setTimeout(() => { modal.style.display = 'flex'; }, 3000);
     }
 
-    closeBtn.onclick = () => {
+    closeBtn.onclick = function() {
         modal.style.display = 'none';
+        sessionStorage.setItem('popupShown', 'true');
     };
 
-    document.getElementById('popup-newsletter-form')
-        .addEventListener('submit', (e) => {
-            e.preventDefault();
-            document.getElementById('popup-thanks-msg').style.display = 'block';
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            sessionStorage.setItem('popupShown', 'true');
+        }
+        if (event.target == totsModal) {
+            closeTotsPopup();
+        }
+    };
+
+    popupForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(popupForm);
+
+        fetch('https://assets.mailerlite.com/jsonp/1976098/forms/173944037984699428/subscribe', {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        }).then(() => {
+            popupForm.style.display = 'none';
+            popupThanks.style.display = 'block';
+            sessionStorage.setItem('popupShown', 'true');
         });
+    });
 });
+</script>
+
+<script>
+function scrollCarousel(direction) {
+    const carousel = document.getElementById('testimonial-carousel');
+    const card = carousel.querySelector('.testimonial-card');
+    const width = card.offsetWidth;
+    carousel.scrollBy({ left: direction * (width + 30), behavior: 'smooth' });
+}
 </script>
 
 </body>
