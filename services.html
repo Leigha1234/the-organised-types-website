@@ -5,116 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | The Organised Types</title>
     <style>
-        /* CSS to restore your branding and grid layout */
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-        .package-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 25px; 
-            margin-top: 30px; 
-        }
-        .package-card { 
-            border: 1px solid #e0e0e0; 
-            padding: 30px; 
-            border-radius: 12px; 
-            display: flex; 
-            flex-direction: column;
-            text-align: center;
-        }
-        .package-card h3 { font-size: 1.4em; margin-bottom: 10px; }
-        .price { font-size: 1.2em; font-weight: 700; color: #7d967a; margin: 15px 0; }
+        /* CSS STYLES */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; }
+        header, footer { padding: 20px; text-align: center; border-bottom: 1px solid #eee; }
+        footer { margin-top: 50px; border-top: 1px solid #eee; font-size: 0.8em; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        h1 { text-align: center; font-size: 2.5em; }
+        .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .package-card { border: 1px solid #eee; padding: 30px; border-radius: 8px; display: flex; flex-direction: column; }
+        .package-card h3 { margin-top: 0; }
+        .price { font-weight: bold; font-size: 1.2em; margin: 15px 0; }
         .cta-button { 
-            background: #7d967a; 
-            color: #fff; 
-            padding: 12px 20px; 
-            border-radius: 25px; 
-            text-decoration: none; 
-            font-weight: 600;
-            margin-top: auto;
+            display: block; width: 100%; padding: 12px; background: #000; color: #fff; 
+            text-align: center; text-decoration: none; border-radius: 4px; margin-top: auto;
         }
-        .cta-button:hover { background: #5d6f5b; }
+        .cta-button:hover { background: #333; }
+        .footer-links { margin-top: 10px; }
+        .footer-links a { margin: 0 10px; color: #666; text-decoration: none; }
     </style>
 </head>
 <body>
 
+<header>
+    <img src="logo.png" alt="The Organised Types" style="width: 150px;">
+    <nav>Home | About | Services | Blog | Contact</nav>
+</header>
+
 <div class="container">
     <h1>Our Packages</h1>
-    <p>Select a service below to get started.</p>
+    <p style="text-align: center;">Select a service below to get started.</p>
 
     <div class="package-grid">
         <div class="package-card">
-            <h3>[Product Name]</h3>
+            <h3>Website Package A</h3>
             <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
+            <div class="price">£499</div>
             <a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="cta-button">Purchase Now</a>
         </div>
 
         <div class="package-card">
-            <h3>[Product Name]</h3>
+            <h3>Website Package B</h3>
             <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
+            <div class="price">£599</div>
             <a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="cta-button">Purchase Now</a>
         </div>
-
-        <div class="package-card">
-            <h3>[Product Name]</h3>
-            <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
-            <a href="https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08" class="cta-button">Purchase Now</a>
-        </div>
-
-        <div class="package-card">
-            <h3>[Product Name]</h3>
-            <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
-            <a href="https://buy.stripe.com/8x25kwdR70Wxg54bE483C09" class="cta-button">Purchase Now</a>
-        </div>
-
-        <div class="package-card">
-            <h3>[Product Name]</h3>
-            <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
-            <a href="https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a" class="cta-button">Purchase Now</a>
-        </div>
-
-        <div class="package-card">
-            <h3>[Product Name]</h3>
-            <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
-            <a href="https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b" class="cta-button">Purchase Now</a>
-        </div>
-
-        <div class="package-card">
-            <h3>[Product Name]</h3>
-            <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
-            <a href="https://buy.stripe.com/9B67sE4gx48J066gYo83C0c" class="cta-button">Purchase Now</a>
-        </div>
-
-        <div class="package-card">
-            <h3>[Product Name]</h3>
-            <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
-            <a href="https://buy.stripe.com/8x2eV68wNdJj0668rS83C0d" class="cta-button">Purchase Now</a>
-        </div>
-
-        <div class="package-card">
-            <h3>[Product Name]</h3>
-            <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
-            <a href="https://buy.stripe.com/fZu6oA28p20B9GG0Zq83C0e" class="cta-button">Purchase Now</a>
-        </div>
-
-        <div class="package-card">
-            <h3>[Product Name]</h3>
-            <p>Description goes here.</p>
-            <div class="price">£[Price]</div>
-            <a href="https://buy.stripe.com/eVqcMY8wN20BbOO23u83C0f" class="cta-button">Purchase Now</a>
-        </div>
-
         </div>
 </div>
+
+<footer>
+    <p>&copy; 2026 The Organised Types. All Rights Reserved.</p>
+    <div class="footer-links">
+        <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Cookie Policy</a>
+    </div>
+</footer>
 
 </body>
 </html>
