@@ -3,90 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOTS OS | The Operating System for Small Business Growth</title>
-    <meta name="description" content="Stop juggling disconnected tools. TOTS OS unites your website, workflows, and operations into one clear system.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>TOTS OS | Business Operating System for Clarity & Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="homscss.css">
     <style>
         :root {
-            --primary: #0f172a;
-            --accent: #3b82f6;
-            --bg: #f8fafc;
-            --white: #ffffff;
-            --text: #334155;
+            --primary-color: #0f172a;
+            --accent-color: #3b82f6;
+            --card-bg: #f8fafc;
         }
 
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 0; }
-        
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; }
 
-        /* Hero Section */
-        .hero { padding: 100px 0; text-align: center; }
-        .hero h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 20px; letter-spacing: -1px; }
-        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 40px; color: #64748b; }
+        /* Sticky Header */
+        #site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Hero Styling */
+        .hero-banner { padding: 120px 20px 80px; text-align: center; }
+        .hero-banner h1 { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+        .hero-banner p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; }
         
-        .btn { padding: 16px 32px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.3s; }
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+        .cta-button {
+            background: var(--accent-color); color: white; padding: 16px 36px;
+            text-decoration: none; border-radius: 6px; font-weight: 600;
+            display: inline-block; transition: 0.3s;
+        }
+        .cta-button:hover { opacity: 0.9; transform: translateY(-2px); }
 
         /* Services Grid */
-        .services { padding: 80px 0; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
-        .card h4 { font-size: 1.5rem; margin-top: 0; color: var(--primary); }
+        .service-wrapper { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+        .services-preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; width: 100%; max-width: 1100px; }
+        .service-card { 
+            background: var(--card-bg); padding: 30px; border-radius: 12px; 
+            min-height: 200px; transition: 0.3s; 
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
         /* Clarity Section */
-        .clarity-section { background: var(--primary); color: white; padding: 80px 0; text-align: center; border-radius: 20px; margin: 40px 0; }
-        .clarity-section h2 { color: white; }
+        .clarity-call-section { background: var(--primary-color); color: white; padding: 80px 20px; text-align: center; margin-top: 60px; }
+        .clarity-container { max-width: 800px; margin: auto; }
+        .clarity-call-section h2 { color: white; }
     </style>
 </head>
+
 <body>
 
-<header id="site-header"></header>
+<div id="site-header"></div>
 
-<section class="hero">
-    <div class="container">
-        <h1>Your business, running as one clear system.</h1>
-        <p>TOTS OS bridges the gap between your website, your workflows, and your goals. Stop managing tools and start scaling your impact.</p>
-        <div class="cta-group">
-            <a href="clarity-call.html" class="btn btn-primary">Book a Clarity Call</a>
-        </div>
+<section class="hero-banner">
+    <h1>Your business, running as one clear system.</h1>
+    <p>TOTS OS connects your website, systems, and workflows so everything works together instead of separately.</p>
+    <div class="cta-group">
+        <a href="clarity-call.html" class="cta-button">Book a Clarity Call</a>
     </div>
 </section>
 
-<section class="services">
-    <div class="container">
+<section>
+    <div class="container" style="max-width: 1100px; margin: auto; padding: 20px;">
         <h2 style="text-align: center;">The TOTS OS Framework</h2>
-        <div class="grid">
-            <div class="card">
-                <h4>Core OS</h4>
-                <p>The central hub that connects your data, removing silos and manual entry.</p>
-            </div>
-            <div class="card">
-                <h4>Smart Websites</h4>
-                <p>Websites designed as active business assets, not just digital brochures.</p>
-            </div>
-            <div class="card">
-                <h4>Seamless Workflows</h4>
-                <p>Automated processes that handle the "busy work" so you don't have to.</p>
+        <div class="service-wrapper">
+            <div class="services-preview-grid">
+                <div class="service-card">
+                    <h4>TOTS OS Core</h4>
+                    <p>The foundation that connects your entire business into one system.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Websites inside the system</h4>
+                    <p>Websites designed to support your operations, not sit outside them.</p>
+                </div>
+                <div class="service-card">
+                    <h4>Systems & workflows</h4>
+                    <p>Automations and structure that keep everything organised and scalable.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="container">
-    <div class="clarity-section">
+<section class="clarity-call-section">
+    <div class="clarity-container">
         <h2>Not sure where to start?</h2>
-        <p>Most businesses don't need more tools; they need more clarity.</p>
-        <a href="clarity-call.html" class="btn btn-primary" style="background: white; color: var(--primary);">Start Your Clarity Call</a>
+        <p>Most businesses don’t need more tools — they need clarity.</p>
+        <a href="clarity-call.html" class="cta-button" style="background: white; color: var(--primary-color);">Book a Clarity Call</a>
     </div>
 </section>
 
-<footer id="site-footer"></footer>
+<div id="site-footer"></div>
 
 <script>
-    // Simplified Loaders
     fetch('header.html').then(r => r.text()).then(h => document.getElementById('site-header').innerHTML = h);
     fetch('footer.html').then(r => r.text()).then(f => document.getElementById('site-footer').innerHTML = f);
 </script>
