@@ -3,472 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Organised Types | Business Systems, Websites & Branding for Small Businesses</title>
-    <meta name="description" content="Digital tools, websites and branding that bring clarity, structure and growth to small businesses. Simple, strategic and done-for-you.">
+
+    <title>The Organised Types | Systems, Websites & The Future of TOTS OS</title>
+
+    <meta name="description" content="We design structured websites and business systems that reduce chaos and bring clarity. The Organised Types is evolving into TOTS OS — a life and business operating system.">
+
+
     <link rel="icon" type="image/png" href="favicon.png">
-    <meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="homscss.css">
+
     <style>
-        /* 1. Layout Wrapper - Controls the 3-card layout */
-        .service-wrapper {
+        .hero-banner {
+            position: relative;
+            height: 90vh;
             display: flex;
-            gap: 30px;
-            align-items: stretch;
-            flex-wrap: wrap; 
-            margin-top: 40px;
-            justify-content: center; /* Centres the 3 cards */
-        }
-
-        /* 2. Service Cards Grid */
-        .services-preview-grid {
-            flex: 1; 
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            width: 100%;
-        }
-
-        /* 3. Card Styles */
-        .card-wrapper {
-            perspective: 800px;
-        }
-
-        .service-card {
-            height: 300px; 
-            min-height: 300px;
-        }
-
-        /* 4. Clarity Call Section Styles */
-        .clarity-call-section {
-            background-color: var(--card-bg); 
-            padding: 80px 0;
-            margin-top: 60px;
-            border-top: 1px solid rgba(79, 74, 70, 0.1);
-            border-bottom: 1px solid rgba(79, 74, 70, 0.1);
-        }
-
-        .clarity-container {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
         }
 
-        .clarity-container h2 {
-            color: var(--primary-color);
-            font-size: 2.2em;
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 900px;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 14px 28px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #ffffff;
+            color: #000;
+        }
+
+        .secondary {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.2rem;
             margin-bottom: 20px;
         }
 
-        .accent-text {
-            font-size: 1.2em;
-            font-style: italic;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            opacity: 0.9;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .clarity-container p {
-            color: var(--primary-color);
-            line-height: 1.8;
-            margin-bottom: 30px;
+        .card {
+            background: #f7f7f7;
+            padding: 25px;
+            border-radius: 14px;
         }
 
-        .cta-wrapper {
-            margin-top: 20px;
-        }
-
-        .clarity-container .cta-button {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 18px 40px;
-            font-size: 1.1em;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            display: inline-block;
-        }
-
-        .clarity-container .cta-button:hover {
-            background-color: #92a487;
-            transform: translateY(-3px);
-        }
-
-        /* ================== TOTS POPUP STYLES (CINEMATIC REFACTOR) ================== */
-        .tots-popup-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            display: none; 
-            align-items: center;
-            justify-content: center;
-            z-index: 999999;
-            padding: 20px;
-            animation: popupFade 0.8s ease;
-        }
-
-        @keyframes popupFade { from { opacity: 0; } to { opacity: 1; } }
-
-        .tots-popup {
-            position: relative;
-            width: 100%;
-            max-width: 680px;
-            background: linear-gradient(145deg, rgba(22,22,22,0.98), rgba(6,6,6,0.98));
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 34px;
-            overflow: hidden;
-            padding: 50px 40px;
-            box-shadow: 0 40px 120px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08);
-            animation: popupEnter 1s cubic-bezier(.22,1,.36,1);
-        }
-
-        @keyframes popupEnter {
-            from { transform: translateY(40px) scale(0.96); opacity: 0; }
-            to { transform: translateY(0) scale(1); opacity: 1; }
-        }
-
-        .tots-close {
-            position: absolute;
-            top: 18px;
-            right: 22px;
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.3);
-            font-size: 2.2rem;
-            cursor: pointer;
-            transition: 0.3s ease;
-            z-index: 10;
-        }
-        .tots-close:hover { color: white; transform: rotate(90deg); }
-
-        .mini-laptop-wrapper { position: relative; width: 100%; max-width: 380px; margin: 0 auto 45px; perspective: 1800px; }
-        .mini-screen {
-            position: relative;
-            height: 210px;
-            border-radius: 20px 20px 8px 8px;
-            background: linear-gradient(180deg, #1e1e1e, #040404);
-            border: 1px solid rgba(255,255,255,0.08);
-            transform-origin: bottom center;
-            transform: rotateX(-100deg);
-            animation: laptopOpen 2.2s cubic-bezier(.22,1,.36,1) forwards;
-            animation-delay: 0.5s;
-            overflow: hidden;
-        }
-        @keyframes laptopOpen { to { transform: rotateX(0deg); } }
-
-        .screen-content {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .tots-band {
+            background: #0f0f0f;
+            color: white;
             text-align: center;
-            background-image: url('TOTS-OS.jpeg');
-            background-size: cover;
-            background-position: center;
-        }
-        .screen-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 1; }
-        .screen-text { position: relative; z-index: 2; color: white; }
-        .screen-text h2 { font-size: 2rem; margin: 0; letter-spacing: -0.05em; font-weight: 900; }
-        
-        .mini-base {
-            width: 480px; max-width: 120%; height: 20px; margin-left: 50%; transform: translateX(-50%);
-            border-radius: 0 0 55px 55px; background: linear-gradient(180deg, #6b6b6b, #1d1d1d);
         }
 
-        .tots-popup-content { text-align: center; color: white; }
-        .popup-primary-btn {
-            background: white; color: black; text-decoration: none; padding: 15px 32px;
-            border-radius: 999px; font-weight: 600; display: inline-block; transition: 0.3s;
-            font-size: 0.95rem;
-        }
-        .popup-primary-btn:hover { transform: translateY(-3px); }
-
-        @media (max-width: 768px) {
-            .tots-popup { padding: 40px 20px; border-radius: 24px; }
-            .mini-laptop-wrapper { max-width: 280px; margin-bottom: 30px; }
-            .mini-screen { height: 160px; }
-            .tots-popup-content h3 { font-size: 1.6rem !important; }
-            .tots-popup-content p { font-size: 0.9rem; }
+        .trust-bar {
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 20px;
         }
     </style>
 </head>
+
 <body>
 
 <div id="site-header"></div>
 
-<div id="totsPopupOverlay" class="tots-popup-overlay">
-    <div class="tots-popup">
-        <button class="tots-close" onclick="closeTotsPopup()">&times;</button>
-        <div class="mini-laptop-wrapper">
-            <div class="mini-screen">
-                <div class="screen-overlay"></div>
-                <div class="screen-content">
-                    <div class="screen-text">
-                        <h2>TOTS OS</h2>
-                        <p style="letter-spacing: 0.5em; text-transform: uppercase; font-size: 0.65rem; opacity: 0.7;">Coming Summer 2026</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mini-base"></div>
-            <div class="mini-shadow" style="width: 220px; height: 35px; background: rgba(255,255,255,0.08); filter: blur(25px); margin: 0 auto; border-radius: 50%;"></div>
-        </div>
+<!-- HERO -->
+<section class="hero-banner" style="background-image:url('bg1.jpg'); background-size:cover;">
+    <div class="hero-overlay"></div>
 
-        <div class="tots-popup-content">
-            <p style="text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.65rem; color: #a9b897; margin-bottom: 12px; font-weight: 900;">Official Teaser</p>
-            <h3 style="font-size: 1.9rem; margin-bottom: 18px; line-height: 1.2;">Organisation meets <br>High-Fidelity.</h3>
-            <p style="color: rgba(255,255,255,0.6); margin-bottom: 30px; line-height: 1.6; max-width: 480px; margin-left: auto; margin-right: auto;">
-                TOTS OS is our upcoming immersive dashboard designed to bring clarity and luxury to your business operations.
-            </p>
-            <div class="popup-buttons">
-                <a href="https://tots-os.co.uk" class="popup-primary-btn" onclick="closeTotsPopup()">Join the Waiting List</a>
-            </div>
-        </div>
-    </div>
-</div>
+    <div class="hero-content">
+        <h1>We build systems that remove chaos from how businesses run.</h1>
 
-<script>
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-header').innerHTML = data;
-    })
-    .catch(err => console.error('Header load error:', err));
-</script>
+        <p>
+            The Organised Types designs structured websites and business systems today — 
+            and is evolving into <strong>TOTS OS</strong>, a life and business operating system built for clarity and control.
+        </p>
 
-<div id="newsletter-modal" class="modal-overlay">
-    <div class="modal-content">
-        <button id="close-popup" class="close-button">&times;</button>
-        <div class="newsletter-section" style="margin-top: 0;">
-            <h2>Join The Organised List</h2>
-            <p>Sign up for branding insights and early access to our workshops.</p>
-            <form class="newsletter-form" id="popup-newsletter-form">
-                <input type="email" name="fields[email]" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <div id="popup-thanks-msg" style="display:none; margin-top: 20px;">
-                <p style="color: var(--accent-color); font-weight: 700;">✓ You're on the list! Check your inbox soon.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="hero-banner">
-    <div class="hero-banner-image" style="background-image: url('bg1.jpg');"></div>
-    <div class="hero-banner-content">
-        <h2>Helping small businesses feel clearer, more organised, and ready to grow.</h2>
         <div class="cta-group">
-            <a href="contact.html" class="cta-button">Start Your Project</a>
-            <a href="https://xiaiqp-g3.myshopify.com" target="_blank" class="cta-button secondary">Shop Templates</a>
+            <a href="contact.html" class="cta-button primary">Build Your System</a>
+            <a href="#tots-os" class="cta-button secondary">Explore TOTS OS</a>
         </div>
-    </div>
-</div>
 
-<div class="mockup-section">
-    <div class="container">
-        <div class="mockup-content">
-            <div class="mockup-visual">
-                <img src="jillsexample.png" alt="Digital tools optimised for desktop and mobile devices."> 
-            </div>
-            <div class="mockup-text">
-                <p>Many small businesses reach a point where things feel messy:
-                the website no longer reflects the business, processes are unclear, systems don't support growth.
-                <br><br>
-                That's where we help. We help small businesses bring clarity to how they present themselves online and how their business runs behind the scenes.
-                <br><br>
-                When things are clearer and better organised, running your business becomes easier.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <h2 class="section-heading">Everything You Need to Build, Brand & Grow Your Business</h2>
-
-    <div class="service-wrapper">
-        <div class="services-preview-grid">
-            <div class="card-wrapper">
-                <div class="service-card">
-                    <div class="card-face card-face-front">
-                        <div>
-                            <h4>Clear Websites</h4>
-                            <p>Websites that reflect the quality of your work and make it easy for customers to understand what you offer.</p>
-                        </div>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <div>
-                            <h4>Clear Websites</h4>
-                            <p>Modern, user-friendly designs on platforms like Shopify, Wix, or Squarespace that turn visitors into loyal clients.</p>
-                        </div>
-                        <a href="services.html#website" class="card-link-button">Explore Website Packages</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-wrapper">
-                <div class="service-card">
-                    <div class="card-face card-face-front">
-                        <div>
-                            <h4>Organised Systems</h4>
-                            <p>Practical digital systems that help manage clients, tasks, and day-to-day work more smoothly.</p>
-                        </div>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <div>
-                            <h4>Organised Systems</h4>
-                            <p>From custom Notion builds to automated workflows, we create the structure your business needs to thrive.</p>
-                        </div>
-                        <a href="services.html#support" class="card-link-button">View System Services</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-wrapper">
-                <div class="service-card">
-                    <div class="card-face card-face-front">
-                        <div>
-                            <h4>Better-Run Businesses</h4>
-                            <p>When your website and systems work together, your business feels calmer, clearer, and easier to grow.</p>
-                        </div>
-                    </div>
-                    <div class="card-face card-face-back">
-                        <div>
-                            <h4>Better-Run Businesses</h4>
-                            <p>1:1 coaching and practical business support to help you move forward with confidence and clarity.</p>
-                        </div>
-                        <a href="services.html#coaching" class="card-link-button">Book a Strategy Session</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div style="text-align: center;">
-        <a href="services.html" class="cta-button">View All Services</a>
-    </div>
-</div>
-
-<section class="clarity-call-section">
-    <div class="clarity-container">
-        <div class="content-box">
-            <h2>Not sure where to start?</h2>
-            <p class="accent-text">Many businesses come to us because things feel messy, unclear, or harder than they should be.</p>
-            <p>Our <strong>Clarity Call</strong> helps identify what's really going on and what the next step should be.</p>
-            <div class="cta-wrapper">
-                <a href="clarity-call.html" class="cta-button">Book a Clarity Call</a>
-            </div>
+        <div class="trust-bar">
+            Websites • Systems • Automation • Strategy
         </div>
     </div>
 </section>
 
-<div class="testimonial-section">
-    <div class="testimonial-bg-image"></div>
-    <div class="testimonial-container">
-        <h2 class="section-heading" style="text-align: center;">What Our Clients Say</h2>
-        <div class="carousel-nav">
-            <button class="nav-arrow left" onclick="scrollCarousel(-1)">&#10094;</button>
-            <button class="nav-arrow right" onclick="scrollCarousel(1)">&#10095;</button>
+
+<!-- PROBLEM SECTION -->
+<section class="section">
+    <h2>Most businesses don’t have a growth problem — they have a structure problem.</h2>
+
+    <p>
+        When everything lives in emails, memory, spreadsheets and scattered tools, it becomes harder to grow without stress.
+    </p>
+
+    <p>
+        We help businesses replace that fragmentation with clear systems that support how they actually work.
+    </p>
+</section>
+
+
+<!-- SERVICES -->
+<section class="section">
+    <h2>What We Build</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Structured Websites</h3>
+            <p>Websites designed as part of a wider business system — not standalone marketing pages.</p>
         </div>
-        <div class="carousel-track" id="testimonial-carousel">
-            <div class="testimonial-card">
-                <blockquote>"The Organised Types completely transformed our client onboarding process. The new system is intuitive, saves us hours every week, and instantly looks more professional."</blockquote>
-                <p>— Sarah M., E-commerce Entrepreneur</p>
-            </div>
-            <div class="testimonial-card">
-                <blockquote>"Incredibly helpful in setting up our business infrastructure. Their custom Notion templates are game-changers for workflow management."</blockquote>
-                <p>— James K., Service Provider</p>
-            </div>
-            <div class="testimonial-card">
-                <blockquote>"The website design was flawless—exactly what we envisioned, but even easier to use. The branding is consistent and truly elevated our image."</blockquote>
-                <p>— Emma L., Boutique Owner</p>
-            </div>
+
+        <div class="card">
+            <h3>Business Systems</h3>
+            <p>Automation and workflows that remove repetitive thinking from your day-to-day operations.</p>
         </div>
+
+        <div class="card">
+            <h3>System Clarity Sessions</h3>
+            <p>We identify where your business is overloaded and redesign how it holds work.</p>
+        </div>
+
     </div>
-</div>
+
+    <div style="text-align:center; margin-top:30px;">
+        <a href="services.html" class="cta-button primary">View Services</a>
+    </div>
+</section>
+
+
+<!-- TRANSITION / TOTS OS -->
+<section class="section tots-band" id="tots-os">
+
+    <h2>TOTS OS is the next evolution</h2>
+
+    <p style="max-width:800px; margin:0 auto;">
+        We are building a system that connects business structure, daily execution, and clarity into one operating layer.
+    </p>
+
+    <p style="max-width:800px; margin:20px auto;">
+        Instead of adding more tools, TOTS OS reduces what your mind has to hold.
+    </p>
+
+    <div style="margin-top:30px;">
+        <a href="https://tots-os.co.uk" class="cta-button primary">Join the Waiting List</a>
+    </div>
+</section>
+
+
+<!-- TRUST / SOCIAL PROOF -->
+<section class="section">
+
+    <h2>What clients experience</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            “The system completely changed how we operate — everything feels clearer and more structured.”
+        </div>
+
+        <div class="card">
+            “We finally have processes that don’t rely on memory or constant back-and-forth.”
+        </div>
+
+        <div class="card">
+            “The website and systems now actually work together instead of feeling separate.”
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA STRIP -->
+<section class="section" style="text-align:center;">
+    <h2>Ready to bring structure to your business?</h2>
+    <p>Start with a clarity conversation and identify what needs simplifying first.</p>
+
+    <a href="clarity-call.html" class="cta-button primary">Book a Clarity Call</a>
+</section>
+
 
 <div id="site-footer"></div>
 
 <script>
-    function closeTotsPopup() {
-        const overlay = document.getElementById('totsPopupOverlay');
-        overlay.style.opacity = '0';
-        setTimeout(() => { overlay.style.display = 'none'; }, 800);
-        sessionStorage.setItem('totsShown', 'true');
-    }
+fetch('header.html')
+.then(r => r.text())
+.then(d => document.getElementById('site-header').innerHTML = d);
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const modal = document.getElementById('newsletter-modal');
-        const totsModal = document.getElementById('totsPopupOverlay');
-        const closeBtn = document.getElementById('close-popup');
-        const popupForm = document.getElementById('popup-newsletter-form');
-        const popupThanks = document.getElementById('popup-thanks-msg');
-
-        if (!sessionStorage.getItem('totsShown')) {
-            setTimeout(() => { totsModal.style.display = 'flex'; }, 1500);
-        } else if (!sessionStorage.getItem('popupShown')) {
-            setTimeout(() => { modal.style.display = 'flex'; }, 3000);
-        }
-
-        closeBtn.onclick = function() {
-            modal.style.display = 'none';
-            sessionStorage.setItem('popupShown', 'true');
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-                sessionStorage.setItem('popupShown', 'true');
-            }
-            if (event.target == totsModal) {
-                closeTotsPopup();
-            }
-        }
-
-        popupForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(popupForm);
-            fetch('https://assets.mailerlite.com/jsonp/1976098/forms/173944037984699428/subscribe', {
-                method: 'POST',
-                body: formData,
-                mode: 'no-cors'
-            }).then(() => {
-                popupForm.style.display = 'none';
-                popupThanks.style.display = 'block';
-                sessionStorage.setItem('popupShown', 'true');
-                setTimeout(() => { modal.style.display = 'none'; }, 3000);
-            }).catch(() => {
-                popupForm.style.display = 'none';
-                popupThanks.style.display = 'block';
-            });
-        });
-    });
-
-    fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-footer').innerHTML = data;
-    })
-    .catch(err => console.error('Footer load error:', err));
-</script>
-
-<script>
-    function scrollCarousel(direction) {
-        const carousel = document.getElementById('testimonial-carousel');
-        const cardWidth = carousel.querySelector('.testimonial-card').offsetWidth;
-        carousel.scrollBy({ left: direction * (cardWidth + 30), behavior: 'smooth' });
-    }
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5P2GHYXC2R');
+fetch('footer.html')
+.then(r => r.text())
+.then(d => document.getElementById('site-footer').innerHTML = d);
 </script>
 </body>
 </html>
-
