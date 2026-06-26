@@ -1,63 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homscss.css">
     <style>
-        /* CSS STYLES */
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; }
-        header, footer { padding: 20px; text-align: center; border-bottom: 1px solid #eee; }
-        footer { margin-top: 50px; border-top: 1px solid #eee; font-size: 0.8em; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        h1 { text-align: center; font-size: 2.5em; }
-        .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .package-card { border: 1px solid #eee; padding: 30px; border-radius: 8px; display: flex; flex-direction: column; }
-        .package-card h3 { margin-top: 0; }
-        .price { font-weight: bold; font-size: 1.2em; margin: 15px 0; }
-        .cta-button { 
-            display: block; width: 100%; padding: 12px; background: #000; color: #fff; 
-            text-align: center; text-decoration: none; border-radius: 4px; margin-top: auto;
+        :root { --tots-green: #a9b897; } 
+        body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; }
+        
+        /* Services Layout */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .package-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            margin-top: 40px; 
         }
-        .cta-button:hover { background: #333; }
-        .footer-links { margin-top: 10px; }
-        .footer-links a { margin: 0 10px; color: #666; text-decoration: none; }
+        .package-card { 
+            padding: 40px; 
+            border-radius: 25px; 
+            background: #f8f8f8; 
+            border: 1px solid #eee;
+            display: flex; 
+            flex-direction: column;
+            transition: 0.3s;
+        }
+        .package-card:hover { border-color: var(--tots-green); }
+        .package-card h3 { margin-top: 0; color: #000; }
+        .price { font-size: 1.5rem; font-weight: 700; color: var(--tots-green); margin: 20px 0; }
+        
+        .btn-green { 
+            background: var(--tots-green); color: white; padding: 15px 30px; 
+            border-radius: 999px; text-decoration: none; font-weight: 700; 
+            text-align: center; transition: 0.3s; display: inline-block; margin-top: auto;
+        }
+        .btn-green:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
+    <div id="site-header"></div>
 
-<header>
-    <img src="logo.png" alt="The Organised Types" style="width: 150px;">
-    <nav>Home | About | Services | Blog | Contact</nav>
-</header>
+    <section class="section">
+        <h1>Our Packages</h1>
+        <p>Select a service below to get started. From website builds to full system architecture, we have the right structure for you.</p>
 
-<div class="container">
-    <h1>Our Packages</h1>
-    <p style="text-align: center;">Select a service below to get started.</p>
+        <div class="package-grid">
+            <div class="package-card">
+                <h3>Product Name</h3>
+                <p>Brief description of what is included in this package.</p>
+                <div class="price">£499</div>
+                <a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="btn-green">Purchase Now</a>
+            </div>
+            
+            </div>
+    </section>
 
-    <div class="package-grid">
-        <div class="package-card">
-            <h3>Website Package A</h3>
-            <p>Description goes here.</p>
-            <div class="price">£499</div>
-            <a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="cta-button">Purchase Now</a>
-        </div>
+    <div id="site-footer"></div>
 
-        <div class="package-card">
-            <h3>Website Package B</h3>
-            <p>Description goes here.</p>
-            <div class="price">£599</div>
-            <a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="cta-button">Purchase Now</a>
-        </div>
-        </div>
-</div>
-
-<footer>
-    <p>&copy; 2026 The Organised Types. All Rights Reserved.</p>
-    <div class="footer-links">
-        <a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Cookie Policy</a>
-    </div>
-</footer>
-
+    <script>
+        fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
+    </script>
 </body>
 </html>
