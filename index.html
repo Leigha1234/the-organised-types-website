@@ -31,10 +31,25 @@
         .card-inner { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; }
 
         /* Scrapbook */
-        .tots-band { background: #0f0f0f; color: white; border-radius: 30px; padding: 60px 20px; text-align: center; margin: 20px; }
-        .scrapbook-container { display: flex; justify-content: center; gap: 30px; margin: 40px 0; flex-wrap: wrap; }
-        .scrapbook-img { width: 200px; border: 8px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transform: rotate(-3deg); }
+    .tots-band {
+    background: #0f0f0f;
+    color: white;
+    border-radius: 30px;
+    padding: 60px 20px;
+    text-align: center; /* This centers the text and the inline-block button */
+    margin: 20px auto;  /* Added 'auto' to center the section itself if it has a max-width */
+    max-width: 1100px;  /* Constrain the width so it doesn't stretch too far */
+}
 
+.tots-band img {
+    display: block;      /* Makes the logo behave like a centered block */
+    margin: 0 auto 20px; /* Centers it horizontally */
+}
+
+.tots-band .btn-green {
+    display: inline-block; /* Ensures the button honors the text-align: center */
+    margin-top: 20px;
+}
         /* Testimonials */
         .testimonial-row { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
         .testimonial { min-width: 300px; padding: 30px; border-left: 4px solid var(--tots-green); background: #f8f8f8; border-radius: 10px; font-style: italic; }
