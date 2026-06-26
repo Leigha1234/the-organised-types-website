@@ -10,29 +10,34 @@
         :root { --brand-green: #22c55e; }
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; }
         
-        /* Layout */
-        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        
         /* Hero */
-        .hero-banner { position: relative; height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; background: url('bg1.jpg') center/cover; }
+        .hero-banner { position: relative; height: 90vh; display: flex; align-items: center; padding: 0 10%; color: white; background: url('bg1.jpg') center/cover; }
         .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
-        .hero-content { position: relative; max-width: 900px; padding: 20px; z-index: 2; }
+        .hero-content { position: relative; z-index: 2; display: flex; align-items: center; width: 100%; justify-content: space-between; }
+        .hero-text { max-width: 600px; }
+        .hero-text h1 { font-size: 4rem; text-transform: uppercase; text-shadow: 0 0 20px var(--brand-green); margin-bottom: 20px; }
+        .hero-buttons { display: flex; gap: 15px; flex-direction: column; }
         
-        /* Services Split */
+        .btn-green { background: var(--brand-green); color: white; padding: 18px 36px; border-radius: 999px; text-decoration: none; font-weight: 700; text-align: center; transition: 0.3s; }
+        .btn-green:hover { transform: scale(1.05); }
+
+        /* Services Section */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
         .services-split { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .card { background: #f7f7f7; padding: 25px; border-radius: 14px; }
+        .zoom-img { width: 100%; border-radius: 14px; transition: 0.5s; box-shadow: 0 10px 30px var(--brand-green); }
+        .zoom-img:hover { transform: scale(1.03); }
+        .green-box { background: var(--brand-green); padding: 40px; border-radius: 25px; color: white; }
+        .service-grid-inner { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .card-inner { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; }
 
         /* Scrapbook */
-        .tots-band { background: #0f0f0f; color: white; border-radius: 30px; padding: 60px 20px; text-align: center; }
-        .scrapbook-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 40px 0; }
+        .tots-band { background: #0f0f0f; color: white; border-radius: 30px; padding: 60px 20px; text-align: center; margin: 20px; }
+        .scrapbook-container { display: flex; justify-content: center; gap: 30px; margin: 40px 0; flex-wrap: wrap; }
         .scrapbook-img { width: 200px; border: 8px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transform: rotate(-3deg); }
 
         /* Testimonials */
-        .testimonial { position: relative; padding-left: 50px !important; border-left: 4px solid var(--brand-green); background: #ffffff !important; border: 1px solid #e2e8f0; font-style: italic; }
-        .testimonial::before { content: "“"; position: absolute; left: 10px; top: -10px; font-size: 5rem; color: var(--brand-green); opacity: 0.3; font-family: serif; }
-
-        .cta-button { padding: 14px 28px; border-radius: 999px; text-decoration: none; font-weight: 600; display: inline-block; background: #fff; color: #000; }
+        .testimonial-row { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 20px; }
+        .testimonial { min-width: 300px; padding: 30px; border-left: 4px solid var(--brand-green); background: #f8f8f8; border-radius: 10px; font-style: italic; }
     </style>
 </head>
 
@@ -42,41 +47,46 @@
     <section class="hero-banner">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Chaos is not cute!</h1>
-            <p>At The Organised Types, we build systems that turn business chaos into structure and clarity.</p>
-            <a href="contact.html" class="cta-button">Build Your System</a>
-        </div>
-    </section>
-
-    <section class="section services-split">
-        <img src="TOTSUS.jpeg" alt="The Organised Types" style="width:100%; border-radius:14px;">
-        <div>
-            <h2>What We Do</h2>
-            <div class="grid">
-                <div class="card"><h3>Architects</h3><p>Building order out of chaos.</p></div>
-                <div class="card"><h3>Guides</h3><p>Supporting your transformation.</p></div>
-                <div class="card"><h3>Rebels</h3><p>Rejecting corporate culture.</p></div>
+            <div class="hero-text">
+                <h1>CHAOS IS NOT CUTE!</h1>
+                <p>At The Organised Types, we build systems that turn business chaos into structure and clarity.</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn-green">Build Your System</a>
+                <a href="clarity-call.html" class="btn-green">Book a Clarity Call</a>
             </div>
         </div>
     </section>
 
-    <section class="section tots-band" id="tots-os">
-        <img src="TOTS-OS.jpeg" alt="TOTS Logo" style="max-width: 150px;">
+    <section class="section services-split">
+        <img src="TOTS US.jpeg" alt="The Organised Types" class="zoom-img">
+        <div class="green-box">
+            <h2>What We Do</h2>
+            <div class="service-grid-inner">
+                <div class="card-inner"><h3>Architects</h3><p>Building order out of chaos.</p></div>
+                <div class="card-inner"><h3>Guides</h3><p>Supporting your transformation.</p></div>
+                <div class="card-inner"><h3>Rebels</h3><p>Rejecting corporate culture.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section tots-band">
+        <img src="TOTSLogo.jpeg" alt="TOTS Logo" style="max-width: 150px;">
         <h2>TOTS OS: Your second brain.</h2>
         <div class="scrapbook-container">
             <img src="TOTSOSDASHBOARD.jpeg" class="scrapbook-img" alt="Dashboard">
             <img src="TOTSOS1.jpeg" class="scrapbook-img" alt="OS Detail">
             <img src="TOTS-OS.jpeg" class="scrapbook-img" alt="OS Logo">
         </div>
-        <a href="https://tots-os.co.uk" class="cta-button">Join the Waiting List</a>
+        <a href="https://tots-os.co.uk" class="btn-green">Join the Waiting List</a>
     </section>
 
     <section class="section">
         <h2 style="text-align: center;">What clients experience</h2>
-        <div class="grid">
-            <div class="card testimonial">“Everything feels clearer and more structured.”</div>
-            <div class="card testimonial">“Processes don't rely on memory anymore.”</div>
-            <div class="card testimonial">“Websites and systems finally work together.”</div>
+        <div class="testimonial-row">
+            <div class="testimonial">“Everything feels clearer and more structured.”</div>
+            <div class="testimonial">“Processes don't rely on memory anymore.”</div>
+            <div class="testimonial">“Websites and systems finally work together.”</div>
         </div>
     </section>
 
