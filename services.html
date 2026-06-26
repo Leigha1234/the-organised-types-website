@@ -4,59 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | The Organised Types</title>
-    <link rel="stylesheet" href="global.css">
     <style>
-        /* Essential styling to match your brand */
-        .services-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        /* CSS to restore your branding and grid layout */
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
         .package-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 25px; 
             margin-top: 30px; 
         }
         .package-card { 
-            border: 1px solid #ddd; 
+            border: 1px solid #e0e0e0; 
             padding: 30px; 
-            border-radius: 8px; 
+            border-radius: 12px; 
             display: flex; 
-            flex-direction: column; 
-        }
-        .cta-button { 
-            display: inline-block; 
-            margin-top: auto; 
-            padding: 12px 24px; 
-            background-color: #7d967a; /* Example color, adjust to your brand */
-            color: #fff; 
-            text-decoration: none; 
-            border-radius: 5px; 
+            flex-direction: column;
             text-align: center;
-            font-weight: bold;
         }
+        .package-card h3 { font-size: 1.4em; margin-bottom: 10px; }
+        .price { font-size: 1.2em; font-weight: 700; color: #7d967a; margin: 15px 0; }
+        .cta-button { 
+            background: #7d967a; 
+            color: #fff; 
+            padding: 12px 20px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            font-weight: 600;
+            margin-top: auto;
+        }
+        .cta-button:hover { background: #5d6f5b; }
     </style>
 </head>
 <body>
 
-    <main class="services-container">
-        <h1>Our Packages</h1>
-        <p>Select a service below to get started.</p>
+<div class="container">
+    <h1>Our Packages</h1>
+    <p>Select a service below to get started.</p>
 
-        <div class="package-grid">
-            <div class="package-card">
-                <h3>Package Name 1</h3>
-                <p>Description goes here.</p>
-                <p><strong>£Price</strong></p>
-                <a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="cta-button">Purchase Now</a>
-            </div>
+    <div class="package-grid">
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="cta-button">Purchase Now</a>
+        </div>
 
-            <div class="package-card">
-                <h3>Package Name 2</h3>
-                <p>Description goes here.</p>
-                <p><strong>£Price</strong></p>
-                <a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="cta-button">Purchase Now</a>
-            </div>
-            
-            </div>
-    </main>
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="cta-button">Purchase Now</a>
+        </div>
 
-    </body>
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08" class="cta-button">Purchase Now</a>
+        </div>
+
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/8x25kwdR70Wxg54bE483C09" class="cta-button">Purchase Now</a>
+        </div>
+
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a" class="cta-button">Purchase Now</a>
+        </div>
+
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b" class="cta-button">Purchase Now</a>
+        </div>
+
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/9B67sE4gx48J066gYo83C0c" class="cta-button">Purchase Now</a>
+        </div>
+
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/8x2eV68wNdJj0668rS83C0d" class="cta-button">Purchase Now</a>
+        </div>
+
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/fZu6oA28p20B9GG0Zq83C0e" class="cta-button">Purchase Now</a>
+        </div>
+
+        <div class="package-card">
+            <h3>[Product Name]</h3>
+            <p>Description goes here.</p>
+            <div class="price">£[Price]</div>
+            <a href="https://buy.stripe.com/eVqcMY8wN20BbOO23u83C0f" class="cta-button">Purchase Now</a>
+        </div>
+
+        </div>
+</div>
+
+</body>
 </html>
