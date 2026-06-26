@@ -9,79 +9,50 @@
     <style>
         :root { --tots-green: #a9b897; } 
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; }
-        
-        /* Layout */
         .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
-        .package-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
-            margin-top: 40px; 
-        }
-        .package-card { 
-            padding: 40px; 
-            border-radius: 25px; 
-            background: #f8f8f8; 
-            border: 1px solid #eee;
-            display: flex; 
-            flex-direction: column;
-            text-align: center;
-        }
-        .price { font-size: 1.5rem; font-weight: 700; color: var(--tots-green); margin: 20px 0; }
-        .btn-green { 
-            background: var(--tots-green); color: white; padding: 15px 30px; 
-            border-radius: 999px; text-decoration: none; font-weight: 700; 
-            text-align: center; display: inline-block; margin-top: auto;
-        }
-        .btn-green:hover { transform: scale(1.05); }
+        .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .package-card { padding: 30px; border-radius: 25px; background: #f8f8f8; border: 1px solid #eee; text-align: center; }
+        .package-card img { max-width: 100%; border-radius: 15px; margin-bottom: 15px; }
+        .price { font-size: 1.5rem; font-weight: 700; color: var(--tots-green); margin: 15px 0; }
+        .btn-green { background: var(--tots-green); color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 700; display: inline-block; }
     </style>
 </head>
 <body>
     <div id="site-header"></div>
 
     <section class="section">
-        <h1 style="text-align: center;">Our Packages</h1>
-        <div class="package-grid">
-            <div class="package-card"><h3>Product 1</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 2</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 3</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 4</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/8x25kwdR70Wxg54bE483C09" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 5</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 6</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 7</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/9B67sE4gx48J066gYo83C0c" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 8</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/8x2eV68wNdJj0668rS83C0d" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 9</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/fZu6oA28p20B9GG0Zq83C0e" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 10</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/eVqcMY8wN20BbOO23u83C0f" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 11</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/8x2dR25kBcFf9GGfUk83C0g" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 12</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/8x24gs3ct34F8CC7nO83C0h" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 13</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/fZu8wI5kB34F9GGbE483C0i" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 14</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/14A14g00hbBbcSSbE483C0j" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 15</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/14A6oA4gx34FaKKbE483C0k" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 16</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/5kQaEQfZf8oZ3iidMc83C0l" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 17</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/aFabIUbIZ8oZ8CC4bC83C0m" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 18</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/eVq00cbIZcFf0667nO83C0n" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 19</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/dRmaEQ6oFcFf1aadMc83C0p" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 20</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/cNibIUfZf0Wxg5423u83C0q" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 21</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/fZueV69AR34F7yy37y83C0r" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 22</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/14A4gs7sJbBb6uuaA083C0s" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 23</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/cNieV66oF48Jg5423u83C0t" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 24</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/3cIfZa6oF9t31aagYo83C0u" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 25</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/14A5kwdR720B4mm37y83C0v" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 26</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/eVqeV6fZfbBbbOO4bC83C0w" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 27</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/eVq00c3ctax74mmeQg83C0x" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 28</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/bJedR228p6gRbOO4bC83C0y" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 29</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/8x2eV67sJ7kV8CCeQg83C0z" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 30</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 31</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/14A6oAfZf8oZcSSaA083C0B" class="btn-green">Purchase Now</a></div>
-            <div class="package-card"><h3>Product 32</h3><p>Description.</p><div class="price">£Price</div><a href="https://buy.stripe.com/3cI6oA28p5cN7yy5fG83C0C" class="btn-green">Purchase Now</a></div>
+        <h1>Our Packages</h1>
+        <div id="product-grid" class="package-grid">
+            <p>Loading your products from Stripe...</p>
         </div>
     </section>
 
     <div id="site-footer"></div>
 
     <script>
-        fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
-        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
+        // Use your Stripe Public Key here
+        const stripe = Stripe('pk_live_51TJWyi1TJBSxkUljztN6zRcppisDfArR0JADTSr8oSlI1PhauLciNHQnQ397bfZTHbckfnOxD7D8U4iPCgogYVYT00HxRooNRo');
+
+        async function fetchProducts() {
+            // This pulls products marked as 'active' in your Stripe Dashboard
+            const products = await stripe.products.list({active: true, expand: ['data.default_price']});
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = ''; // Clear loading text
+
+            products.data.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'package-card';
+                card.innerHTML = `
+                    ${product.images[0] ? `<img src="${product.images[0]}" alt="${product.name}">` : ''}
+                    <h3>${product.name}</h3>
+                    <p>${product.description || ''}</p>
+                    <div class="price">£${(product.default_price.unit_amount / 100).toFixed(2)}</div>
+                    <a href="#" class="btn-green">Purchase Now</a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+        fetchProducts();
     </script>
 </body>
 </html>
