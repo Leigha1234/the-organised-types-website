@@ -3,300 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Packages | The Organised Types</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <title>Digital Resources | The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        :root{
-            --green:#A9B897;
-            --dark:#2F3A2F;
-            --light:#faf9f6;
-            --text:#555;
-            --white:#fff;
-        }
+        :root { --tots-green: #a9b897; --cream: #faf9f6; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--cream); margin: 0; color: #334155; }
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        /* Hero Banner */
+        .resources-hero {
+            height: 45vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; color: white; padding: 20px;
+            background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('planner-hero.jpg') center/cover;
         }
+        .resources-hero h1 { font-size: 3.2rem; text-transform: uppercase; text-shadow: 0 0 20px var(--tots-green); margin-bottom: 10px; }
+        .resources-hero p { max-width: 650px; font-size: 1.2rem; margin: 0; }
 
-        body{
-            font-family:'Poppins',sans-serif;
-            background:var(--light);
-            color:#333;
-            line-height:1.6;
-        }
+        /* Content Sections */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .intro-text { font-size: 1.1rem; line-height: 1.6; max-width: 700px; margin: 0 auto 60px; }
 
-        .page-container{
-            max-width:1200px;
-            margin:auto;
-            padding:70px 20px;
+        /* Grid & Card Styling */
+        .resource-grid { 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; 
         }
+        .resource-card { 
+            background: #fff; padding: 40px; border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .resource-card h3 { margin: 10px 0; font-size: 1.4rem; }
+        .resource-card p { color: #666; flex-grow: 1; margin-bottom: 25px; }
 
-        .page-title{
-            text-align:center;
-            margin-bottom:15px;
-            font-size:2.5rem;
-            color:var(--dark);
-        }
+        /* Buttons */
+        .btn-download { background: var(--tots-green); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-bottom: 15px; display: block; }
+        .btn-more { color: #888; text-decoration: underline; font-size: 0.9rem; cursor: pointer; border: none; background: none; }
 
-        .page-intro{
-            text-align:center;
-            max-width:700px;
-            margin:0 auto 50px;
-            color:#666;
-        }
-
-        .package-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-            gap:30px;
-        }
-
-        .package-card{
-            background:#fff;
-            border-radius:20px;
-            padding:35px;
-            border:1px solid #ececec;
-            box-shadow:0 10px 30px rgba(0,0,0,.05);
-            display:flex;
-            flex-direction:column;
-            transition:.3s;
-        }
-
-        .package-card:hover{
-            transform:translateY(-6px);
-            box-shadow:0 20px 40px rgba(0,0,0,.08);
-        }
-
-        .package-card h3{
-            font-size:1.4rem;
-            margin-bottom:15px;
-            color:var(--dark);
-        }
-
-        .package-card p{
-            color:var(--text);
-            flex:1;
-            margin-bottom:25px;
-        }
-
-        .price{
-            font-size:1.8rem;
-            font-weight:700;
-            color:var(--green);
-            margin-bottom:25px;
-        }
-
-        .button-group{
-            display:flex;
-            flex-direction:column;
-            gap:12px;
-        }
-
-        .btn-green{
-            display:block;
-            text-align:center;
-            background:var(--green);
-            color:white;
-            text-decoration:none;
-            padding:14px;
-            border-radius:999px;
-            font-weight:600;
-            transition:.3s;
-        }
-
-        .btn-green:hover{
-            background:#8fa17b;
-        }
-
-        .btn-more{
-            background:none;
-            border:2px solid var(--green);
-            color:var(--green);
-            padding:12px;
-            border-radius:999px;
-            cursor:pointer;
-            font-family:inherit;
-            font-size:.95rem;
-            transition:.3s;
-        }
-
-        .btn-more:hover{
-            background:var(--green);
-            color:white;
-        }
-
-        dialog{
-            width:min(550px,90%);
-            border:none;
-            border-radius:20px;
-            padding:35px;
-            box-shadow:0 20px 60px rgba(0,0,0,.2);
-        }
-
-        dialog::backdrop{
-            background:rgba(0,0,0,.45);
-        }
-
-        #modalTitle{
-            margin-bottom:20px;
-        }
-
-        #modalDesc{
-            margin-bottom:25px;
-            color:#555;
-        }
-
-        .close-btn{
-            background:var(--green);
-            color:white;
-            border:none;
-            border-radius:999px;
-            padding:12px 30px;
-            cursor:pointer;
-            font-family:inherit;
-        }
+        /* Custom Services Section */
+        .bespoke-section { background: #fff; padding: 80px 20px; margin-top: 40px; border-top: 1px solid #eee; }
+        .btn-service { background: #000; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 20px; }
     </style>
 </head>
-
 <body>
 
-<div id="site-header"></div>
+    <div id="site-header"></div>
 
-<main class="page-container">
+    <section class="resources-hero">
+        <h1>Resources & Digital Tools</h1>
+        <p>Helping you organise life and business with practical templates, planners and digital downloads.</p>
+    </section>
 
-    <h1 class="page-title">Our Packages</h1>
-
-    <p class="page-intro">
-        Practical digital tools and planners designed to help you stay organised,
-        simplify your business and create systems that actually work.
-    </p>
-
-    <div class="package-grid">
-
-        <div class="package-card">
-
-            <h3>Yearly Goals Planner</h3>
-
-            <p>
-                Start the year with clarity by mapping your goals, priorities and
-                milestones into one easy-to-follow planner.
-            </p>
-
-            <div class="price">FREE</div>
-
-            <div class="button-group">
-
-                <button class="btn-more"
-                    onclick="showModal(
-                    'Yearly Goals Planner',
-                    'Our yearly planner helps you organise goals, projects and important milestones into a simple system that keeps you focused throughout the year.')">
-
-                    Find out more
-
-                </button>
-
-                <a href="#" class="btn-green">Download Now</a>
-
+    <section class="section">
+        <p class="intro-text">Whether you're planning your week, setting yearly goals or building systems for your business, these resources are designed to make organisation feel simple.</p>
+        
+        <div class="resource-grid">
+            <div class="resource-card">
+                <div class="icon">📄</div>
+                <h3>Yearly Goals Planner</h3>
+                <p>A printable planner designed to help you organise your year.</p>
+                <a href="#" class="btn-download">FREE DOWNLOAD</a>
+                <button class="btn-more">Find out more</button>
             </div>
-
-        </div>
-
-        <div class="package-card">
-
-            <h3>Weekly Planner</h3>
-
-            <p>
-                Organise your week, prioritise your workload and stay focused on
-                what really matters.
-            </p>
-
-            <div class="price">FREE</div>
-
-            <div class="button-group">
-
-                <button class="btn-more"
-                    onclick="showModal(
-                    'Weekly Planner',
-                    'A printable weekly planner designed to help you plan tasks, appointments and priorities without feeling overwhelmed.')">
-
-                    Find out more
-
-                </button>
-
-                <a href="#" class="btn-green">Download Now</a>
-
             </div>
+    </section>
 
-        </div>
+    <section class="bespoke-section">
+        <h2>Need something bespoke?</h2>
+        <p>Looking for custom systems, Notion workspaces, websites or business support?</p>
+        <a href="#" class="btn-service">Explore Our Services</a>
+    </section>
 
-    </div>
+    <div id="site-footer"></div>
 
-</main>
-
-<div id="site-footer"></div>
-
-<dialog id="productModal">
-
-    <h2 id="modalTitle"></h2>
-
-    <p id="modalDesc"></p>
-
-    <button class="close-btn" onclick="closeModal()">
-        Close
-    </button>
-
-</dialog>
-
-<script>
-
-async function loadPartial(id,url){
-
-    try{
-
-        const response = await fetch(url);
-
-        if(!response.ok){
-
-            throw new Error(`${url} could not be loaded`);
-
-        }
-
-        document.getElementById(id).innerHTML = await response.text();
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-    }
-
-}
-
-loadPartial("site-header","header.html");
-loadPartial("site-footer","footer.html");
-
-function showModal(title,description){
-
-    document.getElementById("modalTitle").textContent = title;
-
-    document.getElementById("modalDesc").textContent = description;
-
-    document.getElementById("productModal").showModal();
-
-}
-
-function closeModal(){
-
-    document.getElementById("productModal").close();
-
-}
-
-</script>
-
+    <script>
+        fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
+    </script>
 </body>
 </html>
