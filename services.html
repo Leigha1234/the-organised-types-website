@@ -2,64 +2,99 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Resources | The Organised Types</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --tots-green: #a9b897; }
-        body { font-family: 'Poppins', sans-serif; background: #faf9f6; padding: 40px; color: #334155; }
-        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
+        
+        /* Full Size Hero Banner */
+        .hero-banner { 
+            position: relative; height: 60vh; display: flex; align-items: center; padding: 0 10%; 
+            color: white; background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('resources.jpg') center/cover; 
+        }
+        .hero-content { position: relative; z-index: 1; }
+        
+        .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; margin-top: 40px; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
         .resource-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
-        .price { font-weight: 700; color: var(--tots-green); display: block; margin: 10px 0; }
-        .btn { background: var(--tots-green); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; border: none; cursor: pointer; display: inline-block; margin: 5px; }
-        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; }
-        .modal-content { background: #fff; padding: 30px; border-radius: 20px; max-width: 500px; }
+        .resource-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px; }
+        
+        .btn { background: var(--tots-green); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; border: none; cursor: pointer; display: inline-block; margin-top: 15px; }
+        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index: 1000; }
+        .modal-content { background: #fff; padding: 40px; border-radius: 20px; max-width: 500px; text-align: center; }
     </style>
 </head>
 <body>
 
-<div class="resource-grid" id="product-list"></div>
+    <div id="site-header"></div>
 
-<div id="modal">
-    <div class="modal-content">
-        <h2 id="modal-title"></h2>
-        <p id="modal-desc"></p>
-        <a id="modal-buy" class="btn" href="#">Buy Now</a>
-        <button class="btn" onclick="document.getElementById('modal').style.display='none'">Close</button>
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Resources & Digital Tools</h1>
+            <p>Helping you organise life and business.</p>
+        </div>
+    </section>
+
+    <section class="section" id="product-container"></section>
+
+    <div id="modal">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+            <a id="modal-buy" class="btn" href="#">Buy / Download</a>
+            <br><button class="btn" style="background:#333;" onclick="document.getElementById('modal').style.display='none'">Close</button>
+        </div>
     </div>
-</div>
 
-<script>
-    // Full product list compiled from your files
-    const products = [
-        { title: 'Branding Complete Suite', desc: 'Build a consistent brand identity.', price: '£TBC', url: 'https://buy.stripe.com/3cI6oA28p5cN7yy5fG83C0C' },
-        { title: '2-Day Business Audit', desc: 'A deep dive into your systems.', price: '£TBC', url: 'https://buy.stripe.com/14A6oAfZf8oZcSSaA083C0B' },
-        { title: 'Annual Planner', desc: 'Plan your year with clarity.', price: '£TBC', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A' },
-        { title: 'Brand Kickstart', desc: 'Get your brand foundations right.', price: '£TBC', url: 'https://buy.stripe.com/8x2eV67sJ7kV8CCeQg83C0z' },
-        { title: 'Business Sales Roadmap', desc: 'Create a sustainable sales process.', price: '£TBC', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b' },
-        { title: 'Starter Website', desc: 'A clean, functional website template.', price: '£TBC', url: 'https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b' },
-        { title: 'Productivity & Focus Checklist', desc: 'Stay organised and on task.', price: '£TBC', url: 'https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a' },
-        { title: 'Premium Brand & Social Kit', desc: 'Elevate your online presence.', price: '£TBC', url: 'https://buy.stripe.com/8x25kwdR70Wxg54bE483C09' },
-        { title: 'Workout Tracker', desc: 'Keep track of your physical goals.', price: '£TBC', url: 'https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08' },
-        { title: 'Weekly Planner', desc: 'Master your weekly schedule.', price: '£TBC', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07' },
-        { title: 'TOTS OS Elite', desc: 'Our premium business operating system.', price: '£TBC', url: '#' },
-        { title: 'TOTS OS Premium', desc: 'Advanced management tools for teams.', price: '£TBC', url: '#' }
-    ];
+    <div id="site-footer"></div>
 
-    const container = document.getElementById('product-list');
-    products.forEach(p => {
-        container.innerHTML += `
-            <div class="resource-card">
-                <h3>${p.title}</h3>
-                <span class="price">${p.price}</span>
-                <button class="btn" onclick="showModal('${p.title}', '${p.desc}', '${p.url}')">Find out more</button>
-            </div>`;
-    });
+    <script>
+        const products = [
+            { cat: 'Planners', title: 'Annual Planner', desc: 'Plan your year with clarity, intention, and calm.', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A' },
+            { cat: 'Planners', title: 'Weekly Planner', desc: 'Stay organised, focused, and productive.', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07' },
+            { cat: 'Planners', title: 'Yearly Goals Planner', desc: 'Break big visions into manageable focus areas.', url: '#' },
+            { cat: 'Business', title: 'Branding Complete Suite', desc: 'Everything you need to build a consistent brand.', url: 'https://buy.stripe.com/3cI6oA28p5cN7yy5fG83C0C' },
+            { cat: 'Business', title: '2-Day Business Audit', desc: 'A deep dive into your business systems.', url: 'https://buy.stripe.com/14A6oAfZf8oZcSSaA083C0B' },
+            { cat: 'Business', title: 'Brand Kickstart', desc: 'Get your brand foundations right.', url: 'https://buy.stripe.com/8x2eV67sJ7kV8CCeQg83C0z' },
+            { cat: 'Business', title: 'Business Sales Roadmap', desc: 'Step-by-step prompts to create a sales process.', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b' },
+            { cat: 'Business', title: 'Starter Website', desc: 'A clean, functional website template.', url: 'https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b' },
+            { cat: 'Business', title: 'Customer Management Checklist', desc: 'Keep your clients happy and running smoothly.', url: '#' },
+            { cat: 'Business', title: 'Productivity & Focus Checklist', desc: 'Stay organised and on task.', url: 'https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a' },
+            { cat: 'Business', title: 'Premium Brand & Social Kit', desc: 'Elevate your online presence.', url: 'https://buy.stripe.com/8x25kwdR70Wxg54bE483C09' },
+            { cat: 'TOTS OS', title: 'TOTS OS Elite', desc: 'Our premium business operating system.', url: '#' },
+            { cat: 'TOTS OS', title: 'TOTS OS Premium', desc: 'Advanced management tools for scaling teams.', url: '#' },
+            { cat: 'TOTS OS', title: 'TOTS OS Team Member', desc: 'Collaboration tools for your team.', url: '#' },
+            { cat: 'Other', title: 'Workout Tracker', desc: 'Keep track of your physical goals.', url: 'https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08' },
+            { cat: 'Other', title: 'WhyKnot', desc: 'Specialized resource tool.', url: '#' }
+        ];
 
-    function showModal(t, d, u) {
-        document.getElementById('modal-title').innerText = t;
-        document.getElementById('modal-desc').innerText = d;
-        document.getElementById('modal-buy').href = u;
-        document.getElementById('modal').style.display = 'flex';
-    }
-</script>
+        const container = document.getElementById('product-container');
+        const categories = ['Planners', 'Business', 'TOTS OS', 'Other'];
+
+        categories.forEach(cat => {
+            container.innerHTML += `<h2 class="section-title">${cat}</h2><div class="resource-grid" id="grid-${cat}"></div>`;
+            products.filter(p => p.cat === cat).forEach(p => {
+                document.getElementById(`grid-${cat}`).innerHTML += `
+                    <div class="resource-card">
+                        <img src="https://via.placeholder.com/300x200" alt="${p.title}">
+                        <h3>${p.title}</h3>
+                        <button class="btn" onclick="showModal('${p.title}', '${p.desc.replace(/'/g, "\\'")}', '${p.url}')">Find out more</button>
+                    </div>`;
+            });
+        });
+
+        function showModal(t, d, u) {
+            document.getElementById('modal-title').innerText = t;
+            document.getElementById('modal-desc').innerText = d;
+            document.getElementById('modal-buy').href = u;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
+    </script>
 </body>
 </html>
