@@ -10,7 +10,7 @@
         :root { --tots-green: #a9b897; } 
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
         
-        /* Hero - Matches Homepage */
+        /* Hero */
         .resources-hero { 
             position: relative; height: 45vh; display: flex; align-items: center; 
             padding: 0 10%; color: white; 
@@ -19,12 +19,13 @@
         .hero-text h1 { font-size: 3.2rem; text-transform: uppercase; text-shadow: 0 0 20px var(--tots-green); margin-bottom: 10px; }
         .hero-text p { max-width: 650px; font-size: 1.2rem; }
 
-        /* Section */
-        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
+        /* Sections */
+        .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
         
-        /* Redesigned Cards */
+        /* Resource Grid */
         .resource-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 50px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 40px; margin-top: 50px; 
         }
         .resource-card { 
             background: #fff; padding: 40px; border-radius: 30px;
@@ -47,11 +48,10 @@
 
 <body>
 
-    <body>
-    <!-- 1. HEADER FIRST -->
+    <!-- Header -->
     <div id="site-header"></div>
 
-    <!-- 2. HERO SECOND (Now sits below the header) -->
+    <!-- Hero -->
     <section class="resources-hero">
         <div class="hero-text">
             <h1>Resources & Digital Tools</h1>
@@ -59,13 +59,7 @@
         </div>
     </section>
 
-    <!-- 3. REMAINING CONTENT -->
-    <section class="section">
-        ...
-    </section>
-
-    <div id="site-footer"></div>
-    ...
+    <!-- Resources Section -->
     <section class="section">
         <p>Whether you're planning your week, setting yearly goals or building systems for your business, these resources are designed to make organisation feel simple.</p>
         
@@ -77,15 +71,19 @@
                 <a href="#" class="btn-download">FREE DOWNLOAD</a>
                 <button class="btn-more" onclick="alert('Open Modal Here')">Find out more</button>
             </div>
-            
-            </div>
+            <!-- Add additional cards here -->
+        </div>
     </section>
 
+    <!-- Bespoke Services -->
     <section class="bespoke-section">
         <h2>Need something bespoke?</h2>
         <p>Looking for custom systems, Notion workspaces, websites or business support?</p>
         <a href="contact.html" class="btn-black">Explore Our Services</a>
     </section>
+
+    <!-- Footer -->
+    <div id="site-footer"></div>
 
     <script>
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
