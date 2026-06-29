@@ -4,56 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Resources | The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="homscss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --tots-green: #a9b897; } 
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
         
-        /* Hero Section */
+        /* Hero Section - Matching your design */
         .hero-banner { 
-            position: relative; 
-            height: 45vh; 
+            height: 350px; 
             display: flex; 
+            flex-direction: column;
+            justify-content: center; 
             align-items: center; 
-            padding: 0 10%; 
+            text-align: center;
             color: white; 
-            background: linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)), url('resources.jpg') center/cover; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('resources.jpg') center/cover;
+            padding: 20px;
         }
-        .hero-content { position: relative; z-index: 1; }
-        .hero-text h1 { font-size: 3.2rem; text-transform: uppercase; text-shadow: 0 0 20px rgba(0,0,0,0.5); margin-bottom: 10px; }
-        .hero-text p { max-width: 650px; font-size: 1.2rem; margin-bottom: 20px; }
+        .hero-text h1 { font-size: 2rem; margin-bottom: 10px; font-weight: 600; }
+        .hero-text p { font-size: 1.1rem; margin-bottom: 25px; }
 
-        /* Button Styles */
-        .btn-green { 
-            background: var(--tots-green); color: white; padding: 12px 30px; 
-            border-radius: 50px; text-decoration: none; font-weight: 600; 
-            display: inline-block; margin-right: 10px; transition: opacity 0.3s;
+        .hero-buttons { display: flex; gap: 15px; }
+        .btn-hero { 
+            background: var(--tots-green); color: white; padding: 12px 25px; 
+            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
         }
-        .btn-green:hover { opacity: 0.9; }
 
-        /* Sections */
-        .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
+        /* Resources Section */
+        .section { padding: 60px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
         
-        /* Resource Grid */
-        .resource-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 40px; margin-top: 50px; 
-        }
         .resource-card { 
-            background: #fff; padding: 40px; border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
+            background: #fff; padding: 40px; border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            display: inline-block; width: 100%; max-width: 400px;
         }
-        .icon img { max-width: 80px; height: auto; margin-bottom: 20px; }
+        .resource-card img { max-width: 100px; margin-bottom: 15px; }
         .btn-download { 
-            background: var(--tots-green); color: white; padding: 12px 30px; 
-            border-radius: 50px; text-decoration: none; font-weight: 700; 
-            display: block; width: fit-content; margin: 0 auto 15px;
+            background: var(--tots-green); color: white; padding: 12px 40px; 
+            border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin: 15px 0;
         }
-        .btn-more { color: #888; text-decoration: underline; font-size: 0.9rem; border: none; background: none; cursor: pointer; }
+        .btn-more { display: block; color: #666; text-decoration: underline; font-size: 0.85rem; border: none; background: none; cursor: pointer; margin: 0 auto; }
         
         /* Bespoke Section */
-        .bespoke-section { background: #fff; padding: 80px 20px; text-align: center; border-top: 1px solid #eee; }
+        .bespoke-section { padding: 60px 20px; text-align: center; }
         .btn-black { background: #000; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 20px; }
     </style>
 </head>
@@ -62,29 +55,24 @@
     <div id="site-header"></div>
 
     <section class="hero-banner">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Resources & Digital Tools</h1>
-                <p>Helping you organise life and business with practical templates, planners and digital downloads.</p>
-            </div>
-            <div class="hero-buttons">
-                <a href="contact.html" class="btn-green">Build Your System</a>
-                <a href="clarity-call.html" class="btn-green">Book a Clarity Call</a>
-            </div>
+        <div class="hero-text">
+            <p>Helping you organise life and business with practical<br>templates, planners and digital downloads.</p>
+        </div>
+        <div class="hero-buttons">
+            <a href="contact.html" class="btn-hero">Build Your System</a>
+            <a href="clarity-call.html" class="btn-hero">Book a Clarity Call</a>
         </div>
     </section>
 
     <section class="section">
         <p>Whether you're planning your week, setting yearly goals or building systems for your business, these resources are designed to make organisation feel simple.</p>
         
-        <div class="resource-grid">
-            <div class="resource-card">
-                <div class="icon"><img src="Social media strategy.png" alt="Social Media Strategy"></div>
-                <h3>Social Media Strategy</h3>
-                <p>A printable course designed to help you create a winning social media strategy.</p>
-                <a href="#" class="btn-download">£29.00</a>
-                <button class="btn-more" onclick="alert('Open Modal Here')">Find out more</button>
-            </div>
+        <div class="resource-card">
+            <img src="Social media strategy.png" alt="Social Media Strategy">
+            <h3>Social Media Strategy</h3>
+            <p>A printable course designed to help you create a winning social media strategy.</p>
+            <a href="#" class="btn-download">£29.00</a>
+            <button class="btn-more" onclick="alert('Open Modal Here')">Find out more</button>
         </div>
     </section>
 
