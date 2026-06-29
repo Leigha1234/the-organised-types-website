@@ -10,26 +10,33 @@
         :root { --tots-green: #a9b897; } 
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
         
-        /* Hero Banner (Matching your homepage) */
+        /* Hero Banner */
         .hero-banner { position: relative; height: 90vh; display: flex; align-items: center; padding: 0 10%; color: white; background: url('resources.jpg') center/cover; }
         .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
         .hero-content { position: relative; z-index: 2; width: 100%; }
         .hero-text { max-width: 600px; }
         .hero-text h1 { font-size: 4rem; text-transform: uppercase; margin-bottom: 20px; }
 
-        /* Resource Section */
-        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
-        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-bottom: 80px; }
-        .resource-card { background: #fff; padding: 40px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
-        .resource-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
+        /* Updated Grid to 3 Columns */
+        .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2rem; margin: 60px 0 30px; }
+        .resource-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+        }
+        .resource-card { background: #fff; padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        .resource-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
         
-        /* Button Style */
-        .btn-green { background: var(--tots-green); color: white; padding: 18px 36px; border-radius: 999px; text-decoration: none; font-weight: 700; display: inline-block; cursor: pointer; border: none; }
+        .btn-green { background: var(--tots-green); color: white; padding: 15px 30px; border-radius: 999px; text-decoration: none; font-weight: 700; display: inline-block; cursor: pointer; border: none; }
         
         /* Modal Styles */
         #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index: 1000; justify-content:center; align-items:center; }
-        .modal-content { background: #fff; padding: 50px; border-radius: 25px; max-width: 500px; text-align: center; position: relative; }
+        .modal-content { background: #fff; padding: 50px; border-radius: 25px; max-width: 500px; text-align: center; }
+
+        /* Responsive tweak for mobile */
+        @media (max-width: 900px) { .resource-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .resource-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 
@@ -41,7 +48,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1>Digital Resources</h1>
-                <p>Practical templates and systems to turn chaos into structure.</p>
+                <p>Helping you organise life and business.</p>
             </div>
         </div>
     </section>
@@ -67,7 +74,7 @@
             { cat: 'Business', title: 'Branding Complete Suite', desc: 'Everything you need to build a consistent brand.', url: 'https://buy.stripe.com/3cI6oA28p5cN7yy5fG83C0C' },
             { cat: 'Business', title: '2-Day Business Audit', desc: 'A deep dive into your business systems.', url: 'https://buy.stripe.com/14A6oAfZf8oZcSSaA083C0B' },
             { cat: 'Business', title: 'Brand Kickstart', desc: 'Get your brand foundations right.', url: 'https://buy.stripe.com/8x2eV67sJ7kV8CCeQg83C0z' },
-            { cat: 'Business', title: 'Business Sales Roadmap', desc: 'Create a sustainable sales process.', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b' },
+            { cat: 'Business', title: 'Business Sales Roadmap', desc: 'Step-by-step prompts to create a sales process.', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b' },
             { cat: 'Business', title: 'Starter Website', desc: 'A clean, functional website template.', url: 'https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b' },
             { cat: 'Business', title: 'Customer Management Checklist', desc: 'Keep your clients happy and running smoothly.', url: '#' },
             { cat: 'Business', title: 'Productivity & Focus Checklist', desc: 'Stay organised and on task.', url: 'https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a' },
@@ -101,7 +108,6 @@
             document.getElementById('modal').style.display = 'flex';
         }
 
-        // Fetch Header/Footer
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
     </script>
