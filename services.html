@@ -46,8 +46,12 @@
 </head>
 
 <body>
+
+    <body>
+    <!-- 1. HEADER FIRST -->
     <div id="site-header"></div>
 
+    <!-- 2. HERO SECOND (Now sits below the header) -->
     <section class="resources-hero">
         <div class="hero-text">
             <h1>Resources & Digital Tools</h1>
@@ -55,6 +59,13 @@
         </div>
     </section>
 
+    <!-- 3. REMAINING CONTENT -->
+    <section class="section">
+        ...
+    </section>
+
+    <div id="site-footer"></div>
+    ...
     <section class="section">
         <p>Whether you're planning your week, setting yearly goals or building systems for your business, these resources are designed to make organisation feel simple.</p>
         
@@ -75,8 +86,6 @@
         <p>Looking for custom systems, Notion workspaces, websites or business support?</p>
         <a href="contact.html" class="btn-black">Explore Our Services</a>
     </section>
-
-    <div id="site-footer"></div>
 
     <script>
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
