@@ -20,52 +20,54 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <div class="dropdown">
-                <a href="services.html" class="dropdown-toggle">
-                    Services <span class="services-arrow">&#9662;</span>
-                </a>
+                <a href="services.html" class="dropdown-toggle">Services ▾</a>
                 <div class="dropdown-content">
-                    <a href="services.html#website">Website Design & Development</a>
-                    <a href="services.html#branding">Brand Identity & Digital Design</a>
-                    <a href="services.html#support">Business Support & Strategy</a>
-                    <a href="services.html#coaching">Business Coaching & Strategy</a>
+                    <a href="services.html#website">Website Design</a>
+                    <a href="services.html#branding">Brand Identity</a>
+                    <a href="services.html#support">Business Support</a>
+                    <a href="services.html#coaching">Business Coaching</a>
                 </div>
             </div>
             <a href="blog.html">Blog</a>
-            <a href="resources.html">Resources</a> 
-            <a href="faq.html">FAQ's</a>
             <a href="contact.html">Contact</a>
         </nav>
     </div>
 </header>
 
 <style>
-    /* Global Header Reset */
-    .announcement-bar { position: fixed; top: 0; width: 100%; z-index: 999; background: #0f0f0f; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .announcement-bar a { display: block; text-align: center; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; }
-    
-    header { background-color: var(--logo-bg); border-bottom: 1px solid #e0e0e0; padding: 5px 0; position: fixed; top: 44px; width: 100%; z-index: 20; backdrop-filter: blur(12px); }
-    .navbar { display: flex; justify-content: space-between; align-items: center; width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
-    .logo-area img { height: 120px; transition: height 0.3s; }
+    /* Announcement Bar */
+    .announcement-bar { position: fixed; top: 0; width: 100%; z-index: 999; background: #0f0f0f; }
+    .announcement-bar a { display: block; text-align: center; padding: 12px 20px; color: white; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.25em; }
+
+    /* Solid Cream Header */
+    header { 
+        background-color: #FDFBF7; /* The Cream Color */
+        border-bottom: 1px solid #e0e0e0; 
+        padding: 5px 0; 
+        position: fixed; 
+        top: 44px; 
+        width: 100%; 
+        z-index: 20; 
+    }
+
+    .navbar { display: flex; justify-content: space-between; align-items: center; width: 90%; max-width: 1200px; margin: 0 auto; }
+    .logo-area img { height: 100px; }
 
     #main-nav { display: flex; align-items: center; }
-    #main-nav a { color: var(--primary-color); text-decoration: none; margin-left: 25px; font-weight: 500; }
+    #main-nav a { color: #334155; text-decoration: none; margin-left: 25px; font-weight: 600; }
     
-    .dropdown { position: relative; }
-    .dropdown-content { display: none; position: absolute; background-color: var(--accent-color); min-width: 250px; top: 100%; left: 50%; transform: translateX(-50%); z-index: 10; border-radius: 4px; }
+    .dropdown-content { display: none; position: absolute; background-color: #FDFBF7; min-width: 200px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     .dropdown:hover .dropdown-content { display: block; }
-    .dropdown-content a { padding: 10px 20px; display: block; color: white; }
 
     .menu-icon { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-    .menu-icon span { width: 25px; height: 3px; background: var(--primary-color); }
+    .menu-icon span { width: 25px; height: 3px; background: #334155; }
 
-    /* Mobile Responsive */
     @media (max-width: 768px) {
-        .logo-area img { height: 60px; }
+        .logo-area img { height: 50px; }
         .menu-icon { display: flex; }
-        #main-nav { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background: white; padding: 20px 0; border-top: 1px solid #eee; }
+        #main-nav { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background: #FDFBF7; padding: 20px 0; }
         #main-nav.show-menu { display: flex; }
-        #main-nav a { margin: 10px 0; }
-        .dropdown-content { position: static; background: #f8f8f8; }
+        #main-nav a { margin: 15px 0; text-align: center; }
     }
 </style>
 
