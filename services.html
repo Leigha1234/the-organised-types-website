@@ -58,13 +58,14 @@
     <div id="site-footer"></div>
 
     <script>
-        // Inject Header and Footer
-        document.addEventListener("DOMContentLoaded", () => {
-            fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
-            fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
-        });
+        // Fetching Header/Footer
+        fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
+        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
 
         const products = [
+            { cat: 'TOTS OS', title: 'TOTS OS Elite', desc: 'Our premium business operating system.', url: '#' },
+            { cat: 'TOTS OS', title: 'TOTS OS Premium', desc: 'Advanced management tools for scaling teams.', url: '#' },
+            { cat: 'TOTS OS', title: 'TOTS OS Team Member', desc: 'Collaboration tools for your team.', url: '#' },
             { cat: 'Planners', title: 'Annual Planner', desc: 'Plan your year with clarity.', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A' },
             { cat: 'Planners', title: 'Weekly Planner', desc: 'Stay organised.', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07' },
             { cat: 'Planners', title: 'Yearly Goals Planner', desc: 'Goal setting.', url: '#' },
@@ -76,20 +77,17 @@
             { cat: 'Business', title: 'Customer Management Checklist', desc: 'Client workflow.', url: '#' },
             { cat: 'Business', title: 'Productivity & Focus Checklist', desc: 'Focus tools.', url: 'https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a' },
             { cat: 'Business', title: 'Premium Brand & Social Kit', desc: 'Online presence.', url: 'https://buy.stripe.com/8x25kwdR70Wxg54bE483C09' },
-            { cat: 'TOTS OS', title: 'TOTS OS Elite', desc: 'Operating system.', url: '#' },
-            { cat: 'TOTS OS', title: 'TOTS OS Premium', desc: 'Management tools.', url: '#' },
-            { cat: 'TOTS OS', title: 'TOTS OS Team Member', desc: 'Collaboration.', url: '#' },
             { cat: 'Other', title: 'Workout Tracker', desc: 'Physical goals.', url: 'https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08' },
             { cat: 'Other', title: 'WhyKnot', desc: 'Resource tool.', url: '#' }
         ];
 
         const container = document.getElementById('product-container');
-        const categories = ['Planners', 'Business', 'TOTS OS', 'Other'];
+        const categories = ['TOTS OS', 'Planners', 'Business', 'Other'];
 
         categories.forEach(cat => {
-            container.innerHTML += `<h2 class="section-title">${cat}</h2><div class="resource-grid" id="grid-${cat}"></div>`;
+            container.innerHTML += `<h2 class="section-title">${cat}</h2><div class="resource-grid" id="grid-${cat.replace(/\s+/g, '-')}"></div>`;
             products.filter(p => p.cat === cat).forEach(p => {
-                document.getElementById(`grid-${cat}`).innerHTML += `
+                document.getElementById(`grid-${cat.replace(/\s+/g, '-').toLowerCase()}`).innerHTML += `
                     <div class="resource-card">
                         <img src="https://via.placeholder.com/300x200" alt="${p.title}">
                         <h3>${p.title}</h3>
