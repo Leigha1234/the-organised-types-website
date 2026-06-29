@@ -8,70 +8,63 @@
         :root { --tots-green: #a9b897; }
         body { font-family: 'Poppins', sans-serif; background-color: #faf9f6; margin: 0; }
         
-        .section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+        .main-wrapper { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         
-        /* Grid settings */
+        /* The Grid: 3 columns on wide screens, 1 on mobile */
         .package-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 25px;
         }
 
-        /* Card settings */
+        /* The Card: Flexbox handles the vertical spacing */
         .package-card { 
             background: #fff; padding: 30px; border-radius: 20px;
             text-align: center; border: 1px solid #eee;
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* Elements */
-        h3 { margin: 0 0 10px 0; font-size: 1.5rem; }
-        p { color: #666; font-size: 0.95rem; margin-bottom: 15px; }
+        h3 { margin: 0 0 10px 0; font-size: 1.3rem; }
+        p { color: #555; font-size: 0.9rem; margin-bottom: 15px; flex-grow: 1; }
         .price { font-size: 1.2rem; font-weight: 700; color: var(--tots-green); margin: 10px 0; }
         
-        /* Fixed Buttons */
+        /* Buttons - explicit widths to prevent stretching */
         .btn-more { 
-            background: #f0f0f0; border: none; padding: 8px 16px; 
-            border-radius: 20px; cursor: pointer; color: #555; margin-bottom: 15px; 
+            background: #f4f4f4; border: none; padding: 8px 15px; 
+            border-radius: 20px; cursor: pointer; color: #777; font-size: 0.8rem;
         }
         .btn-green { 
-            background: var(--tots-green); color: white; padding: 12px 25px; 
-            border-radius: 50px; text-decoration: none; font-weight: 600; 
-            display: inline-block; width: fit-content;
+            background: var(--tots-green); color: white; padding: 12px 30px; 
+            border-radius: 50px; text-decoration: none; font-weight: 700; 
+            display: inline-block; margin-top: 15px;
         }
-
-        /* Modal */
-        dialog { border-radius: 20px; border: none; padding: 30px; max-width: 400px; }
     </style>
 </head>
 <body>
 
-    <section class="section">
+    <div class="main-wrapper">
+        <h1 style="text-align:center;">Our Packages</h1>
+        
         <div class="package-grid">
             
-            <!-- Card 1 -->
             <div class="package-card">
                 <h3>Yearly Goals Planner</h3>
                 <p>Plan your year with clarity, intention, and calm...</p>
-                <button class="btn-more" onclick="modal1.showModal()">Find out more</button>
+                <button class="btn-more">Find out more</button>
                 <div class="price">£0.00</div>
                 <a href="#" class="btn-green">Purchase Now</a>
             </div>
 
-            <!-- Card 2 -->
             <div class="package-card">
                 <h3>Weekly Planner</h3>
                 <p>Stay organised, focused, and productive...</p>
-                <button class="btn-more" onclick="modal2.showModal()">Find out more</button>
+                <button class="btn-more">Find out more</button>
                 <div class="price">£0.00</div>
                 <a href="#" class="btn-green">Purchase Now</a>
             </div>
 
         </div>
-    </section>
-
-    <dialog id="modal1"><h3>Yearly Goals Planner</h3><p>Full description here.</p><button onclick="modal1.close()">Close</button></dialog>
-    <dialog id="modal2"><h3>Weekly Planner</h3><p>Full description here.</p><button onclick="modal2.close()">Close</button></dialog>
+    </div>
 
 </body>
 </html>
