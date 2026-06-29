@@ -14,7 +14,7 @@
 
         .package-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px; 
         }
 
@@ -24,20 +24,24 @@
             text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
-        .package-card h3 { color: #000; margin-top: 0; font-size: 1.4rem; }
-        .price { font-size: 1.5rem; font-weight: 700; color: var(--tots-green); margin: 20px 0; }
+        .package-card h3 { color: #000; margin: 0 0 10px 0; font-size: 1.4rem; }
+        .price { font-size: 1.5rem; font-weight: 700; color: var(--tots-green); margin: 15px 0; }
         
-        .btn-more { background: none; border: 1px solid #ddd; padding: 8px 16px; border-radius: 20px; cursor: pointer; color: #666; font-size: 0.8rem; margin-bottom: 10px; transition: 0.3s; }
+        /* The buttons */
+        .btn-more { 
+            background: none; border: 1px solid #ddd; padding: 8px 20px; 
+            border-radius: 20px; cursor: pointer; color: #666; 
+            font-size: 0.85rem; width: fit-content; margin: 0 auto 20px auto; 
+        }
         .btn-more:hover { border-color: var(--tots-green); color: var(--tots-green); }
-
+        
         .btn-green { 
             background: var(--tots-green); color: white; padding: 15px 30px; 
             border-radius: 999px; text-decoration: none; font-weight: 700; 
-            margin-top: auto; transition: 0.3s;
+            margin-top: auto; display: inline-block;
         }
-        .btn-green:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        /* Modal Styling */
+        /* Modal Styles */
         dialog { border-radius: 20px; border: none; padding: 40px; max-width: 500px; width: 90%; }
         dialog::backdrop { background: rgba(0,0,0,0.6); }
         .close-btn { background: #eee; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-top: 20px; }
@@ -53,24 +57,40 @@
             
             <div class="package-card">
                 <h3>Yearly Goals Planner</h3>
-                <p>Plan your year with clarity, intention, and calm with our 2026 Yearly Planner... </p>
-                <button class="btn-more" onclick="modal1.showModal()">Find out more</button>
+                <p>Plan your year with clarity, intention, and calm with our 2026 Yearly Planner...</p>
+                <button class="btn-more" onclick="openModal('Yearly Goals Planner', 'This is the full text for the yearly planner. It is much longer and provides all the details...')">Find out more</button>
                 <div class="price">£0.00</div>
                 <a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="btn-green">Purchase Now</a>
             </div>
 
+            <div class="package-card">
+                <h3>Weekly Planner</h3>
+                <p>Stay organised, focused, and productive with our free printable weekly planner...</p>
+                <button class="btn-more" onclick="openModal('Weekly Planner', 'This is the full text for the weekly planner. You can list all the features and benefits here.')">Find out more</button>
+                <div class="price">£0.00</div>
+                <a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="btn-green">Purchase Now</a>
             </div>
+
+        </div>
     </section>
 
-    <dialog id="modal1">
-        <h3>Yearly Goals Planner</h3>
-        <p>This is the full description where you can provide all the details about the Yearly Goals Planner. It is now in a popup so your page layout stays nice and clean!</p>
-        <button class="close-btn" onclick="modal1.close()">Close</button>
+    <dialog id="productModal">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+        <button class="close-btn" onclick="document.getElementById('productModal').close()">Close</button>
     </dialog>
 
     <div id="site-footer"></div>
 
     <script>
+        // Dynamic modal function
+        function openModal(title, desc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('productModal').showModal();
+        }
+
+        // Header/Footer loader
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
     </script>
