@@ -10,25 +10,20 @@
         :root { --tots-green: #a9b897; } 
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
         
-        /* Hero Banner */
         .hero-banner { position: relative; height: 90vh; display: flex; align-items: center; padding: 0 10%; color: white; background: url('resources.jpg') center/cover; }
         .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
         .hero-content { position: relative; z-index: 2; width: 100%; }
-        .hero-text { max-width: 600px; }
         .hero-text h1 { font-size: 4rem; text-transform: uppercase; margin-bottom: 20px; }
 
-        /* Resource Section */
         .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 2rem; margin: 60px 0 30px; }
         
-        /* 3-Column Grid */
         .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .resource-card { background: #fff; padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
         .resource-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
         
         .btn-green { background: var(--tots-green); color: white; padding: 15px 30px; border-radius: 999px; text-decoration: none; font-weight: 700; display: inline-block; cursor: pointer; border: none; }
         
-        /* Modal */
         #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index: 1000; justify-content:center; align-items:center; }
         .modal-content { background: #fff; padding: 50px; border-radius: 25px; max-width: 500px; text-align: center; }
 
@@ -38,8 +33,7 @@
 </head>
 
 <body>
-    <header>
-        </header>
+    <div id="site-header"></div>
 
     <section class="hero-banner">
         <div class="hero-overlay"></div>
@@ -61,10 +55,15 @@
         </div>
     </div>
 
-    <footer>
-        </footer>
+    <div id="site-footer"></div>
 
     <script>
+        // Inject Header and Footer
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
+            fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
+        });
+
         const products = [
             { cat: 'Planners', title: 'Annual Planner', desc: 'Plan your year with clarity.', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A' },
             { cat: 'Planners', title: 'Weekly Planner', desc: 'Stay organised.', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07' },
