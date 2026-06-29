@@ -8,18 +8,22 @@
         :root { --tots-green: #a9b897; --cream: #faf9f6; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--cream); margin: 0; }
 
-        #site-header { background-color: var(--cream); }
+        /* Ensure header has the correct background color */
+        #site-header { background-color: var(--cream); padding-bottom: 20px; }
         .page-container { max-width: 1100px; margin: 40px auto; padding: 20px; }
 
+        /* Single grid container to hold all cards */
         .package-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
             gap: 25px; 
+            margin-top: 20px;
         }
 
         .package-card { 
             background: #fff; padding: 30px; border-radius: 20px;
             text-align: center; border: 1px solid #eee;
+            display: flex; flex-direction: column; align-items: center;
         }
     </style>
 </head>
