@@ -4,95 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --tots-green: #a9b897; } 
-        body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
+        :root { --tots-green: #a9b897; }
+        body { font-family: 'Poppins', sans-serif; background-color: #faf9f6; margin: 0; }
         
-        .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        h1 { text-align: center; margin-bottom: 50px; font-weight: 900; }
-
+        .section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+        
+        /* Grid settings */
         .package-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 20px; 
         }
 
+        /* Card settings */
         .package-card { 
-            padding: 40px; border-radius: 25px; background: #fff; 
-            border: 1px solid #eee; display: flex; flex-direction: column; 
-            text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            background: #fff; padding: 30px; border-radius: 20px;
+            text-align: center; border: 1px solid #eee;
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        .package-card h3 { color: #000; margin: 0 0 10px 0; font-size: 1.4rem; }
-        .price { font-size: 1.5rem; font-weight: 700; color: var(--tots-green); margin: 15px 0; }
+        /* Elements */
+        h3 { margin: 0 0 10px 0; font-size: 1.5rem; }
+        p { color: #666; font-size: 0.95rem; margin-bottom: 15px; }
+        .price { font-size: 1.2rem; font-weight: 700; color: var(--tots-green); margin: 10px 0; }
         
-        /* The buttons */
+        /* Fixed Buttons */
         .btn-more { 
-            background: none; border: 1px solid #ddd; padding: 8px 20px; 
-            border-radius: 20px; cursor: pointer; color: #666; 
-            font-size: 0.85rem; width: fit-content; margin: 0 auto 20px auto; 
+            background: #f0f0f0; border: none; padding: 8px 16px; 
+            border-radius: 20px; cursor: pointer; color: #555; margin-bottom: 15px; 
         }
-        .btn-more:hover { border-color: var(--tots-green); color: var(--tots-green); }
-        
         .btn-green { 
-            background: var(--tots-green); color: white; padding: 15px 30px; 
-            border-radius: 999px; text-decoration: none; font-weight: 700; 
-            margin-top: auto; display: inline-block;
+            background: var(--tots-green); color: white; padding: 12px 25px; 
+            border-radius: 50px; text-decoration: none; font-weight: 600; 
+            display: inline-block; width: fit-content;
         }
 
-        /* Modal Styles */
-        dialog { border-radius: 20px; border: none; padding: 40px; max-width: 500px; width: 90%; }
-        dialog::backdrop { background: rgba(0,0,0,0.6); }
-        .close-btn { background: #eee; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer; margin-top: 20px; }
+        /* Modal */
+        dialog { border-radius: 20px; border: none; padding: 30px; max-width: 400px; }
     </style>
 </head>
 <body>
 
-    <div id="site-header"></div>
-
     <section class="section">
-        <h1>Our Packages</h1>
         <div class="package-grid">
             
+            <!-- Card 1 -->
             <div class="package-card">
                 <h3>Yearly Goals Planner</h3>
-                <p>Plan your year with clarity, intention, and calm with our 2026 Yearly Planner...</p>
-                <button class="btn-more" onclick="openModal('Yearly Goals Planner', 'This is the full text for the yearly planner. It is much longer and provides all the details...')">Find out more</button>
+                <p>Plan your year with clarity, intention, and calm...</p>
+                <button class="btn-more" onclick="modal1.showModal()">Find out more</button>
                 <div class="price">£0.00</div>
-                <a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="btn-green">Purchase Now</a>
+                <a href="#" class="btn-green">Purchase Now</a>
             </div>
 
+            <!-- Card 2 -->
             <div class="package-card">
                 <h3>Weekly Planner</h3>
-                <p>Stay organised, focused, and productive with our free printable weekly planner...</p>
-                <button class="btn-more" onclick="openModal('Weekly Planner', 'This is the full text for the weekly planner. You can list all the features and benefits here.')">Find out more</button>
+                <p>Stay organised, focused, and productive...</p>
+                <button class="btn-more" onclick="modal2.showModal()">Find out more</button>
                 <div class="price">£0.00</div>
-                <a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="btn-green">Purchase Now</a>
+                <a href="#" class="btn-green">Purchase Now</a>
             </div>
 
         </div>
     </section>
 
-    <dialog id="productModal">
-        <h3 id="modalTitle"></h3>
-        <p id="modalDesc"></p>
-        <button class="close-btn" onclick="document.getElementById('productModal').close()">Close</button>
-    </dialog>
+    <dialog id="modal1"><h3>Yearly Goals Planner</h3><p>Full description here.</p><button onclick="modal1.close()">Close</button></dialog>
+    <dialog id="modal2"><h3>Weekly Planner</h3><p>Full description here.</p><button onclick="modal2.close()">Close</button></dialog>
 
-    <div id="site-footer"></div>
-
-    <script>
-        // Dynamic modal function
-        function openModal(title, desc) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('productModal').showModal();
-        }
-
-        // Header/Footer loader
-        fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
-        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
-    </script>
 </body>
 </html>
