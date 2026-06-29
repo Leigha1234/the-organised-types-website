@@ -4,48 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Resources | The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homscss.css">
     <style>
-        :root { --tots-green: #a9b897; }
+        :root { --tots-green: #a9b897; } 
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
         
-        /* Full Size Hero Banner */
-        .hero-banner { 
-            position: relative; height: 60vh; display: flex; align-items: center; padding: 0 10%; 
-            color: white; background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)), url('resources.jpg') center/cover; 
-        }
-        .hero-content { position: relative; z-index: 1; }
+        /* Hero Banner (Matching your homepage) */
+        .hero-banner { position: relative; height: 90vh; display: flex; align-items: center; padding: 0 10%; color: white; background: url('resources.jpg') center/cover; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+        .hero-content { position: relative; z-index: 2; width: 100%; }
+        .hero-text { max-width: 600px; }
+        .hero-text h1 { font-size: 4rem; text-transform: uppercase; margin-bottom: 20px; }
+
+        /* Resource Section */
+        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 40px; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-bottom: 80px; }
+        .resource-card { background: #fff; padding: 40px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        .resource-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; }
         
-        .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; margin-top: 40px; }
-        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
-        .resource-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
-        .resource-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px; }
+        /* Button Style */
+        .btn-green { background: var(--tots-green); color: white; padding: 18px 36px; border-radius: 999px; text-decoration: none; font-weight: 700; display: inline-block; cursor: pointer; border: none; }
         
-        .btn { background: var(--tots-green); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; border: none; cursor: pointer; display: inline-block; margin-top: 15px; }
-        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index: 1000; }
-        .modal-content { background: #fff; padding: 40px; border-radius: 20px; max-width: 500px; text-align: center; }
+        /* Modal Styles */
+        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index: 1000; justify-content:center; align-items:center; }
+        .modal-content { background: #fff; padding: 50px; border-radius: 25px; max-width: 500px; text-align: center; position: relative; }
     </style>
 </head>
-<body>
 
+<body>
     <div id="site-header"></div>
 
     <section class="hero-banner">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Resources & Digital Tools</h1>
-            <p>Helping you organise life and business.</p>
+            <div class="hero-text">
+                <h1>Digital Resources</h1>
+                <p>Practical templates and systems to turn chaos into structure.</p>
+            </div>
         </div>
     </section>
 
-    <section class="section" id="product-container"></section>
+    <div id="product-container" class="section"></div>
 
     <div id="modal">
         <div class="modal-content">
             <h2 id="modal-title"></h2>
             <p id="modal-desc"></p>
-            <a id="modal-buy" class="btn" href="#">Buy / Download</a>
-            <br><button class="btn" style="background:#333;" onclick="document.getElementById('modal').style.display='none'">Close</button>
+            <a id="modal-buy" class="btn-green" href="#">Buy / Download</a>
+            <br><br><button onclick="document.getElementById('modal').style.display='none'" style="background:none; border:none; cursor:pointer;">Close</button>
         </div>
     </div>
 
@@ -53,13 +61,13 @@
 
     <script>
         const products = [
-            { cat: 'Planners', title: 'Annual Planner', desc: 'Plan your year with clarity, intention, and calm.', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A' },
-            { cat: 'Planners', title: 'Weekly Planner', desc: 'Stay organised, focused, and productive.', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07' },
+            { cat: 'Planners', title: 'Annual Planner', desc: 'Plan your year with clarity and calm.', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A' },
+            { cat: 'Planners', title: 'Weekly Planner', desc: 'Stay organised and productive.', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07' },
             { cat: 'Planners', title: 'Yearly Goals Planner', desc: 'Break big visions into manageable focus areas.', url: '#' },
             { cat: 'Business', title: 'Branding Complete Suite', desc: 'Everything you need to build a consistent brand.', url: 'https://buy.stripe.com/3cI6oA28p5cN7yy5fG83C0C' },
             { cat: 'Business', title: '2-Day Business Audit', desc: 'A deep dive into your business systems.', url: 'https://buy.stripe.com/14A6oAfZf8oZcSSaA083C0B' },
             { cat: 'Business', title: 'Brand Kickstart', desc: 'Get your brand foundations right.', url: 'https://buy.stripe.com/8x2eV67sJ7kV8CCeQg83C0z' },
-            { cat: 'Business', title: 'Business Sales Roadmap', desc: 'Step-by-step prompts to create a sales process.', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b' },
+            { cat: 'Business', title: 'Business Sales Roadmap', desc: 'Create a sustainable sales process.', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b' },
             { cat: 'Business', title: 'Starter Website', desc: 'A clean, functional website template.', url: 'https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b' },
             { cat: 'Business', title: 'Customer Management Checklist', desc: 'Keep your clients happy and running smoothly.', url: '#' },
             { cat: 'Business', title: 'Productivity & Focus Checklist', desc: 'Stay organised and on task.', url: 'https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a' },
@@ -81,18 +89,19 @@
                     <div class="resource-card">
                         <img src="https://via.placeholder.com/300x200" alt="${p.title}">
                         <h3>${p.title}</h3>
-                        <button class="btn" onclick="showModal('${p.title}', '${p.desc.replace(/'/g, "\\'")}', '${p.url}')">Find out more</button>
+                        <button class="btn-green" onclick="openM('${p.title}', '${p.desc.replace(/'/g, "\\'")}', '${p.url}')">Find out more</button>
                     </div>`;
             });
         });
 
-        function showModal(t, d, u) {
+        function openM(t, d, u) {
             document.getElementById('modal-title').innerText = t;
             document.getElementById('modal-desc').innerText = d;
             document.getElementById('modal-buy').href = u;
             document.getElementById('modal').style.display = 'flex';
         }
 
+        // Fetch Header/Footer
         fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
         fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
     </script>
