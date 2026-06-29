@@ -4,85 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="homscss.css">
     <style>
         :root { --tots-green: #a9b897; } 
         body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; }
-        
         .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
         
-      .package-grid { 
-    display: grid; 
-    /* This forces 3 columns on desktop, 2 on tablet, 1 on mobile */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 30px; 
-    margin-top: 40px;
-    padding: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .package-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 30px; margin-top: 40px;
+        }
         
         .package-card { 
-            padding: 40px; 
-            border-radius: 25px; 
-            background: #f8f8f8; 
-            border: 1px solid #eee;
-            display: flex; 
-            flex-direction: column;
-            text-align: center;
+            padding: 40px; border-radius: 25px; background: #f8f8f8; 
+            border: 1px solid #eee; display: flex; flex-direction: column; text-align: center;
         }
         
-        .package-card h3 { color: #000; margin-top: 0; }
-        .price { font-size: 1.5rem; font-weight: 700; color: var(--tots-green); margin: 20px 0; }
+        .btn-more { background: none; border: 1px solid var(--tots-green); color: var(--tots-green); padding: 5px; cursor: pointer; margin-bottom: 10px; border-radius: 5px; }
+        .btn-green { background: var(--tots-green); color: white; padding: 15px 30px; border-radius: 999px; text-decoration: none; font-weight: 700; margin-top: 10px; }
         
-        .btn-green { 
-            background: var(--tots-green); color: white; padding: 15px 30px; 
-            border-radius: 999px; text-decoration: none; font-weight: 700; 
-            text-align: center; display: inline-block; margin-top: auto;
-        }
-        .btn-green:hover { transform: scale(1.05); }
+        /* Modal Styles */
+        dialog { border-radius: 15px; border: none; padding: 40px; max-width: 500px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        dialog::backdrop { background: rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
-    
-    <div id="site-header"></div>
 
     <section class="section">
         <h1 style="text-align: center;">Our Packages</h1>
-        <div class="package-grid" id="product-container">
-            <div class="package-card"><h3>Yearly Goals Planner</h3><p>Plan your year with clarity, intention, and calm with our 2026 Yearly Planner. Designed for business owners and creatives who want direction without overwhelm, this planner helps you step back, see the bigger picture, and move through the year with purpose. This yearly planner helps you: Set clear goals for 2026 Break big visions into manageable focus areas Plan your year without pressure or hustle Stay aligned with what actually matters to you Review, reset, and refocus as the year unfolds Perfect for anyone who wants structure without rigidity, this thoughtfully designed planner can be used digitally or printed. It’s ideal for mapping out your year, revisiting your intentions, and staying grounded when things get busy. Download the 2026 Yearly Planner and move through the year feeling organised, clear, and in control 🤍</p><div class="price">£0.00</div><a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="btn-green">Purchase Now</a></div>
+        <div class="package-grid">
+            
+            <div class="package-card">
+                <h3>Yearly Goals Planner</h3>
+                <p>Plan your year with clarity, intention, and calm with our 2026 Yearly Planner...</p>
+                <button class="btn-more" onclick="document.getElementById('modal1').showModal()">Find out more</button>
+                <div class="price">£0.00</div>
+                <a href="https://buy.stripe.com/6oU8wI14l20B3iibE483C06" class="btn-green">Purchase Now</a>
             </div>
-            <div class="package-grid" id="product-container">
-            <div class="package-card"><h3>Weekly Planner</h3><p>Stay organised, focused, and productive with our free printable weekly planner! Designed to help you take control of your week, this planner allows you to: Plan your week at a glance Prioritise tasks and appointments Track goals and to-dos Balance work, personal life, and self-care Reflect on wins and plan for improvements Perfect for home, work, or study, this PDF is ready to download instantly. Just print it, fill it in, and start your week with clarity and purpose! Download your free weekly planner today and make every week your most productive yet.</p><div class="price">£0.00</div><a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="btn-green">Purchase Now</a></div>
+            <dialog id="modal1">
+                <h3>Yearly Goals Planner</h3>
+                <p>Full description goes here. This is the text that was too long for the card. Now the user can see everything in this clean pop-up!</p>
+                <button onclick="this.parentElement.close()">Close</button>
+            </dialog>
+
+            <div class="package-card">
+                <h3>Weekly Planner</h3>
+                <p>Stay organised, focused, and productive with our free printable weekly planner...</p>
+                <button class="btn-more" onclick="document.getElementById('modal2').showModal()">Find out more</button>
+                <div class="price">£0.00</div>
+                <a href="https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07" class="btn-green">Purchase Now</a>
             </div>
-            <div class="package-grid" id="product-container">
+            <dialog id="modal2">
+                <h3>Weekly Planner</h3>
+                <p>Full description here. Detailed benefits of the weekly planner...</p>
+                <button onclick="this.parentElement.close()">Close</button>
+            </dialog>
+
+        </div>
     </section>
 
-    <div id="site-footer"></div>
-
-    <script>
-        // Use try-catch to prevent script errors from hiding content
-        async function loadPartials() {
-            const files = [
-                { id: 'site-header', url: 'header.html' },
-                { id: 'site-footer', url: 'footer.html' }
-            ];
-
-            for (const file of files) {
-                try {
-                    const response = await fetch(file.url);
-                    if (response.ok) {
-                        const data = await response.text();
-                        document.getElementById(file.id).innerHTML = data;
-                    }
-                } catch (e) {
-                    console.error(`Could not load ${file.url}:`, e);
-                }
-            }
-        }
-        loadPartials();
-    </script>
 </body>
 </html>
