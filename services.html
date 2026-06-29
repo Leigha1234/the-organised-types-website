@@ -5,57 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Resources | The Organised Types</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homscss.css">
     <style>
-        :root { --tots-green: #a9b897; --cream: #faf9f6; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--cream); margin: 0; color: #334155; }
-
-        /* Hero Banner */
-        .resources-hero {
-            height: 45vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; padding: 20px;
-            background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('planner-hero.jpg') center/cover;
+        :root { --tots-green: #a9b897; } 
+        body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
+        
+        /* Hero - Matches Homepage */
+        .resources-hero { 
+            position: relative; height: 45vh; display: flex; align-items: center; 
+            padding: 0 10%; color: white; 
+            background: linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)), url('planner-hero.jpg') center/cover; 
         }
-        .resources-hero h1 { font-size: 3.2rem; text-transform: uppercase; text-shadow: 0 0 20px var(--tots-green); margin-bottom: 10px; }
-        .resources-hero p { max-width: 650px; font-size: 1.2rem; margin: 0; }
+        .hero-text h1 { font-size: 3.2rem; text-transform: uppercase; text-shadow: 0 0 20px var(--tots-green); margin-bottom: 10px; }
+        .hero-text p { max-width: 650px; font-size: 1.2rem; }
 
-        /* Content Sections */
+        /* Section */
         .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
-        .intro-text { font-size: 1.1rem; line-height: 1.6; max-width: 700px; margin: 0 auto 60px; }
-
-        /* Grid & Card Styling */
+        
+        /* Redesigned Cards */
         .resource-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 50px; 
         }
         .resource-card { 
             background: #fff; padding: 40px; border-radius: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;
             display: flex; flex-direction: column; align-items: center;
         }
-        .icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .icon { font-size: 3rem; margin-bottom: 20px; }
         .resource-card h3 { margin: 10px 0; font-size: 1.4rem; }
-        .resource-card p { color: #666; flex-grow: 1; margin-bottom: 25px; }
-
+        .resource-card p { color: #666; flex-grow: 1; margin-bottom: 25px; line-height: 1.6; }
+        
         /* Buttons */
-        .btn-download { background: var(--tots-green); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; margin-bottom: 15px; display: block; }
-        .btn-more { color: #888; text-decoration: underline; font-size: 0.9rem; cursor: pointer; border: none; background: none; }
-
-        /* Custom Services Section */
-        .bespoke-section { background: #fff; padding: 80px 20px; margin-top: 40px; border-top: 1px solid #eee; }
-        .btn-service { background: #000; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 20px; }
+        .btn-download { background: var(--tots-green); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; width: 100%; max-width: 200px; }
+        .btn-more { color: #888; text-decoration: underline; font-size: 0.9rem; border: none; background: none; cursor: pointer; margin-top: 15px; }
+        
+        /* Bespoke Section */
+        .bespoke-section { background: #fff; padding: 80px 20px; text-align: center; border-top: 1px solid #eee; }
+        .btn-black { background: #000; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 20px; }
     </style>
 </head>
-<body>
 
+<body>
     <div id="site-header"></div>
 
     <section class="resources-hero">
-        <h1>Resources & Digital Tools</h1>
-        <p>Helping you organise life and business with practical templates, planners and digital downloads.</p>
+        <div class="hero-text">
+            <h1>Resources & Digital Tools</h1>
+            <p>Helping you organise life and business with practical templates, planners and digital downloads.</p>
+        </div>
     </section>
 
     <section class="section">
-        <p class="intro-text">Whether you're planning your week, setting yearly goals or building systems for your business, these resources are designed to make organisation feel simple.</p>
+        <p>Whether you're planning your week, setting yearly goals or building systems for your business, these resources are designed to make organisation feel simple.</p>
         
         <div class="resource-grid">
             <div class="resource-card">
@@ -63,15 +64,16 @@
                 <h3>Yearly Goals Planner</h3>
                 <p>A printable planner designed to help you organise your year.</p>
                 <a href="#" class="btn-download">FREE DOWNLOAD</a>
-                <button class="btn-more">Find out more</button>
+                <button class="btn-more" onclick="alert('Open Modal Here')">Find out more</button>
             </div>
+            
             </div>
     </section>
 
     <section class="bespoke-section">
         <h2>Need something bespoke?</h2>
         <p>Looking for custom systems, Notion workspaces, websites or business support?</p>
-        <a href="#" class="btn-service">Explore Our Services</a>
+        <a href="contact.html" class="btn-black">Explore Our Services</a>
     </section>
 
     <div id="site-footer"></div>
