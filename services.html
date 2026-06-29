@@ -2,91 +2,64 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Resources | The Organised Types</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --tots-green: #a9b897; } 
-        body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; background-color: #faf9f6; }
-        
-        /* Hero Section - Matching your design */
-        .hero-banner { 
-            height: 350px; 
-            display: flex; 
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center; 
-            text-align: center;
-            color: white; 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('resources.jpg') center/cover;
-            padding: 20px;
-        }
-        .hero-text h1 { font-size: 2rem; margin-bottom: 10px; font-weight: 600; }
-        .hero-text p { font-size: 1.1rem; margin-bottom: 25px; }
-
-        .hero-buttons { display: flex; gap: 15px; }
-        .btn-hero { 
-            background: var(--tots-green); color: white; padding: 12px 25px; 
-            border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
-        }
-
-        /* Resources Section */
-        .section { padding: 60px 20px; max-width: 900px; margin: 0 auto; text-align: center; }
-        
-        .resource-card { 
-            background: #fff; padding: 40px; border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            display: inline-block; width: 100%; max-width: 400px;
-        }
-        .resource-card img { max-width: 100px; margin-bottom: 15px; }
-        .btn-download { 
-            background: var(--tots-green); color: white; padding: 12px 40px; 
-            border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin: 15px 0;
-        }
-        .btn-more { display: block; color: #666; text-decoration: underline; font-size: 0.85rem; border: none; background: none; cursor: pointer; margin: 0 auto; }
-        
-        /* Bespoke Section */
-        .bespoke-section { padding: 60px 20px; text-align: center; }
-        .btn-black { background: #000; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; display: inline-block; margin-top: 20px; }
+        :root { --tots-green: #a9b897; }
+        body { font-family: 'Poppins', sans-serif; background: #faf9f6; padding: 40px; color: #334155; }
+        .resource-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: auto; }
+        .resource-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
+        .price { font-weight: 700; color: var(--tots-green); display: block; margin: 10px 0; }
+        .btn { background: var(--tots-green); color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; border: none; cursor: pointer; display: inline-block; margin: 5px; }
+        #modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; }
+        .modal-content { background: #fff; padding: 30px; border-radius: 20px; max-width: 500px; }
     </style>
 </head>
-
 <body>
-    <div id="site-header"></div>
 
-    <section class="hero-banner">
-        <div class="hero-text">
-            <p>Helping you organise life and business with practical<br>templates, planners and digital downloads.</p>
-        </div>
-        <div class="hero-buttons">
-            <a href="contact.html" class="btn-hero">Build Your System</a>
-            <a href="clarity-call.html" class="btn-hero">Book a Clarity Call</a>
-        </div>
-    </section>
+<div class="resource-grid" id="product-list"></div>
 
-    <section class="section">
-        <p>Whether you're planning your week, setting yearly goals or building systems for your business, these resources are designed to make organisation feel simple.</p>
-        
-        <div class="resource-card">
-            <img src="Social media strategy.png" alt="Social Media Strategy">
-            <h3>Social Media Strategy</h3>
-            <p>A printable course designed to help you create a winning social media strategy.</p>
-            <a href="#" class="btn-download">£29.00</a>
-            <button class="btn-more" onclick="alert('Open Modal Here')">Find out more</button>
-        </div>
-    </section>
+<div id="modal">
+    <div class="modal-content">
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+        <a id="modal-buy" class="btn" href="#">Buy Now</a>
+        <button class="btn" onclick="document.getElementById('modal').style.display='none'">Close</button>
+    </div>
+</div>
 
-    <section class="bespoke-section">
-        <h2>Need something bespoke?</h2>
-        <p>Looking for custom systems, Notion workspaces, websites or business support?</p>
-        <a href="contact.html" class="btn-black">Explore Our Services</a>
-    </section>
+<script>
+    // Full product list compiled from your files
+    const products = [
+        { title: 'Branding Complete Suite', desc: 'Build a consistent brand identity.', price: '£TBC', url: 'https://buy.stripe.com/3cI6oA28p5cN7yy5fG83C0C' },
+        { title: '2-Day Business Audit', desc: 'A deep dive into your systems.', price: '£TBC', url: 'https://buy.stripe.com/14A6oAfZf8oZcSSaA083C0B' },
+        { title: 'Annual Planner', desc: 'Plan your year with clarity.', price: '£TBC', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A' },
+        { title: 'Brand Kickstart', desc: 'Get your brand foundations right.', price: '£TBC', url: 'https://buy.stripe.com/8x2eV67sJ7kV8CCeQg83C0z' },
+        { title: 'Business Sales Roadmap', desc: 'Create a sustainable sales process.', price: '£TBC', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b' },
+        { title: 'Starter Website', desc: 'A clean, functional website template.', price: '£TBC', url: 'https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b' },
+        { title: 'Productivity & Focus Checklist', desc: 'Stay organised and on task.', price: '£TBC', url: 'https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a' },
+        { title: 'Premium Brand & Social Kit', desc: 'Elevate your online presence.', price: '£TBC', url: 'https://buy.stripe.com/8x25kwdR70Wxg54bE483C09' },
+        { title: 'Workout Tracker', desc: 'Keep track of your physical goals.', price: '£TBC', url: 'https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08' },
+        { title: 'Weekly Planner', desc: 'Master your weekly schedule.', price: '£TBC', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07' },
+        { title: 'TOTS OS Elite', desc: 'Our premium business operating system.', price: '£TBC', url: '#' },
+        { title: 'TOTS OS Premium', desc: 'Advanced management tools for teams.', price: '£TBC', url: '#' }
+    ];
 
-    <div id="site-footer"></div>
+    const container = document.getElementById('product-list');
+    products.forEach(p => {
+        container.innerHTML += `
+            <div class="resource-card">
+                <h3>${p.title}</h3>
+                <span class="price">${p.price}</span>
+                <button class="btn" onclick="showModal('${p.title}', '${p.desc}', '${p.url}')">Find out more</button>
+            </div>`;
+    });
 
-    <script>
-        fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
-        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
-    </script>
+    function showModal(t, d, u) {
+        document.getElementById('modal-title').innerText = t;
+        document.getElementById('modal-desc').innerText = d;
+        document.getElementById('modal-buy').href = u;
+        document.getElementById('modal').style.display = 'flex';
+    }
+</script>
 </body>
 </html>
