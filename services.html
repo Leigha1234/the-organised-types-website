@@ -58,28 +58,27 @@
     <div id="site-footer"></div>
 
     <script>
-        // Inject Header and Footer
         document.addEventListener("DOMContentLoaded", () => {
             fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
             fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
         });
 
         const products = [
-            { cat: 'Planners', title: 'Annual Planner', desc: 'Plan your year with clarity.', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A' },
-            { cat: 'Planners', title: 'Weekly Planner', desc: 'Stay organised.', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07' },
-            { cat: 'Planners', title: 'Yearly Goals Planner', desc: 'Goal setting.', url: '#' },
-            { cat: 'Business', title: 'Branding Complete Suite', desc: 'Build your brand.', url: 'https://buy.stripe.com/3cI6oA28p5cN7yy5fG83C0C' },
-            { cat: 'Business', title: '2-Day Business Audit', desc: 'System audit.', url: 'https://buy.stripe.com/14A6oAfZf8oZcSSaA083C0B' },
-            { cat: 'Business', title: 'Brand Kickstart', desc: 'Foundations.', url: 'https://buy.stripe.com/8x2eV67sJ7kV8CCeQg83C0z' },
-            { cat: 'Business', title: 'Business Sales Roadmap', desc: 'Sales process.', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b' },
-            { cat: 'Business', title: 'Starter Website', desc: 'Template.', url: 'https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b' },
-            { cat: 'Business', title: 'Customer Management Checklist', desc: 'Client workflow.', url: '#' },
-            { cat: 'Business', title: 'Productivity & Focus Checklist', desc: 'Focus tools.', url: 'https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a' },
-            { cat: 'Business', title: 'Premium Brand & Social Kit', desc: 'Online presence.', url: 'https://buy.stripe.com/8x25kwdR70Wxg54bE483C09' },
-            { cat: 'TOTS OS', title: 'TOTS OS Elite', desc: 'Operating system.', url: '#' },
-            { cat: 'TOTS OS', title: 'TOTS OS Premium', desc: 'Management tools.', url: '#' },
-            { cat: 'TOTS OS', title: 'TOTS OS Team Member', desc: 'Collaboration.', url: '#' },
-            { cat: 'Other', title: 'Workout Tracker', desc: 'Physical goals.', url: 'https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08' },
+            { cat: 'Planners', title: 'Annual Planner', desc: 'Plan your year with clarity.', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A', img: 'annualplanner.jpg' },
+            { cat: 'Planners', title: 'Weekly Planner', desc: 'Stay organised.', url: 'https://buy.stripe.com/14AbIU7sJ9t3cSS8rS83C07', img: 'weeklyplanner.jpg' },
+            { cat: 'Planners', title: 'Yearly Goals Planner', desc: 'Goal setting.', url: '#', img: 'yearlygoalplanner.jpg' },
+            { cat: 'Business', title: 'Branding Complete Suite', desc: 'Build your brand.', url: 'https://buy.stripe.com/3cI6oA28p5cN7yy5fG83C0C', img: 'branding.jpg' },
+            { cat: 'Business', title: '2-Day Business Audit', desc: 'System audit.', url: 'https://buy.stripe.com/14A6oAfZf8oZcSSaA083C0B', img: 'audit.jpg' },
+            { cat: 'Business', title: 'Brand Kickstart', desc: 'Foundations.', url: 'https://buy.stripe.com/8x2eV67sJ7kV8CCeQg83C0z', img: 'kickstart.jpg' },
+            { cat: 'Business', title: 'Business Sales Roadmap', desc: 'Sales process.', url: 'https://buy.stripe.com/bJedR228p6gRbOO4b', img: 'businesssales.jpg' },
+            { cat: 'Business', title: 'Starter Website', desc: 'Template.', url: 'https://buy.stripe.com/cNi3coaEV6gR2ee37y83C0b', img: 'starterwebsite.jpg' },
+            { cat: 'Business', title: 'Customer Management Checklist', desc: 'Client workflow.', url: '#', img: 'checklist.jpg' },
+            { cat: 'Business', title: 'Productivity & Focus Checklist', desc: 'Focus tools.', url: 'https://buy.stripe.com/eVq5kwdR7cFfaKK37y83C0a', img: 'focus.jpg' },
+            { cat: 'Business', title: 'Premium Brand & Social Kit', desc: 'Online presence.', url: 'https://buy.stripe.com/8x25kwdR70Wxg54bE483C09', img: 'socialkit.jpg' },
+            { cat: 'TOTS OS', title: 'TOTS OS Elite', desc: 'Operating system.', url: '#', img: 'tots-elite.jpg' },
+            { cat: 'TOTS OS', title: 'TOTS OS Premium', desc: 'Management tools.', url: '#', img: 'tots-premium.jpg' },
+            { cat: 'TOTS OS', title: 'TOTS OS Team Member', desc: 'Collaboration.', url: '#', img: 'tots-team.jpg' },
+            { cat: 'Other', title: 'Workout Tracker', desc: 'Physical goals.', url: 'https://buy.stripe.com/6oU14gfZfax7cSS9vW83C08', img: 'workout.jpg' },
         ];
 
         const container = document.getElementById('product-container');
@@ -90,7 +89,7 @@
             products.filter(p => p.cat === cat).forEach(p => {
                 document.getElementById(`grid-${cat}`).innerHTML += `
                     <div class="resource-card">
-                        <img src="https://via.placeholder.com/300x200" alt="${p.title}">
+                        <img src="${p.img}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/300x200'">
                         <h3>${p.title}</h3>
                         <button class="btn-green" onclick="openM('${p.title}', '${p.desc}', '${p.url}')">View Details</button>
                     </div>`;
