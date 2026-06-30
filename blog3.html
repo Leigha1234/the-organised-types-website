@@ -9,7 +9,11 @@
         :root { --tots-green: #a9b897; --primary-color: #4f4a46; --cream-bg: #FAF8F5; --card-bg: #F5F2EF; }
         body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--cream-bg); color: var(--primary-color); line-height: 1.8; }
         
-        .blog-container { width: 90%; max-width: 800px; margin: 60px auto; background: white; padding: 60px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* Hero Banner */
+        .hero-banner { width: 100%; display: block; margin-bottom: 40px; }
+        .hero-banner img { width: 100%; height: auto; display: block; }
+        
+        .blog-container { width: 90%; max-width: 800px; margin: 0 auto 60px auto; background: white; padding: 60px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
         h1 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; line-height: 1.2; }
         h2 { color: var(--tots-green); margin-top: 40px; }
@@ -17,11 +21,17 @@
         .highlight-box { background: var(--card-bg); padding: 30px; border-left: 5px solid var(--tots-green); margin: 30px 0; border-radius: 8px; }
         
         .cta-section { background: var(--tots-green); color: white; padding: 40px; border-radius: 25px; text-align: center; margin-top: 50px; }
-        .cta-button { background: white; color: var(--tots-green); padding: 18px 36px; border-radius: 999px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .cta-button { background: white; color: var(--tots-green); padding: 18px 36px; border-radius: 999px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 20px; transition: 0.3s; border: none; cursor: pointer; }
         .cta-button:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
+
+<div id="site-header"></div>
+
+<section class="hero-banner">
+    <img src="aboutus.jpg" alt="About Us Banner">
+</section>
 
 <div class="blog-container">
     <h1>Rock Bottom Wasn’t the End — It Was My Launchpad</h1>
@@ -69,5 +79,11 @@
     </div>
 </div>
 
+<div id="site-footer"></div>
+
+<script>
+    fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
+    fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
+</script>
 </body>
 </html>
