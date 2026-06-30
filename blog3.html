@@ -6,25 +6,12 @@
     <title>Rock Bottom Wasn’t the End — It Was My Launchpad | The Organised Types</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --tots-green: #a9b897; 
-            --primary-color: #4f4a46; 
-            --cream-bg: #FAF8F5; 
-            --card-bg: #F5F2EF; 
-        }
-        
+        :root { --tots-green: #a9b897; --primary-color: #4f4a46; --cream-bg: #FAF8F5; --card-bg: #F5F2EF; }
         body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--cream-bg); color: var(--primary-color); line-height: 1.8; }
         
-        /* Force Header to be solid - overriding any external effects */
-        #site-header, #site-header * {
-            background-color: #FAF8F5 !important;
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            background-image: none !important;
-            opacity: 1 !important;
-            filter: none !important;
-        }
-
+        /* HARD-CODED HEADER - NO GLASS EFFECT */
+        .site-header { width: 100%; background-color: #FAF8F5 !important; padding: 20px 0; border-bottom: 1px solid #e0dcd9; text-align: center; }
+        
         /* Hero Banner */
         .hero-banner { width: 100%; display: block; margin-bottom: 40px; }
         .hero-banner img { width: 100%; height: auto; display: block; }
@@ -43,7 +30,12 @@
 </head>
 <body>
 
-<div id="site-header"></div>
+<!-- Hard-coded Header instead of fetch -->
+<div class="site-header">
+    <nav>
+        <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-weight: 900; font-size: 1.5rem;">THE ORGANISED TYPES</a>
+    </nav>
+</div>
 
 <section class="hero-banner">
     <img src="choose.jpg" alt="Blog Banner">
@@ -95,11 +87,9 @@
     </div>
 </div>
 
-<div id="site-footer"></div>
+<footer style="text-align: center; padding: 40px; color: #888;">
+    <p>&copy; 2026 The Organised Types</p>
+</footer>
 
-<script>
-    fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
-    fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
-</script>
 </body>
 </html>
