@@ -7,12 +7,25 @@
     <link rel="stylesheet" href="homscss.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --tots-green: #a9b897; --primary-color: #4f4a46; --cream-bg: #FAF8F5; --card-bg: #FFFFFF; }
+        :root { --tots-green: #a9b897; --primary-color: #4f4a46; --cream-bg: #FAF8F5; }
         body { font-family: 'Poppins', sans-serif; margin: 0; background-color: var(--cream-bg); color: var(--primary-color); line-height: 1.8; }
 
-        /* Blog-Specific Styles */
-        .hero-banner { width: 100%; margin-bottom: 40px; }
-        .hero-banner img { width: 100%; height: auto; display: block; }
+        /* OVERRIDE: Prevent the Hero from taking over the screen */
+        .hero-banner { 
+            width: 100%; 
+            height: 350px !important; /* Forces a fixed height */
+            min-height: 350px !important;
+            overflow: hidden; 
+            margin-bottom: 40px; 
+            background: none !important; /* Removes potential conflicts with homscss */
+        }
+        .hero-banner img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+        }
+
         .blog-container { width: 90%; max-width: 800px; margin: 0 auto 60px auto; background: white; padding: 60px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         h1 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; line-height: 1.2; }
         h2 { color: var(--tots-green); margin-top: 40px; }
@@ -62,12 +75,6 @@
         </div>
 
         <p>And here’s the part I want you to know: you don’t have to face it alone. As part of launching The Organised Types, I’m offering a free half-hour business coaching consultation — no strings attached, just honest guidance and advice. Sometimes, just speaking through your challenges is enough to spark clarity and momentum.</p>
-
-        <p>If you’re stuck, overwhelmed, or unsure what to do next, reach out. One conversation can turn a dark night into a stepping stone toward growth and success.</p>
-
-        <p>So, take action. Write that post. Make that call. Send that email. It might feel terrifying, but every small step proves you’re still moving forward.</p>
-
-        <p><strong>Rock bottom isn’t the end. It’s the launchpad. And sometimes, the darkest nights show you the way to the brightest dawns.</strong></p>
 
         <div class="cta-section">
             <h2>You Don't Have To Face It Alone</h2>
