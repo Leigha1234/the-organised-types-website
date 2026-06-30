@@ -19,15 +19,18 @@
 
         body { font-family: var(--font-main); margin: 0; background-color: var(--cream-bg); color: var(--primary-color); line-height: 1.7; }
 
-        /* Hero Image Container - Ensures full image visibility */
-        .hero-container { width: 100%; overflow: hidden; }
-        .hero-container img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-            max-height: 80vh; /* Prevents hero from being too tall on huge screens */
-            object-fit: contain; 
+        /* Full Width Hero Banner */
+        .hero-banner {
+            width: 100%;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('aboutus.jpg') center/cover no-repeat;
+            color: white;
         }
+        .hero-banner h1 { font-size: 3.5rem; text-transform: uppercase; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
         /* Buttons */
         .cta-button {
@@ -69,9 +72,8 @@
 
 <div id="site-header"></div>
 
-<!-- Hero Banner -->
-<section class="hero-container">
-    <img src="aboutus.jpg" alt="About Us Banner">
+<section class="hero-banner">
+    <h1>About Us</h1>
 </section>
 
 <div class="container">
