@@ -19,17 +19,12 @@
 
         body { font-family: var(--font-main); margin: 0; background-color: var(--cream-bg); color: var(--primary-color); line-height: 1.7; }
 
-        /* Mobile-Responsive Hero Banner */
-        .hero-banner {
-            width: 100%;
-            height: 40vh; /* Adjusts based on screen height */
-            min-height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            /* Using contain ensures the full image is visible, background-color matches theme */
-            background: var(--cream-bg) url('aboutus.jpg') center/contain no-repeat;
+        /* Hero Image Container */
+        .hero-container { width: 100%; }
+        .hero-container img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
         }
 
         /* Buttons */
@@ -44,7 +39,6 @@
             transition: 0.3s;
             margin: 5px;
         }
-        .cta-button:hover { transform: scale(1.05); }
         .cta-button.secondary { background: var(--primary-color); }
 
         .container { width: 90%; max-width: 1100px; margin: auto; padding: 40px 0; }
@@ -67,8 +61,10 @@
 
 <div id="site-header"></div>
 
-<!-- Hero Banner -->
-<section class="hero-banner"></section>
+<!-- Hero Image -->
+<section class="hero-container">
+    <img src="aboutus.jpg" alt="About Us Banner">
+</section>
 
 <div class="container">
     <div class="about-content-grid">
@@ -88,15 +84,7 @@
         </div>
     </div>
 
-    <div class="mission-section">
-        <h2>How We Bring Clarity</h2>
-        <div class="value-grid">
-            <div class="value-card"><h4>Design</h4><p>Websites that clearly communicate your value and build confidence from the very first click.</p></div>
-            <div class="value-card"><h4>Structure</h4><p>Systems and workflows that reduce chaos and create consistency across your business.</p></div>
-            <div class="value-card"><h4>Support</h4><p>Strategic guidance to help you make confident decisions and build a business that works for you.</p></div>
-            <div class="value-card"><h4>Growth</h4><p>Practical tools, automation and resources designed to help your business evolve with confidence.</p></div>
-        </div>
-    </div>
+    <!-- ... rest of your content ... -->
 
     <div style="text-align: center; margin: 60px 0;">
         <h3>Let's Build Something You're Proud Of</h3>
