@@ -1,106 +1,1597 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Organised Types | Systems, Websites & The Future of TOTS OS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="homscss.css">
-    <style>
-        :root { --tots-green: #a9b897; } 
-        body { font-family: 'Poppins', sans-serif; margin: 0; color: #334155; line-height: 1.6; }
-        
-        /* Hero */
-        .hero-banner { position: relative; min-height: 90vh; display: flex; align-items: center; padding: 0 5%; color: white; background: url('bg1.jpg') center/cover; }
-        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
-        .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 800px; margin: 0 auto; }
-        .hero-text h1 { font-size: clamp(2.5rem, 8vw, 4rem); text-transform: uppercase; text-shadow: 0 0 20px var(--tots-green); margin-bottom: 20px; }
-        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        
-        .btn-green { background: var(--tots-green); color: white; padding: 18px 36px; border-radius: 999px; text-decoration: none; font-weight: 700; transition: 0.3s; }
-        .btn-green:hover { transform: scale(1.05); }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Organised Types — Systems for ambitious businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F8F7F4;
+    --bg-raised:#FFFFFF;
+    --sage:#B7C6AE;
+    --sage-soft:#DCE3D6;
+    --sage-deep:#8FA184;
+    --green:#4D5B4B;
+    --green-deep:#374235;
+    --text:#2D302C;
+    --text-soft:#6B6F67;
+    --gold:#C7A467;
+    --line:rgba(45,48,44,0.08);
+    --shadow-soft: 0 20px 60px -20px rgba(45,48,44,0.18);
+    --shadow-card: 0 10px 30px -10px rgba(45,48,44,0.12);
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --radius-sm: 12px;
+    --ease: cubic-bezier(.16,.84,.44,1);
+  }
 
-        /* Sections */
-        .section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
-        .services-split { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .zoom-img { width: 100%; border-radius: 14px; transition: 0.5s; box-shadow: 0 10px 30px var(--tots-green); }
-        .green-box { background: var(--tots-green); padding: 40px; border-radius: 25px; color: white; }
-        .service-grid-inner { display: grid; gap: 20px; }
-        .card-inner { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    letter-spacing:-0.02em;
+    line-height:1.02;
+    font-weight:600;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+  section{position:relative;}
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 48px;
+  }
+  ::selection{background:var(--sage); color:var(--green-deep);}
 
-        /* TOTS Band */
-        .tots-band { background: #0f0f0f; color: white; border-radius: 30px; padding: 60px 20px; text-align: center; margin: 20px auto; max-width: 1100px; }
-        .tots-image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px auto; }
-        .tots-image-grid img { width: 100%; border-radius: 12px; }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
 
-        /* Testimonials */
-        .testimonial-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .testimonial { padding: 30px; border-left: 4px solid var(--tots-green); background: #f8f8f8; border-radius: 10px; font-style: italic; }
+  /* ---------- reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(34px) scale(0.985);
+    transition:opacity 1s var(--ease), transform 1s var(--ease);
+  }
+  .reveal.in{opacity:1; transform:translateY(0) scale(1);}
+  .reveal-delay-1{transition-delay:0.08s;}
+  .reveal-delay-2{transition-delay:0.16s;}
+  .reveal-delay-3{transition-delay:0.24s;}
+  .reveal-delay-4{transition-delay:0.32s;}
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .services-split { grid-template-columns: 1fr; }
-            .tots-image-grid { grid-template-columns: 1fr; }
-            .hero-banner { min-height: 70vh; }
-        }
-    </style>
+  .reveal-scale{
+    opacity:0;
+    transform:scale(0.82);
+    transition:opacity 1.2s var(--ease), transform 1.2s var(--ease);
+  }
+  .reveal-scale.in{opacity:1; transform:scale(1);}
+
+  /* ---------- word reveal (hero headline) ---------- */
+  .word-reveal{
+    display:inline-block;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:0.08em;
+  }
+  .word-reveal span{
+    display:inline-block;
+    transform:translateY(115%) rotate(4deg);
+    opacity:0;
+    animation:wordUp 1s var(--ease) forwards;
+  }
+  @keyframes wordUp{ to{ transform:translateY(0) rotate(0deg); opacity:1; } }
+
+  /* ---------- marquee ---------- */
+  .marquee{
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image:linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    margin-top:8px;
+  }
+  .marquee-track{
+    display:flex;
+    align-items:center;
+    gap:72px;
+    width:max-content;
+    animation:marquee 24s linear infinite;
+  }
+  .marquee:hover .marquee-track{ animation-play-state:paused; }
+  .marquee-track span{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:21px;
+    color:var(--text-soft);
+    opacity:0.5;
+    white-space:nowrap;
+    transition:opacity 0.3s, color 0.3s;
+  }
+  .marquee-track span:hover{ opacity:1; color:var(--green); }
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* ---------- story transition (SYSTEMS moment) ---------- */
+  .story-transition{
+    min-height:92vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 24px;
+    gap:26px;
+    position:relative;
+  }
+  .story-transition::before{
+    content:'';
+    position:absolute;
+    top:50%; left:50%;
+    width:900px; height:900px;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(183,198,174,0.28) 0%, transparent 60%);
+    z-index:0;
+    pointer-events:none;
+  }
+  .story-line{
+    font-size:clamp(17px, 2vw, 23px);
+    color:var(--text-soft);
+    font-weight:500;
+    position:relative;
+    z-index:1;
+  }
+  .story-word{
+    font-size:clamp(78px, 17vw, 250px);
+    line-height:0.88;
+    letter-spacing:-0.035em;
+    background:linear-gradient(120deg, var(--green) 0%, var(--sage-deep) 55%, var(--gold) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    position:relative;
+    z-index:1;
+  }
+
+  /* ---------- orbit badges (product showcase) ---------- */
+  .orbit{ position:absolute; inset:0; pointer-events:none; z-index:1; }
+  .orbit-lines{ position:absolute; inset:0; width:100%; height:100%; }
+  .orbit-lines line{
+    stroke:rgba(248,247,244,0.16);
+    stroke-width:1;
+    stroke-dasharray:4 6;
+    animation:dashmove 4s linear infinite;
+  }
+  @keyframes dashmove{ to{ stroke-dashoffset:-20; } }
+  .orbit-badge{
+    position:absolute;
+    background:rgba(248,247,244,0.08);
+    border:1px solid rgba(248,247,244,0.2);
+    color:#F8F7F4;
+    font-size:12px;
+    font-weight:600;
+    padding:8px 15px;
+    border-radius:100px;
+    backdrop-filter:blur(6px);
+    animation:orbitFloat 5s ease-in-out infinite;
+  }
+  @keyframes orbitFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-9px); } }
+  @media (max-width:700px){ .orbit-badge{ display:none; } }
+
+  /* ---------- journey thread (signature element) ---------- */
+  .journey-thread{
+    position:fixed;
+    left:40px;
+    top:0;
+    height:100vh;
+    width:2px;
+    z-index:40;
+    pointer-events:none;
+    display:flex;
+    align-items:center;
+  }
+  .journey-track{
+    position:relative;
+    width:2px;
+    height:280px;
+    background:linear-gradient(to bottom, transparent, var(--sage) 12%, var(--green) 50%, var(--sage) 88%, transparent);
+    background-size:100% 240%;
+    opacity:0.55;
+    animation:flowLine 7s linear infinite;
+  }
+  @keyframes flowLine{
+    0%{ background-position:0 0; }
+    100%{ background-position:0 240%; }
+  }
+  .journey-dot{
+    position:absolute;
+    left:50%;
+    top:0;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--green);
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 0 5px rgba(77,91,75,0.12);
+    transition:top 0.15s linear;
+  }
+  .journey-labels{
+    position:absolute;
+    left:16px; top:0;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .journey-labels span{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--text-soft);
+    white-space:nowrap;
+    opacity:0.55;
+  }
+  @media (max-width:1100px){ .journey-thread{display:none;} }
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    padding:22px 0;
+    transition:padding 0.4s var(--ease), background 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{
+    padding:14px 0;
+    background:rgba(248,247,244,0.72);
+    backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 8px 30px -20px rgba(45,48,44,0.25);
+  }
+  .nav-inner{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:-0.01em;
+  }
+  .logo-mark{
+    width:30px; height:30px;
+    border-radius:9px;
+    background:linear-gradient(135deg, var(--green) 0%, var(--sage-deep) 100%);
+    position:relative;
+    flex-shrink:0;
+  }
+  .logo-mark::after{
+    content:'';
+    position:absolute;
+    inset:8px;
+    border-radius:4px;
+    background:var(--bg);
+    opacity:0.9;
+  }
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    list-style:none;
+  }
+  .nav-links a{
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--text);
+    position:relative;
+    padding:4px 0;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:1px;
+    background:var(--green);
+    transform:scaleX(0);
+    transform-origin:right;
+    transition:transform 0.35s var(--ease);
+  }
+  .nav-links a:hover::after{transform:scaleX(1); transform-origin:left;}
+  @media (max-width:900px){ .nav-links{display:none;} }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    padding:13px 26px;
+    border-radius:100px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease), border-color 0.35s var(--ease);
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--green);
+    color:#F8F7F4;
+    box-shadow:0 10px 24px -10px rgba(77,91,75,0.55);
+  }
+  .btn-primary:hover{transform:translateY(-3px) scale(1.025); box-shadow:0 18px 36px -12px rgba(77,91,75,0.65), 0 0 0 6px rgba(183,198,174,0.22);}
+  .btn-ghost{
+    background:rgba(255,255,255,0.5);
+    border:1px solid var(--line);
+    color:var(--text);
+    backdrop-filter:blur(6px);
+  }
+  .btn-ghost:hover{transform:translateY(-3px) scale(1.025); background:rgba(255,255,255,0.85); border-color:rgba(45,48,44,0.16);}
+  .btn-sm{padding:10px 20px; font-size:13.5px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:140px;
+    padding-bottom:80px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 48px;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:40px;
+    align-items:center;
+    width:100%;
+    perspective:1400px;
+  }
+  .blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:0.55;
+    z-index:0;
+    animation:drift 18s ease-in-out infinite;
+  }
+  .blob-1{
+    width:560px; height:560px;
+    background:radial-gradient(circle at 30% 30%, var(--sage) 0%, transparent 70%);
+    top:-140px; right:-60px;
+    animation-delay:0s;
+  }
+  .blob-2{
+    width:420px; height:420px;
+    background:radial-gradient(circle at 60% 40%, var(--gold) 0%, transparent 70%);
+    opacity:0.25;
+    bottom:-100px; right:220px;
+    animation-delay:-6s;
+  }
+  .blob-3{
+    width:360px; height:360px;
+    background:radial-gradient(circle, var(--green) 0%, transparent 70%);
+    opacity:0.12;
+    top:220px; left:-120px;
+    animation-delay:-11s;
+  }
+  @keyframes drift{
+    0%,100%{transform:translate(0,0) scale(1);}
+    33%{transform:translate(30px,-30px) scale(1.06);}
+    66%{transform:translate(-20px,20px) scale(0.96);}
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--green-deep);
+    background:rgba(183,198,174,0.35);
+    border:1px solid rgba(77,91,75,0.15);
+    padding:8px 16px;
+    border-radius:100px;
+    margin-bottom:28px;
+  }
+  .eyebrow .dot{
+    width:6px; height:6px; border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 0 3px rgba(77,91,75,0.18);
+  }
+
+  .hero-headline{
+    font-size:clamp(48px, 6vw, 92px);
+    color:var(--text);
+    position:relative;
+    z-index:2;
+  }
+  .hero-headline .accent{
+    color:var(--green);
+    font-style:italic;
+    font-weight:600;
+    display:inline-block;
+    transform:scale(1.04);
+  }
+
+  .hero-sub{
+    margin-top:28px;
+    font-size:19px;
+    line-height:1.55;
+    color:var(--text-soft);
+    max-width:480px;
+    font-weight:400;
+  }
+  .hero-cta{
+    display:flex;
+    gap:16px;
+    margin-top:44px;
+    flex-wrap:wrap;
+  }
+  .scroll-cue{
+    position:absolute;
+    left:50%;
+    bottom:36px;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--text-soft);
+    z-index:5;
+  }
+  .scroll-cue .stick{
+    width:1px; height:34px;
+    background:linear-gradient(to bottom, var(--text-soft), transparent);
+    position:relative;
+    overflow:hidden;
+  }
+  .scroll-cue .stick::after{
+    content:'';
+    position:absolute;
+    left:0; top:-34px;
+    width:100%; height:34px;
+    background:var(--green);
+    animation:scrollmove 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollmove{ 0%{top:-34px;} 60%{top:34px;} 100%{top:34px;} }
+
+  /* ---------- dashboard mock ---------- */
+  .hero-visual{
+    position:relative;
+    height:560px;
+    z-index:2;
+    transform-style:preserve-3d;
+    transition:transform 0.4s var(--ease);
+    will-change:transform;
+  }
+  .hero-glow{
+    position:absolute;
+    top:48%; left:56%;
+    width:540px; height:540px;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, rgba(199,164,103,0.16) 0%, rgba(183,198,174,0.24) 42%, transparent 72%);
+    filter:blur(60px);
+    z-index:0;
+    animation:glowPulse 8s ease-in-out infinite;
+  }
+  @keyframes glowPulse{
+    0%,100%{ opacity:0.7; transform:translate(-50%,-50%) scale(1); }
+    50%{ opacity:1; transform:translate(-50%,-50%) scale(1.08); }
+  }
+  .panel{
+    position:absolute;
+    background:var(--bg-raised);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-soft);
+    border:1px solid rgba(255,255,255,0.6);
+    animation:float 7s ease-in-out infinite;
+    will-change:transform;
+  }
+  .sheen{ position:relative; overflow:hidden; }
+  .sheen::after{
+    content:'';
+    position:absolute;
+    top:-60%; left:-60%;
+    width:36%; height:220%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform:rotate(20deg);
+    animation:sheenSweep 7.5s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes sheenSweep{
+    0%{ left:-60%; }
+    55%{ left:135%; }
+    100%{ left:135%; }
+  }
+  .panel-main{
+    width:420px;
+    top:20px; left:30px;
+    padding:22px;
+    z-index:3;
+    animation-delay:0s;
+  }
+  .panel-back{
+    width:380px; height:420px;
+    top:90px; left:130px;
+    z-index:1;
+    opacity:0.7;
+    transform:rotate(6deg);
+    animation-delay:-2.5s;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(var(--r,0deg));}
+    50%{transform:translateY(-14px) rotate(var(--r,0deg));}
+  }
+  .panel-main{--r:-2deg; transform:rotate(-2deg);}
+  .panel-back{--r:6deg;}
+  .panel-front{
+    width:210px;
+    bottom:6px; left:-26px;
+    padding:16px;
+    z-index:4;
+    animation-delay:-4s;
+    --r:-7deg;
+    transform:rotate(-7deg);
+  }
+  .panel-front .mock-title{margin-bottom:10px;}
+  .live-pulse{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:11px;
+    font-weight:600;
+    color:var(--sage-deep);
+  }
+  .live-pulse .dot{
+    width:6px; height:6px;
+    border-radius:50%;
+    background:#5C9A5A;
+    box-shadow:0 0 0 0 rgba(92,154,90,0.5);
+    animation:pulseDot 1.8s ease-in-out infinite;
+  }
+  @keyframes pulseDot{
+    0%{ box-shadow:0 0 0 0 rgba(92,154,90,0.5); }
+    70%{ box-shadow:0 0 0 7px rgba(92,154,90,0); }
+    100%{ box-shadow:0 0 0 0 rgba(92,154,90,0); }
+  }
+
+  .mock-topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:18px;
+  }
+  .mock-dots{display:flex; gap:6px;}
+  .mock-dots span{width:8px; height:8px; border-radius:50%; background:var(--sage-soft);}
+  .mock-title{font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:600; color:var(--text-soft);}
+  .mock-stat-row{display:flex; gap:12px; margin-bottom:16px;}
+  .mock-stat{
+    flex:1;
+    background:var(--bg);
+    border-radius:var(--radius-sm);
+    padding:14px;
+    border:1px solid var(--line);
+  }
+  .mock-stat b{display:block; font-family:'Space Grotesk',sans-serif; font-size:20px; color:var(--text);}
+  .mock-stat span{font-size:11.5px; color:var(--text-soft);}
+  .mock-chart{
+    height:120px;
+    display:flex;
+    align-items:flex-end;
+    gap:7px;
+    background:var(--bg);
+    border-radius:var(--radius-sm);
+    padding:14px;
+    border:1px solid var(--line);
+  }
+  .mock-chart i{
+    flex:1;
+    background:linear-gradient(to top, var(--green), var(--sage));
+    border-radius:5px 5px 0 0;
+    opacity:0.85;
+  }
+  .mock-list{margin-top:14px; display:flex; flex-direction:column; gap:9px;}
+  .mock-list div{
+    display:flex; align-items:center; gap:10px;
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:12.5px;
+    color:var(--text-soft);
+  }
+  .mock-list div b{color:var(--text); font-weight:600; font-size:12.5px;}
+  .mock-list i{
+    width:8px; height:8px; border-radius:50%; background:var(--sage-deep); flex-shrink:0;
+  }
+
+  .float-card{
+    position:absolute;
+    background:rgba(255,255,255,0.72);
+    backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    border:1px solid rgba(255,255,255,0.8);
+    border-radius:16px;
+    padding:12px 16px;
+    box-shadow:var(--shadow-card);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    font-weight:600;
+    z-index:4;
+    animation:floatcard 6s ease-in-out infinite;
+  }
+  .float-card .ic{
+    width:26px; height:26px;
+    border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:13px;
+    flex-shrink:0;
+  }
+  .fc-1{top:0px; right:0px; animation-delay:-1s;}
+  .fc-1 .ic{background:rgba(183,198,174,0.5); color:var(--green-deep);}
+  .fc-2{top:180px; right:-30px; animation-delay:-3s;}
+  .fc-2 .ic{background:rgba(199,164,103,0.28); color:#8a6c2f;}
+  .fc-3{bottom:80px; left:0px; animation-delay:-4.5s;}
+  .fc-3 .ic{background:rgba(77,91,75,0.15); color:var(--green-deep);}
+  .fc-4{bottom:0px; right:60px; animation-delay:-2s;}
+  .fc-4 .ic{background:rgba(183,198,174,0.5); color:var(--green-deep);}
+  @keyframes floatcard{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+  }
+  @media (max-width:1100px){
+    .hero-inner{grid-template-columns:1fr; text-align:left;}
+    .hero-visual{display:none;}
+  }
+
+  /* ---------- trust strip ---------- */
+  .trust{
+    padding:70px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .trust-label{
+    text-align:center;
+    font-size:13px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-soft);
+    margin-bottom:36px;
+    font-weight:600;
+  }
+  .trust-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:36px;
+    opacity:0.6;
+  }
+  .trust-row span{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:19px;
+    color:var(--text-soft);
+  }
+
+  /* ---------- section common ---------- */
+  .section{padding:175px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:70px;
+  }
+  .kicker{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--green);
+    margin-bottom:18px;
+  }
+  .section-title{
+    font-size:clamp(34px,4vw,54px);
+    color:var(--text);
+  }
+  .section-body{
+    margin-top:20px;
+    font-size:17px;
+    color:var(--text-soft);
+    line-height:1.6;
+    max-width:520px;
+  }
+  .section-head.overlap{
+    position:relative;
+    z-index:5;
+    margin-bottom:34px;
+  }
+  @media (max-width:960px){ .section-head.overlap{ margin-bottom:70px; } }
+
+  /* ---------- TOTS-OS feature section ---------- */
+  .feature-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:28px;
+    align-items:stretch;
+  }
+  .feature-visual{
+    background:var(--green-deep);
+    border-radius:var(--radius-lg);
+    padding:36px;
+    position:relative;
+    overflow:hidden;
+    min-height:460px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
+  .feature-visual::before{
+    content:'';
+    position:absolute;
+    top:-80px; right:-80px;
+    width:280px; height:280px;
+    background:radial-gradient(circle, var(--sage) 0%, transparent 70%);
+    opacity:0.35;
+  }
+  .feature-visual-panel{
+    position:relative;
+    background:rgba(248,247,244,0.08);
+    border:1px solid rgba(248,247,244,0.14);
+    border-radius:var(--radius-md);
+    padding:22px;
+    backdrop-filter:blur(6px);
+  }
+  .feature-visual-panel .mock-title{color:rgba(248,247,244,0.7);}
+  .feature-visual-panel .mock-stat{background:rgba(248,247,244,0.06); border-color:rgba(248,247,244,0.12);}
+  .feature-visual-panel .mock-stat b{color:#F8F7F4;}
+  .feature-visual-panel .mock-stat span{color:rgba(248,247,244,0.55);}
+  .feature-visual-tag{
+    color:#F8F7F4;
+    font-size:14px;
+    margin-bottom:16px;
+    opacity:0.75;
+  }
+
+  .feature-cards{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .feature-card{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    padding:26px 28px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    transition:transform 0.45s var(--ease), box-shadow 0.45s var(--ease), rotate 0.45s var(--ease);
+    box-shadow:0 2px 12px -6px rgba(45,48,44,0.06);
+  }
+  .feature-card:hover{
+    transform:translateY(-6px) rotate(-0.6deg);
+    box-shadow:var(--shadow-card);
+  }
+  .feature-card .fnum{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:12px;
+    color:var(--sage-deep);
+    font-weight:700;
+    letter-spacing:0.08em;
+    margin-bottom:10px;
+  }
+  .feature-card h3{
+    font-size:19px;
+    margin-bottom:8px;
+  }
+  .feature-card p{
+    font-size:14.5px;
+    color:var(--text-soft);
+    line-height:1.55;
+  }
+
+  /* ---------- before / after slider ---------- */
+  .ba-slider{
+    position:relative;
+    height:440px;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:var(--shadow-soft);
+    --pos:18%;
+    touch-action:none;
+    cursor:ew-resize;
+  }
+  .ba-slider.dragging .ba-before{ transition:none; }
+  .ba-panel{
+    position:absolute; inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:70px;
+  }
+  .ba-after{ background:var(--bg-raised); }
+  .ba-before{
+    background:#EFEDE6;
+    clip-path:inset(0 calc(100% - var(--pos)) 0 0);
+    transition:clip-path 1.4s var(--ease);
+  }
+  .ba-tag{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .ba-after .ba-tag{ color:var(--green); }
+  .ba-before .ba-tag{ color:var(--text-soft); }
+  .ba-list{ list-style:none; display:flex; flex-direction:column; gap:16px; }
+  .ba-list li{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:23px;
+    position:relative;
+    padding-left:34px;
+  }
+  .ba-after .ba-list li{ color:var(--text); }
+  .ba-before .ba-list li{ color:var(--text-soft); }
+  .ba-after .ba-list li::before{
+    content:'✓'; position:absolute; left:0; color:var(--green); font-weight:700;
+  }
+  .ba-before .ba-list li::before{
+    content:'✕'; position:absolute; left:0; color:#B4A99A; font-weight:700;
+  }
+  .ba-handle{
+    position:absolute; top:0; bottom:0;
+    left:var(--pos);
+    width:2px;
+    background:rgba(255,255,255,0.7);
+    transform:translateX(-50%);
+    z-index:5;
+    pointer-events:none;
+  }
+  .ba-handle span{
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:46px; height:46px;
+    border-radius:50%;
+    background:var(--bg-raised);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow-card);
+    font-size:15px;
+    color:var(--green);
+  }
+  @media (max-width:700px){
+    .ba-panel{ padding:36px; }
+    .ba-list li{ font-size:18px; }
+  }
+
+  /* ---------- websites section ---------- */
+  .split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+  }
+  .split.reverse .split-visual{order:2;}
+  .split.reverse .split-copy{order:1;}
+  @media (max-width:960px){
+    .split, .split.reverse{grid-template-columns:1fr;}
+    .split.reverse .split-visual, .split.reverse .split-copy{order:initial;}
+  }
+  .split-visual{
+    position:relative;
+    background:var(--sage-soft);
+    border-radius:var(--radius-lg);
+    padding:34px;
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .browser-mock{
+    width:100%;
+    background:var(--bg-raised);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow-soft);
+    overflow:hidden;
+    transform:rotate(-1.4deg);
+    transition:transform 0.5s var(--ease);
+  }
+  .split-visual:hover .browser-mock{transform:rotate(0deg) translateY(-6px);}
+  .browser-bar{
+    display:flex; align-items:center; gap:6px;
+    padding:12px 16px;
+    border-bottom:1px solid var(--line);
+  }
+  .browser-bar span{width:8px; height:8px; border-radius:50%; background:var(--sage-soft);}
+  .browser-body{padding:26px;}
+  .browser-body .bl{height:12px; border-radius:6px; background:var(--bg); margin-bottom:10px;}
+  .browser-body .bl.w1{width:60%;}
+  .browser-body .bl.w2{width:90%;}
+  .browser-body .bl.w3{width:40%;}
+  .browser-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px;}
+  .browser-grid div{height:70px; background:var(--sage-soft); border-radius:10px;}
+
+  .split-copy h2{font-size:clamp(30px,3.4vw,44px); margin-bottom:20px;}
+  .split-copy p{font-size:16.5px; color:var(--text-soft); line-height:1.6; margin-bottom:28px; max-width:460px;}
+  .check-list{list-style:none; display:flex; flex-direction:column; gap:12px; margin-bottom:30px;}
+  .check-list li{display:flex; align-items:center; gap:12px; font-size:15px; color:var(--text);}
+  .check-list li .tick{
+    width:20px; height:20px; border-radius:50%;
+    background:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; color:var(--green-deep); flex-shrink:0;
+  }
+
+  /* ---------- consultancy (dark) ---------- */
+  .dark-section{
+    background:var(--green-deep);
+    color:#F8F7F4;
+    border-radius:var(--radius-lg);
+    margin:0 24px;
+    padding:120px 48px;
+    position:relative;
+    overflow:hidden;
+  }
+  .dark-section::before{
+    content:'';
+    position:absolute;
+    top:-120px; left:50%; transform:translateX(-50%);
+    width:600px; height:600px;
+    background:radial-gradient(circle, var(--sage) 0%, transparent 70%);
+    opacity:0.16;
+  }
+  .dark-inner{max-width:1100px; margin:0 auto; position:relative;}
+  .dark-section .kicker{color:var(--sage);}
+  .dark-section .section-title{color:#F8F7F4;}
+  .dark-section .section-body{color:rgba(248,247,244,0.68);}
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    margin-top:64px;
+  }
+  @media (max-width:900px){ .pillars{grid-template-columns:1fr;} }
+  .pillar{
+    border-top:1px solid rgba(248,247,244,0.2);
+    padding-top:22px;
+  }
+  .pillar .pnum{font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--sage); margin-bottom:14px; font-weight:600;}
+  .pillar h3{font-size:20px; margin-bottom:10px; color:#F8F7F4;}
+  .pillar p{font-size:14.5px; color:rgba(248,247,244,0.62); line-height:1.6;}
+
+  /* ---------- journey strip ---------- */
+  .journey-strip{
+    padding:130px 0 100px;
+  }
+  .journey-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    position:relative;
+  }
+  .journey-row::before{
+    content:'';
+    position:absolute;
+    top:11px; left:0; right:0;
+    height:1px;
+    background:var(--line);
+  }
+  @media (max-width:900px){ .journey-row{grid-template-columns:1fr 1fr;} .journey-row::before{display:none;} }
+  .jstep{position:relative; padding-top:34px;}
+  .jstep .jdot{
+    position:absolute; top:0; left:0;
+    width:24px; height:24px;
+    border-radius:50%;
+    background:var(--bg);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:11px; font-weight:700; color:var(--green);
+  }
+  .jstep h4{font-size:17px; margin-bottom:8px; font-family:'Space Grotesk',sans-serif;}
+  .jstep p{font-size:14px; color:var(--text-soft); line-height:1.55;}
+
+  /* ---------- stat/testimonial band ---------- */
+  .stat-band{
+    padding:0 0 150px;
+  }
+  .stat-card{
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:64px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+    box-shadow:0 2px 20px -10px rgba(45,48,44,0.08);
+  }
+  @media (max-width:900px){ .stat-card{grid-template-columns:1fr; padding:40px;} }
+  .stat-quote{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:24px;
+    line-height:1.4;
+    color:var(--text);
+  }
+  .stat-quote span{color:var(--green); font-style:italic;}
+  .stat-person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:24px;
+  }
+  .stat-avatar{
+    width:38px; height:38px;
+    border-radius:50%;
+    background:var(--sage-soft);
+    color:var(--green-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .stat-attr{
+    font-size:14px;
+    color:var(--text-soft);
+    font-weight:600;
+  }
+  .stat-nums{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .stat-num b{
+    display:block;
+    font-family:'Space Grotesk',sans-serif;
+    font-size:38px;
+    color:var(--text);
+  }
+  .stat-num span{font-size:13px; color:var(--text-soft);}
+
+  /* ---------- final CTA ---------- */
+  .cta-banner{
+    margin:0 24px 24px;
+    border-radius:var(--radius-lg);
+    background:linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+    padding:110px 48px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-banner::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 20% 20%, rgba(183,198,174,0.35), transparent 55%),
+               radial-gradient(circle at 80% 80%, rgba(199,164,103,0.22), transparent 55%);
+  }
+  .cta-banner h2{
+    position:relative;
+    font-size:clamp(34px,4.6vw,58px);
+    color:#F8F7F4;
+    max-width:760px;
+    margin:0 auto 22px;
+  }
+  .cta-banner p{
+    position:relative;
+    color:rgba(248,247,244,0.72);
+    font-size:17px;
+    max-width:480px;
+    margin:0 auto 40px;
+  }
+  .cta-banner .hero-cta{justify-content:center;}
+  .cta-banner .btn-ghost{background:rgba(248,247,244,0.1); border-color:rgba(248,247,244,0.28); color:#F8F7F4;}
+  .cta-banner .btn-ghost:hover{background:rgba(248,247,244,0.2);}
+  .cta-banner .btn-primary{background:#F8F7F4; color:var(--green-deep); box-shadow:0 10px 30px -10px rgba(0,0,0,0.35);}
+
+  /* ---------- footer ---------- */
+  footer{padding:80px 0 40px;}
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:50px;
+    padding-bottom:56px;
+    border-bottom:1px solid var(--line);
+  }
+  .footer-brand p{
+    margin-top:16px;
+    font-size:14.5px;
+    color:var(--text-soft);
+    max-width:280px;
+    line-height:1.6;
+  }
+  .footer-cols{
+    display:flex;
+    gap:70px;
+    flex-wrap:wrap;
+  }
+  .footer-col h5{
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--text-soft);
+    margin-bottom:18px;
+    font-weight:600;
+  }
+  .footer-col a{
+    display:block;
+    font-size:14.5px;
+    color:var(--text);
+    margin-bottom:12px;
+    transition:color 0.25s;
+  }
+  .footer-col a:hover{color:var(--green);}
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    padding-top:28px;
+    font-size:13px;
+    color:var(--text-soft);
+  }
+  .footer-bottom .thistle{
+    display:inline-flex; align-items:center; gap:8px;
+  }
+</style>
 </head>
-
 <body>
-    <div id="site-header"></div>
 
-    <section class="hero-banner">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>CHAOS IS NOT CUTE!</h1>
-                <p>At The Organised Types, we build systems that turn business chaos into structure and clarity.</p>
+<div class="journey-thread">
+  <div class="journey-track" id="journeyTrack">
+    <div class="journey-dot" id="journeyDot"></div>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-mark"></div>
+      The Organised Types
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#tots-os">TOTS-OS</a></li>
+      <li><a href="#websites">Websites</a></li>
+      <li><a href="#consultancy">Consultancy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary btn-sm">Book a Call</a>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="blob blob-1" id="blob1"></div>
+  <div class="blob blob-2" id="blob2"></div>
+  <div class="blob blob-3" id="blob3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow reveal in"><span class="dot"></span> Systems for ambitious businesses</div>
+      <h1 class="hero-headline">
+        <span class="word-reveal" style="animation-delay:.02s"><span style="animation-delay:.02s">Could</span></span>
+        <span class="word-reveal" style="animation-delay:.10s"><span class="accent" style="animation-delay:.10s">YOU</span></span>
+        <span class="word-reveal" style="animation-delay:.18s"><span style="animation-delay:.18s">Be</span></span>
+        <span class="word-reveal" style="animation-delay:.26s"><span style="animation-delay:.26s">The</span></span>
+        <span class="word-reveal" style="animation-delay:.34s"><span style="animation-delay:.34s">Next</span></span>
+        <span class="word-reveal" style="animation-delay:.42s"><span style="animation-delay:.42s">Big</span></span>
+        <span class="word-reveal" style="animation-delay:.50s"><span style="animation-delay:.50s">Business?</span></span>
+      </h1>
+      <p class="hero-sub reveal in reveal-delay-1">The businesses growing fastest aren't working harder — they're working smarter with better systems.</p>
+      <div class="hero-cta reveal in reveal-delay-2">
+        <a href="#tots-os" class="btn btn-primary">Explore TOTS-OS</a>
+        <a href="#contact" class="btn btn-ghost">Book a Discovery Call</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" id="heroVisual">
+      <div class="hero-glow"></div>
+      <div class="panel panel-back"></div>
+      <div class="panel panel-main sheen">
+        <div class="mock-topbar">
+          <div class="mock-dots"><span></span><span></span><span></span></div>
+          <div class="mock-title">TOTS-OS · Dashboard</div>
+          <div class="live-pulse"><span class="dot"></span> Live</div>
+        </div>
+        <div class="mock-stat-row">
+          <div class="mock-stat"><b>£48.2k</b><span>Revenue, MTD</span></div>
+          <div class="mock-stat"><b>132</b><span>Active clients</span></div>
+        </div>
+        <div class="mock-chart">
+          <i style="height:35%"></i><i style="height:55%"></i><i style="height:40%"></i>
+          <i style="height:70%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:65%"></i>
+        </div>
+        <div class="mock-list">
+          <div><i></i> <b>Onboarding</b> — WhyKnot Wardrobe</div>
+          <div><i></i> <b>Automation</b> — Weekly report sent</div>
+        </div>
+      </div>
+
+      <div class="panel panel-front">
+        <div class="mock-title">Automation</div>
+        <div class="mock-stat"><b>12</b><span>Workflows live</span></div>
+      </div>
+
+      <div class="float-card fc-1"><div class="ic">＋</div> New Client</div>
+      <div class="float-card fc-2"><div class="ic">£</div> Invoice Paid</div>
+      <div class="float-card fc-3"><div class="ic">⚡</div> Automation Complete</div>
+      <div class="float-card fc-4"><div class="ic">✓</div> Today's Tasks</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll to explore</span><div class="stick"></div></div>
+</section>
+
+<section class="story-transition">
+  <p class="story-line reveal">Every successful business has one thing in common.</p>
+  <h2 class="story-word reveal-scale">SYSTEMS.</h2>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-label reveal">Trusted by ambitious, growing businesses</div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>WhyKnot Wardrobe</span>
+      <span>Lux Electrical Engineering</span>
+      <span>The Counselling Vine</span>
+      <span>WhyKnot Wardrobe</span>
+      <span>Lux Electrical Engineering</span>
+      <span>The Counselling Vine</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tots-os">
+  <div class="wrap">
+    <div class="section-head overlap reveal">
+      <span class="kicker">01 — Product</span>
+      <h2 class="section-title">One system, running your whole business.</h2>
+      <p class="section-body">TOTS-OS brings your clients, invoices, tasks and automations into a single, calm dashboard — so nothing falls through the cracks as you grow.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-visual reveal">
+        <div class="feature-visual-tag">Live view</div>
+
+        <div class="orbit" aria-hidden="true">
+          <svg class="orbit-lines" viewBox="0 0 400 300" preserveAspectRatio="none">
+            <line x1="200" y1="230" x2="60" y2="50" />
+            <line x1="200" y1="230" x2="340" y2="50" />
+            <line x1="200" y1="230" x2="50" y2="150" />
+            <line x1="200" y1="230" x2="350" y2="150" />
+          </svg>
+          <span class="orbit-badge" style="top:10%; left:6%; animation-delay:-0.5s;">CRM</span>
+          <span class="orbit-badge" style="top:10%; right:6%; animation-delay:-2s;">Invoices</span>
+          <span class="orbit-badge" style="top:42%; left:3%; animation-delay:-3.5s;">Automation</span>
+          <span class="orbit-badge" style="top:42%; right:3%; animation-delay:-1.2s;">Reporting</span>
+        </div>
+
+        <div class="feature-visual-panel sheen">
+          <div class="mock-title">This week</div>
+          <div class="mock-stat-row" style="margin-top:14px;">
+            <div class="mock-stat"><b>27</b><span>Automations run</span></div>
+            <div class="mock-stat"><b>9</b><span>New enquiries</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="feature-cards">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="fnum">CLIENTS</div>
+          <h3>One home for every relationship</h3>
+          <p>Every client, conversation and contract lives in one place — searchable, tidy, always current.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="fnum">AUTOMATIONS</div>
+          <h3>The busywork, handled</h3>
+          <p>Invoices chase themselves. Reports send on schedule. You focus on the work that needs you.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="fnum">REPORTING</div>
+          <h3>Clarity, at a glance</h3>
+          <p>Real numbers on revenue, tasks and pipeline — updated live, not at month end.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">The shift</span>
+      <h2 class="section-title">From scattered to organised.</h2>
+      <p class="section-body">Drag the line. This is what changes when TOTS-OS takes over the admin.</p>
+    </div>
+
+    <div class="ba-slider reveal" id="baSlider">
+      <div class="ba-panel ba-after">
+        <div class="ba-tag">After TOTS-OS</div>
+        <ul class="ba-list">
+          <li>One organised dashboard</li>
+          <li>Automated workflows</li>
+          <li>Clear reporting</li>
+          <li>Time to grow</li>
+        </ul>
+      </div>
+      <div class="ba-panel ba-before">
+        <div class="ba-tag">Before TOTS-OS</div>
+        <ul class="ba-list">
+          <li>Sticky notes everywhere</li>
+          <li>Missed follow-ups</li>
+          <li>Multiple spreadsheets</li>
+          <li>Endless admin</li>
+        </ul>
+      </div>
+      <div class="ba-handle" id="baHandle"><span>↔</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="websites">
+  <div class="wrap">
+    <div class="split">
+      <div class="split-visual reveal">
+        <div class="browser-mock">
+          <div class="browser-bar"><span></span><span></span><span></span></div>
+          <div class="browser-body">
+            <div class="bl w1"></div>
+            <div class="bl w2"></div>
+            <div class="bl w3"></div>
+            <div class="browser-grid">
+              <div></div><div></div>
             </div>
-            <div class="hero-buttons">
-                <a href="contact.html" class="btn-green">Build Your System</a>
-                <a href="clarity-call.html" class="btn-green">Book a Clarity Call</a>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="split-copy reveal reveal-delay-1">
+        <span class="kicker">02 — Websites</span>
+        <h2>Websites built like software, not brochures.</h2>
+        <p>Fast, considered and built to convert — every site we design plugs straight into TOTS-OS, so enquiries become clients without a single manual step.</p>
+        <ul class="check-list">
+          <li><span class="tick">✓</span> Designed and built in-house, end to end</li>
+          <li><span class="tick">✓</span> Connected to your systems from day one</li>
+          <li><span class="tick">✓</span> Fast, accessible and built to last</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">See our work</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="section services-split">
-        <img src="TOTSUS.jpeg" alt="The Organised Types" class="zoom-img">
-        <div class="green-box">
-            <h2>What We Do</h2>
-            <div class="service-grid-inner">
-                <div class="card-inner"><h3>Architects</h3><p>Building order out of chaos.</p></div>
-                <div class="card-inner"><h3>Guides</h3><p>Supporting your transformation.</p></div>
-                <div class="card-inner"><h3>Rebels</h3><p>Rejecting corporate culture.</p></div>
-            </div>
+<section class="section" id="consultancy" style="padding-top:0;">
+  <div class="wrap">
+    <div class="dark-section reveal">
+      <div class="dark-inner">
+        <span class="kicker">03 — Consultancy</span>
+        <h2 class="section-title">We don't just advise. We build alongside you.</h2>
+        <p class="section-body">Our consultancy work is hands-on — mapping how your business actually runs, then designing the systems that let it run without you holding every thread.</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pnum">Discover</div>
+            <h3>Understand the business</h3>
+            <p>We map how work really flows through your business — not how the org chart says it should.</p>
+          </div>
+          <div class="pillar">
+            <div class="pnum">Design</div>
+            <h3>Design the system</h3>
+            <p>A considered plan for people, process and software — built around how you actually operate.</p>
+          </div>
+          <div class="pillar">
+            <div class="pnum">Deliver</div>
+            <h3>Build it in, together</h3>
+            <p>We implement alongside your team, so the system sticks long after we've left the room.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="tots-band">
-        <img src="TOTSlogo.jpeg" alt="TOTS Logo" style="max-width: 150px; margin: 0 auto 20px;">
-        <h2>TOTS OS: Your second brain.</h2>
-        <div class="tots-image-grid">
-            <img src="TOTSOSDASHBOARD.jpeg" alt="Dashboard">
-            <img src="TOTSOS1.jpeg" alt="OS Detail">
-            <img src="Dailyfocus.jpeg" alt="Daily Focus">
+<section class="journey-strip">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker">The journey</span>
+      <h2 class="section-title">From first call to running itself.</h2>
+    </div>
+    <div class="journey-row">
+      <div class="jstep reveal"><div class="jdot">1</div><h4>Discover</h4><p>A discovery call to understand where the friction really is.</p></div>
+      <div class="jstep reveal reveal-delay-1"><div class="jdot">2</div><h4>Build</h4><p>Your site and systems, designed and built around your business.</p></div>
+      <div class="jstep reveal reveal-delay-2"><div class="jdot">3</div><h4>Automate</h4><p>The repeatable work moves into TOTS-OS, quietly, in the background.</p></div>
+      <div class="jstep reveal reveal-delay-3"><div class="jdot">4</div><h4>Grow</h4><p>More capacity, less admin — room to take on the next big client.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stat-band">
+  <div class="wrap">
+    <div class="stat-card reveal">
+      <div>
+        <p class="stat-quote">“We stopped chasing invoices and started <span>chasing growth</span> instead. TOTS-OS just runs, quietly, in the background.”</p>
+        <div class="stat-person">
+          <div class="stat-avatar">WK</div>
+          <p class="stat-attr">Founder, WhyKnot Wardrobe</p>
         </div>
-        <a href="https://tots-os.co.uk" class="btn-green">Join the Waiting List</a>
-    </section>
+      </div>
+      <div class="stat-nums">
+        <div class="stat-num"><b>4.2×</b><span>Faster client onboarding</span></div>
+        <div class="stat-num"><b>18hrs</b><span>Saved every week</span></div>
+        <div class="stat-num"><b>96%</b><span>Invoices paid on time</span></div>
+        <div class="stat-num"><b>3 wks</b><span>From call to launch</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="section">
-        <h2 style="text-align: center;">What clients experience</h2>
-        <div class="testimonial-row">
-            <div class="testimonial">“Everything feels clearer and more structured.”</div>
-            <div class="testimonial">“Processes don't rely on memory anymore.”</div>
-            <div class="testimonial">“Websites and systems finally work together.”</div>
+<section class="cta-banner reveal" id="contact">
+  <h2>Ready to become the next big business?</h2>
+  <p>Book a free discovery call and we'll show you exactly where better systems could take you.</p>
+  <div class="hero-cta">
+    <a href="#" class="btn btn-primary">Book a Discovery Call</a>
+    <a href="#tots-os" class="btn btn-ghost">Explore TOTS-OS</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-mark"></div>The Organised Types</div>
+        <p>Websites, systems and consultancy for businesses who want to grow without the chaos.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="#home">Home</a>
+          <a href="#tots-os">TOTS-OS</a>
+          <a href="#websites">Websites</a>
+          <a href="#consultancy">Consultancy</a>
         </div>
-    </section>
+        <div class="footer-col">
+          <h5>Get in touch</h5>
+          <a href="#contact">Book a Call</a>
+          <a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Organised Types. All rights reserved.</span>
+      <span class="thistle">Proudly designed and built in Scotland</span>
+    </div>
+  </div>
+</footer>
 
-    <div id="site-footer"></div>
+<script>
+  // nav blur on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive:true });
 
-    <script>
-        // Loading header/footer after main content ensures consistency
-        fetch('header.html').then(r => r.text()).then(d => document.getElementById('site-header').innerHTML = d);
-        fetch('footer.html').then(r => r.text()).then(d => document.getElementById('site-footer').innerHTML = d);
-    </script>
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal:not(.in), .reveal-scale:not(.in)');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // journey thread progress
+  const track = document.getElementById('journeyTrack');
+  const dot = document.getElementById('journeyDot');
+  function updateJourney(){
+    const scrolled = window.scrollY;
+    const max = document.body.scrollHeight - window.innerHeight;
+    const pct = Math.min(Math.max(scrolled / max, 0), 1);
+    dot.style.top = (pct * track.offsetHeight) + 'px';
+  }
+  window.addEventListener('scroll', updateJourney, { passive:true });
+  updateJourney();
+
+  // mouse parallax on hero visual
+  const heroVisual = document.getElementById('heroVisual');
+  const blobs = [document.getElementById('blob1'), document.getElementById('blob2'), document.getElementById('blob3')];
+  const hero = document.querySelector('.hero');
+  if(window.matchMedia('(pointer:fine)').matches){
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) - 0.5;
+      const y = ((e.clientY - rect.top) / rect.height) - 0.5;
+      if(heroVisual){
+        heroVisual.style.transform = `translate(${x*18}px, ${y*18}px) rotateY(${x*10}deg) rotateX(${y*-8}deg)`;
+      }
+      blobs.forEach((b,i) => {
+        const depth = (i+1) * 10;
+        b.style.transform = `translate(${x*depth}px, ${y*depth}px)`;
+      });
+    });
+    hero.addEventListener('mouseleave', () => {
+      if(heroVisual){ heroVisual.style.transform = 'translate(0,0) rotateY(0deg) rotateX(0deg)'; }
+    });
+  }
+
+  // before / after slider
+  const baSlider = document.getElementById('baSlider');
+  if(baSlider){
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const setPos = (clientX) => {
+      const rect = baSlider.getBoundingClientRect();
+      let pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.min(Math.max(pct, 4), 96);
+      baSlider.style.setProperty('--pos', pct + '%');
+    };
+    let dragging = false;
+    baSlider.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      baSlider.classList.add('dragging');
+      setPos(e.clientX);
+    });
+    window.addEventListener('pointermove', (e) => { if(dragging) setPos(e.clientX); });
+    window.addEventListener('pointerup', () => { dragging = false; baSlider.classList.remove('dragging'); });
+
+    // gentle reveal sweep the first time it enters view — shows the "transform" without needing a drag
+    const baIo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          if(!reduceMotion){
+            setTimeout(() => baSlider.style.setProperty('--pos', '50%'), 350);
+          } else {
+            baSlider.style.setProperty('--pos', '50%');
+          }
+          baIo.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.4 });
+    baIo.observe(baSlider);
+  }
+
+  // subtle cursor tilt on cards
+  if(window.matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.feature-card, .stat-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(900px) rotateX(${y * -4}deg) rotateY(${x * 4}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+</script>
+
 </body>
 </html>
