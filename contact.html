@@ -9,7 +9,7 @@
     <meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -40,7 +40,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: var(--cream-bg);
             color: var(--text-color);
             line-height: 1.65;
@@ -857,13 +857,16 @@
     <div id="site-header"></div>
 
     <script>
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('site-header').innerHTML = data;
-        })
-        .catch(err => console.error('Header load error:', err));
-    </script>
+fetch('./header.html')
+  .then(response => {
+      if (!response.ok) throw new Error('Header not found');
+      return response.text();
+  })
+  .then(data => {
+      document.getElementById('site-header').innerHTML = data;
+  })
+  .catch(err => console.error('Header load error:', err));
+</script>
 
     <main class="contact-content">
         <div class="container">
@@ -992,28 +995,30 @@
     <div id="site-footer"></div>
 
     <script>
-      fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('site-footer').innerHTML = data;
+fetch('./footer.html')
+  .then(response => {
+      if (!response.ok) throw new Error('Footer not found');
+      return response.text();
+  })
+  .then(data => {
+      document.getElementById('site-footer').innerHTML = data;
 
-          const banner = document.getElementById('cookie-banner');
-          const acceptButton = document.getElementById('accept-cookies');
+      const banner = document.getElementById('cookie-banner');
+      const acceptButton = document.getElementById('accept-cookies');
 
-          if (banner && !localStorage.getItem('cookiesAccepted')) {
-            banner.style.display = 'block';
-          }
+      if (banner && !localStorage.getItem('cookiesAccepted')) {
+          banner.style.display = 'block';
+      }
 
-          if (acceptButton && banner) {
-            acceptButton.addEventListener('click', () => {
+      if (acceptButton && banner) {
+          acceptButton.addEventListener('click', () => {
               localStorage.setItem('cookiesAccepted', 'true');
               banner.style.display = 'none';
-            });
-          }
-        })
-        .catch(err => console.error('Footer load error:', err));
-    </script>
-
+          });
+      }
+  })
+  .catch(err => console.error('Footer load error:', err));
+</script>
     <script>
         const form = document.getElementById('newsletter-form');
         const thanks = document.getElementById('thanks-msg');

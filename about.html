@@ -422,20 +422,13 @@
             }
         }
     </style>
-<link rel="stylesheet" href="cinematic-interface.css" />
+</link rel="stylesheet" href="cinematic-interface.css" />
+<link rel="stylesheet" href="header.css" />
+<link rel="stylesheet" href="footer.css" />
 </head>
 <body>
 
   <div id="site-header"></div>
-
-<script>
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-header').innerHTML = data;
-    })
-    .catch(err => console.error('Header load error:', err));
-</script>
 
     <div class="container">
 
@@ -566,67 +559,31 @@
 <div id="site-footer"></div>
 
 <script>
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-footer').innerHTML = data;
+fetch('footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('site-footer').innerHTML = data;
 
-      // Cookie banner script
-      const banner = document.getElementById('cookie-banner');
-      if (!localStorage.getItem('cookiesAccepted')) {
-        banner.style.display = 'block';
-      }
-      document.getElementById('accept-cookies').addEventListener('click', () => {
+    const banner = document.getElementById('cookie-banner');
+    const acceptCookies = document.getElementById('accept-cookies');
+
+    if (banner && !localStorage.getItem('cookiesAccepted')) {
+      banner.style.display = 'block';
+    }
+
+    if (acceptCookies) {
+      acceptCookies.addEventListener('click', () => {
         localStorage.setItem('cookiesAccepted', 'true');
         banner.style.display = 'none';
       });
-    })
-    .catch(err => console.error('Footer load error:', err));
+    }
+  });
 </script>
 
+<script defer src="header.js"></script>
 
-    <script>
-        // TOGGLES THE MOBILE NAVIGATION MENU
-        function toggleMenu() {
-            var nav = document.getElementById("main-nav"); 
-            nav.classList.toggle("show-menu");
-        }
 
-        // Handles click on dropdown toggle on mobile. On desktop, hover works via CSS.
-        function toggleDropdown(event) {
-            if (window.innerWidth >= 769) {
-                // If on desktop, do nothing, let CSS handle hover
-                return;
-            }
-            const dropdown = event.currentTarget;
-            const content = dropdown.querySelector('.dropdown-content');
-            
-            const isVisible = content.style.display === 'block';
 
-            // Close all other dropdowns first (critical for mobile menu)
-            document.querySelectorAll('.dropdown-content').forEach(dc => {
-                dc.style.display = 'none';
-            });
-
-            // Toggle the current one
-            content.style.display = isVisible ? 'none' : 'block';
-        }
-        
-        // Function to set the active link dynamically
-        (function setActiveLink() {
-            // Since this is about.html, we set nav-about as active
-            const activeId = 'nav-about'; 
-
-            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            const aboutLink = document.getElementById(activeId);
-            if (aboutLink) {
-                aboutLink.classList.add('active');
-            }
-        })();
-    </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -637,3 +594,32 @@
 </script>
 </body>
 </html>
+
+<style>
+.about-content-grid{
+    background:linear-gradient(145deg, rgba(255,255,255,0.9), rgba(245,242,239,0.85));
+    box-shadow:0 30px 80px -35px rgba(45,48,44,0.35);
+    border:1px solid rgba(169,184,151,0.25);
+    backdrop-filter:blur(12px);
+}
+
+.about-text h2{
+    letter-spacing:-0.04em;
+}
+
+.mission-section,
+.who-we-work-with,
+.value-card{
+    box-shadow:0 20px 50px -30px rgba(45,48,44,0.25);
+    border:1px solid rgba(169,184,151,0.18);
+}
+
+.container{
+    animation:pageReveal .8s ease both;
+}
+
+@keyframes pageReveal{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>

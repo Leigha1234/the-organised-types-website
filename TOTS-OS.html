@@ -9,7 +9,8 @@
 <meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="header.css">
 <style>
 	:root{
 		--bg:#F8F7F4;
@@ -40,7 +41,7 @@
 	body{
 		background:var(--bg);
 		color:var(--text);
-		font-family:'Inter',sans-serif;
+		font-family:'Poppins',sans-serif;
 		overflow-x:hidden;
 		-webkit-font-smoothing:antialiased;
 	}
@@ -234,7 +235,7 @@
 		align-items:center;
 		justify-content:center;
 		gap:8px;
-		font-family:'Inter',sans-serif;
+		font-family:'Poppins',sans-serif;
 		font-weight:600;
 		font-size:14.5px;
 		padding:13px 26px;
@@ -766,28 +767,7 @@
 	</div>
 </div>
 
-<header class="nav" id="siteNav">
-	<div class="nav-inner">
-		<a href="index.html" class="logo" aria-label="The Organised Types home">
-			<img src="logo.jpg.webp" alt="The Organised Types Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-			<span class="logo-fallback"><span class="logo-mark"></span>The Organised Types</span>
-		</a>
-		<nav id="main-nav" class="nav-links" aria-label="Primary">
-			<a href="index.html" id="nav-index">Home</a>
-			<a href="services.html" id="nav-services">Services</a>
-			<a href="portfolio.html" id="nav-portfolio">Portfolio</a>
-			<a href="TOTS-OS.html" id="nav-tots-os" class="active">TOTS-OS</a>
-			<a href="about.html" id="nav-about">About</a>
-			<a href="contact.html" id="nav-contact">Contact</a>
-		</nav>
-		<div class="nav-right">
-			<a href="contact.html#contact-form" class="btn btn-primary btn-sm">Book a Call</a>
-			<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-				<span></span><span></span><span></span>
-			</button>
-		</div>
-	</div>
-</header>
+<div id="site-header"></div>
 
 <section class="hero" id="home">
 	<div class="blob blob-1"></div>
@@ -1122,40 +1102,6 @@
 </div>
 
 <script>
-	// mobile menu toggle
-	const navToggle = document.getElementById('navToggle');
-	const mainNav = document.getElementById('main-nav');
-	if(navToggle && mainNav){
-		navToggle.addEventListener('click', () => {
-			const open = mainNav.classList.toggle('show-menu');
-			navToggle.classList.toggle('open', open);
-			navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-		});
-		mainNav.querySelectorAll('a').forEach(a => {
-			a.addEventListener('click', () => {
-				mainNav.classList.remove('show-menu');
-				navToggle.classList.remove('open');
-				navToggle.setAttribute('aria-expanded', 'false');
-			});
-		});
-	}
-
-	// active link (TOTS-OS already hardcoded as active; this keeps it correct if the file is reused for another page)
-	(function setActiveLink(){
-		const path = window.location.pathname.split('/').pop() || 'index.html';
-		const activePage = path.split('.')[0].toLowerCase();
-		const activeId = activePage === 'tots-os' ? 'nav-tots-os' : `nav-${activePage}`;
-		document.querySelectorAll('#main-nav a').forEach(el => el.classList.remove('active'));
-		const activeLink = document.getElementById(activeId);
-		if(activeLink){ activeLink.classList.add('active'); }
-	})();
-
-	// nav blur on scroll
-	const siteNav = document.getElementById('siteNav');
-	function updateNavScroll(){ siteNav.classList.toggle('scrolled', window.scrollY > 30); }
-	window.addEventListener('scroll', updateNavScroll, { passive:true });
-	updateNavScroll();
-
 	// reveal on scroll (also toggles .in on parent cards like .compare-card for descendant stagger)
 	const revealEls = document.querySelectorAll('.reveal:not(.in), .reveal-scale:not(.in)');
 	const io = new IntersectionObserver((entries) => {
@@ -1246,6 +1192,14 @@
 		});
 	}
 </script>
+<script>
+fetch('header.html')
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById('site-header').innerHTML = html;
+  });
+</script>
+<script defer src="header.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
 <script>
