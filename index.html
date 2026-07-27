@@ -4,9 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Organised Types — Systems for ambitious businesses</title>
+<meta name="description" content="Websites, TOTS-OS and consultancy for businesses who want to grow without the chaos." />
+<link rel="icon" type="image/png" href="favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="header.css">
 <style>
   :root{
     --bg:#F8F7F4;
@@ -33,12 +36,12 @@
   body{
     background:var(--bg);
     color:var(--text);
-    font-family:'Inter',sans-serif;
+    font-family:'Poppins',sans-serif;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,.display{
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     letter-spacing:-0.02em;
     line-height:1.02;
     font-weight:600;
@@ -107,7 +110,7 @@
   }
   .marquee:hover .marquee-track{ animation-play-state:paused; }
   .marquee-track span{
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     font-weight:600;
     font-size:21px;
     color:var(--text-soft);
@@ -160,7 +163,7 @@
   }
 
   /* ---------- orbit badges (product showcase) ---------- */
-  .orbit{ position:absolute; inset:0; pointer-events:none; z-index:1; }
+  .orbit{ position:absolute; inset:0; pointer-events:none; z-index:2; }
   .orbit-lines{ position:absolute; inset:0; width:100%; height:100%; }
   .orbit-lines line{
     stroke:rgba(248,247,244,0.16);
@@ -220,129 +223,7 @@
     box-shadow:0 0 0 5px rgba(77,91,75,0.12);
     transition:top 0.15s linear;
   }
-  .journey-labels{
-    position:absolute;
-    left:16px; top:0;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-  }
-  .journey-labels span{
-    font-family:'Space Grotesk',sans-serif;
-    font-size:11px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--text-soft);
-    white-space:nowrap;
-    opacity:0.55;
-  }
   @media (max-width:1100px){ .journey-thread{display:none;} }
-
-  /* ---------- nav ---------- */
-  .nav{
-    position:fixed;
-    top:0; left:0; right:0;
-    z-index:100;
-    padding:22px 0;
-    transition:padding 0.4s var(--ease), background 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
-    border-bottom:1px solid transparent;
-  }
-  .nav.scrolled{
-    padding:14px 0;
-    background:rgba(248,247,244,0.72);
-    backdrop-filter:blur(18px) saturate(160%);
-    -webkit-backdrop-filter:blur(18px) saturate(160%);
-    border-bottom:1px solid var(--line);
-    box-shadow:0 8px 30px -20px rgba(45,48,44,0.25);
-  }
-  .nav-inner{
-    max-width:1280px;
-    margin:0 auto;
-    padding:0 48px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  }
-  .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:700;
-    font-size:18px;
-    letter-spacing:-0.01em;
-  }
-  .logo-mark{
-    width:30px; height:30px;
-    border-radius:9px;
-    background:linear-gradient(135deg, var(--green) 0%, var(--sage-deep) 100%);
-    position:relative;
-    flex-shrink:0;
-  }
-  .logo-mark::after{
-    content:'';
-    position:absolute;
-    inset:8px;
-    border-radius:4px;
-    background:var(--bg);
-    opacity:0.9;
-  }
-  .nav-links{
-    display:flex;
-    align-items:center;
-    gap:40px;
-    list-style:none;
-  }
-  .nav-links a{
-    font-size:14.5px;
-    font-weight:500;
-    color:var(--text);
-    position:relative;
-    padding:4px 0;
-  }
-  .nav-links a::after{
-    content:'';
-    position:absolute;
-    left:0; right:0; bottom:-2px;
-    height:1px;
-    background:var(--green);
-    transform:scaleX(0);
-    transform-origin:right;
-    transition:transform 0.35s var(--ease);
-  }
-  .nav-links a:hover::after{transform:scaleX(1); transform-origin:left;}
-  @media (max-width:900px){ .nav-links{display:none;} }
-
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    font-family:'Inter',sans-serif;
-    font-weight:600;
-    font-size:14.5px;
-    padding:13px 26px;
-    border-radius:100px;
-    cursor:pointer;
-    border:1px solid transparent;
-    transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease), border-color 0.35s var(--ease);
-    white-space:nowrap;
-  }
-  .btn-primary{
-    background:var(--green);
-    color:#F8F7F4;
-    box-shadow:0 10px 24px -10px rgba(77,91,75,0.55);
-  }
-  .btn-primary:hover{transform:translateY(-3px) scale(1.025); box-shadow:0 18px 36px -12px rgba(77,91,75,0.65), 0 0 0 6px rgba(183,198,174,0.22);}
-  .btn-ghost{
-    background:rgba(255,255,255,0.5);
-    border:1px solid var(--line);
-    color:var(--text);
-    backdrop-filter:blur(6px);
-  }
-  .btn-ghost:hover{transform:translateY(-3px) scale(1.025); background:rgba(255,255,255,0.85); border-color:rgba(45,48,44,0.16);}
-  .btn-sm{padding:10px 20px; font-size:13.5px;}
 
   /* ---------- hero ---------- */
   .hero{
@@ -427,7 +308,6 @@
   }
   .hero-headline .accent{
     color:var(--green);
-    font-style:italic;
     font-weight:600;
     display:inline-block;
     transform:scale(1.04);
@@ -584,7 +464,7 @@
   }
   .mock-dots{display:flex; gap:6px;}
   .mock-dots span{width:8px; height:8px; border-radius:50%; background:var(--sage-soft);}
-  .mock-title{font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:600; color:var(--text-soft);}
+  .mock-title{font-family:'Poppins',sans-serif; font-size:13px; font-weight:600; color:var(--text-soft);}
   .mock-stat-row{display:flex; gap:12px; margin-bottom:16px;}
   .mock-stat{
     flex:1;
@@ -593,7 +473,7 @@
     padding:14px;
     border:1px solid var(--line);
   }
-  .mock-stat b{display:block; font-family:'Space Grotesk',sans-serif; font-size:20px; color:var(--text);}
+  .mock-stat b{display:block; font-family:'Poppins',sans-serif; font-size:20px; color:var(--text);}
   .mock-stat span{font-size:11.5px; color:var(--text-soft);}
   .mock-chart{
     height:120px;
@@ -682,20 +562,13 @@
     margin-bottom:36px;
     font-weight:600;
   }
-  .trust-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:36px;
-    opacity:0.6;
-  }
-  .trust-row span{
-    font-family:'Space Grotesk',sans-serif;
-    font-weight:600;
-    font-size:19px;
+  .partner-line{
+    text-align:center;
+    font-size:13.5px;
     color:var(--text-soft);
+    margin-top:32px;
   }
+  .partner-line strong{color:var(--green-deep); font-weight:600;}
 
   /* ---------- section common ---------- */
   .section{padding:175px 0;}
@@ -756,6 +629,20 @@
     background:radial-gradient(circle, var(--sage) 0%, transparent 70%);
     opacity:0.35;
   }
+  .feature-visual-tag{
+    color:#F8F7F4;
+    font-size:14px;
+    margin-bottom:16px;
+    opacity:0.75;
+    position:relative;
+    z-index:3;
+  }
+  .feature-visual-img{
+    width:100%;
+    border-radius:var(--radius-md);
+    box-shadow:0 24px 60px -20px rgba(0,0,0,0.45);
+    position:relative;
+  }
   .feature-visual-panel{
     position:relative;
     background:rgba(248,247,244,0.08);
@@ -768,12 +655,6 @@
   .feature-visual-panel .mock-stat{background:rgba(248,247,244,0.06); border-color:rgba(248,247,244,0.12);}
   .feature-visual-panel .mock-stat b{color:#F8F7F4;}
   .feature-visual-panel .mock-stat span{color:rgba(248,247,244,0.55);}
-  .feature-visual-tag{
-    color:#F8F7F4;
-    font-size:14px;
-    margin-bottom:16px;
-    opacity:0.75;
-  }
 
   .feature-cards{
     display:flex;
@@ -797,7 +678,7 @@
     box-shadow:var(--shadow-card);
   }
   .feature-card .fnum{
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     font-size:12px;
     color:var(--sage-deep);
     font-weight:700;
@@ -840,7 +721,7 @@
     transition:clip-path 1.4s var(--ease);
   }
   .ba-tag{
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     font-size:13px;
     font-weight:700;
     letter-spacing:0.08em;
@@ -851,7 +732,7 @@
   .ba-before .ba-tag{ color:var(--text-soft); }
   .ba-list{ list-style:none; display:flex; flex-direction:column; gap:16px; }
   .ba-list li{
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     font-size:23px;
     position:relative;
     padding-left:34px;
@@ -896,11 +777,8 @@
     gap:80px;
     align-items:center;
   }
-  .split.reverse .split-visual{order:2;}
-  .split.reverse .split-copy{order:1;}
   @media (max-width:960px){
-    .split, .split.reverse{grid-template-columns:1fr;}
-    .split.reverse .split-visual, .split.reverse .split-copy{order:initial;}
+    .split{grid-template-columns:1fr;}
   }
   .split-visual{
     position:relative;
@@ -980,9 +858,12 @@
     border-top:1px solid rgba(248,247,244,0.2);
     padding-top:22px;
   }
-  .pillar .pnum{font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--sage); margin-bottom:14px; font-weight:600;}
+  .pillar .pnum{font-family:'Poppins',sans-serif; font-size:13px; color:var(--sage); margin-bottom:14px; font-weight:600;}
   .pillar h3{font-size:20px; margin-bottom:10px; color:#F8F7F4;}
   .pillar p{font-size:14.5px; color:rgba(248,247,244,0.62); line-height:1.6;}
+  .dark-section .hero-cta{margin-top:56px;}
+  .dark-section .btn-primary{background:#F8F7F4; color:var(--green-deep); box-shadow:0 10px 30px -10px rgba(0,0,0,0.35);}
+  .dark-section .btn-primary:hover{box-shadow:0 16px 36px -12px rgba(0,0,0,0.45), 0 0 0 6px rgba(183,198,174,0.25);}
 
   /* ---------- journey strip ---------- */
   .journey-strip{
@@ -1010,10 +891,10 @@
     background:var(--bg);
     border:1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     font-size:11px; font-weight:700; color:var(--green);
   }
-  .jstep h4{font-size:17px; margin-bottom:8px; font-family:'Space Grotesk',sans-serif;}
+  .jstep h4{font-size:17px; margin-bottom:8px; font-family:'Poppins',sans-serif;}
   .jstep p{font-size:14px; color:var(--text-soft); line-height:1.55;}
 
   /* ---------- stat/testimonial band ---------- */
@@ -1033,7 +914,7 @@
   }
   @media (max-width:900px){ .stat-card{grid-template-columns:1fr; padding:40px;} }
   .stat-quote{
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     font-size:24px;
     line-height:1.4;
     color:var(--text);
@@ -1051,7 +932,7 @@
     background:var(--sage-soft);
     color:var(--green-deep);
     display:flex; align-items:center; justify-content:center;
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     font-size:13px;
     font-weight:700;
     flex-shrink:0;
@@ -1068,7 +949,7 @@
   }
   .stat-num b{
     display:block;
-    font-family:'Space Grotesk',sans-serif;
+    font-family:'Poppins',sans-serif;
     font-size:38px;
     color:var(--text);
   }
@@ -1111,7 +992,7 @@
   .cta-banner .btn-primary{background:#F8F7F4; color:var(--green-deep); box-shadow:0 10px 30px -10px rgba(0,0,0,0.35);}
 
   /* ---------- footer ---------- */
-  footer{padding:80px 0 40px;}
+  footer.site-footer{padding:80px 0 40px;}
   .footer-top{
     display:flex;
     justify-content:space-between;
@@ -1144,11 +1025,13 @@
   .footer-col a{
     display:block;
     font-size:14.5px;
-    color:var(--text);
+    color:var(--green);
     margin-bottom:12px;
     transition:color 0.25s;
   }
-  .footer-col a:hover{color:var(--green);}
+  .footer-col a:hover{color:var(--green-deep);}
+  .footer-bottom a{color:var(--green); transition:color 0.25s;}
+  .footer-bottom a:hover{color:var(--green-deep);}
   .footer-bottom{
     display:flex;
     justify-content:space-between;
@@ -1158,9 +1041,6 @@
     padding-top:28px;
     font-size:13px;
     color:var(--text-soft);
-  }
-  .footer-bottom .thistle{
-    display:inline-flex; align-items:center; gap:8px;
   }
 </style>
 </head>
@@ -1172,22 +1052,7 @@
   </div>
 </div>
 
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <div class="logo">
-      <div class="logo-mark"></div>
-      The Organised Types
-    </div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#tots-os">TOTS-OS</a></li>
-      <li><a href="#websites">Websites</a></li>
-      <li><a href="#consultancy">Consultancy</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#contact" class="btn btn-primary btn-sm">Book a Call</a>
-  </div>
-</nav>
+<div id="site-header"></div>
 
 <section class="hero" id="home">
   <div class="blob blob-1" id="blob1"></div>
@@ -1207,8 +1072,8 @@
       </h1>
       <p class="hero-sub reveal in reveal-delay-1">The businesses growing fastest aren't working harder — they're working smarter with better systems.</p>
       <div class="hero-cta reveal in reveal-delay-2">
-        <a href="#tots-os" class="btn btn-primary">Explore TOTS-OS</a>
-        <a href="#contact" class="btn btn-ghost">Book a Discovery Call</a>
+        <a href="TOTS-OS.html" class="btn btn-primary">Explore TOTS-OS</a>
+        <a href="contact.html#contact-form" class="btn btn-ghost">Book a Discovery Call</a>
       </div>
     </div>
 
@@ -1264,11 +1129,20 @@
       <span>WhyKnot Wardrobe</span>
       <span>Lux Electrical Engineering</span>
       <span>The Counselling Vine</span>
+      <span>DP Leadership</span>
+      <span>Moray Training Club</span>
+      <span>Moray Well-Being Hub</span>
+      <span>DHI</span>
       <span>WhyKnot Wardrobe</span>
       <span>Lux Electrical Engineering</span>
       <span>The Counselling Vine</span>
+      <span>DP Leadership</span>
+      <span>Moray Training Club</span>
+      <span>Moray Well-Being Hub</span>
+      <span>DHI</span>
     </div>
   </div>
+  <p class="partner-line reveal">Proud to work alongside <strong>Mikeysline</strong>, supporting mental health and wellbeing across the Highlands and Islands.</p>
 </section>
 
 <section class="section" id="tots-os">
@@ -1296,7 +1170,13 @@
           <span class="orbit-badge" style="top:42%; right:3%; animation-delay:-1.2s;">Reporting</span>
         </div>
 
-        <div class="feature-visual-panel sheen">
+        <img
+          src="totsdevices.png"
+          alt="TOTS-OS dashboard shown on multiple devices"
+          class="feature-visual-img sheen"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        >
+        <div class="feature-visual-panel sheen" style="display:none;">
           <div class="mock-title">This week</div>
           <div class="mock-stat-row" style="margin-top:14px;">
             <div class="mock-stat"><b>27</b><span>Automations run</span></div>
@@ -1321,6 +1201,9 @@
           <p>Real numbers on revenue, tasks and pipeline — updated live, not at month end.</p>
         </div>
       </div>
+    </div>
+    <div class="hero-cta reveal reveal-delay-4">
+      <a href="contact.html#contact-form" class="btn btn-primary">Book a Demo</a>
     </div>
   </div>
 </section>
@@ -1382,7 +1265,10 @@
           <li><span class="tick">✓</span> Connected to your systems from day one</li>
           <li><span class="tick">✓</span> Fast, accessible and built to last</li>
         </ul>
-        <a href="#contact" class="btn btn-primary">See our work</a>
+        <div class="hero-cta">
+          <a href="portfolio.html" class="btn btn-primary">See our work</a>
+          <a href="contact.html#contact-form" class="btn btn-ghost">Book a Call</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1412,6 +1298,10 @@
             <h3>Build it in, together</h3>
             <p>We implement alongside your team, so the system sticks long after we've left the room.</p>
           </div>
+        </div>
+
+        <div class="hero-cta reveal">
+          <a href="contact.html#contact-form" class="btn btn-primary">Book a Call</a>
         </div>
       </div>
     </div>
@@ -1457,47 +1347,59 @@
   <h2>Ready to become the next big business?</h2>
   <p>Book a free discovery call and we'll show you exactly where better systems could take you.</p>
   <div class="hero-cta">
-    <a href="#" class="btn btn-primary">Book a Discovery Call</a>
-    <a href="#tots-os" class="btn btn-ghost">Explore TOTS-OS</a>
+    <a href="contact.html#contact-form" class="btn btn-primary">Book a Discovery Call</a>
+    <a href="TOTS-OS.html" class="btn btn-ghost">Explore TOTS-OS</a>
   </div>
 </section>
 
-<footer>
+<footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo"><div class="logo-mark"></div>The Organised Types</div>
+        <div class="logo">
+          <img src="logo.webp" alt="The Organised Types Logo" style="height:30px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <span class="logo-fallback"><span class="logo-mark"></span>The Organised Types</span>
+        </div>
         <p>Websites, systems and consultancy for businesses who want to grow without the chaos.</p>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
           <h5>Company</h5>
-          <a href="#home">Home</a>
-          <a href="#tots-os">TOTS-OS</a>
-          <a href="#websites">Websites</a>
-          <a href="#consultancy">Consultancy</a>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="TOTS-OS.html">TOTS-OS</a>
+          <a href="about.html">About</a>
         </div>
         <div class="footer-col">
           <h5>Get in touch</h5>
-          <a href="#contact">Book a Call</a>
+          <a href="contact.html#contact-form">Book a Call</a>
           <a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 The Organised Types. All rights reserved.</span>
-      <span class="thistle">Proudly designed and built in Scotland</span>
+      <span style="display:flex; align-items:center; gap:18px;">
+        <a href="legal.html">Legal</a>
+        <span>Proudly designed and built in Scotland</span>
+      </span>
     </div>
   </div>
 </footer>
 
+<script src="header.js"></script>
 <script>
-  // nav blur on scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive:true });
+  fetch('header.html')
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById('site-header').innerHTML = html;
+      window.initHeader();
+    })
+    .catch(err => console.error('Header load error:', err));
+</script>
 
+<script>
   // reveal on scroll
   const revealEls = document.querySelectorAll('.reveal:not(.in), .reveal-scale:not(.in)');
   const io = new IntersectionObserver((entries) => {
@@ -1563,7 +1465,6 @@
     window.addEventListener('pointermove', (e) => { if(dragging) setPos(e.clientX); });
     window.addEventListener('pointerup', () => { dragging = false; baSlider.classList.remove('dragging'); });
 
-    // gentle reveal sweep the first time it enters view — shows the "transform" without needing a drag
     const baIo = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
