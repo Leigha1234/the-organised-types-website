@@ -422,13 +422,14 @@
             }
         }
     </style>
-</link rel="stylesheet" href="cinematic-interface.css" />
+<link rel="stylesheet" href="cinematic-interface.css" />
 <link rel="stylesheet" href="header.css" />
 <link rel="stylesheet" href="footer.css" />
 </head>
 <body>
 
   <div id="site-header"></div>
+  <script defer src="header.js"></script>
 
     <div class="container">
 
@@ -559,8 +560,11 @@
 <div id="site-footer"></div>
 
 <script>
-fetch('footer.html')
-  .then(response => response.text())
+fetch('./footer.html')
+  .then(response => {
+    if (!response.ok) throw new Error('Footer not found');
+    return response.text();
+  })
   .then(data => {
     document.getElementById('site-footer').innerHTML = data;
 
@@ -571,16 +575,16 @@ fetch('footer.html')
       banner.style.display = 'block';
     }
 
-    if (acceptCookies) {
+    if (acceptCookies && banner) {
       acceptCookies.addEventListener('click', () => {
         localStorage.setItem('cookiesAccepted', 'true');
         banner.style.display = 'none';
       });
     }
-  });
+  })
+  .catch(err => console.error('Footer load error:', err));
 </script>
 
-<script defer src="header.js"></script>
 
 
 

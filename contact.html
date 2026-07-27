@@ -845,7 +845,8 @@
             }
         }
     </style>
-<link rel="stylesheet" href="cinematic-interface.css" />
+</link rel="stylesheet" href="cinematic-interface.css" />
+<link rel="stylesheet" href="header.css">
 </head>
 <body>
     <div class="journey-thread" aria-hidden="true">
@@ -855,18 +856,6 @@
     </div>
 
     <div id="site-header"></div>
-
-    <script>
-fetch('./header.html')
-  .then(response => {
-      if (!response.ok) throw new Error('Header not found');
-      return response.text();
-  })
-  .then(data => {
-      document.getElementById('site-header').innerHTML = data;
-  })
-  .catch(err => console.error('Header load error:', err));
-</script>
 
     <main class="contact-content">
         <div class="container">
@@ -1113,6 +1102,7 @@ fetch('./footer.html')
       gtag('js', new Date());
       gtag('config', 'G-5P2GHYXC2R');
     </script>
+<script src="header.js"></script>
 <script defer src="cinematic-interface.js"></script>
 </body>
 </html>

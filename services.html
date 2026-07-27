@@ -6,9 +6,7 @@
 <title>Services | The Organised Types</title>
 <meta name="description" content="Planners, business tools, branding kits and TOTS-OS plans — everything The Organised Types offers, in one place." />
 <link rel="icon" type="image/png" href="favicon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="header.css">
 <style>
 	:root{
 		--bg:#F8F7F4;
@@ -65,53 +63,6 @@
 	}
 	@media (max-width:1100px){ .journey-thread{display:none;} }
 
-	/* ---------- header ---------- */
-	.nav{
-		position:fixed; top:0; left:0; right:0; z-index:100; padding:22px 0;
-		transition:padding 0.4s var(--ease), background 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
-		border-bottom:1px solid transparent;
-	}
-	.nav.scrolled{
-		padding:14px 0; background:rgba(248,247,244,0.72);
-		backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%);
-		border-bottom:1px solid var(--line); box-shadow:0 8px 30px -20px rgba(45,48,44,0.25);
-	}
-	.nav-inner{max-width:1280px; margin:0 auto; padding:0 48px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
-	.logo{display:flex; align-items:center; gap:10px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.01em;}
-	.logo img{height:40px; width:auto; display:block;}
-	.logo-fallback{display:none; align-items:center; gap:10px;}
-	.logo-mark{width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg, var(--green) 0%, var(--sage-deep) 100%); position:relative; flex-shrink:0;}
-	.logo-mark::after{content:''; position:absolute; inset:8px; border-radius:4px; background:var(--bg); opacity:0.9;}
-	.nav-links{display:flex; align-items:center; gap:30px; list-style:none;}
-	.nav-links a{font-size:14.5px; font-weight:500; color:var(--text); position:relative; padding:4px 0;}
-	.nav-links a::after{
-		content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px; background:var(--green);
-		transform:scaleX(0); transform-origin:right; transition:transform 0.35s var(--ease);
-	}
-	.nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1); transform-origin:left;}
-	.nav-links a.active{color:var(--green-deep); font-weight:600;}
-	.nav-right{display:flex; align-items:center; gap:14px;}
-	.nav-toggle{
-		display:none; width:38px; height:38px; border-radius:10px; border:1px solid var(--line);
-		background:rgba(255,255,255,0.6); align-items:center; justify-content:center; cursor:pointer; flex-direction:column; gap:4px;
-	}
-	.nav-toggle span{width:16px; height:1.5px; background:var(--text); transition:transform 0.3s var(--ease), opacity 0.3s var(--ease);}
-	.nav-toggle.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg);}
-	.nav-toggle.open span:nth-child(2){opacity:0;}
-	.nav-toggle.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg);}
-	@media (max-width:880px){
-		.nav-links{
-			position:absolute; top:100%; left:16px; right:16px; margin-top:10px;
-			flex-direction:column; align-items:flex-start; gap:4px;
-			background:rgba(248,247,244,0.96); backdrop-filter:blur(18px); border:1px solid var(--line);
-			border-radius:16px; padding:14px; box-shadow:var(--shadow-card);
-			max-height:0; overflow:hidden; opacity:0;
-			transition:max-height 0.4s var(--ease), opacity 0.3s var(--ease), padding 0.4s var(--ease);
-		}
-		.nav-links.show-menu{ max-height:400px; opacity:1; padding:14px; }
-		.nav-links a{ padding:10px 8px; width:100%; }
-		.nav-toggle{ display:flex; }
-	}
 
 	.btn{
 		display:inline-flex; align-items:center; justify-content:center; gap:8px;
@@ -217,21 +168,6 @@
 	.modal-close:hover{color:var(--text);}
 	.kicker{display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green);}
 
-	/* ---------- footer ---------- */
-	footer.site-footer{padding:80px 0 40px;}
-	.footer-top{
-		display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:50px;
-		padding-bottom:56px; border-bottom:1px solid var(--line);
-	}
-	.footer-brand p{margin-top:16px; font-size:14.5px; color:var(--text-soft); max-width:280px; line-height:1.6;}
-	.footer-cols{display:flex; gap:70px; flex-wrap:wrap;}
-	.footer-col h5{font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-soft); margin-bottom:18px; font-weight:600;}
-	.footer-col a{display:block; font-size:14.5px; color:var(--text); margin-bottom:12px; transition:color 0.25s;}
-	.footer-col a:hover{color:var(--green);}
-	.footer-bottom{
-		display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
-		padding-top:28px; font-size:13px; color:var(--text-soft);
-	}
 
 	@media (max-width:780px){
 		.wrap,.nav-inner,.hero-banner-inner{padding:0 20px;}
@@ -249,28 +185,7 @@
 	</div>
 </div>
 
-<header class="nav" id="siteNav">
-	<div class="nav-inner">
-		<a href="index.html" class="logo" aria-label="The Organised Types home">
-			<img src="logo.jpg.webp" alt="The Organised Types Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-			<span class="logo-fallback"><span class="logo-mark"></span>The Organised Types</span>
-		</a>
-		<nav id="main-nav" class="nav-links" aria-label="Primary">
-			<a href="index.html" id="nav-index">Home</a>
-			<a href="services.html" id="nav-services" class="active">Services</a>
-			<a href="portfolio.html" id="nav-portfolio">Portfolio</a>
-			<a href="TOTS-OS.html" id="nav-tots-os">TOTS-OS</a>
-			<a href="about.html" id="nav-about">About</a>
-			<a href="contact.html" id="nav-contact">Contact</a>
-		</nav>
-		<div class="nav-right">
-			<a href="contact.html#contact-form" class="btn btn-primary btn-sm">Book a Call</a>
-			<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-				<span></span><span></span><span></span>
-			</button>
-		</div>
-	</div>
-</header>
+<div id="site-header"></div>
 
 <section class="hero-banner">
 	<div class="blob blob-1"></div>
@@ -301,76 +216,9 @@
 	</div>
 </div>
 
-<footer class="site-footer">
-	<div class="wrap">
-		<div class="footer-top">
-			<div class="footer-brand">
-				<div class="logo">
-					<img src="logo.jpg.webp" alt="The Organised Types Logo" style="height:30px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-					<span class="logo-fallback"><span class="logo-mark"></span>The Organised Types</span>
-				</div>
-				<p>Websites, systems and consultancy for businesses who want to grow without the chaos.</p>
-			</div>
-			<div class="footer-cols">
-				<div class="footer-col">
-					<h5>Company</h5>
-					<a href="index.html">Home</a>
-					<a href="services.html">Services</a>
-					<a href="portfolio.html">Portfolio</a>
-					<a href="TOTS-OS.html">TOTS-OS</a>
-					<a href="about.html">About</a>
-				</div>
-				<div class="footer-col">
-					<h5>Get in touch</h5>
-					<a href="contact.html#contact-form">Book a Call</a>
-					<a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a>
-				</div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<span>© 2026 The Organised Types. All rights reserved.</span>
-			<span>Proudly designed and built in Scotland</span>
-		</div>
-	</div>
-</footer>
+<div id="site-footer"></div>
 
 <script>
-	// mobile menu toggle
-	const navToggle = document.getElementById('navToggle');
-	const mainNav = document.getElementById('main-nav');
-	if(navToggle && mainNav){
-		navToggle.addEventListener('click', () => {
-			const open = mainNav.classList.toggle('show-menu');
-			navToggle.classList.toggle('open', open);
-			navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-		});
-		mainNav.querySelectorAll('a').forEach(a => {
-			a.addEventListener('click', () => {
-				mainNav.classList.remove('show-menu');
-				navToggle.classList.remove('open');
-				navToggle.setAttribute('aria-expanded', 'false');
-			});
-		});
-	}
-
-	// nav blur on scroll
-	const siteNav = document.getElementById('siteNav');
-	function updateNavScroll(){ siteNav.classList.toggle('scrolled', window.scrollY > 30); }
-	window.addEventListener('scroll', updateNavScroll, { passive:true });
-	updateNavScroll();
-
-	// signature journey thread
-	const journeyTrack = document.getElementById('journeyTrack');
-	const journeyDot = document.getElementById('journeyDot');
-	function updateJourney(){
-		const scrolled = window.scrollY;
-		const max = document.body.scrollHeight - window.innerHeight;
-		const pct = Math.min(Math.max(scrolled / max, 0), 1);
-		journeyDot.style.top = (pct * journeyTrack.offsetHeight) + 'px';
-	}
-	window.addEventListener('scroll', updateJourney, { passive:true });
-	updateJourney();
-
 	// ---------- same product data + Stripe links as the resources page ----------
 	const products = [
 		{ cat: 'Planners', title: 'Annual Planner', desc: 'Plan your year with clarity.', url: 'https://buy.stripe.com/7sYfZafZf9t34mmeQg83C0A', img: 'annualplanner.jpg' },
@@ -454,6 +302,7 @@
 	}, { threshold:0.12 });
 	revealEls.forEach(el => io.observe(el));
 </script>
+<script src="header.js"></script>
 
 </body>
 </html>
