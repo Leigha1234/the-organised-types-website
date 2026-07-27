@@ -1,0 +1,62 @@
+:root {
+  --cinematic-shadow-soft: 0 24px 70px -34px rgba(45, 48, 44, 0.38);
+  --cinematic-shadow-card: 0 14px 36px -20px rgba(45, 48, 44, 0.28);
+  --cinematic-line: rgba(79, 74, 70, 0.14);
+}
+
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-image:
+    radial-gradient(circle at 12% 12%, rgba(169, 184, 151, 0.2), transparent 36%),
+    radial-gradient(circle at 86% 14%, rgba(239, 230, 225, 0.68), transparent 40%),
+    radial-gradient(circle at 82% 84%, rgba(169, 184, 151, 0.14), transparent 38%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.35), transparent 44%);
+}
+
+.legal-content-area {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--cinematic-line);
+  border-radius: 22px;
+  box-shadow: var(--cinematic-shadow-soft);
+  padding: 26px 24px;
+}
+
+#site-header + .container,
+#site-header + main,
+#site-header + .contact-content,
+#site-header + .about-page {
+  position: relative;
+  z-index: 1;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #4f4a46;
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .legal-content-area {
+    border-radius: 16px;
+    padding: 18px 14px;
+  }
+}

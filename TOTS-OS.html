@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TOTS-OS | The Operating System For Growth</title>
+<meta name="description" content="TOTS-OS is the complete operating system for ambitious businesses: clients, tasks, invoices, automations and reporting in one calm, scalable workflow." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="cinematic-interface.css" />
+<style>
+:root {
+  --bg: #f8f7f4;
+  --bg-raised: #ffffff;
+  --sage: #b7c6ae;
+  --sage-soft: #dce3d6;
+  --sage-deep: #8fa184;
+  --green: #4d5b4b;
+  --green-deep: #374235;
+  --text: #2d302c;
+  --text-soft: #6b6f67;
+  --gold: #c7a467;
+  --line: rgba(45, 48, 44, 0.08);
+  --shadow-soft: 0 24px 70px -34px rgba(45, 48, 44, 0.38);
+  --shadow-card: 0 14px 36px -20px rgba(45, 48, 44, 0.24);
+  --radius-lg: 30px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --ease: cubic-bezier(.16, .84, .44, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, .display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-weight: 600;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+section { position: relative; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+::selection { background: var(--sage); color: var(--green-deep); }
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(169, 184, 151, 0.24), transparent 34%),
+    radial-gradient(circle at 88% 16%, rgba(239, 230, 225, 0.8), transparent 38%),
+    radial-gradient(circle at 84% 82%, rgba(169, 184, 151, 0.14), transparent 34%);
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.34), transparent 46%);
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.99);
+  transition: opacity 0.95s var(--ease), transform 0.95s var(--ease);
+}
+.reveal.in { opacity: 1; transform: translateY(0) scale(1); }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1.05s var(--ease), transform 1.05s var(--ease);
+}
+.reveal-scale.in { opacity: 1; transform: scale(1); }
+.word-reveal { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.06em; }
+.word-reveal span {
+  display: inline-block;
+  transform: translateY(115%) rotate(4deg);
+  opacity: 0;
+  animation: wordUp 1s var(--ease) forwards;
+}
+@keyframes wordUp { to { transform: translateY(0) rotate(0deg); opacity: 1; } }
+.journey-thread {
+  position: fixed;
+  left: 40px;
+  top: 0;
+  height: 100vh;
+  width: 2px;
+  z-index: 40;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+.journey-track {
+  position: relative;
+  width: 2px;
+  height: 280px;
+  background: linear-gradient(to bottom, transparent, var(--sage) 12%, var(--green) 50%, var(--sage) 88%, transparent);
+  background-size: 100% 240%;
+  opacity: 0.5;
+  animation: flowLine 7s linear infinite;
+}
+.journey-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 5px rgba(77, 91, 75, 0.12);
+  transition: top 0.15s linear;
+}
+@keyframes flowLine { 0% { background-position: 0 0; } 100% { background-position: 0 240%; } }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 220px;
+  padding-bottom: 90px;
+  overflow: hidden;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 44px;
+  align-items: center;
+  width: 100%;
+  perspective: 1400px;
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  z-index: 0;
+  animation: drift 18s ease-in-out infinite;
+}
+.blob-1 { width: 560px; height: 560px; background: radial-gradient(circle at 30% 30%, var(--sage) 0%, transparent 70%); top: -140px; right: -60px; }
+.blob-2 { width: 420px; height: 420px; background: radial-gradient(circle at 60% 40%, var(--gold) 0%, transparent 70%); opacity: 0.22; bottom: -100px; right: 220px; animation-delay: -6s; }
+.blob-3 { width: 360px; height: 360px; background: radial-gradient(circle, var(--green) 0%, transparent 70%); opacity: 0.12; top: 220px; left: -120px; animation-delay: -11s; }
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.06); }
+  66% { transform: translate(-20px, 20px) scale(0.96); }
+}
+.top-words {
+  position: absolute;
+  top: 164px;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  overflow: hidden;
+  border-top: 1px solid rgba(45, 48, 44, 0.06);
+  border-bottom: 1px solid rgba(45, 48, 44, 0.06);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+}
+.top-words-track {
+  display: flex;
+  gap: 44px;
+  padding: 10px 0;
+  width: max-content;
+  animation: topWords 24s linear infinite;
+}
+.top-words:hover .top-words-track { animation-play-state: paused; }
+.top-words-track span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  opacity: 0.75;
+  white-space: nowrap;
+}
+@keyframes topWords { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  background: rgba(183, 198, 174, 0.35);
+  border: 1px solid rgba(77, 91, 75, 0.15);
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(77, 91, 75, 0.18); }
+.hero h1 { font-size: clamp(54px, 6.5vw, 104px); color: var(--text); line-height: 0.95; }
+.hero h1 em { font-style: italic; color: var(--green); font-weight: 600; }
+.hero-sub { margin-top: 26px; font-size: 19px; line-height: 1.6; color: var(--text-soft); max-width: 560px; }
+.hero-cta { display: flex; gap: 16px; margin-top: 42px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  padding: 13px 26px;
+  border-radius: 100px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease), border-color 0.35s var(--ease);
+  white-space: nowrap;
+}
+.btn-primary { background: var(--green); color: #f8f7f4; box-shadow: 0 10px 24px -10px rgba(77, 91, 75, 0.55); }
+.btn-primary:hover { transform: translateY(-3px) scale(1.025); box-shadow: 0 18px 36px -12px rgba(77, 91, 75, 0.65), 0 0 0 6px rgba(183, 198, 174, 0.22); }
+.btn-ghost { background: rgba(255, 255, 255, 0.55); border: 1px solid var(--line); color: var(--text); backdrop-filter: blur(6px); }
+.btn-ghost:hover { transform: translateY(-3px) scale(1.025); background: rgba(255, 255, 255, 0.85); border-color: rgba(45, 48, 44, 0.16); }
+.hero-dashboard-wrap { position: relative; transform-style: preserve-3d; transition: transform 0.4s var(--ease); will-change: transform; }
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  width: 520px;
+  height: 520px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(199, 164, 103, 0.18) 0%, rgba(183, 198, 174, 0.24) 42%, transparent 72%);
+  filter: blur(60px);
+  z-index: 0;
+  animation: glowPulse 8s ease-in-out infinite;
+}
+@keyframes glowPulse { 0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); } }
+.hero-dashboard {
+  background: var(--bg-raised);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  transform: rotate(-1.5deg);
+  transition: transform 0.4s var(--ease);
+  position: relative;
+  z-index: 1;
+}
+.hero-dashboard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.16), transparent 42%, rgba(183, 198, 174, 0.18));
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+}
+.hero-dashboard:hover { transform: rotate(0deg) translateY(-4px); }
+.hero-dashboard img { width: 100%; border-radius: 16px; aspect-ratio: 16 / 11; object-fit: cover; transition: transform 0.6s var(--ease); }
+.hero-dashboard:hover img { transform: scale(1.02); }
+.hero-dashboard-fallback {
+  display: none;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 16px;
+  background: linear-gradient(150deg, #efede6 0%, var(--sage-soft) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+}
+.hero-dashboard-fallback .mini-topbar { display: flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+.hero-dashboard-fallback .mini-topbar span { width: 8px; height: 8px; border-radius: 50%; background: rgba(45, 48, 44, 0.18); }
+.hero-dashboard-fallback .mini-row { display: flex; gap: 10px; margin-bottom: 12px; }
+.hero-dashboard-fallback .mini-card { flex: 1; background: rgba(255, 255, 255, 0.75); border-radius: 10px; padding: 12px; border: 1px solid rgba(45, 48, 44, 0.06); }
+.hero-dashboard-fallback .mini-card b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 18px; color: var(--text); }
+.hero-dashboard-fallback .mini-card span { font-size: 10.5px; color: var(--text-soft); }
+.hero-dashboard-fallback .mini-chart { height: 90px; display: flex; align-items: flex-end; gap: 6px; background: rgba(255, 255, 255, 0.55); border-radius: 10px; padding: 12px; border: 1px solid rgba(45, 48, 44, 0.06); }
+.hero-dashboard-fallback .mini-chart i { flex: 1; background: linear-gradient(to top, var(--green), var(--sage)); border-radius: 4px 4px 0 0; opacity: 0.85; }
+.hero-signals { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.hero-signal { display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.62); border: 1px solid rgba(45, 48, 44, 0.08); box-shadow: 0 14px 26px -18px rgba(45, 48, 44, 0.22); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-deep); }
+.hero-signal span { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(77, 91, 75, 0.12); }
+.dashboard-caption { position: relative; z-index: 2; margin-top: 18px; display: flex; justify-content: space-between; gap: 16px; padding: 14px 18px; border-radius: 18px; background: rgba(12, 12, 12, 0.62); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #f8f7f4; }
+.dashboard-caption strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin-bottom: 4px; }
+.dashboard-caption span { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(248, 247, 244, 0.68); }
+.cinema-passage { padding: 0 24px 120px; }
+.cinema-card { max-width: 1220px; margin: 0 auto; padding: 64px 52px; border-radius: var(--radius-lg); background: linear-gradient(145deg, #111412 0%, #202821 52%, #111412 100%); background-size: 220% 220%; animation: cinemaShift 14s ease-in-out infinite; color: #f8f7f4; position: relative; overflow: hidden; box-shadow: 0 40px 90px -42px rgba(17, 20, 18, 0.66); }
+@keyframes cinemaShift { 0%, 100% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } }
+.cinema-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 18% 18%, rgba(183, 198, 174, 0.22), transparent 34%), radial-gradient(circle at 82% 80%, rgba(199, 164, 103, 0.18), transparent 34%); pointer-events: none; }
+.cinema-card p, .cinema-card h2, .cinema-card .kicker, .cinema-card .cinema-tags { position: relative; z-index: 1; }
+.cinema-card h2 { font-size: clamp(36px, 4.7vw, 66px); max-width: 800px; line-height: 0.98; margin-bottom: 18px; }
+.cinema-card p { max-width: 720px; font-size: 18px; line-height: 1.7; color: rgba(248, 247, 244, 0.78); }
+.cinema-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.cinema-tags span { padding: 10px 14px; border-radius: 999px; background: rgba(248, 247, 244, 0.08); border: 1px solid rgba(248, 247, 244, 0.12); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #e7ecd9; }
+.section { padding: 150px 0; }
+.section-head { max-width: 700px; margin-bottom: 64px; }
+.kicker { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 18px; }
+.section-title { font-size: clamp(36px, 4.4vw, 58px); color: var(--text); }
+.section-body { margin-top: 20px; font-size: 17px; color: var(--text-soft); line-height: 1.62; max-width: 580px; }
+.proof-band { background: var(--green-deep); color: #f8f7f4; border-radius: var(--radius-lg); margin: 0 24px; padding: 92px 44px; position: relative; overflow: hidden; }
+.proof-band::before { content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%); width: 620px; height: 620px; background: radial-gradient(circle, var(--sage) 0%, transparent 70%); opacity: 0.16; }
+.proof-inner { max-width: 1160px; margin: 0 auto; position: relative; }
+.proof-band .kicker { color: var(--sage); }
+.proof-band .section-title { color: #f8f7f4; }
+.proof-band .section-body { color: rgba(248, 247, 244, 0.72); }
+.proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 34px; }
+.proof-card { background: rgba(248, 247, 244, 0.08); border: 1px solid rgba(248, 247, 244, 0.15); border-radius: 14px; padding: 18px; transition: transform 0.4s var(--ease), background 0.4s var(--ease); }
+.proof-card:hover { transform: translateY(-4px); background: rgba(248, 247, 244, 0.13); }
+.proof-card b { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 30px; margin-bottom: 8px; }
+.proof-card span { font-size: 13px; color: rgba(248, 247, 244, 0.72); }
+.capability-wall { padding: 0 0 120px; }
+.capability-stage { background: linear-gradient(145deg, #5f6063 0%, #6e6f72 48%, #66686b 100%); border-radius: var(--radius-lg); padding: 48px; position: relative; overflow: hidden; box-shadow: 0 30px 70px -30px rgba(45, 48, 44, 0.45); }
+.capability-stage::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 12% 15%, rgba(255, 255, 255, 0.12), transparent 40%), radial-gradient(circle at 86% 84%, rgba(199, 164, 103, 0.12), transparent 42%); pointer-events: none; }
+.capability-header { position: relative; z-index: 2; max-width: 640px; margin-bottom: 34px; }
+.capability-tag { display: inline-flex; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(183, 198, 174, 0.18); color: #e7ecd9; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+.capability-header h2 { font-size: clamp(38px, 5vw, 74px); line-height: 0.96; color: #f8f7f4; max-width: 600px; }
+.capability-header p { margin-top: 18px; font-size: 18px; line-height: 1.58; color: rgba(248, 247, 244, 0.8); max-width: 540px; }
+.module-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.module-card { background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 14px; padding: 18px; min-height: 150px; transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+.module-card:hover { box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.35); }
+.module-card h4 { font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; color: var(--green-deep); }
+.module-card p { font-size: 13px; line-height: 1.5; color: var(--text-soft); }
+.results-strip { position: relative; z-index: 2; margin-top: 22px; display: grid; grid-template-columns: 1.2fr repeat(4, 1fr); gap: 10px; }
+.result-card { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 14px; transition: transform 0.35s var(--ease), background 0.35s var(--ease); }
+.result-card:hover { transform: translateY(-3px); background: rgba(255, 255, 255, 0.13); }
+.result-card h5 { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #f8f7f4; margin-bottom: 6px; }
+.result-card p { font-size: 12px; line-height: 1.4; color: rgba(248, 247, 244, 0.8); }
+.result-card.lead { display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.14); }
+.result-card.lead p { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; line-height: 1.1; color: #f8f7f4; text-align: center; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.pillar { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; box-shadow: 0 2px 14px -8px rgba(45, 48, 44, 0.07); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+.pillar:hover { box-shadow: var(--shadow-card); }
+.pillar .num { font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--sage-deep); letter-spacing: 0.08em; font-weight: 700; margin-bottom: 10px; }
+.pillar h3 { font-size: 23px; margin-bottom: 10px; }
+.pillar p { font-size: 14.5px; color: var(--text-soft); line-height: 1.58; }
+.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.feature-box { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 24px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+.feature-box:hover { box-shadow: var(--shadow-card); }
+.feature-box h4 { font-size: 21px; }
+.feature-box p { font-size: 14.5px; color: var(--text-soft); line-height: 1.58; }
+.compare-card { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); overflow: hidden; }
+.compare-head { padding: 26px; border-bottom: 1px solid var(--line); }
+.compare-head h3 { font-size: 26px; }
+.compare-table { display: grid; grid-template-columns: 1fr 1fr; }
+.col { padding: 24px; }
+.col:first-child { background: #efede6; }
+.col:last-child { background: #ffffff; }
+.col h4 { font-size: 18px; margin-bottom: 14px; }
+.col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.col li { font-size: 14px; padding-left: 22px; position: relative; color: var(--text-soft); opacity: 0; transform: translateX(-12px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+.compare-card.in .col li { opacity: 1; transform: translateX(0); }
+.col li:nth-child(1) { transition-delay: .05s; }
+.col li:nth-child(2) { transition-delay: .14s; }
+.col li:nth-child(3) { transition-delay: .23s; }
+.col li:nth-child(4) { transition-delay: .32s; }
+.col li:nth-child(5) { transition-delay: .41s; }
+.col li::before { position: absolute; left: 0; font-weight: 700; }
+.col.before li::before { content: '✕'; color: #b4a99a; }
+.col.after li { color: var(--text); }
+.col.after li::before { content: '✓'; color: var(--green); }
+.journey-strip { padding: 120px 0 90px; }
+.journey-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; position: relative; }
+.journey-row::before { content: ''; position: absolute; top: 12px; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--sage) 10%, var(--green) 50%, var(--sage) 90%, transparent); background-size: 240% 100%; animation: flowLineH 8s linear infinite; }
+@keyframes flowLineH { 0% { background-position: 0 0; } 100% { background-position: 240% 0; } }
+.jstep { position: relative; padding-top: 34px; }
+.jstep .jdot { position: absolute; top: 0; left: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--bg); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; color: var(--green); }
+.jstep h4 { font-size: 16px; margin-bottom: 8px; }
+.jstep p { font-size: 14px; color: var(--text-soft); line-height: 1.55; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.faq { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 14px; padding: 20px; transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease); }
+.faq:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.faq h4 { font-size: 18px; margin-bottom: 8px; }
+.faq p { font-size: 14px; color: var(--text-soft); line-height: 1.56; }
+.cta-banner { margin: 0 24px 24px; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%); padding: 110px 48px; text-align: center; position: relative; overflow: hidden; }
+.cta-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 20%, rgba(183, 198, 174, 0.35), transparent 55%), radial-gradient(circle at 80% 80%, rgba(199, 164, 103, 0.22), transparent 55%); }
+.cta-banner h2 { position: relative; font-size: clamp(34px, 4.6vw, 58px); color: #f8f7f4; max-width: 790px; margin: 0 auto 20px; }
+.cta-banner p { position: relative; color: rgba(248, 247, 244, 0.72); font-size: 17px; max-width: 560px; margin: 0 auto 38px; }
+.cta-banner .hero-cta { justify-content: center; position: relative; }
+.cta-banner .btn-ghost { background: rgba(248, 247, 244, 0.1); border-color: rgba(248, 247, 244, 0.28); color: #f8f7f4; }
+.cta-banner .btn-ghost:hover { background: rgba(248, 247, 244, 0.2); }
+.cta-banner .btn-primary { background: #f8f7f4; color: var(--green-deep); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.35); }
+@media (max-width: 1100px) { .hero-inner { grid-template-columns: 1fr; } .module-grid { grid-template-columns: 1fr 1fr; } .results-strip { grid-template-columns: 1fr 1fr; } .proof-grid { grid-template-columns: repeat(2, 1fr); } .pillars { grid-template-columns: 1fr; } .feature-grid { grid-template-columns: 1fr; } .journey-row { grid-template-columns: 1fr 1fr; } .journey-row::before { display: none; } .faq-grid { grid-template-columns: 1fr; } }
+@media (max-width: 880px) { .top-words { top: 130px; } }
+@media (max-width: 780px) { .wrap, .hero-inner { padding: 0 20px; } .hero { padding-top: 200px; } .capability-stage { padding: 30px 18px; } .module-grid { grid-template-columns: 1fr; } .results-strip { grid-template-columns: 1fr; } .section { padding: 100px 0; } .cinema-passage { padding: 0 12px 84px; } .cinema-card { padding: 42px 24px; } .proof-band { margin: 0 12px; padding: 72px 24px; } .proof-grid { grid-template-columns: 1fr; } .compare-table { grid-template-columns: 1fr; } .journey-row { grid-template-columns: 1fr; } .cta-banner { margin: 0 12px 12px; padding: 80px 22px; } .dashboard-caption { flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<div class="journey-thread">
+	<div class="journey-track" id="journeyTrack">
+		<div class="journey-dot" id="journeyDot"></div>
+	</div>
+</div>
+
+<div id="site-header"></div>
+
+<script>
+fetch('header.html')
+	.then(response => response.text())
+	.then(data => {
+		document.getElementById('site-header').innerHTML = data;
+	})
+	.catch(err => console.error('Header load error:', err));
+</script>
+
+<section class="hero" id="home">
+	<div class="blob blob-1"></div>
+	<div class="blob blob-2"></div>
+	<div class="blob blob-3"></div>
+
+	<div class="top-words" aria-hidden="true">
+		<div class="top-words-track">
+			<span>Organise</span><span>Automate</span><span>Scale</span><span>Clarity</span><span>Freedom</span><span>Momentum</span>
+			<span>Organise</span><span>Automate</span><span>Scale</span><span>Clarity</span><span>Freedom</span><span>Momentum</span>
+		</div>
+	</div>
+
+	<div class="hero-inner">
+		<div class="reveal in">
+			<div class="eyebrow"><span class="dot"></span> Flagship product</div>
+			<h1>
+				<span class="word-reveal" style="animation-delay:.02s"><span style="animation-delay:.02s">TOTS-OS:</span></span>
+				<span class="word-reveal" style="animation-delay:.10s"><span style="animation-delay:.10s">your</span></span>
+				<span class="word-reveal" style="animation-delay:.18s"><span style="animation-delay:.18s"><em>entire</em></span></span>
+				<span class="word-reveal" style="animation-delay:.26s"><span style="animation-delay:.26s"><em>business</em>,</span></span><br />
+				<span class="word-reveal" style="animation-delay:.34s"><span style="animation-delay:.34s">finally</span></span>
+				<span class="word-reveal" style="animation-delay:.42s"><span style="animation-delay:.42s">in</span></span>
+				<span class="word-reveal" style="animation-delay:.50s"><span style="animation-delay:.50s">one</span></span>
+				<span class="word-reveal" style="animation-delay:.58s"><span style="animation-delay:.58s">calm</span></span>
+				<span class="word-reveal" style="animation-delay:.66s"><span style="animation-delay:.66s">system.</span></span>
+			</h1>
+			<p class="hero-sub reveal in reveal-delay-2">TOTS-OS is our main service and product. It unifies clients, pipelines, delivery, invoicing, and automation so you can scale with control instead of chaos.</p>
+			<div class="hero-cta reveal in reveal-delay-3">
+				<a href="contact.html#contact-form" class="btn btn-primary">Book a Discovery Call</a>
+				<a href="#why" class="btn btn-ghost">See how it works</a>
+			</div>
+			<div class="hero-signals reveal in reveal-delay-4">
+				<div class="hero-signal"><span></span> Founder calm</div>
+				<div class="hero-signal"><span></span> Live visibility</div>
+				<div class="hero-signal"><span></span> Scale without chaos</div>
+			</div>
+		</div>
+
+		<div class="hero-dashboard-wrap reveal reveal-delay-1" id="heroDashWrap">
+			<div class="hero-glow"></div>
+			<div class="hero-dashboard sheen">
+				<img src="totsdevices.png" alt="TOTS-OS dashboard shown on multiple devices" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+				<div class="hero-dashboard-fallback">
+					<div class="mini-topbar"><span></span><span></span><span></span></div>
+					<div class="mini-row">
+						<div class="mini-card"><b>£48.2k</b><span>Revenue, MTD</span></div>
+						<div class="mini-card"><b>132</b><span>Active clients</span></div>
+					</div>
+					<div class="mini-chart">
+						<i style="height:35%"></i><i style="height:55%"></i><i style="height:40%"></i>
+						<i style="height:70%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:65%"></i>
+					</div>
+				</div>
+			</div>
+			<div class="dashboard-caption">
+				<div><strong>Clients, tasks, cashflow</strong><span>one operating layer</span></div>
+				<div><strong>Built for ambitious teams</strong><span>less noise, more momentum</span></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="capability-wall">
+	<div class="wrap">
+		<div class="capability-stage reveal">
+			<div class="capability-header">
+				<div class="capability-tag">TOTS-OS</div>
+				<h2>Everything your business needs, all in one system.</h2>
+				<p>TOTS-OS brings together every essential tool your business needs so you can work smarter, save time and scale with confidence.</p>
+			</div>
+
+			<div class="module-grid">
+				<article class="module-card reveal reveal-delay-1"><h4>Projects &amp; tasks</h4><p>Plan, track and manage every project from start to finish.</p></article>
+				<article class="module-card reveal reveal-delay-2"><h4>CRM</h4><p>Manage leads, clients and relationships in one central place.</p></article>
+				<article class="module-card reveal reveal-delay-3"><h4>Finance</h4><p>Quotes, invoices, expenses and reports all sorted.</p></article>
+				<article class="module-card reveal reveal-delay-1"><h4>Documents</h4><p>Store, organise and access important docs in seconds.</p></article>
+				<article class="module-card reveal reveal-delay-2"><h4>Calendar</h4><p>Schedule, sync and stay on top of every important date.</p></article>
+				<article class="module-card reveal reveal-delay-3"><h4>Communication</h4><p>Keep conversations and updates all in one place.</p></article>
+				<article class="module-card reveal reveal-delay-1"><h4>Reporting &amp; insights</h4><p>Get real-time insights and make smarter business decisions.</p></article>
+				<article class="module-card reveal reveal-delay-2"><h4>Workflow automation</h4><p>Automate repetitive tasks and streamline your processes.</p></article>
+				<article class="module-card reveal reveal-delay-3"><h4>And more</h4><p>Designed to grow with your business, every step of the way.</p></article>
+			</div>
+
+			<div class="results-strip">
+				<div class="result-card lead reveal"><p>Built to save time.<br />Designed to scale.<br />Made for results.</p></div>
+				<div class="result-card reveal reveal-delay-1"><h5>More time</h5><p>Automate and simplify so you can focus on what matters most.</p></div>
+				<div class="result-card reveal reveal-delay-2"><h5>More growth</h5><p>Everything you need to grow, all working together.</p></div>
+				<div class="result-card reveal reveal-delay-3"><h5>More clarity</h5><p>Real-time data and insights to keep you on track.</p></div>
+				<div class="result-card reveal reveal-delay-4"><h5>More freedom</h5><p>Run your business from anywhere, anytime.</p></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="proof-band reveal" id="why">
+	<div class="proof-inner">
+		<span class="kicker">Business outcomes</span>
+		<h2 class="section-title">Built to create capacity, clarity and confidence.</h2>
+		<p class="section-body">TOTS-OS is designed for owners who are busy, capable and stretched thin. It gives you one operating layer so growth no longer depends on memory, manual effort, or constant firefighting.</p>
+
+		<div class="proof-grid">
+			<div class="proof-card"><b><span class="counter" data-value="4.2" data-decimals="1" data-suffix="x">0</span></b><span>Faster onboarding in typical implementations</span></div>
+			<div class="proof-card"><b><span class="counter" data-value="18" data-suffix="h">0</span></b><span>Weekly admin load typically removed</span></div>
+			<div class="proof-card"><b><span class="counter" data-value="96" data-suffix="%">0</span></b><span>On-time invoice payment reliability</span></div>
+			<div class="proof-card"><b><span class="counter" data-value="1" data-suffix="">0</span></b><span>Connected source of truth for operations</span></div>
+		</div>
+	</div>
+</section>
+
+<section class="cinema-passage reveal">
+	<div class="cinema-card">
+		<span class="kicker">The quiet shift</span>
+		<h2 class="reveal-scale">When every moving part finally speaks to each other, growth stops feeling loud.</h2>
+		<p>TOTS-OS is not just another tool. It is the moment your business starts behaving like a system: clearer decisions, calmer delivery, cleaner handovers and more room to expand without everything becoming heavier.</p>
+		<div class="cinema-tags">
+			<span>Clarity over clutter</span>
+			<span>Systems with presence</span>
+			<span>Operational calm</span>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<span class="kicker">Core architecture</span>
+			<h2 class="section-title">Five pillars, one operating system.</h2>
+			<p class="section-body">Each part of TOTS-OS solves a practical friction point. Together they create a consistent rhythm across sales, delivery and decision-making.</p>
+		</div>
+
+		<div class="pillars">
+			<article class="pillar reveal reveal-delay-1"><div class="num">01 — CRM</div><h3>Every client relationship in one place</h3><p>From first enquiry to repeat engagement, every touchpoint is structured, searchable and visible to the right people.</p></article>
+			<article class="pillar reveal reveal-delay-1"><div class="num">02 — Delivery</div><h3>Delivery workflows with clear ownership</h3><p>Task stages, responsibilities and deadlines are mapped so work progresses smoothly without bottlenecks or chasing.</p></article>
+			<article class="pillar reveal reveal-delay-2"><div class="num">03 — Finance</div><h3>Invoice flow that protects cash cycle</h3><p>Automated invoicing and reminders reduce drift, improve payment timing and maintain cleaner financial visibility.</p></article>
+			<article class="pillar reveal reveal-delay-2"><div class="num">04 — Automation</div><h3>Repetitive admin handled in the background</h3><p>Follow-ups, updates and routine reporting run automatically so your team focuses on work that creates value.</p></article>
+			<article class="pillar reveal reveal-delay-3"><div class="num">05 — Reporting</div><h3>Live decisions, not month-end surprises</h3><p>Real-time indicators for pipeline, delivery, revenue and team load help you make confident, timely decisions.</p></article>
+			<article class="pillar reveal reveal-delay-3"><div class="num">Integrated</div><h3>Designed around your real process</h3><p>TOTS-OS is shaped to your operating reality, not a template. We implement around how your business actually runs.</p></article>
+		</div>
+	</div>
+</section>
+
+<section class="section" style="padding-top:0;">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<span class="kicker">Capability set</span>
+			<h2 class="section-title">What you can expect in the platform.</h2>
+		</div>
+
+		<div class="feature-grid">
+			<article class="feature-box reveal reveal-delay-1"><h4>Lead to client conversion flow</h4><p>Track every enquiry through qualification, proposal and onboarding with no dropped handovers.</p></article>
+			<article class="feature-box reveal reveal-delay-1"><h4>Automated task choreography</h4><p>When a stage completes, the right next actions trigger immediately with assigned ownership.</p></article>
+			<article class="feature-box reveal reveal-delay-2"><h4>Billing, reminders and follow-through</h4><p>Standardized invoicing and timed nudges help prevent revenue leakage and payment delays.</p></article>
+			<article class="feature-box reveal reveal-delay-2"><h4>Stakeholder-friendly reporting</h4><p>Simple, decision-ready snapshots for founders, managers and partners who need clarity fast.</p></article>
+		</div>
+	</div>
+</section>
+
+<section class="section" style="padding-top:0;">
+	<div class="wrap">
+		<div class="compare-card reveal" id="compareCard">
+			<div class="compare-head">
+				<h3>Before TOTS-OS vs after TOTS-OS</h3>
+			</div>
+			<div class="compare-table">
+				<div class="col before">
+					<h4>Before</h4>
+					<ul>
+						<li>Scattered files and duplicated updates</li>
+						<li>Manual reminders and inconsistent follow-up</li>
+						<li>Hidden delivery bottlenecks</li>
+						<li>Invoice delays and late payments</li>
+						<li>Weekly firefighting as a normal state</li>
+					</ul>
+				</div>
+				<div class="col after">
+					<h4>After</h4>
+					<ul>
+						<li>One controlled operating layer for the team</li>
+						<li>Automated triggers and clear accountability</li>
+						<li>Transparent workflow and capacity planning</li>
+						<li>Predictable billing rhythm</li>
+						<li>More founder focus on growth and strategy</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="journey-strip">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<span class="kicker">Implementation path</span>
+			<h2 class="section-title">From first call to full operating rhythm.</h2>
+		</div>
+		<div class="journey-row">
+			<div class="jstep reveal"><div class="jdot">1</div><h4>Audit</h4><p>Map your current workflows, friction and missed handovers.</p></div>
+			<div class="jstep reveal reveal-delay-1"><div class="jdot">2</div><h4>Design</h4><p>Define the TOTS-OS architecture around your business model.</p></div>
+			<div class="jstep reveal reveal-delay-2"><div class="jdot">3</div><h4>Build</h4><p>Configure clients, stages, automations and reporting views.</p></div>
+			<div class="jstep reveal reveal-delay-2"><div class="jdot">4</div><h4>Embed</h4><p>Train the team and harden daily habits for consistent adoption.</p></div>
+			<div class="jstep reveal reveal-delay-3"><div class="jdot">5</div><h4>Scale</h4><p>Refine continuously as volume, offers and team size increase.</p></div>
+		</div>
+	</div>
+</section>
+
+<section class="section" id="pricing" style="padding-top:0;">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<span class="kicker">Investment</span>
+			<h2 class="section-title">Choose your TOTS-OS entry point.</h2>
+			<p class="section-body">Start where you are. Every path is built to move you toward one scalable operating model.</p>
+		</div>
+
+		<div class="pillars">
+			<article class="pillar reveal reveal-delay-1"><div class="num">Clarity session</div><h3>Focused decision sprint</h3><p>Ideal for founders who need immediate direction, quick wins and a precise next-step plan.</p></article>
+			<article class="pillar reveal reveal-delay-2"><div class="num">90-day setup</div><h3>Core TOTS-OS implementation</h3><p>Best for teams ready to unify sales, delivery and operations into one dependable working system.</p></article>
+			<article class="pillar reveal reveal-delay-3"><div class="num">Executive layer</div><h3>Strategic scale partnership</h3><p>For established businesses needing deeper integration, reporting maturity and ongoing optimization.</p></article>
+		</div>
+	</div>
+</section>
+
+<section class="section" style="padding-top:0;">
+	<div class="wrap">
+		<div class="section-head reveal">
+			<span class="kicker">Frequently asked</span>
+			<h2 class="section-title">Common questions about TOTS-OS.</h2>
+		</div>
+		<div class="faq-grid">
+			<article class="faq reveal reveal-delay-1"><h4>Is TOTS-OS software only?</h4><p>No. It includes architecture, implementation, and operating support so the system actually sticks in real workflows.</p></article>
+			<article class="faq reveal reveal-delay-1"><h4>Can we keep current tools?</h4><p>Yes. Where practical, we integrate and simplify rather than forcing unnecessary migration.</p></article>
+			<article class="faq reveal reveal-delay-2"><h4>How quickly will we see value?</h4><p>Most teams feel immediate relief in visibility and follow-through during the first implementation phase.</p></article>
+			<article class="faq reveal reveal-delay-2"><h4>Is this suitable for small teams?</h4><p>Absolutely. TOTS-OS is especially useful for lean teams where founder time and attention are limited.</p></article>
+		</div>
+	</div>
+</section>
+
+<section class="cta-banner reveal" id="contact">
+	<h2>Ready for your business to run like a system, not a scramble?</h2>
+	<p>Book a discovery call and we will map your first TOTS-OS implementation path from where you are today.</p>
+	<div class="hero-cta">
+		<a href="contact.html#contact-form" class="btn btn-primary">Book a Discovery Call</a>
+		<a href="mailto:hello@theorganisedtypes.com?subject=TOTS-OS%20Questions" class="btn btn-ghost">Ask a question first</a>
+	</div>
+</section>
+
+<div id="site-footer"></div>
+
+<script>
+fetch('footer.html')
+	.then(response => response.text())
+	.then(data => {
+		document.getElementById('site-footer').innerHTML = data;
+		const banner = document.getElementById('cookie-banner');
+		const acceptButton = document.getElementById('accept-cookies');
+		if (banner && !localStorage.getItem('cookiesAccepted')) {
+			banner.style.display = 'block';
+		}
+		if (acceptButton && banner) {
+			acceptButton.addEventListener('click', () => {
+				localStorage.setItem('cookiesAccepted', 'true');
+				banner.style.display = 'none';
+			});
+		}
+	})
+	.catch(err => console.error('Footer load error:', err));
+</script>
+
+<script>
+window.toggleMenu = function () {
+	const mainNav = document.getElementById('main-nav');
+	if (mainNav) {
+		mainNav.classList.toggle('show-menu');
+	}
+};
+const revealEls = document.querySelectorAll('.reveal:not(.in), .reveal-scale:not(.in)');
+const io = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('in');
+			io.unobserve(entry.target);
+		}
+	});
+}, { threshold: 0.16 });
+revealEls.forEach(el => io.observe(el));
+const journeyTrack = document.getElementById('journeyTrack');
+const journeyDot = document.getElementById('journeyDot');
+function updateJourney() {
+	const scrolled = window.scrollY;
+	const max = document.body.scrollHeight - window.innerHeight;
+	const pct = Math.min(Math.max(scrolled / max, 0), 1);
+	journeyDot.style.top = (pct * journeyTrack.offsetHeight) + 'px';
+}
+window.addEventListener('scroll', updateJourney, { passive: true });
+updateJourney();
+const heroDashWrap = document.getElementById('heroDashWrap');
+const hero = document.querySelector('.hero');
+if (window.matchMedia('(pointer:fine)').matches && heroDashWrap && hero) {
+	hero.addEventListener('mousemove', (e) => {
+		const rect = hero.getBoundingClientRect();
+		const x = ((e.clientX - rect.left) / rect.width) - 0.5;
+		const y = ((e.clientY - rect.top) / rect.height) - 0.5;
+		heroDashWrap.style.transform = `rotateY(${x * 8}deg) rotateX(${y * -6}deg)`;
+	});
+	hero.addEventListener('mouseleave', () => {
+		heroDashWrap.style.transform = 'rotateY(0deg) rotateX(0deg)';
+	});
+}
+if (window.matchMedia('(pointer:fine)').matches) {
+	document.querySelectorAll('.module-card, .pillar, .feature-box, .faq, .proof-card, .result-card').forEach(card => {
+		card.addEventListener('mousemove', (e) => {
+			const r = card.getBoundingClientRect();
+			const x = (e.clientX - r.left) / r.width - 0.5;
+			const y = (e.clientY - r.top) / r.height - 0.5;
+			card.style.transform = `perspective(900px) rotateX(${y * -3.5}deg) rotateY(${x * 3.5}deg) translateY(-3px)`;
+		});
+		card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+	});
+}
+const counters = document.querySelectorAll('.counter');
+const countIo = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			const el = entry.target;
+			const target = parseFloat(el.dataset.value);
+			const decimals = parseInt(el.dataset.decimals || '0', 10);
+			const suffix = el.dataset.suffix || '';
+			const duration = 1400;
+			const start = performance.now();
+			function tick(now) {
+				const progress = Math.min((now - start) / duration, 1);
+				const eased = 1 - Math.pow(1 - progress, 3);
+				const current = target * eased;
+				el.textContent = current.toFixed(decimals) + suffix;
+				if (progress < 1) {
+					requestAnimationFrame(tick);
+				}
+			}
+			requestAnimationFrame(tick);
+			countIo.unobserve(el);
+		}
+	});
+}, { threshold: 0.5 });
+counters.forEach(el => countIo.observe(el));
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-5P2GHYXC2R');
+</script>
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script defer src="cinematic-interface.js"></script>
+</body>
+</html>

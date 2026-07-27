@@ -22,24 +22,10 @@
         <!-- Main Navigation -->
        <nav id="main-nav">
     <a href="index.html" id="nav-index">Home</a>
+    <a href="services.html" id="nav-services">Services</a>
+    <a href="portfolio.html" id="nav-portfolio">Portfolio</a>
+    <a href="TOTS-OS.html" id="nav-tots-os">TOTS-OS</a>
     <a href="about.html" id="nav-about">About</a>
-
-    <div class="dropdown">
-        <a href="services.html" class="dropdown-toggle" id="nav-services">
-           Services <span class="services-arrow">&#9662;</span>
-        </a>
-
-        <div class="dropdown-content">
-            <a href="services.html#website">Website Design & Development</a>
-            <a href="services.html#branding">Brand Identity & Digital Design</a>
-            <a href="services.html#support">Business Support & Strategy</a>
-            <a href="services.html#coaching">Business Coaching & Strategy</a>
-        </div>
-    </div>
-
-    <a href="blog.html" id="nav-blog">Blog</a>
-    <a href="resources.html" id="nav-resources">Resources</a> 
-    <a href="faq.html" id="nav-faq">FAQ's</a>
     <a href="contact.html" id="nav-contact">Contact</a>
 </nav>
     </div>
@@ -109,14 +95,15 @@
 
 /* ================== HEADER ================== */
 header { 
-    background-color: var(--logo-bg); 
-    border-bottom: 1px solid #e0e0e0; 
-    padding: 5px 0; 
+    background-color: #efe6e1; 
+    border-bottom: 1px solid rgba(79,74,70,0.12); 
+    padding: 8px 0; 
     position: fixed; 
     top: 44px;
     width: 100%; 
     z-index: 20; 
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .navbar { 
@@ -131,7 +118,7 @@ header {
 }
 
 .logo-area img { 
-    height: 140px; 
+    height: 168px; 
 }
 
 /* ================= Desktop Navigation ================= */
@@ -141,7 +128,7 @@ header {
 }
 
 #main-nav a { 
-    color: var(--primary-color); 
+    color: var(--primary-color, #4f4a46); 
     text-decoration: none; 
     margin-left: 25px; 
     font-weight: 500; 
@@ -151,7 +138,7 @@ header {
 
 #main-nav a:hover,
 #main-nav a.active { 
-    color: var(--accent-color); 
+    color: var(--accent-color, #a9b897); 
 }
 
 /* ================= Dropdown ================= */
@@ -170,7 +157,7 @@ header {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: var(--accent-color);
+    background-color: var(--accent-color, #a9b897);
     min-width: 250px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     padding: 10px 0;
@@ -188,8 +175,8 @@ header {
 }
 
 .dropdown-content a:hover { 
-    background-color: var(--primary-color); 
-    color: var(--light-text); 
+    background-color: var(--primary-color, #4f4a46); 
+    color: var(--light-text, #ffffff); 
 }
 
 /* Desktop hover only */
@@ -233,7 +220,7 @@ header {
 .menu-icon span { 
     height: 3px; 
     margin: 4px 0; 
-    background: var(--primary-color); 
+    background: var(--primary-color, #4f4a46); 
     border-radius: 3px; 
 }
 
@@ -251,7 +238,7 @@ header {
         position: absolute;
         top: 110px;
         left: 0;
-        background-color: var(--logo-bg);
+        background-color: #efe6e1;
         box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         padding: 10px 0;
     }

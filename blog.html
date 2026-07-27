@@ -175,6 +175,7 @@
             .page-wrapper { margin-top: 100px; }
         }
     </style>
+<link rel="stylesheet" href="cinematic-interface.css" />
 </head>
 <body>
 
@@ -354,5 +355,6 @@
         fetch('header.html').then(res => res.text()).then(data => { document.getElementById('site-header').innerHTML = data; });
         fetch('footer.html').then(res => res.text()).then(data => { document.getElementById('site-footer').innerHTML = data; });
     </script>
+<script defer src="cinematic-interface.js"></script>
 </body>
 </html>

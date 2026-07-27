@@ -990,9 +990,18 @@ table.TableNormal
 	font-family:"Arial",sans-serif;}
 </style>
 <![endif]-->
+<link rel="stylesheet" href="cinematic-interface.css" />
 </head>
 
 <body lang=EN-GB style='tab-interval:36.0pt;word-wrap:break-word'>
+<div id="site-header"></div>
+<script>
+fetch("header.html")
+  .then(function(response){ return response.text(); })
+  .then(function(data){ document.getElementById("site-header").innerHTML = data; })
+  .catch(function(err){ console.error("Header load error:", err); });
+</script>
+
 <div class="legal-content-area">
     <img src="logo.jpg.webp" alt="The Organised Types Logo" class="brand-logo-centered">
 
@@ -1108,6 +1117,25 @@ Protection Policy, and Data Storage Policy.</p>
 
 </div>
 
+<script defer src="cinematic-interface.js"></script>
+<div id="site-footer"></div>
+<script>
+fetch("footer.html")
+  .then(function(response){ return response.text(); })
+  .then(function(data){
+    document.getElementById("site-footer").innerHTML = data;
+    var banner = document.getElementById("cookie-banner");
+    var accept = document.getElementById("accept-cookies");
+    if (banner && !localStorage.getItem("cookiesAccepted")) { banner.style.display = "block"; }
+    if (accept && banner) {
+      accept.addEventListener("click", function(){
+        localStorage.setItem("cookiesAccepted", "true");
+        banner.style.display = "none";
+      });
+    }
+  })
+  .catch(function(err){ console.error("Footer load error:", err); });
+</script>
 </body>
 
 </html>
