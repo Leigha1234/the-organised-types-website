@@ -315,56 +315,6 @@
                 padding: 20px;
                 padding-top: 50px; 
             }
-
-            /* Mobile Navigation Stacking */
-            .menu-icon { display: flex; } 
-            #main-nav {
-                display: none; 
-                flex-direction: column;
-                width: 100%;
-                position: absolute; 
-                /* ADJUSTED MOBILE MENU TOP FOR BIGGER LOGO */
-                top: 100%; 
-                left: 0;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-                padding: 10px 0;
-                background-color: var(--logo-bg);
-            }
-            #main-nav.show-menu { display: flex; }
-            #main-nav a { 
-                margin: 8px 0; 
-                padding: 5px 0;
-                display: block;
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
-                text-align: center;
-                margin-left: 0;
-            }
-            .dropdown { 
-                margin: 0; 
-                width: 100%; 
-                display: contents; 
-            }
-            .dropdown-content { 
-                display: none; 
-                position: static; 
-                width: 100%; 
-                transform: none; 
-                box-shadow: none; 
-                background-color: transparent; 
-                border-top: 1px solid rgba(79, 74, 70, 0.1); 
-                padding: 0; 
-            }
-            .dropdown-content a { 
-                padding: 5px 0; 
-                font-size: 0.85em; 
-                background-color: rgba(79, 74, 70, 0.03); 
-                text-align: center; 
-                border-bottom: 1px solid rgba(79, 74, 70, 0.1); 
-                margin: 0;
-            }
-            .dropdown-content a:last-child {
-                border-bottom: none; 
-            }
             
             /* Mobile Layout: Image stacks above text */
             .about-image {
