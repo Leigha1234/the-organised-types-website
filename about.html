@@ -7,17 +7,19 @@
     <meta name="description" content="Learn about The Organised Types, our approach, and how we help small businesses create clarity, structure and confidence through systems, branding and strategy.">
     <link rel="icon" type="image/png" href="favicon.png">
     <meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b"/>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
     <style>
-        /* CSS Variables (Synchronized) */
+        /* CSS Variables (Synchronized with site-wide theme.css) */
         :root {
-            --primary-color: #4f4a46; /* Dark Taupe */
-            --accent-color: #A9B897; /* Dull Sage Green */
-            --cream-bg: #FAF8F5; 
-            --logo-bg: #EFE6E1; 
-            --card-bg: #F5F2EF; 
-            --text-color: #4f4a46; 
+            --primary-color: #4D5B4B; /* Deep green */
+            --accent-color: #B7C6AE; /* Sage */
+            --cream-bg: #F8F7F4; 
+            --logo-bg: #DCE3D6; 
+            --card-bg: #FFFFFF; 
+            --text-color: #2D302C; 
             --font-main: 'Poppins', sans-serif;
             --light-text: #ffffff;
         }
@@ -31,6 +33,10 @@
             min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
+        }
+        h1, h2, h3, h4, .display {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.02em;
         }
         .container { 
             width: 90%; 
@@ -374,12 +380,10 @@
     </style>
 <link rel="stylesheet" href="cinematic-interface.css" />
 <link rel="stylesheet" href="header.css" />
-<link rel="stylesheet" href="footer.css" />
 </head>
 <body>
 
   <div id="site-header"></div>
-  <script defer src="header.js"></script>
 
     <div class="container">
 
@@ -509,7 +513,19 @@
 
 <div id="site-footer"></div>
 
+<script src="header.js"></script>
 <script>
+fetch('./header.html')
+  .then(response => {
+    if (!response.ok) throw new Error('Header not found');
+    return response.text();
+  })
+  .then(data => {
+    document.getElementById('site-header').innerHTML = data;
+    if (window.initHeader) window.initHeader();
+  })
+  .catch(err => console.error('Header load error:', err));
+
 fetch('./footer.html')
   .then(response => {
     if (!response.ok) throw new Error('Footer not found');
@@ -534,6 +550,7 @@ fetch('./footer.html')
   })
   .catch(err => console.error('Footer load error:', err));
 </script>
+<script defer src="cinematic-interface.js"></script>
 
 
 

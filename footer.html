@@ -1,52 +1,55 @@
-<footer>
-    <div class="container footer-content-grid">
-        <div class="footer-section footer-logo">
-             <a href="index.html"><img src="logo.jpg.webp" alt="The Organised Types Logo"></a>
-        </div>
-        <div class="footer-section footer-socials">
-            <h4>Connect With Us</h4>
-            <p>Email: <a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a></p>
-            <ul>
-                <li><a href="https://www.facebook.com/profile.php?id=61587178036502">Facebook</a></li>
-                <li><a href="https://www.linkedin.com/company/111329533">LinkedIn</a></li>
-                <li><a href="https://www.instagram.com/theorganisedtypes/">Instagram</a></li>
-            </ul>
-        </div>
-        <div class="footer-section footer-legal">
-            <h4>Legal & Contact</h4>
-            <p style="color:#a9b897;">Email: <a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a></p>
-            <ul>
-                <li><a href="t&cs.html">Terms & Conditions</a></li>
-                <li><a href="privacypolicy.html">Privacy Policy</a></li>
-                <li><a href="cookiepolicy.html">Cookie Policy</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-copyright"><p>&copy; 2026 The Organised Types.</p></div>
+<footer class="tots-footer">
+	<div class="wrap">
+		<div class="footer-top">
+			<div class="footer-section footer-brand">
+				<div class="logo">
+					<img src="logo.webp" alt="The Organised Types Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+					<span class="logo-fallback"><span class="logo-mark"></span>The Organised Types</span>
+				</div>
+				<p>Websites, systems and consultancy for businesses who want to grow without the chaos.</p>
+			</div>
+
+			<div class="footer-section footer-col">
+				<h5>Explore</h5>
+				<a href="index.html">Home</a>
+				<a href="services.html">Services</a>
+				<a href="portfolio.html">Portfolio</a>
+				<a href="TOTS-OS.html">TOTS-OS</a>
+				<a href="blog.html">Blog</a>
+				<a href="about.html">About</a>
+			</div>
+
+			<div class="footer-section footer-col">
+				<h5>Connect</h5>
+				<a href="contact.html#contact-form">Book a Call</a>
+				<a href="mailto:theorganisedtypes@gmail.com">theorganisedtypes@gmail.com</a>
+				<a href="https://www.instagram.com/theorganisedtypes/" target="_blank" rel="noopener">Instagram</a>
+				<a href="https://www.facebook.com/profile.php?id=61587178036502" target="_blank" rel="noopener">Facebook</a>
+				<a href="https://www.linkedin.com/company/111329533" target="_blank" rel="noopener">LinkedIn</a>
+				<a href="https://www.tiktok.com/@theorganisedtypes" target="_blank" rel="noopener">TikTok</a>
+			</div>
+
+			<div class="footer-section footer-col">
+				<h5>Legal</h5>
+				<a href="t&cs.html">Terms &amp; Conditions</a>
+				<a href="privacypolicy.html">Privacy Policy</a>
+				<a href="cookiepolicy.html">Cookie Policy</a>
+				<a href="refundpolicy.html">Refund Policy</a>
+				<a href="gdpr.html">GDPR &amp; Data Protection</a>
+				<a href="accessibility.html">Accessibility Statement</a>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<span>&copy; 2026 The Organised Types. All rights reserved.</span>
+			<span class="footer-meta">
+				<span>Proudly designed and built in Scotland</span>
+			</span>
+		</div>
+	</div>
 </footer>
 
 <div id="cookie-banner">
-    <p>We use cookies to improve your experience. <a href="cookiepolicy.html">Read Policy</a></p>
-    <button id="accept-cookies">Accept</button>
+	<span>We use cookies to improve your experience. <a href="cookiepolicy.html">Read our Cookie Policy</a></span>
+	<button id="accept-cookies" type="button">Accept</button>
 </div>
-
-<style>
-    footer { background: #fdfdfd; padding: 40px 20px; text-align: center; }
-    .footer-content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto; }
-    .footer-logo img { height: 80px; }
-    
-    #cookie-banner { display:none; position: fixed; bottom: 0; width: 100%; background: #f5f5f5; padding: 15px; text-align: center; z-index: 9999; }
-
-    @media (max-width: 768px) {
-        .footer-content-grid { grid-template-columns: 1fr; gap: 30px; }
-    }
-</style>
-
-<script>
-    const banner = document.getElementById('cookie-banner');
-    if (!localStorage.getItem('cookiesAccepted')) banner.style.display = 'block';
-    document.getElementById('accept-cookies').addEventListener('click', () => {
-        localStorage.setItem('cookiesAccepted', 'true');
-        banner.style.display = 'none';
-    });
-</script>

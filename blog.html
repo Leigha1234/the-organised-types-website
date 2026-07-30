@@ -9,16 +9,19 @@
     <meta name="description" content="Gentle thoughts on organisation, systems, and building a business that feels calm — not chaotic.">
     <link rel="icon" type="image/png" href="favicon.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="theme.css">
     <style>
         :root {
-            --primary-color: #4f4a46; 
-            --accent-color: #A9B897; 
-            --cream-bg: #FAF8F5; 
-            --logo-bg: #EFE6E1; 
-            --card-bg: #F5F2EF; 
-            --text-color: #4f4a46; 
+            --primary-color: #4D5B4B; 
+            --accent-color: #B7C6AE; 
+            --cream-bg: #F8F7F4; 
+            --logo-bg: #DCE3D6; 
+            --card-bg: #FFFFFF; 
+            --text-color: #2D302C; 
             --font-main: 'Poppins', sans-serif;
         }
 
@@ -30,6 +33,11 @@
             line-height: 1.7; 
             min-height: 100vh; 
             display: flex; flex-direction: column; 
+        }
+
+        h1, h2, h3, h4, .display {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.02em;
         }
 
         .page-wrapper { margin-top: 120px; flex: 1; }
@@ -352,9 +360,24 @@
             if (event.target == document.getElementById('postModal')) { closePost(); }
         };
 
-        fetch('header.html').then(res => res.text()).then(data => { document.getElementById('site-header').innerHTML = data; });
-        fetch('footer.html').then(res => res.text()).then(data => { document.getElementById('site-footer').innerHTML = data; });
+        fetch('header.html').then(res => res.text()).then(data => {
+            document.getElementById('site-header').innerHTML = data;
+            if (window.initHeader) window.initHeader();
+        });
+        fetch('footer.html').then(res => res.text()).then(data => {
+            document.getElementById('site-footer').innerHTML = data;
+            const banner = document.getElementById('cookie-banner');
+            const acceptCookies = document.getElementById('accept-cookies');
+            if (banner && !localStorage.getItem('cookiesAccepted')) { banner.style.display = 'block'; }
+            if (acceptCookies && banner) {
+                acceptCookies.addEventListener('click', () => {
+                    localStorage.setItem('cookiesAccepted', 'true');
+                    banner.style.display = 'none';
+                });
+            }
+        });
     </script>
+<script src="header.js"></script>
 <script defer src="cinematic-interface.js"></script>
 </body>
 </html>

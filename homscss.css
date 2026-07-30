@@ -775,3 +775,139 @@
     to { opacity: 1; transform: translateY(0); }
 }
   
+
+/* ============================================================
+   The Organised Types — Shared theme
+   One canonical palette + base type for every page, plus the
+   unified footer styling used by footer.html on every page.
+   Load this AFTER header.css and BEFORE a page's own <style>
+   block, so page-specific styles can still override anything
+   here on purpose.
+   ============================================================ */
+:root{
+	--bg:#F8F7F4;
+	--bg-raised:#FFFFFF;
+	--sage:#B7C6AE;
+	--sage-soft:#DCE3D6;
+	--sage-deep:#8FA184;
+	--green:#4D5B4B;
+	--green-deep:#374235;
+	--text:#2D302C;
+	--text-soft:#6B6F67;
+	--gold:#C7A467;
+	--line:rgba(45,48,44,0.08);
+	--shadow-soft: 0 20px 60px -20px rgba(45,48,44,0.18);
+	--shadow-card: 0 10px 30px -10px rgba(45,48,44,0.12);
+	--radius-lg: 28px;
+	--radius-md: 18px;
+	--radius-sm: 12px;
+	--ease: cubic-bezier(.16,.84,.44,1);
+
+	/* legacy variable names kept as aliases so older component
+	   styles (about/blog/contact) resolve to the same palette
+	   instead of falling back to nothing */
+	--primary-color: var(--green);
+	--accent-color: var(--sage-deep);
+	--cream-bg: var(--bg);
+	--logo-bg: var(--sage-soft);
+	--card-bg: var(--bg-raised);
+	--text-color: var(--text);
+	--light-text: var(--bg);
+	--font-main: 'Poppins', sans-serif;
+	--secondary-cta: var(--green-deep);
+	--secondary-cta-text: var(--bg);
+}
+
+html{scroll-behavior:smooth;}
+body{
+	background:var(--bg);
+	color:var(--text);
+	font-family:'Poppins',sans-serif;
+	-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.display{
+	font-family:'Space Grotesk',sans-serif;
+	letter-spacing:-0.02em;
+}
+a{ color:inherit; }
+::selection{ background:var(--sage); color:var(--green-deep); }
+
+/* ---------- base buttons (page styles may override) ---------- */
+.btn{
+	display:inline-flex; align-items:center; justify-content:center; gap:8px;
+	font-family:'Poppins',sans-serif; font-weight:600; font-size:14.5px; padding:13px 26px;
+	border-radius:100px; cursor:pointer; border:1px solid transparent;
+	transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease), border-color 0.35s var(--ease);
+	white-space:nowrap; text-decoration:none;
+}
+.btn-primary{ background:var(--green); color:var(--bg); box-shadow:0 10px 24px -10px rgba(77,91,75,0.55); }
+.btn-primary:hover{ transform:translateY(-3px) scale(1.025); box-shadow:0 18px 36px -12px rgba(77,91,75,0.65), 0 0 0 6px rgba(183,198,174,0.22); }
+.btn-ghost{ background:rgba(255,255,255,0.55); border:1px solid var(--line); color:var(--text); backdrop-filter:blur(6px); }
+.btn-ghost:hover{ transform:translateY(-3px) scale(1.025); background:rgba(255,255,255,0.85); border-color:rgba(45,48,44,0.16); }
+.btn-sm{ padding:10px 20px; font-size:13.5px; }
+
+@media (prefers-reduced-motion: reduce){
+	*{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+/* ============================================================
+   Unified site footer — used by footer.html on every page
+   ============================================================ */
+.tots-footer{
+	background:linear-gradient(180deg, var(--bg) 0%, var(--sage-soft) 140%);
+	border-top:1px solid var(--line);
+	padding:76px 0 0;
+	font-family:'Poppins',sans-serif;
+	color:var(--text);
+	position:relative;
+	overflow:hidden;
+}
+.tots-footer .wrap{ max-width:1280px; margin:0 auto; padding:0 48px; position:relative; z-index:1; }
+.tots-footer .footer-top{
+	display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:40px;
+	padding-bottom:48px; border-bottom:1px solid var(--line);
+}
+.tots-footer .footer-brand .logo{ display:flex; align-items:center; gap:10px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; color:var(--text); margin-bottom:14px; }
+.tots-footer .footer-brand .logo img{ height:30px; width:auto; }
+.tots-footer .logo-fallback{ display:none; align-items:center; gap:10px; }
+.tots-footer .logo-mark{ width:26px; height:26px; border-radius:8px; background:linear-gradient(135deg, var(--green) 0%, var(--sage-deep) 100%); position:relative; flex-shrink:0; }
+.tots-footer .logo-mark::after{ content:''; position:absolute; inset:7px; border-radius:4px; background:var(--bg); opacity:0.9; }
+.tots-footer .footer-brand p{ font-size:14px; color:var(--text-soft); line-height:1.6; max-width:280px; }
+.tots-footer h5{ font-family:'Space Grotesk',sans-serif; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--green-deep); margin-bottom:16px; }
+.tots-footer .footer-col{ display:flex; flex-direction:column; gap:10px; }
+.tots-footer .footer-col a{ font-size:14px; color:var(--text-soft); text-decoration:none; transition:color 0.25s var(--ease), transform 0.25s var(--ease); width:fit-content; }
+.tots-footer .footer-col a:hover{ color:var(--green-deep); transform:translateX(2px); }
+.tots-footer .footer-bottom{
+	display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+	padding:22px 0 26px; font-size:13px; color:var(--text-soft);
+}
+.tots-footer .footer-bottom .footer-meta{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+.tots-footer .footer-bottom a{ color:var(--text-soft); text-decoration:none; }
+.tots-footer .footer-bottom a:hover{ color:var(--green-deep); }
+
+@media (max-width:960px){
+	.tots-footer .footer-top{ grid-template-columns:1fr 1fr; row-gap:32px; }
+}
+@media (max-width:600px){
+	.tots-footer{ padding:56px 0 0; }
+	.tots-footer .wrap{ padding:0 20px; }
+	.tots-footer .footer-top{ grid-template-columns:1fr; }
+	.tots-footer .footer-bottom{ flex-direction:column; align-items:flex-start; }
+}
+
+/* ---------- cookie banner (shared fallback styling) ---------- */
+#cookie-banner{
+	display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999;
+	background:var(--green-deep); color:var(--bg); padding:16px 20px;
+	align-items:center; justify-content:center; gap:18px; flex-wrap:wrap;
+	text-align:center; font-family:'Poppins',sans-serif; font-size:13.5px;
+	box-shadow:0 -10px 30px -12px rgba(45,48,44,0.35);
+}
+#cookie-banner p, #cookie-banner span{ margin:0; color:var(--bg); opacity:0.9; }
+#cookie-banner a{ color:var(--sage); text-decoration:underline; }
+#cookie-banner button{
+	background:var(--sage); color:var(--green-deep); border:none; border-radius:100px;
+	padding:9px 20px; font-weight:600; font-size:13px; cursor:pointer; white-space:nowrap;
+	transition:transform 0.25s var(--ease), background 0.25s var(--ease);
+}
+#cookie-banner button:hover{ background:var(--bg); transform:translateY(-1px); }

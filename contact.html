@@ -13,13 +13,14 @@
 
     <style>
         :root {
-            --primary-color: #4f4a46;
-            --accent-color: #a9b897;
-            --cream-bg: #faf8f5;
-            --logo-bg: #efe6e1;
-            --card-bg: #f5f2ef;
-            --text-color: #4f4a46;
-            --light-text: #ffffff;
+            --primary-color: #4D5B4B;
+            --accent-color: #B7C6AE;
+            --cream-bg: #F8F7F4;
+            --logo-bg: #DCE3D6;
+            --card-bg: #FFFFFF;
+            --text-color: #2D302C;
+            --text-soft: #6B6F67;
+            --light-text: #F8F7F4;
             --line: rgba(79, 74, 70, 0.14);
             --shadow-soft: 0 24px 70px -34px rgba(45, 48, 44, 0.4);
             --shadow-card: 0 16px 38px -22px rgba(45, 48, 44, 0.3);
@@ -847,6 +848,7 @@
     </style>
 <link rel="stylesheet" href="cinematic-interface.css" />
 <link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
     <div class="journey-thread" aria-hidden="true">
@@ -983,6 +985,7 @@
 
     <div id="site-footer"></div>
 
+<script src="header.js"></script>
 <script>
 fetch('./header.html')
   .then(response => {
@@ -991,9 +994,11 @@ fetch('./header.html')
   })
   .then(data => {
       document.getElementById('site-header').innerHTML = data;
+      if (window.initHeader) window.initHeader();
   })
   .catch(err => console.error('Header load error:', err));
 </script>
+<script>
 fetch('./footer.html')
   .then(response => {
       if (!response.ok) throw new Error('Footer not found');
@@ -1112,7 +1117,6 @@ fetch('./footer.html')
       gtag('js', new Date());
       gtag('config', 'G-5P2GHYXC2R');
     </script>
-<script src="header.js"></script>
 <script defer src="cinematic-interface.js"></script>
 </body>
 </html>

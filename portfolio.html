@@ -667,18 +667,21 @@
             .preview-inset{position:relative; right:auto; bottom:auto; width:100%; margin-top:12px;}
         }
     </style>
-<link rel="stylesheet" href="cinematic-interface.css" />
 <link rel="stylesheet" href="header.css" />
+<link rel="stylesheet" href="theme.css" />
+<link rel="stylesheet" href="cinematic-interface.css" />
 </head>
 <body>
 
 <div id="site-header"></div>
 
+<script src="header.js"></script>
 <script>
   fetch('header.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('site-header').innerHTML = data;
+      if (window.initHeader) window.initHeader();
     })
     .catch(err => console.error('Header load error:', err));
 </script>
@@ -896,7 +899,6 @@
         }, { threshold:0.16 });
         revealEls.forEach(el => io.observe(el));
     </script>
-<script defer src="header.js"></script>
 <script defer src="cinematic-interface.js"></script>
 </body>
 </html>

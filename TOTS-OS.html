@@ -11,6 +11,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="cinematic-interface.css">
 <style>
 	:root{
 		--bg:#F8F7F4;
@@ -1063,43 +1065,25 @@
 	</div>
 </section>
 
-<footer class="site-footer">
-	<div class="wrap">
-		<div class="footer-top">
-			<div class="footer-brand">
-				<div class="logo">
-					<img src="logo.jpg.webp" alt="The Organised Types Logo" style="height:30px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-					<span class="logo-fallback"><span class="logo-mark"></span>The Organised Types</span>
-				</div>
-				<p>Websites, systems and consultancy for businesses who want to grow without the chaos.</p>
-			</div>
-			<div class="footer-cols">
-				<div class="footer-col">
-					<h5>Company</h5>
-					<a href="index.html">Home</a>
-					<a href="services.html">Services</a>
-					<a href="portfolio.html">Portfolio</a>
-					<a href="TOTS-OS.html">TOTS-OS</a>
-					<a href="about.html">About</a>
-				</div>
-				<div class="footer-col">
-					<h5>Get in touch</h5>
-					<a href="contact.html#contact-form">Book a Call</a>
-					<a href="mailto:hello@theorganisedtypes.com">hello@theorganisedtypes.com</a>
-				</div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<span>© 2026 The Organised Types. All rights reserved.</span>
-			<span>Proudly designed and built in Scotland</span>
-		</div>
-	</div>
-</footer>
+<div id="site-footer"></div>
 
-<div id="cookie-banner">
-	<p>We use cookies to improve your experience and understand how the site is used. By continuing, you agree to our use of cookies.</p>
-	<button id="accept-cookies" class="btn btn-primary btn-sm">Accept</button>
-</div>
+<script>
+fetch('footer.html')
+  .then(r => r.text())
+  .then(html => {
+    document.getElementById('site-footer').innerHTML = html;
+    const banner = document.getElementById('cookie-banner');
+    const acceptCookies = document.getElementById('accept-cookies');
+    if (banner && !localStorage.getItem('cookiesAccepted')) { banner.style.display = 'flex'; }
+    if (acceptCookies && banner) {
+      acceptCookies.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        banner.style.display = 'none';
+      });
+    }
+  })
+  .catch(err => console.error('Footer load error:', err));
+</script>
 
 <script>
 	// reveal on scroll (also toggles .in on parent cards like .compare-card for descendant stagger)
@@ -1192,14 +1176,16 @@
 		});
 	}
 </script>
+<script src="header.js"></script>
 <script>
 fetch('header.html')
   .then(r => r.text())
   .then(html => {
     document.getElementById('site-header').innerHTML = html;
+    if (window.initHeader) window.initHeader();
   });
 </script>
-<script defer src="header.js"></script>
+<script defer src="cinematic-interface.js"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5P2GHYXC2R"></script>
 <script>
