@@ -4,901 +4,2676 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Portfolio - The Organised Types</title>
+
     <link rel="icon" type="image/png" href="favicon.png">
-    <meta name="p:domain_verify" content="03329062d1289d61136b9197116dd43b"/>
+
+    <meta
+        name="p:domain_verify"
+        content="03329062d1289d61136b9197116dd43b"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
+
         :root {
             --bg:#F8F7F4;
             --bg-raised:#FFFFFF;
+
             --sage:#B7C6AE;
             --sage-soft:#DCE3D6;
             --sage-deep:#8FA184;
+
             --green:#4D5B4B;
             --green-deep:#374235;
+
             --text:#2D302C;
             --text-soft:#6B6F67;
+
             --gold:#C7A467;
+
             --line:rgba(45,48,44,0.08);
-            --shadow-soft: 0 20px 60px -20px rgba(45,48,44,0.18);
-            --shadow-card: 0 10px 30px -10px rgba(45,48,44,0.12);
-            --radius-lg: 28px;
-            --radius-md: 18px;
-            --radius-sm: 12px;
-            --ease: cubic-bezier(.16,.84,.44,1);
+
+            --shadow-soft:
+                0 20px 60px -20px rgba(45,48,44,0.18);
+
+            --shadow-card:
+                0 10px 30px -10px rgba(45,48,44,0.12);
+
+            --radius-lg:28px;
+            --radius-md:18px;
+            --radius-sm:12px;
+
+            --ease:cubic-bezier(.16,.84,.44,1);
         }
-        *{margin:0;padding:0;box-sizing:border-box;}
-        html{scroll-behavior:smooth;}
+
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+
         body{
             background:var(--bg);
             color:var(--text);
+
             font-family:'Poppins',sans-serif;
+
             overflow-x:hidden;
+
             -webkit-font-smoothing:antialiased;
+
             min-height:100vh;
         }
-        h1,h2,h3,h4,.display{
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .display{
             font-family:'Space Grotesk',sans-serif;
             letter-spacing:-0.02em;
             line-height:1.02;
             font-weight:600;
         }
-        a{text-decoration:none;color:inherit;}
-        img{display:block;max-width:100%;}
-        ::selection{background:var(--sage); color:var(--green-deep);}
+
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+
+        img{
+            display:block;
+            max-width:100%;
+        }
+
+
+        ::selection{
+            background:var(--sage);
+            color:var(--green-deep);
+        }
+
+
         .wrap{
             max-width:1280px;
             margin:0 auto;
+
             padding:0 48px;
         }
+
+
         @media (prefers-reduced-motion: reduce){
-            *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+
+            *{
+                animation-duration:0.001ms !important;
+                animation-iteration-count:1 !important;
+                transition-duration:0.001ms !important;
+                scroll-behavior:auto !important;
+            }
+
         }
+
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
 
         .btn{
             display:inline-flex;
             align-items:center;
             justify-content:center;
+
             gap:8px;
+
             font-family:'Poppins',sans-serif;
             font-weight:600;
             font-size:14.5px;
+
             padding:13px 26px;
+
             border-radius:100px;
+
             cursor:pointer;
+
             border:1px solid transparent;
-            transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease), border-color 0.35s var(--ease);
+
+            transition:
+                transform 0.35s var(--ease),
+                box-shadow 0.35s var(--ease),
+                background 0.35s var(--ease),
+                border-color 0.35s var(--ease);
+
             white-space:nowrap;
         }
+
+
         .btn-primary{
             background:var(--green);
             color:#F8F7F4;
-            box-shadow:0 10px 24px -10px rgba(77,91,75,0.55);
+
+            box-shadow:
+                0 10px 24px -10px rgba(77,91,75,0.55);
         }
-        .btn-primary:hover{transform:translateY(-3px) scale(1.025); box-shadow:0 18px 36px -12px rgba(77,91,75,0.65), 0 0 0 6px rgba(183,198,174,0.22);}
+
+
+        .btn-primary:hover{
+            transform:translateY(-3px) scale(1.025);
+
+            box-shadow:
+                0 18px 36px -12px rgba(77,91,75,0.65),
+                0 0 0 6px rgba(183,198,174,0.22);
+        }
+
+
         .btn-ghost{
             background:rgba(255,255,255,0.5);
+
             border:1px solid var(--line);
+
             color:var(--text);
+
             backdrop-filter:blur(6px);
         }
-        .btn-ghost:hover{transform:translateY(-3px) scale(1.025); background:rgba(255,255,255,0.85); border-color:rgba(45,48,44,0.16);}
-        .btn-sm{padding:10px 20px; font-size:13.5px;}
+
+
+        .btn-ghost:hover{
+            transform:translateY(-3px) scale(1.025);
+
+            background:rgba(255,255,255,0.85);
+
+            border-color:rgba(45,48,44,0.16);
+        }
+
+
+        .btn-sm{
+            padding:10px 20px;
+            font-size:13.5px;
+        }
+
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
 
 
         .page{
             padding-top:198px;
         }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+
         .hero{
             padding:72px 0 28px;
+
             position:relative;
             overflow:hidden;
         }
+
+
         .hero::before{
             content:'';
+
             position:absolute;
+
             inset:auto -140px -180px auto;
+
             width:520px;
             height:520px;
-            background:radial-gradient(circle, rgba(183,198,174,0.28) 0%, transparent 68%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(183,198,174,0.28) 0%,
+                    transparent 68%
+                );
+
             pointer-events:none;
         }
+
+
         .hero-grid{
             display:grid;
-            grid-template-columns:1.05fr 0.95fr;
+
+            grid-template-columns:
+                1.05fr
+                0.95fr;
+
             gap:46px;
+
             align-items:center;
         }
+
+
         .eyebrow{
             display:inline-flex;
             align-items:center;
+
             gap:8px;
+
             font-size:13px;
             font-weight:600;
+
             letter-spacing:0.06em;
+
             text-transform:uppercase;
+
             color:var(--green-deep);
-            background:rgba(183,198,174,0.35);
-            border:1px solid rgba(77,91,75,0.15);
+
+            background:
+                rgba(183,198,174,0.35);
+
+            border:
+                1px solid rgba(77,91,75,0.15);
+
             padding:8px 16px;
+
             border-radius:100px;
+
             margin-bottom:26px;
         }
+
+
         .eyebrow .dot{
-            width:6px; height:6px; border-radius:50%;
+            width:6px;
+            height:6px;
+
+            border-radius:50%;
+
             background:var(--green);
-            box-shadow:0 0 0 3px rgba(77,91,75,0.18);
+
+            box-shadow:
+                0 0 0 3px rgba(77,91,75,0.18);
         }
+
+
         .hero h1{
-            font-size:clamp(48px, 6vw, 88px);
+            font-size:
+                clamp(48px, 6vw, 88px);
+
             color:var(--text);
+
             line-height:0.98;
+
             max-width:780px;
         }
+
+
         .hero-copy{
             margin-top:24px;
+
             font-size:18px;
             line-height:1.6;
+
             color:var(--text-soft);
-            max-width:560px;
+
+            max-width:580px;
         }
+
+
         .hero-cta{
             display:flex;
+
             gap:16px;
+
             margin-top:34px;
+
             flex-wrap:wrap;
         }
+
+
+        /* =========================================================
+           HERO PANEL
+        ========================================================= */
+
+
         .hero-panel{
             background:var(--bg-raised);
+
             border-radius:var(--radius-lg);
+
             box-shadow:var(--shadow-soft);
-            border:1px solid rgba(255,255,255,0.6);
+
+            border:
+                1px solid rgba(255,255,255,0.6);
+
             padding:28px;
+
             position:relative;
+
             overflow:hidden;
         }
+
+
         .hero-panel::after{
             content:'';
+
             position:absolute;
+
             inset:auto -40px -40px auto;
+
             width:180px;
             height:180px;
-            background:radial-gradient(circle, rgba(199,164,103,0.14) 0%, transparent 68%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(199,164,103,0.14) 0%,
+                    transparent 68%
+                );
         }
+
+
         .panel-top{
             display:flex;
+
             align-items:center;
             justify-content:space-between;
+
             gap:16px;
+
             margin-bottom:18px;
         }
+
+
         .panel-title{
             font-family:'Space Grotesk',sans-serif;
+
             font-size:14px;
             font-weight:600;
+
             color:var(--text-soft);
         }
+
+
         .panel-tag{
             display:inline-flex;
             align-items:center;
+
             gap:6px;
+
             font-size:11px;
             font-weight:700;
+
             letter-spacing:0.12em;
+
             text-transform:uppercase;
+
             color:var(--sage-deep);
         }
+
+
         .panel-tag .dot{
-            width:6px; height:6px; border-radius:50%;
+            width:6px;
+            height:6px;
+
+            border-radius:50%;
+
             background:#5C9A5A;
-            box-shadow:0 0 0 0 rgba(92,154,90,0.5);
         }
+
+
         .panel-grid{
             display:grid;
-            grid-template-columns:1fr 1fr;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
             gap:12px;
         }
+
+
         .panel-stat{
             background:var(--bg);
+
             border:1px solid var(--line);
+
             border-radius:var(--radius-sm);
+
             padding:16px;
         }
+
+
         .panel-stat b{
             display:block;
+
             font-family:'Space Grotesk',sans-serif;
+
             font-size:26px;
+
             color:var(--text);
+
             margin-bottom:6px;
         }
+
+
         .panel-stat span{
             font-size:12px;
+
             color:var(--text-soft);
         }
+
+
         .project-mock{
             margin-top:14px;
-            background:linear-gradient(135deg, rgba(77,91,75,0.08), rgba(199,164,103,0.10));
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(77,91,75,0.08),
+                    rgba(199,164,103,0.10)
+                );
+
             border-radius:var(--radius-md);
-            border:1px solid rgba(45,48,44,0.08);
+
+            border:
+                1px solid rgba(45,48,44,0.08);
+
             padding:18px;
         }
+
+
         .project-mock .line{
             height:10px;
+
             border-radius:999px;
-            background:rgba(45,48,44,0.1);
+
+            background:
+                rgba(45,48,44,0.1);
+
             margin-bottom:10px;
         }
-        .project-mock .line.w1{width:72%;}
-        .project-mock .line.w2{width:88%;}
-        .project-mock .line.w3{width:54%;}
+
+
+        .project-mock .line.w1{
+            width:72%;
+        }
+
+
+        .project-mock .line.w2{
+            width:88%;
+        }
+
+
+        .project-mock .line.w3{
+            width:54%;
+        }
+
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
 
         .section{
             padding:112px 0;
         }
+
+
         .section-head{
-            max-width:720px;
+            max-width:760px;
+
             margin-bottom:44px;
         }
+
+
         .section-head .kicker{
             display:inline-block;
+
             font-size:13px;
             font-weight:700;
+
             letter-spacing:0.1em;
+
             text-transform:uppercase;
+
             color:var(--green);
+
             margin-bottom:18px;
         }
+
+
         .section-title{
-            font-size:clamp(34px,4vw,54px);
+            font-size:
+                clamp(34px,4vw,54px);
+
             color:var(--text);
         }
+
+
         .section-body{
             margin-top:18px;
+
             font-size:17px;
+
             color:var(--text-soft);
+
             line-height:1.6;
-            max-width:560px;
+
+            max-width:610px;
         }
+
+
+        /* =========================================================
+           PORTFOLIO GRID
+        ========================================================= */
+
 
         .portfolio-grid{
             display:grid;
-            grid-template-columns:repeat(3,1fr);
+
+            grid-template-columns:
+                repeat(3,1fr);
+
             gap:24px;
+
+            align-items:stretch;
         }
+
+
         .portfolio-card{
             background:var(--bg-raised);
+
             border:1px solid var(--line);
+
             border-radius:var(--radius-lg);
-            box-shadow:0 2px 20px -10px rgba(45,48,44,0.08);
+
+            box-shadow:
+                0 2px 20px -10px rgba(45,48,44,0.08);
+
             overflow:hidden;
-            transition:transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+
+            transition:
+                transform 0.45s var(--ease),
+                box-shadow 0.45s var(--ease);
+
+            height:100%;
         }
+
+
         .portfolio-card:hover{
             transform:translateY(-6px);
+
             box-shadow:var(--shadow-soft);
         }
-        .portfolio-preview{
-            min-height:220px;
-            background:linear-gradient(135deg, rgba(77,91,75,0.98), rgba(143,161,132,0.92));
-            padding:24px;
-            position:relative;
-            overflow:hidden;
-        }
-        .portfolio-preview::before{
-            content:'';
-            position:absolute;
-            inset:auto -40px -40px auto;
-            width:180px;
-            height:180px;
-            border-radius:50%;
-            background:radial-gradient(circle, rgba(248,247,244,0.28) 0%, transparent 70%);
-        }
-        .portfolio-preview.light{
-            background:linear-gradient(135deg, #FFFFFF, #F4F1EA);
-        }
-        .portfolio-preview.soft{
-            background:linear-gradient(135deg, #DCE3D6, #EEF0EA);
-        }
-        .portfolio-preview.image-preview{
-            padding:18px;
+
+
+        .portfolio-link{
             display:flex;
             flex-direction:column;
+
+            height:100%;
+
+            color:inherit;
+
+            text-decoration:none;
+        }
+
+
+        /* =========================================================
+           PORTFOLIO PREVIEW
+        ========================================================= */
+
+
+        .portfolio-preview{
+            min-height:220px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(77,91,75,0.98),
+                    rgba(143,161,132,0.92)
+                );
+
+            padding:24px;
+
+            position:relative;
+
+            overflow:hidden;
+        }
+
+
+        .portfolio-preview::before{
+            content:'';
+
+            position:absolute;
+
+            inset:auto -40px -40px auto;
+
+            width:180px;
+            height:180px;
+
+            border-radius:50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(248,247,244,0.28) 0%,
+                    transparent 70%
+                );
+        }
+
+
+        .portfolio-preview.light{
+            background:
+                linear-gradient(
+                    135deg,
+                    #FFFFFF,
+                    #F4F1EA
+                );
+        }
+
+
+        .portfolio-preview.soft{
+            background:
+                linear-gradient(
+                    135deg,
+                    #DCE3D6,
+                    #EEF0EA
+                );
+        }
+
+
+        .portfolio-preview.image-preview{
+            padding:18px;
+
+            display:flex;
+            flex-direction:column;
+
             gap:14px;
         }
+
+
         .preview-label{
             position:relative;
+
+            z-index:2;
+
             display:inline-flex;
             align-items:center;
+
             gap:8px;
+
             font-size:11px;
             font-weight:700;
+
             letter-spacing:0.12em;
+
             text-transform:uppercase;
-            color:rgba(248,247,244,0.78);
+
+            color:
+                rgba(248,247,244,0.78);
         }
+
+
         .portfolio-preview.light .preview-label,
         .portfolio-preview.soft .preview-label{
             color:var(--green);
         }
+
+
         .preview-shot{
             position:relative;
+
             z-index:1;
+
             border-radius:20px;
+
             overflow:hidden;
-            background:rgba(255,255,255,0.75);
-            border:1px solid rgba(255,255,255,0.22);
-            box-shadow:0 16px 34px -22px rgba(45,48,44,0.42);
+
+            background:
+                rgba(255,255,255,0.75);
+
+            border:
+                1px solid rgba(255,255,255,0.22);
+
+            box-shadow:
+                0 16px 34px -22px rgba(45,48,44,0.42);
+
+            transition:
+                transform 0.55s var(--ease),
+                box-shadow 0.55s var(--ease);
         }
+
+
+        .portfolio-card:hover .preview-shot{
+            transform:scale(1.018);
+
+            box-shadow:
+                0 24px 46px -24px rgba(45,48,44,0.52);
+        }
+
+
         .preview-shot img{
             width:100%;
+
             height:190px;
+
             object-fit:cover;
+
+            object-position:top;
         }
+
+
         .preview-inset{
             position:absolute;
+
             right:14px;
             bottom:14px;
+
             width:42%;
+
             border-radius:18px;
+
             overflow:hidden;
-            border:1px solid rgba(255,255,255,0.3);
-            box-shadow:0 16px 32px -18px rgba(45,48,44,0.48);
+
+            border:
+                1px solid rgba(255,255,255,0.3);
+
+            box-shadow:
+                0 16px 32px -18px rgba(45,48,44,0.48);
+
             background:#fff;
         }
+
+
         .preview-inset img{
             width:100%;
             height:100%;
+
             object-fit:cover;
+
             display:block;
         }
+
+
+        /* =========================================================
+           CARD CONTENT
+        ========================================================= */
+
+
+        .portfolio-card-body{
+            padding:24px;
+
+            flex:1;
+
+            display:flex;
+            flex-direction:column;
+        }
+
+
+        .portfolio-card-body h3{
+            font-size:22px;
+
+            margin-bottom:10px;
+        }
+
+
+        .portfolio-card-body p{
+            color:var(--text-soft);
+
+            font-size:14.5px;
+
+            line-height:1.6;
+
+            margin-bottom:16px;
+        }
+
+
+        .project-heading{
+            display:flex;
+
+            align-items:center;
+            justify-content:space-between;
+
+            gap:18px;
+        }
+
+
+        .project-heading h3{
+            margin-bottom:10px;
+        }
+
+
+        .visit-arrow{
+            width:38px;
+            height:38px;
+
+            flex-shrink:0;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            border-radius:50%;
+
+            background:
+                rgba(183,198,174,0.30);
+
+            color:var(--green-deep);
+
+            font-size:18px;
+
+            transition:
+                transform 0.35s var(--ease),
+                background 0.35s var(--ease);
+        }
+
+
+        .portfolio-card:hover .visit-arrow{
+            transform:
+                translate(3px,-3px);
+
+            background:var(--sage);
+        }
+
+
+        .meta-row{
+            display:flex;
+
+            gap:10px;
+
+            flex-wrap:wrap;
+
+            margin-top:auto;
+        }
+
+
+        .meta-row span{
+            font-size:12px;
+
+            letter-spacing:0.08em;
+
+            text-transform:uppercase;
+
+            color:var(--green-deep);
+
+            background:
+                rgba(183,198,174,0.35);
+
+            border:
+                1px solid rgba(77,91,75,0.10);
+
+            border-radius:999px;
+
+            padding:7px 10px;
+        }
+
+
+        .view-project{
+            margin-top:22px;
+
+            padding-top:18px;
+
+            border-top:1px solid var(--line);
+
+            display:flex;
+
+            align-items:center;
+            justify-content:space-between;
+
+            font-size:13px;
+            font-weight:600;
+
+            color:var(--green-deep);
+        }
+
+
+        .view-project span{
+            font-size:17px;
+
+            transition:
+                transform 0.35s var(--ease);
+        }
+
+
+        .portfolio-card:hover .view-project span{
+            transform:
+                translate(3px,-3px);
+        }
+
+
+        /* =========================================================
+           TESTIMONIAL CARD
+        ========================================================= */
+
+
         .quote-card{
-            background:linear-gradient(135deg, #374235 0%, #4d5b4b 100%);
+            background:
+                linear-gradient(
+                    135deg,
+                    #374235 0%,
+                    #4d5b4b 100%
+                );
+
             color:#F8F7F4;
         }
+
+
         .quote-card .portfolio-card-body h3,
         .quote-card .portfolio-card-body p{
             color:#F8F7F4;
         }
+
+
         .quote-mark{
             display:inline-flex;
+
             align-items:center;
             justify-content:center;
+
             width:52px;
             height:52px;
+
             border-radius:50%;
-            background:rgba(248,247,244,0.14);
+
+            background:
+                rgba(248,247,244,0.14);
+
             color:#F8F7F4;
+
             font-family:'Space Grotesk',sans-serif;
+
             font-size:30px;
+
             margin-bottom:18px;
+
+            position:relative;
+
+            z-index:2;
         }
+
+
         .quote-snippet{
-            color:rgba(248,247,244,0.8) !important;
+            color:
+                rgba(248,247,244,0.8) !important;
         }
+
+
+        .quote-card .meta-row{
+            margin-top:auto;
+        }
+
+
+        .quote-card .meta-row span{
+            color:#F8F7F4;
+
+            background:
+                rgba(248,247,244,0.10);
+
+            border-color:
+                rgba(248,247,244,0.14);
+        }
+
+
+        /* =========================================================
+           TESTIMONIAL BAND
+        ========================================================= */
+
+
         .testimonial-band{
             background:var(--green-deep);
+
             color:#F8F7F4;
+
             border-radius:var(--radius-lg);
+
             padding:52px;
+
             margin:0 24px;
+
             position:relative;
+
             overflow:hidden;
         }
+
+
         .testimonial-band::before{
             content:'';
+
             position:absolute;
-            top:-100px; left:50%; transform:translateX(-50%);
-            width:560px; height:560px;
-            background:radial-gradient(circle, var(--sage) 0%, transparent 70%);
+
+            top:-100px;
+
+            left:50%;
+
+            transform:
+                translateX(-50%);
+
+            width:560px;
+            height:560px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    var(--sage) 0%,
+                    transparent 70%
+                );
+
             opacity:0.16;
         }
+
+
         .testimonial-band .section-title,
         .testimonial-band .section-body{
             color:#F8F7F4;
+
             position:relative;
+
             z-index:1;
         }
+
+
+        .testimonial-band .kicker{
+            color:var(--sage);
+        }
+
+
         .testimonial-copy{
             position:relative;
+
             z-index:1;
+
             display:grid;
-            grid-template-columns:1.2fr 0.8fr;
+
+            grid-template-columns:
+                1.2fr
+                0.8fr;
+
             gap:28px;
+
             margin-top:30px;
         }
+
+
         .testimonial-quote{
             font-size:17px;
+
             line-height:1.78;
-            color:rgba(248,247,244,0.84);
+
+            color:
+                rgba(248,247,244,0.84);
         }
+
+
         .testimonial-quote p + p{
             margin-top:16px;
         }
+
+
         .testimonial-meta{
-            background:rgba(248,247,244,0.08);
-            border:1px solid rgba(248,247,244,0.14);
+            background:
+                rgba(248,247,244,0.08);
+
+            border:
+                1px solid rgba(248,247,244,0.14);
+
             border-radius:20px;
+
             padding:24px;
+
             align-self:start;
         }
+
+
         .testimonial-meta h4{
             font-size:24px;
+
             color:#F8F7F4;
+
             margin-bottom:8px;
         }
+
+
         .testimonial-meta p{
-            color:rgba(248,247,244,0.74);
+            color:
+                rgba(248,247,244,0.74);
+
             font-size:14.5px;
+
             line-height:1.6;
+
             margin-bottom:18px;
         }
+
+
         .testimonial-points{
             list-style:none;
+
             display:grid;
+
             gap:10px;
         }
+
+
         .testimonial-points li{
-            color:rgba(248,247,244,0.86);
+            color:
+                rgba(248,247,244,0.86);
+
             font-size:13px;
+
             letter-spacing:0.08em;
+
             text-transform:uppercase;
-            border-top:1px solid rgba(248,247,244,0.12);
+
+            border-top:
+                1px solid rgba(248,247,244,0.12);
+
             padding-top:10px;
         }
-        .preview-window{
-            position:relative;
-            margin-top:16px;
-            background:rgba(255,255,255,0.14);
-            border:1px solid rgba(255,255,255,0.18);
-            border-radius:18px;
-            padding:18px;
-            min-height:140px;
-        }
-        .portfolio-preview.light .preview-window,
-        .portfolio-preview.soft .preview-window{
-            background:rgba(255,255,255,0.7);
-            border-color:rgba(45,48,44,0.08);
-        }
-        .mock-bars{display:flex; flex-direction:column; gap:10px;}
-        .mock-bars span{
-            height:10px;
-            border-radius:999px;
-            background:rgba(248,247,244,0.24);
-        }
-        .portfolio-preview.light .mock-bars span,
-        .portfolio-preview.soft .mock-bars span{background:rgba(45,48,44,0.10);}
-        .mock-bars span:nth-child(1){width:68%;}
-        .mock-bars span:nth-child(2){width:92%;}
-        .mock-bars span:nth-child(3){width:56%;}
-        .portfolio-card-body{
-            padding:24px;
-        }
-        .portfolio-card-body h3{
-            font-size:22px;
-            margin-bottom:10px;
-        }
-        .portfolio-card-body p{
-            color:var(--text-soft);
-            font-size:14.5px;
-            line-height:1.6;
-            margin-bottom:16px;
-        }
-        .meta-row{
-            display:flex;
-            gap:10px;
-            flex-wrap:wrap;
-        }
-        .meta-row span{
-            font-size:12px;
-            letter-spacing:0.08em;
-            text-transform:uppercase;
-            color:var(--green-deep);
-            background:rgba(183,198,174,0.35);
-            border:1px solid rgba(77,91,75,0.10);
-            border-radius:999px;
-            padding:7px 10px;
-        }
 
-        .feature-band{
-            background:var(--green-deep);
-            color:#F8F7F4;
-            border-radius:var(--radius-lg);
-            padding:52px;
-            margin:0 24px;
-            position:relative;
-            overflow:hidden;
-        }
-        .feature-band::before{
-            content:'';
-            position:absolute;
-            top:-100px; left:50%; transform:translateX(-50%);
-            width:560px; height:560px;
-            background:radial-gradient(circle, var(--sage) 0%, transparent 70%);
-            opacity:0.16;
-        }
-        .feature-band .section-title,
-        .feature-band .section-body{color:#F8F7F4; position:relative; z-index:1;}
-        .feature-list{
-            margin-top:32px;
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:22px;
-            position:relative;
-            z-index:1;
-        }
-        .feature-item{
-            border-top:1px solid rgba(248,247,244,0.18);
-            padding-top:18px;
-        }
-        .feature-item .num{
-            font-family:'Space Grotesk',sans-serif;
-            font-size:13px;
-            color:var(--sage);
-            font-weight:700;
-            margin-bottom:12px;
-            display:block;
-        }
-        .feature-item h4{
-            font-size:19px;
-            margin-bottom:8px;
-        }
-        .feature-item p{
-            color:rgba(248,247,244,0.68);
-            font-size:14.5px;
-            line-height:1.6;
-        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
 
         .cta-banner{
-            margin:0 24px 24px;
+            margin:
+                0 24px 24px;
+
             border-radius:var(--radius-lg);
-            background:linear-gradient(135deg, var(--green) 0%, var(--green-deep) 100%);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--green) 0%,
+                    var(--green-deep) 100%
+                );
+
             padding:96px 40px;
+
             text-align:center;
+
             position:relative;
+
             overflow:hidden;
         }
+
+
         .cta-banner::before{
             content:'';
+
             position:absolute;
+
             inset:0;
-            background:radial-gradient(circle at 20% 20%, rgba(183,198,174,0.35), transparent 55%),
-                       radial-gradient(circle at 80% 80%, rgba(199,164,103,0.22), transparent 55%);
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(183,198,174,0.35),
+                    transparent 55%
+                ),
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(199,164,103,0.22),
+                    transparent 55%
+                );
         }
+
+
         .cta-banner h2{
             position:relative;
-            font-size:clamp(34px,4.6vw,58px);
+
+            font-size:
+                clamp(34px,4.6vw,58px);
+
             color:#F8F7F4;
+
             max-width:760px;
-            margin:0 auto 18px;
+
+            margin:
+                0 auto 18px;
         }
+
+
         .cta-banner p{
             position:relative;
-            color:rgba(248,247,244,0.72);
-            font-size:17px;
-            max-width:500px;
-            margin:0 auto 34px;
-        }
-        .cta-banner .hero-cta{justify-content:center; position:relative;}
-        .cta-banner .btn-ghost{background:rgba(248,247,244,0.1); border-color:rgba(248,247,244,0.28); color:#F8F7F4;}
-        .cta-banner .btn-ghost:hover{background:rgba(248,247,244,0.2);}
-        .cta-banner .btn-primary{background:#F8F7F4; color:var(--green-deep); box-shadow:0 10px 30px -10px rgba(0,0,0,0.35);}
 
-        footer{padding:80px 0 40px;}
-        .footer-top{
-            display:flex;
-            justify-content:space-between;
-            align-items:flex-start;
-            flex-wrap:wrap;
-            gap:50px;
-            padding-bottom:56px;
-            border-bottom:1px solid var(--line);
+            color:
+                rgba(248,247,244,0.72);
+
+            font-size:17px;
+
+            max-width:520px;
+
+            margin:
+                0 auto 34px;
         }
-        .footer-brand p{
-            margin-top:16px;
-            font-size:14.5px;
-            color:var(--text-soft);
-            max-width:280px;
-            line-height:1.6;
+
+
+        .cta-banner .hero-cta{
+            justify-content:center;
+
+            position:relative;
         }
-        .footer-cols{
-            display:flex;
-            gap:70px;
-            flex-wrap:wrap;
+
+
+        .cta-banner .btn-ghost{
+            background:
+                rgba(248,247,244,0.10);
+
+            border-color:
+                rgba(248,247,244,0.28);
+
+            color:#F8F7F4;
         }
-        .footer-col h5{
-            font-size:12.5px;
-            letter-spacing:0.08em;
-            text-transform:uppercase;
-            color:var(--text-soft);
-            margin-bottom:18px;
-            font-weight:600;
+
+
+        .cta-banner .btn-ghost:hover{
+            background:
+                rgba(248,247,244,0.20);
         }
-        .footer-col a{
-            display:block;
-            font-size:14.5px;
-            color:var(--text);
-            margin-bottom:12px;
-            transition:color 0.25s;
+
+
+        .cta-banner .btn-primary{
+            background:#F8F7F4;
+
+            color:var(--green-deep);
+
+            box-shadow:
+                0 10px 30px -10px rgba(0,0,0,0.35);
         }
-        .footer-col a:hover{color:var(--green);}
-        .footer-bottom{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            flex-wrap:wrap;
-            gap:14px;
-            padding-top:28px;
-            font-size:13px;
-            color:var(--text-soft);
-        }
+
+
+        /* =========================================================
+           REVEALS
+        ========================================================= */
+
 
         .reveal{
             opacity:0;
-            transform:translateY(28px);
-            transition:opacity 1s var(--ease), transform 1s var(--ease);
-        }
-        .reveal.in{opacity:1; transform:translateY(0);}
-        .reveal-delay-1{transition-delay:0.08s;}
-        .reveal-delay-2{transition-delay:0.16s;}
-        .reveal-delay-3{transition-delay:0.24s;}
 
-        @media (max-width: 1100px){
-            .hero-grid{grid-template-columns:1fr;}
-            .feature-list{grid-template-columns:1fr;}
-            .portfolio-grid{grid-template-columns:1fr;}
-            .testimonial-copy{grid-template-columns:1fr;}
+            transform:
+                translateY(28px);
+
+            transition:
+                opacity 1s var(--ease),
+                transform 1s var(--ease);
         }
-        @media (max-width: 900px){
+
+
+        .reveal.in{
+            opacity:1;
+
+            transform:
+                translateY(0);
         }
-        @media (max-width: 768px){
+
+
+        .reveal-delay-1{
+            transition-delay:0.08s;
+        }
+
+
+        .reveal-delay-2{
+            transition-delay:0.16s;
+        }
+
+
+        .reveal-delay-3{
+            transition-delay:0.24s;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+
+        @media (max-width:1100px){
+
+            .hero-grid{
+                grid-template-columns:1fr;
+            }
+
+
+            .portfolio-grid{
+                grid-template-columns:1fr 1fr;
+            }
+
+
+            .testimonial-copy{
+                grid-template-columns:1fr;
+            }
+
+        }
+
+
+        @media (max-width:768px){
+
             .nav-inner,
-            .wrap{padding-left:20px; padding-right:20px;}
-            .page{padding-top:178px;}
-            .hero{padding-top:28px;}
-            .section{padding:84px 0;}
-            .feature-band{margin:0 12px; padding:34px 22px;}
-            .testimonial-band{margin:0 12px; padding:34px 22px;}
-            .cta-banner{margin:0 12px 12px; padding:72px 22px;}
-            .footer-cols{gap:28px;}
-            .preview-shot img{height:180px;}
-            .preview-inset{position:relative; right:auto; bottom:auto; width:100%; margin-top:12px;}
+            .wrap{
+                padding-left:20px;
+                padding-right:20px;
+            }
+
+
+            .page{
+                padding-top:178px;
+            }
+
+
+            .hero{
+                padding-top:28px;
+            }
+
+
+            .hero h1{
+                font-size:
+                    clamp(42px,13vw,64px);
+            }
+
+
+            .hero-copy{
+                font-size:16px;
+            }
+
+
+            .hero-panel{
+                padding:20px;
+            }
+
+
+            .panel-grid{
+                grid-template-columns:1fr 1fr;
+            }
+
+
+            .section{
+                padding:84px 0;
+            }
+
+
+            .portfolio-grid{
+                grid-template-columns:1fr;
+            }
+
+
+            .testimonial-band{
+                margin:0 12px;
+
+                padding:34px 22px;
+            }
+
+
+            .cta-banner{
+                margin:
+                    0 12px 12px;
+
+                padding:
+                    72px 22px;
+            }
+
+
+            .preview-shot img{
+                height:180px;
+            }
+
+
+            .preview-inset{
+                position:relative;
+
+                right:auto;
+                bottom:auto;
+
+                width:100%;
+
+                margin-top:12px;
+            }
+
+
+            .project-heading{
+                align-items:flex-start;
+            }
+
+
+            .visit-arrow{
+                width:34px;
+                height:34px;
+
+                font-size:16px;
+            }
+
+
+            .view-project{
+                margin-top:18px;
+
+                padding-top:15px;
+            }
+
         }
+
+
+        @media (max-width:520px){
+
+            .page{
+                padding-top:160px;
+            }
+
+
+            .hero{
+                padding-top:18px;
+            }
+
+
+            .hero h1{
+                font-size:
+                    clamp(38px,12vw,52px);
+            }
+
+
+            .eyebrow{
+                font-size:11px;
+
+                padding:7px 12px;
+
+                margin-bottom:20px;
+            }
+
+
+            .panel-grid{
+                grid-template-columns:1fr;
+            }
+
+
+            .portfolio-card-body{
+                padding:20px;
+            }
+
+
+            .portfolio-preview.image-preview{
+                padding:14px;
+            }
+
+
+            .preview-shot img{
+                height:165px;
+            }
+
+
+            .section-title{
+                font-size:
+                    clamp(31px,10vw,44px);
+            }
+
+
+            .testimonial-quote{
+                font-size:15px;
+            }
+
+        }
+
     </style>
-<link rel="stylesheet" href="header.css" />
-<link rel="stylesheet" href="theme.css" />
-<link rel="stylesheet" href="cinematic-interface.css" />
+
+
+    <link
+        rel="stylesheet"
+        href="header.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="theme.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="cinematic-interface.css"
+    />
+
 </head>
+
+
 <body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 
 <div id="site-header"></div>
 
+
 <script src="header.js"></script>
+
+
 <script>
-  fetch('header.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-header').innerHTML = data;
-      if (window.initHeader) window.initHeader();
-    })
-    .catch(err => console.error('Header load error:', err));
+
+    fetch('header.html')
+
+        .then(response =>
+            response.text()
+        )
+
+        .then(data => {
+
+            document
+                .getElementById('site-header')
+                .innerHTML = data;
+
+
+            if (
+                window.initHeader
+            ) {
+
+                window.initHeader();
+
+            }
+
+        })
+
+        .catch(err =>
+            console.error(
+                'Header load error:',
+                err
+            )
+        );
+
 </script>
 
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+
 <main class="page">
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+
     <section class="hero">
+
         <div class="wrap hero-grid">
+
+
             <div class="reveal in">
-                <div class="eyebrow"><span class="dot"></span> Selected work and thinking</div>
-                <h1>Portfolio work with the same calm, premium feel as the rest of the brand.</h1>
-                <p class="hero-copy">A curated look at websites, systems and strategy built to feel intentional, elegant and effortless. This page is designed to sit comfortably alongside the homepage rather than feel like a separate template.</p>
-                <div class="hero-cta">
-                    <a href="contact.html" class="btn btn-primary">Start a Project</a>
-                    <a href="services.html" class="btn btn-ghost">Explore Services</a>
+
+
+                <div class="eyebrow">
+
+                    <span class="dot"></span>
+
+                    Selected work
+
                 </div>
+
+
+                <h1>
+                    Websites and systems built to make businesses feel more put together.
+                </h1>
+
+
+                <p class="hero-copy">
+
+                    A look at some of the businesses we have worked with,
+                    from thoughtful website design and development to
+                    systems that make the everyday side of running a
+                    business feel simpler.
+
+                </p>
+
+
+                <div class="hero-cta">
+
+                    <a
+                        href="contact.html"
+                        class="btn btn-primary"
+                    >
+                        Start a Project
+                    </a>
+
+
+                    <a
+                        href="services.html"
+                        class="btn btn-ghost"
+                    >
+                        Explore Services
+                    </a>
+
+                </div>
+
+
             </div>
 
-            <div class="hero-panel reveal reveal-delay-1">
+
+            <div
+                class="hero-panel reveal reveal-delay-1"
+            >
+
+
                 <div class="panel-top">
+
+
                     <div>
-                        <div class="panel-title">Portfolio overview</div>
-                        <div class="panel-tag"><span class="dot"></span> Curated for clarity</div>
+
+                        <div class="panel-title">
+                            Our work
+                        </div>
+
+                        <div class="panel-tag">
+
+                            <span class="dot"></span>
+
+                            Built for real businesses
+
+                        </div>
+
                     </div>
-                    <div class="panel-title">2026</div>
+
+
+                    <div class="panel-title">
+                        2026
+                    </div>
+
+
                 </div>
+
+
                 <div class="panel-grid">
-                    <div class="panel-stat"><b>12</b><span>Launch-ready builds</span></div>
-                    <div class="panel-stat"><b>3</b><span>Service pillars</span></div>
-                    <div class="panel-stat"><b>18h</b><span>Saved weekly</span></div>
-                    <div class="panel-stat"><b>1</b><span>Unified brand language</span></div>
+
+
+                    <div class="panel-stat">
+
+                        <b>3+</b>
+
+                        <span>
+                            Live client websites
+                        </span>
+
+                    </div>
+
+
+                    <div class="panel-stat">
+
+                        <b>1</b>
+
+                        <span>
+                            Business operating system
+                        </span>
+
+                    </div>
+
+
+                    <div class="panel-stat">
+
+                        <b>3</b>
+
+                        <span>
+                            Core service areas
+                        </span>
+
+                    </div>
+
+
+                    <div class="panel-stat">
+
+                        <b>∞</b>
+
+                        <span>
+                            Ideas brought to life
+                        </span>
+
+                    </div>
+
+
                 </div>
+
+
                 <div class="project-mock">
+
                     <div class="line w1"></div>
+
                     <div class="line w2"></div>
+
                     <div class="line w3"></div>
+
                 </div>
+
+
             </div>
+
+
         </div>
+
     </section>
+
+
+    <!-- =====================================================
+         FEATURED WORK
+    ====================================================== -->
+
 
     <section class="section">
+
         <div class="wrap">
+
+
             <div class="section-head reveal">
-                <span class="kicker">Featured work</span>
-                <h2 class="section-title">Real website examples, shown the way clients experience them.</h2>
-                <p class="section-body">This section now shows two genuine website examples plus the client experience behind the work, using the same restrained premium styling as the rest of the site.</p>
+
+
+                <span class="kicker">
+                    Featured work
+                </span>
+
+
+                <h2 class="section-title">
+                    Websites we’ve brought to life.
+                </h2>
+
+
+                <p class="section-body">
+
+                    Every business needs something different.
+                    These are a few examples of how we’ve turned
+                    individual brands, ideas and services into
+                    clear, considered websites that feel like
+                    the businesses behind them.
+
+                </p>
+
+
             </div>
+
 
             <div class="portfolio-grid">
-                <article class="portfolio-card reveal reveal-delay-1">
-                    <div class="portfolio-preview image-preview">
-                        <div class="preview-label">Systems</div>
-                        <div class="preview-shot">
-                            <img src="client1.jpeg" alt="First client website example">
-                            <div class="preview-inset">
-                                <img src="laptopeg.png" alt="Laptop presentation of the first website example">
+
+
+                <!-- =================================================
+                     LUX ELECTRICAL
+                ================================================== -->
+
+
+                <article
+                    class="portfolio-card reveal reveal-delay-1"
+                >
+
+
+                    <a
+                        href="https://lux-electrical-ltd.co.uk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="portfolio-link"
+                    >
+
+
+                        <div
+                            class="portfolio-preview image-preview"
+                        >
+
+
+                            <div class="preview-label">
+                                Website Design & Development
                             </div>
+
+
+                            <div class="preview-shot">
+
+
+                                <img
+                                    src="client1.jpeg"
+                                    alt="Lux Electrical Engineering website"
+                                >
+
+
+                                <div class="preview-inset">
+
+
+                                    <img
+                                        src="laptopeg.png"
+                                        alt="Lux Electrical Engineering website shown on a laptop"
+                                    >
+
+
+                                </div>
+
+
+                            </div>
+
+
                         </div>
-                    </div>
-                    <div class="portfolio-card-body">
-                        <h3>Client website example one</h3>
-                        <p>Our first featured website example shown both as a full screen and in a laptop presentation, so the work feels grounded in a real client view rather than a placeholder mockup.</p>
-                        <div class="meta-row">
-                            <span>Website Design</span><span>Client Work</span><span>Laptop View</span>
+
+
+                        <div class="portfolio-card-body">
+
+
+                            <div class="project-heading">
+
+
+                                <h3>
+                                    Lux Electrical Engineering
+                                </h3>
+
+
+                                <span class="visit-arrow">
+                                    ↗
+                                </span>
+
+
+                            </div>
+
+
+                            <p>
+
+                                A professional business website built for
+                                Lux Electrical Engineering, designed to
+                                give the company a stronger digital presence
+                                and make its services clear and easy to explore.
+
+                            </p>
+
+
+                            <div class="meta-row">
+
+                                <span>Web Design</span>
+
+                                <span>Development</span>
+
+                                <span>Electrical</span>
+
+                            </div>
+
+
+                            <div class="view-project">
+
+                                View live website
+
+                                <span>↗</span>
+
+                            </div>
+
+
                         </div>
-                    </div>
+
+
+                    </a>
+
+
                 </article>
 
-                <article class="portfolio-card reveal reveal-delay-2">
-                    <div class="portfolio-preview image-preview light">
-                        <div class="preview-label">Websites</div>
-                        <div class="preview-shot">
-                            <img src="client2.jpeg" alt="Second client website example">
+
+                <!-- =================================================
+                     THE COUNSELLING VINE
+                ================================================== -->
+
+
+                <article
+                    class="portfolio-card reveal reveal-delay-2"
+                >
+
+
+                    <a
+                        href="https://thecounsellingvine.co.uk/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="portfolio-link"
+                    >
+
+
+                        <div
+                            class="portfolio-preview image-preview light"
+                        >
+
+
+                            <div class="preview-label">
+                                Website Design & Development
+                            </div>
+
+
+                            <div class="preview-shot">
+
+
+                                <img
+                                    src="client2.jpeg"
+                                    alt="The Counselling Vine website"
+                                >
+
+
+                            </div>
+
+
                         </div>
-                    </div>
-                    <div class="portfolio-card-body">
-                        <h3>Client website example two</h3>
-                        <p>A second live example that shows the same premium restraint, clean hierarchy and trust-led design language carried across our client work.</p>
-                        <div class="meta-row">
-                            <span>Design</span><span>Conversion</span><span>Client Work</span>
+
+
+                        <div class="portfolio-card-body">
+
+
+                            <div class="project-heading">
+
+
+                                <h3>
+                                    The Counselling Vine
+                                </h3>
+
+
+                                <span class="visit-arrow">
+                                    ↗
+                                </span>
+
+
+                            </div>
+
+
+                            <p>
+
+                                A calm, welcoming website created for
+                                The Counselling Vine, built around clarity,
+                                trust and making it easy for potential clients
+                                to understand the services available.
+
+                            </p>
+
+
+                            <div class="meta-row">
+
+                                <span>Web Design</span>
+
+                                <span>Development</span>
+
+                                <span>Counselling</span>
+
+                            </div>
+
+
+                            <div class="view-project">
+
+                                View live website
+
+                                <span>↗</span>
+
+                            </div>
+
+
                         </div>
-                    </div>
+
+
+                    </a>
+
+
                 </article>
 
-                <article class="portfolio-card quote-card reveal reveal-delay-3">
+
+                <!-- =================================================
+                     MEGOOSH
+                ================================================== -->
+
+
+                <article
+                    class="portfolio-card reveal reveal-delay-3"
+                >
+
+
+                    <a
+                        href="https://megoosh.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="portfolio-link"
+                    >
+
+
+                        <div
+                            class="portfolio-preview image-preview soft"
+                        >
+
+
+                            <div class="preview-label">
+                                Website Design & Development
+                            </div>
+
+
+                            <div class="preview-shot">
+
+
+                                <img
+                                    src="megoosh.jpeg"
+                                    alt="Megoosh website"
+                                >
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="portfolio-card-body">
+
+
+                            <div class="project-heading">
+
+
+                                <h3>
+                                    Megoosh
+                                </h3>
+
+
+                                <span class="visit-arrow">
+                                    ↗
+                                </span>
+
+
+                            </div>
+
+
+                            <p>
+
+                                A modern digital presence created for Megoosh,
+                                designed to strengthen the brand online with
+                                clean structure, straightforward navigation
+                                and a polished visual experience.
+
+                            </p>
+
+
+                            <div class="meta-row">
+
+                                <span>Web Design</span>
+
+                                <span>Development</span>
+
+                                <span>Brand Experience</span>
+
+                            </div>
+
+
+                            <div class="view-project">
+
+                                View live website
+
+                                <span>↗</span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </a>
+
+
+                </article>
+
+
+                <!-- =================================================
+                     WHYKNOT WARDROBE
+                ================================================== -->
+
+
+                <article
+                    class="portfolio-card quote-card reveal reveal-delay-1"
+                >
+
+
                     <div class="portfolio-preview soft">
-                        <div class="quote-mark">“</div>
-                        <div class="preview-label">WhyKnot Wardrobe</div>
-                    </div>
-                    <div class="portfolio-card-body">
-                        <h3>Supported by real partnership</h3>
-                        <p class="quote-snippet">“Honestly, I absolutely love having WhyKnot Wardrobe powered by The Organised Types... The TOTS-OS system has become such a valuable part of our business.”</p>
-                        <div class="meta-row">
-                            <span>Testimonial</span><span>TOTS-OS</span><span>Ongoing Support</span>
+
+
+                        <div class="quote-mark">
+                            “
                         </div>
+
+
+                        <div class="preview-label">
+                            WhyKnot Wardrobe
+                        </div>
+
+
                     </div>
+
+
+                    <div class="portfolio-card-body">
+
+
+                        <h3>
+                            More than just the finished product.
+                        </h3>
+
+
+                        <p class="quote-snippet">
+
+                            “Honestly, I absolutely love having WhyKnot
+                            Wardrobe powered by The Organised Types...
+                            The TOTS-OS system has become such a valuable
+                            part of our business.”
+
+                        </p>
+
+
+                        <div class="meta-row">
+
+                            <span>Testimonial</span>
+
+                            <span>TOTS-OS</span>
+
+                            <span>Ongoing Support</span>
+
+                        </div>
+
+
+                    </div>
+
+
                 </article>
+
+
             </div>
+
+
         </div>
+
     </section>
 
-    <section class="section" style="padding-top:0;">
+
+    <!-- =====================================================
+         TESTIMONIAL
+    ====================================================== -->
+
+
+    <section
+        class="section"
+        style="padding-top:0;"
+    >
+
+
         <div class="wrap">
+
+
             <div class="testimonial-band reveal">
-                <div class="section-head" style="margin-bottom:24px;">
-                    <span class="kicker">Client feedback</span>
-                    <h2 class="section-title">WhyKnot Wardrobe on working with The Organised Types.</h2>
-                    <p class="section-body">A full testimonial from Beth that speaks to both the system itself and the support behind it.</p>
+
+
+                <div
+                    class="section-head"
+                    style="margin-bottom:24px;"
+                >
+
+
+                    <span class="kicker">
+                        Client feedback
+                    </span>
+
+
+                    <h2 class="section-title">
+                        WhyKnot Wardrobe on working with The Organised Types.
+                    </h2>
+
+
+                    <p class="section-body">
+
+                        The work doesn’t stop when something goes live.
+                        For us, the best client relationships are the ones
+                        where we continue helping ideas grow.
+
+                    </p>
+
+
                 </div>
+
+
                 <div class="testimonial-copy">
+
+
                     <div class="testimonial-quote">
-                        <p>Honestly, I absolutely love having WhyKnot Wardrobe powered by The Organised Types.</p>
-                        <p>No question, idea or problem is ever too big or too small. Whether it's a quick question, a new idea or a challenge we're trying to solve, Sam and Leigh are always there to help.</p>
-                        <p>The TOTS-OS system has become such a valuable part of our business. Having everything in one place makes it so much easier to manage projects, tasks, ideas and day to day operations. It really is a one stop shop for running and growing a business.</p>
-                        <p>What makes it even better is the people behind it. Sam has played a huge role in helping us turn our ideas into reality. She doesn't just listen to our vision, she helps us shape it, improve it and bring it to life.</p>
-                        <p>Having someone who genuinely believes in what we're building makes all the difference.</p>
-                        <p>Thank you, Sam and Leigha, for your support, creativity and belief in WhyKnot Wardrobe. We're excited for the future and grateful to have you on this journey with us.</p>
+
+
+                        <p>
+                            Honestly, I absolutely love having WhyKnot Wardrobe
+                            powered by The Organised Types.
+                        </p>
+
+
+                        <p>
+                            No question, idea or problem is ever too big or too
+                            small. Whether it's a quick question, a new idea or
+                            a challenge we're trying to solve, Sam and Leigha
+                            are always there to help.
+                        </p>
+
+
+                        <p>
+                            The TOTS-OS system has become such a valuable part
+                            of our business. Having everything in one place
+                            makes it so much easier to manage projects, tasks,
+                            ideas and day to day operations. It really is a
+                            one stop shop for running and growing a business.
+                        </p>
+
+
+                        <p>
+                            What makes it even better is the people behind it.
+                            Sam has played a huge role in helping us turn our
+                            ideas into reality. She doesn't just listen to our
+                            vision, she helps us shape it, improve it and
+                            bring it to life.
+                        </p>
+
+
+                        <p>
+                            Having someone who genuinely believes in what
+                            we're building makes all the difference.
+                        </p>
+
+
+                        <p>
+                            Thank you, Sam and Leigha, for your support,
+                            creativity and belief in WhyKnot Wardrobe.
+                            We're excited for the future and grateful
+                            to have you on this journey with us.
+                        </p>
+
+
                     </div>
+
+
                     <aside class="testimonial-meta">
-                        <h4>Beth</h4>
-                        <p>Founder, WhyKnot Wardrobe</p>
+
+
+                        <h4>
+                            Beth
+                        </h4>
+
+
+                        <p>
+                            Founder, WhyKnot Wardrobe
+                        </p>
+
+
                         <ul class="testimonial-points">
-                            <li>Powered by TOTS-OS</li>
-                            <li>Ideas turned into reality</li>
-                            <li>One place for projects and operations</li>
+
+                            <li>
+                                Powered by TOTS-OS
+                            </li>
+
+                            <li>
+                                Ideas turned into reality
+                            </li>
+
+                            <li>
+                                Ongoing business support
+                            </li>
+
+                            <li>
+                                One place for projects and operations
+                            </li>
+
                         </ul>
+
+
                     </aside>
+
+
                 </div>
+
+
             </div>
+
+
         </div>
+
+
     </section>
 
-    <section class="cta-banner reveal" id="contact">
-        <h2>Need a portfolio that feels as premium as the work behind it?</h2>
-        <p>We can shape the site, the story and the visual language so everything feels like one considered brand.</p>
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+
+    <section
+        class="cta-banner reveal"
+        id="contact"
+    >
+
+
+        <h2>
+            Ready for a website that actually feels like your business?
+        </h2>
+
+
+        <p>
+
+            Whether you’re starting from scratch or your current
+            website no longer represents where your business is going,
+            we can help you build something clear, polished and
+            completely your own.
+
+        </p>
+
+
         <div class="hero-cta">
-            <a href="contact.html#contact-form" class="btn btn-primary">Book a Discovery Call</a>
-            <a href="services.html" class="btn btn-ghost">View Services</a>
+
+
+            <a
+                href="contact.html#contact-form"
+                class="btn btn-primary"
+            >
+                Book a Discovery Call
+            </a>
+
+
+            <a
+                href="services.html"
+                class="btn btn-ghost"
+            >
+                View Services
+            </a>
+
+
         </div>
+
+
     </section>
+
+
 </main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 
 <div id="site-footer"></div>
 
+
 <script>
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('site-footer').innerHTML = data;
 
-      const banner = document.getElementById('cookie-banner');
-      const acceptButton = document.getElementById('accept-cookies');
+    fetch('footer.html')
 
-      if (banner && !localStorage.getItem('cookiesAccepted')) {
-        banner.style.display = 'block';
-      }
+        .then(response =>
+            response.text()
+        )
 
-      if (acceptButton && banner) {
-        acceptButton.addEventListener('click', () => {
-          localStorage.setItem('cookiesAccepted', 'true');
-          banner.style.display = 'none';
-        });
-      }
-    })
-    .catch(err => console.error('Footer load error:', err));
+        .then(data => {
+
+            document
+                .getElementById('site-footer')
+                .innerHTML = data;
+
+
+            const banner =
+                document
+                    .getElementById('cookie-banner');
+
+
+            const acceptButton =
+                document
+                    .getElementById('accept-cookies');
+
+
+            if (
+                banner &&
+                !localStorage.getItem(
+                    'cookiesAccepted'
+                )
+            ) {
+
+                banner.style.display =
+                    'block';
+
+            }
+
+
+            if (
+                acceptButton &&
+                banner
+            ) {
+
+                acceptButton
+                    .addEventListener(
+                        'click',
+                        () => {
+
+                            localStorage.setItem(
+                                'cookiesAccepted',
+                                'true'
+                            );
+
+                            banner.style.display =
+                                'none';
+
+                        }
+                    );
+
+            }
+
+        })
+
+        .catch(err =>
+            console.error(
+                'Footer load error:',
+                err
+            )
+        );
+
 </script>
-    
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById('main-nav');
-            if (nav) {
-                nav.classList.toggle('show-menu');
-            }
+
+
+<!-- =========================================================
+     MENU + ACTIVE NAV + REVEALS
+========================================================= -->
+
+
+<script>
+
+
+    function toggleMenu() {
+
+        var nav =
+            document
+                .getElementById(
+                    'main-nav'
+                );
+
+
+        if (nav) {
+
+            nav.classList.toggle(
+                'show-menu'
+            );
+
         }
 
-        function toggleDropdown(event) {
-            if (window.innerWidth >= 769) {
-                return;
-            }
-            const dropdown = event.currentTarget;
-            const content = dropdown ? dropdown.querySelector('.dropdown-content') : null;
-            if (!content) {
-                return;
-            }
-            const isVisible = content.style.display === 'block';
-            document.querySelectorAll('.dropdown-content').forEach(dc => {
-                dc.style.display = 'none';
-            });
-            content.style.display = isVisible ? 'none' : 'block';
+    }
+
+
+    function toggleDropdown(event) {
+
+        if (
+            window.innerWidth >= 769
+        ) {
+
+            return;
+
         }
 
-        (function setActiveLink() {
-            const path = window.location.pathname.split('/').pop() || 'index.html';
-            const activePage = path.split('.')[0].toLowerCase();
-            const activeId = activePage === 'tots-os' ? 'nav-tots-os' : `nav-${activePage}`;
 
-            document.querySelectorAll('#main-nav a, #main-nav .dropdown-toggle').forEach(el => {
-                el.classList.remove('active');
+        const dropdown =
+            event.currentTarget;
+
+
+        const content =
+            dropdown
+                ? dropdown.querySelector(
+                    '.dropdown-content'
+                )
+                : null;
+
+
+        if (!content) {
+
+            return;
+
+        }
+
+
+        const isVisible =
+            content.style.display ===
+            'block';
+
+
+        document
+            .querySelectorAll(
+                '.dropdown-content'
+            )
+            .forEach(dc => {
+
+                dc.style.display =
+                    'none';
+
             });
 
-            const activeLink = document.getElementById(activeId);
-            if (activeLink) {
-                activeLink.classList.add('active');
+
+        content.style.display =
+            isVisible
+                ? 'none'
+                : 'block';
+
+    }
+
+
+    (function setActiveLink() {
+
+
+        const path =
+            window.location.pathname
+                .split('/')
+                .pop() ||
+            'index.html';
+
+
+        const activePage =
+            path
+                .split('.')[0]
+                .toLowerCase();
+
+
+        const activeId =
+            activePage === 'tots-os'
+                ? 'nav-tots-os'
+                : `nav-${activePage}`;
+
+
+        document
+            .querySelectorAll(
+                '#main-nav a, #main-nav .dropdown-toggle'
+            )
+            .forEach(el => {
+
+                el.classList.remove(
+                    'active'
+                );
+
+            });
+
+
+        const activeLink =
+            document
+                .getElementById(
+                    activeId
+                );
+
+
+        if (activeLink) {
+
+            activeLink.classList.add(
+                'active'
+            );
+
+        }
+
+
+    })();
+
+
+    const revealEls =
+        document
+            .querySelectorAll(
+                '.reveal'
+            );
+
+
+    const io =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(
+                    entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry
+                                .target
+                                .classList
+                                .add('in');
+
+
+                            io.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+
+            {
+                threshold:0.16
             }
-        })();
 
-        const revealEls = document.querySelectorAll('.reveal');
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting){
-                    entry.target.classList.add('in');
-                    io.unobserve(entry.target);
-                }
-            });
-        }, { threshold:0.16 });
-        revealEls.forEach(el => io.observe(el));
-    </script>
-<script defer src="cinematic-interface.js"></script>
+        );
+
+
+    revealEls.forEach(
+        el =>
+            io.observe(el)
+    );
+
+
+</script>
+
+
+<script
+    defer
+    src="cinematic-interface.js"
+></script>
+
+
 </body>
 </html>
